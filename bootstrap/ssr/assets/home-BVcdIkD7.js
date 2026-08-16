@@ -1,6 +1,6 @@
-import { o as buttonVariants, s as Wrapper, t as AppLayout } from "./app-layout-ULHV9D_s.js";
-import { t as FloatingStatCard } from "./floating-stat-card-CAI9I-j3.js";
-import { t as SectionHeading } from "./section-heading-1zRi9Ek4.js";
+import { o as buttonVariants, s as Wrapper, t as AppLayout } from "./app-layout-DFrnS2vN.js";
+import { t as FloatingStatCard } from "./floating-stat-card-2eRQKtvy.js";
+import { t as SectionHeading } from "./section-heading-DAZjUTUH.js";
 import { Head, Link } from "@inertiajs/react";
 import { jsx, jsxs } from "react/jsx-runtime";
 import { ArrowRight, CalendarDays, Clock, HardHat } from "lucide-react";
@@ -11,7 +11,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 var hero_mask_2_default = "/build/assets/hero-mask-2-DJkSOBdI.svg";
 //#endregion
 //#region resources/images/blue_crane_desert_storm.webp
-var blue_crane_desert_storm_default = "/build/assets/blue_crane_desert_storm-L8yhaYNe.webp";
+var blue_crane_desert_storm_default = "/build/assets/blue_crane_desert_storm-ofVqrzFL.webp";
 //#endregion
 //#region resources/js/components/hero.tsx
 gsap.registerPlugin(ScrollTrigger);
@@ -171,11 +171,11 @@ function Hero() {
 	});
 }
 //#endregion
-//#region resources/images/IMG_0190 copy.webp
-var IMG_0190_copy_default = "/build/assets/IMG_0190%20copy-BaEFoQFy.webp";
+//#region resources/images/IMG_0190-copy.webp
+var IMG_0190_copy_default = "/build/assets/IMG_0190-copy-870kN3in.webp";
 //#endregion
-//#region resources/images/d58f37a7-3ec9-4491-9d4a-3ca9dd8dd979 copy 2.webp
-var d58f37a7_3ec9_4491_9d4a_3ca9dd8dd979_copy_2_default = "/build/assets/d58f37a7-3ec9-4491-9d4a-3ca9dd8dd979%20copy%202-CCLbSBsU.webp";
+//#region resources/images/d58f37a7-3ec9-4491-9d4a-3ca9dd8dd979-copy-2.webp
+var d58f37a7_3ec9_4491_9d4a_3ca9dd8dd979_copy_2_default = "/build/assets/d58f37a7-3ec9-4491-9d4a-3ca9dd8dd979-copy-2-W5YUsRxh.webp";
 //#endregion
 //#region resources/js/pages/home.tsx
 function Home({ services }) {
@@ -388,4 +388,4 @@ Home.layout = AppLayout;
 //#endregion
 export { Home as default };
 
-//# sourceMappingURL=home-D3ruH731.js.map
+//# sourceMappingURL=home-BVcdIkD7.js.map

@@ -1,4 +1,4 @@
-import { a as Button, c as cn, t as AppLayout } from "./app-layout-ULHV9D_s.js";
+import { a as Button, c as cn, t as AppLayout } from "./app-layout-DFrnS2vN.js";
 import { jsx, jsxs } from "react/jsx-runtime";
 import { Sparkles, Terminal } from "lucide-react";
 import "react";
@@ -295,4 +295,4 @@ function Welcome() {
 //#endregion
 export { Welcome as default };
 
-//# sourceMappingURL=welcome-CJnjshrd.js.map
+//# sourceMappingURL=welcome-CkUBshqo.js.map

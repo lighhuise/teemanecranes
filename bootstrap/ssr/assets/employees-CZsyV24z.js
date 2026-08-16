@@ -1,7 +1,7 @@
-import { s as Wrapper, t as AppLayout } from "./app-layout-ULHV9D_s.js";
-import { t as SectionHeading } from "./section-heading-1zRi9Ek4.js";
-import { t as Input } from "./input-DTSCLIpx.js";
-import { t as team } from "./team-D-siUmrq.js";
+import { s as Wrapper, t as AppLayout } from "./app-layout-DFrnS2vN.js";
+import { t as SectionHeading } from "./section-heading-DAZjUTUH.js";
+import { t as Input } from "./input-xlvUzspQ.js";
+import { t as team } from "./team-DcG1Vhl8.js";
 import { Head, InfiniteScroll, Link, router } from "@inertiajs/react";
 import { Fragment, jsx, jsxs } from "react/jsx-runtime";
 import { Building2, MapPin, Search } from "lucide-react";
@@ -127,4 +127,4 @@ Index.layout = (page) => /* @__PURE__ */ jsx(AppLayout, { children: page });
 //#endregion
 export { Index as default };
 
-//# sourceMappingURL=employees-DxtYVrtd.js.map
+//# sourceMappingURL=employees-CZsyV24z.js.map

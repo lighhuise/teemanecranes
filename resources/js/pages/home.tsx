@@ -9,9 +9,9 @@ import { buttonVariants } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
 // @ts-ignore
-import imgCompanyIntro from "@/../images/IMG_0190 copy.webp";
+import imgCompanyIntro from "@/../images/IMG_0190-copy.webp";
 // @ts-ignore
-import imgSafety from "@/../images/d58f37a7-3ec9-4491-9d4a-3ca9dd8dd979 copy 2.webp";
+import imgSafety from "@/../images/d58f37a7-3ec9-4491-9d4a-3ca9dd8dd979-copy-2.webp";
 
 
 export default function Home({ services }: { services: any[] }) {

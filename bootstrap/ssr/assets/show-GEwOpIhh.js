@@ -1,4 +1,4 @@
-import { t as AppLayout } from "./app-layout-ULHV9D_s.js";
+import { t as AppLayout } from "./app-layout-DFrnS2vN.js";
 import { Head, Link } from "@inertiajs/react";
 import { jsx, jsxs } from "react/jsx-runtime";
 import { ArrowLeft } from "lucide-react";
@@ -38,4 +38,4 @@ function Show({ service }) {
 //#endregion
 export { Show as default };
 
-//# sourceMappingURL=show-D_vNDo4m.js.map
+//# sourceMappingURL=show-GEwOpIhh.js.map

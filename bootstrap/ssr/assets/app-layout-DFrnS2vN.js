@@ -1,4 +1,4 @@
-import { Head, Link } from "@inertiajs/react";
+import { Head, Link, usePage } from "@inertiajs/react";
 import { Fragment, jsx, jsxs } from "react/jsx-runtime";
 import { AlertTriangle, ArrowRight, CircleCheckIcon, Clock, InfoIcon, Loader2Icon, Mail, MapPin, Menu, Moon, Navigation, OctagonXIcon, Phone, PhoneCall, Sun, TriangleAlertIcon, XIcon } from "lucide-react";
 import { clsx } from "clsx";
@@ -560,13 +560,11 @@ var navLinks = [
 	{
 		name: "Our Team",
 		href: "/our-team"
-	},
-	{
-		name: "Contact Us",
-		href: "/contact-us"
 	}
 ];
 function Navigation$1() {
+	const { url } = usePage();
+	const isActive = (href) => href === "/" ? url === "/" : url.startsWith(href);
 	return /* @__PURE__ */ jsxs(Fragment, { children: [/* @__PURE__ */ jsx("div", {
 		className: "bg-foreground text-background text-[8px]  font-bold py-2.5 px-4 tracking-[0.2em] uppercase border-b border-border hidden sm:block",
 		children: /* @__PURE__ */ jsxs(Wrapper, {
@@ -592,6 +590,7 @@ function Navigation$1() {
 			children: [
 				/* @__PURE__ */ jsx(Link, {
 					href: "/",
+					prefetch: "hover",
 					className: "flex items-center gap-2 group",
 					children: /* @__PURE__ */ jsx("img", {
 						src: logo_default,
@@ -601,14 +600,27 @@ function Navigation$1() {
 				}),
 				/* @__PURE__ */ jsxs("div", {
 					className: "hidden md:flex md:items-center md:gap-8",
-					children: [navLinks.map((link) => /* @__PURE__ */ jsxs(Link, {
-						href: link.href,
-						className: "text-sm font-bold tracking-widest uppercase transition-colors hover:text-primary relative group",
-						children: [link.name, /* @__PURE__ */ jsx("span", { className: "absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" })]
-					}, link.name)), /* @__PURE__ */ jsx("div", {
-						className: "pl-4 border-l border-border",
-						children: /* @__PURE__ */ jsx(ModeToggle, {})
-					})]
+					children: [
+						navLinks.map((link) => {
+							const active = isActive(link.href);
+							return /* @__PURE__ */ jsx(Link, {
+								href: link.href,
+								prefetch: "hover",
+								className: `text-sm font-bold tracking-widest uppercase transition-colors px-2 py-1 rounded-md ${active ? "text-primary bg-primary/10" : "hover:text-primary"}`,
+								children: link.name
+							}, link.name);
+						}),
+						/* @__PURE__ */ jsx(Link, {
+							href: "/contact-us",
+							prefetch: "hover",
+							className: "text-sm font-bold tracking-widest uppercase inline-flex items-center gap-2 bg-gradient-to-r from-primary to-primary/70 hover:from-primary/90 hover:to-primary text-primary-foreground transition-all shadow-sm hover:shadow px-5 py-2.5 rounded-lg",
+							children: "Contact Us"
+						}),
+						/* @__PURE__ */ jsx("div", {
+							className: "pl-4 border-l border-border",
+							children: /* @__PURE__ */ jsx(ModeToggle, {})
+						})
+					]
 				}),
 				/* @__PURE__ */ jsxs("div", {
 					className: "flex items-center gap-2 md:hidden",
@@ -620,24 +632,41 @@ function Navigation$1() {
 						})]
 					}) }), /* @__PURE__ */ jsxs(SheetContent, {
 						side: "right",
-						className: "w-[80vw] sm:w-[350px] bg-background border-l border-border flex flex-col pt-16",
+						className: "w-[80vw] sm:w-[350px] bg-background border-l border-border flex flex-col p-0",
 						children: [
 							/* @__PURE__ */ jsx(SheetTitle, {
 								className: "sr-only",
 								children: "Navigation Menu"
 							}),
-							/* @__PURE__ */ jsx("nav", {
-								className: "flex flex-col gap-6",
-								children: navLinks.map((link) => /* @__PURE__ */ jsx(Link, {
-									href: link.href,
-									className: "block text-2xl font-black tracking-tight transition-colors hover:text-primary hover:translate-x-2 duration-300",
-									children: link.name
-								}, link.name))
+							/* @__PURE__ */ jsx("div", {
+								className: "flex items-center gap-3 px-6 py-5 border-b border-border",
+								children: /* @__PURE__ */ jsx("img", {
+									src: logo_default,
+									alt: "Teemane Cranes Logo",
+									className: "h-9 w-auto"
+								})
+							}),
+							/* @__PURE__ */ jsxs("nav", {
+								className: "flex flex-col px-4 py-6 gap-1",
+								children: [navLinks.map((link) => {
+									const active = isActive(link.href);
+									return /* @__PURE__ */ jsxs(Link, {
+										href: link.href,
+										prefetch: "hover",
+										className: `flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-bold tracking-widest uppercase transition-all duration-200 ${active ? "text-primary bg-primary/10" : "text-foreground hover:text-primary hover:bg-accent"}`,
+										children: [active && /* @__PURE__ */ jsx("span", { className: "w-1 h-4 rounded-full bg-primary shrink-0" }), link.name]
+									}, link.name);
+								}), /* @__PURE__ */ jsx(Link, {
+									href: "/contact-us",
+									prefetch: "hover",
+									className: "mt-3 flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-sm font-bold tracking-widest uppercase bg-gradient-to-r from-primary to-primary/70 hover:from-primary/90 hover:to-primary text-primary-foreground transition-all shadow-sm hover:shadow",
+									children: "Contact Us"
+								})]
 							}),
 							/* @__PURE__ */ jsxs("div", {
-								className: "mt-auto pb-8 space-y-4",
+								className: "mt-auto px-6 pb-8 space-y-2",
 								children: [
-									/* @__PURE__ */ jsx("div", { className: "h-px w-full bg-border" }),
+									/* @__PURE__ */ jsx("div", { className: "h-px w-full bg-border mb-4" }),
 									/* @__PURE__ */ jsx("p", {
 										className: "text-xs font-bold tracking-[0.2em] text-primary uppercase",
 										children: "TEEMANE CRANES"
@@ -853,4 +882,4 @@ function AppLayout({ children, title }) {
 //#endregion
 export { Button$1 as a, cn as c, toast as i, applyUrlDefaults as n, buttonVariants as o, queryParams as r, Wrapper as s, AppLayout as t };
 
-//# sourceMappingURL=app-layout-ULHV9D_s.js.map
+//# sourceMappingURL=app-layout-DFrnS2vN.js.map

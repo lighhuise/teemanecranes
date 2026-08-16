@@ -1,4 +1,4 @@
-import { c as cn } from "./app-layout-ULHV9D_s.js";
+import { c as cn } from "./app-layout-DFrnS2vN.js";
 import { jsx, jsxs } from "react/jsx-runtime";
 //#region resources/js/components/ui/misc/floating-stat-card.tsx
 var positionClasses = {
@@ -22,4 +22,4 @@ function FloatingStatCard({ value, label, position = "bottom-left", className })
 //#endregion
 export { FloatingStatCard as t };
 
-//# sourceMappingURL=floating-stat-card-CAI9I-j3.js.map
+//# sourceMappingURL=floating-stat-card-2eRQKtvy.js.map

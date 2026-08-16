@@ -1,5 +1,5 @@
-import { s as Wrapper, t as AppLayout } from "./app-layout-ULHV9D_s.js";
-import { t as SectionHeading } from "./section-heading-1zRi9Ek4.js";
+import { s as Wrapper, t as AppLayout } from "./app-layout-DFrnS2vN.js";
+import { t as SectionHeading } from "./section-heading-DAZjUTUH.js";
 import { Head, Link } from "@inertiajs/react";
 import { jsx, jsxs } from "react/jsx-runtime";
 import { ArrowRight } from "lucide-react";
@@ -45,4 +45,4 @@ function Index({ services }) {
 //#endregion
 export { Index as default };
 
-//# sourceMappingURL=services-DDSwZN8X.js.map
+//# sourceMappingURL=services-DlMOvLca.js.map

@@ -1,5 +1,5 @@
-import { s as Wrapper, t as AppLayout } from "./app-layout-ULHV9D_s.js";
-import { t as team } from "./team-D-siUmrq.js";
+import { s as Wrapper, t as AppLayout } from "./app-layout-DFrnS2vN.js";
+import { t as team } from "./team-DcG1Vhl8.js";
 import { Head, Link } from "@inertiajs/react";
 import { Fragment, jsx, jsxs } from "react/jsx-runtime";
 import { ArrowLeft, Building2, Calendar, MapPin, User } from "lucide-react";
@@ -140,4 +140,4 @@ Show.layout = (page) => /* @__PURE__ */ jsx(AppLayout, { children: page });
 //#endregion
 export { Show as default };
 
-//# sourceMappingURL=show-TTzpXOaE.js.map
+//# sourceMappingURL=show-Bb_zvWw4.js.map

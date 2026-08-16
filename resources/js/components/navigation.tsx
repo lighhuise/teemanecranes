@@ -1,4 +1,4 @@
-import { Link } from '@inertiajs/react';
+import { Link, usePage } from '@inertiajs/react';
 import { Menu, MapPin, Clock } from 'lucide-react';
 import {
   Sheet,
@@ -11,7 +11,6 @@ import logoUrl from '@/../images/logo.svg';
 import Wrapper from "@/components/ui/misc/wrapper";
 import { ModeToggle } from '@/components/mode-toggle';
 import { home } from '@/routes';
-import team from '@/routes/team';
 
 const navLinks = [
   { name: 'Home', href: home.url() },
@@ -19,10 +18,14 @@ const navLinks = [
   { name: 'Services', href: '/services' },
   { name: 'Our Team', href: '/our-team' },
   // { name: 'Equipment', href: '/equipment' },
-  { name: 'Contact Us', href: '/contact-us' },
 ];
 
 export default function Navigation() {
+  const { url } = usePage();
+
+  const isActive = (href: string) =>
+    href === '/' ? url === '/' : url.startsWith(href);
+
   return (
     <>
       {/* Notification Bar - Static (scrolls away) */}
@@ -48,7 +51,7 @@ export default function Navigation() {
       <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/90 transition-all duration-300 shadow-sm">
         <Wrapper className="flex h-20 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
+          <Link href="/" prefetch="hover" className="flex items-center gap-2 group">
             <img
               src={logoUrl}
               alt="Teemane Cranes Logo"
@@ -58,16 +61,33 @@ export default function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="text-sm font-bold tracking-widest uppercase transition-colors hover:text-primary relative group"
-              >
-                {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const active = isActive(link.href);
+              return (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  prefetch="hover"
+                  className={`text-sm font-bold tracking-widest uppercase transition-colors px-2 py-1 rounded-md ${
+                    active
+                      ? 'text-primary bg-primary/10'
+                      : 'hover:text-primary'
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
+
+            {/* Contact Us CTA */}
+            <Link
+              href="/contact-us"
+              prefetch="hover"
+              className="text-sm font-bold tracking-widest uppercase inline-flex items-center gap-2 bg-gradient-to-r from-primary to-primary/70 hover:from-primary/90 hover:to-primary text-primary-foreground transition-all shadow-sm hover:shadow px-5 py-2.5 rounded-lg"
+            >
+              Contact Us
+            </Link>
+
             <div className="pl-4 border-l border-border">
               <ModeToggle />
             </div>
@@ -85,21 +105,47 @@ export default function Navigation() {
                   <span className="sr-only">Toggle menu</span>
                 </button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[80vw] sm:w-[350px] bg-background border-l border-border flex flex-col pt-16">
+              <SheetContent side="right" className="w-[80vw] sm:w-[350px] bg-background border-l border-border flex flex-col p-0">
                 <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-                <nav className="flex flex-col gap-6">
-                  {navLinks.map((link) => (
-                    <Link
-                      key={link.name}
-                      href={link.href}
-                      className="block text-2xl font-black tracking-tight transition-colors hover:text-primary hover:translate-x-2 duration-300"
-                    >
-                      {link.name}
-                    </Link>
-                  ))}
+
+                {/* Sheet Header with Logo */}
+                <div className="flex items-center gap-3 px-6 py-5 border-b border-border">
+                  <img src={logoUrl} alt="Teemane Cranes Logo" className="h-9 w-auto" />
+                </div>
+
+                {/* Links */}
+                <nav className="flex flex-col px-4 py-6 gap-1">
+                  {navLinks.map((link) => {
+                    const active = isActive(link.href);
+                    return (
+                      <Link
+                        key={link.name}
+                        href={link.href}
+                        prefetch="hover"
+                        className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-bold tracking-widest uppercase transition-all duration-200 ${
+                          active
+                            ? 'text-primary bg-primary/10'
+                            : 'text-foreground hover:text-primary hover:bg-accent'
+                        }`}
+                      >
+                        {active && <span className="w-1 h-4 rounded-full bg-primary shrink-0" />}
+                        {link.name}
+                      </Link>
+                    );
+                  })}
+
+                  {/* Contact Us CTA - Mobile */}
+                  <Link
+                    href="/contact-us"
+                    prefetch="hover"
+                    className="mt-3 flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-sm font-bold tracking-widest uppercase bg-gradient-to-r from-primary to-primary/70 hover:from-primary/90 hover:to-primary text-primary-foreground transition-all shadow-sm hover:shadow"
+                  >
+                    Contact Us
+                  </Link>
                 </nav>
-                <div className="mt-auto pb-8 space-y-4">
-                  <div className="h-px w-full bg-border"></div>
+
+                <div className="mt-auto px-6 pb-8 space-y-2">
+                  <div className="h-px w-full bg-border mb-4"></div>
                   <p className="text-xs font-bold tracking-[0.2em] text-primary uppercase">TEEMANE CRANES</p>
                   <p className="text-sm text-muted-foreground">A Cut Above The Rest</p>
                 </div>

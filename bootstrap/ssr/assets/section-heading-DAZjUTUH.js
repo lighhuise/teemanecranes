@@ -1,4 +1,4 @@
-import { c as cn } from "./app-layout-ULHV9D_s.js";
+import { c as cn } from "./app-layout-DFrnS2vN.js";
 import { jsx, jsxs } from "react/jsx-runtime";
 //#region resources/js/components/ui/misc/section-heading.tsx
 var alignClass = {
@@ -40,4 +40,4 @@ function SectionHeading({ label, title, children, align = "center", className })
 //#endregion
 export { SectionHeading as t };
 
-//# sourceMappingURL=section-heading-1zRi9Ek4.js.map
+//# sourceMappingURL=section-heading-DAZjUTUH.js.map
