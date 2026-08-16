@@ -19,10 +19,14 @@ class EmployeeFactory extends Factory
     {
         $departments = ['Operations', 'Engineering', 'Safety', 'Administration', 'Sales', 'Logistics'];
         $locations = ['Johannesburg HQ', 'Cape Town Branch', 'Durban Depot', 'Pretoria Site'];
-        
+
+        $firstName = fake()->firstName();
+        $lastName = fake()->lastName();
+
         return [
-            'first_name' => fake()->firstName(),
-            'last_name' => fake()->lastName(),
+            'first_name' => $firstName,
+            'last_name' => $lastName,
+            'slug' => str($firstName.' '.$lastName)->slug()->append('-'.fake()->unique()->numerify('###')),
             'nickname' => fake()->optional(0.3)->firstName(), // 30% chance of nickname
             'birthday' => fake()->dateTimeBetween('-60 years', '-20 years')->format('Y-m-d'),
             'branch_location' => fake()->randomElement($locations),
