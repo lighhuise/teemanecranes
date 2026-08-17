@@ -21,11 +21,11 @@ var renderPage = (page) => createInertiaApp({
 	resolve: (name) => resolvePageComponent(`./pages/${name}.tsx`, /* #__PURE__ */ Object.assign({
 		"./pages/about-us.tsx": () => import("./assets/about-us-YKHdjF79.js"),
 		"./pages/contact-us.tsx": () => import("./assets/contact-us-DXRHCpci.js"),
-		"./pages/employees/index.tsx": () => import("./assets/employees-CZsyV24z.js"),
+		"./pages/employees/index.tsx": () => import("./assets/employees--UtCqHnv.js"),
 		"./pages/employees/show.tsx": () => import("./assets/show-Bb_zvWw4.js"),
 		"./pages/home.tsx": () => import("./assets/home-BVcdIkD7.js"),
 		"./pages/services/index.tsx": () => import("./assets/services-DlMOvLca.js"),
-		"./pages/services/show.tsx": () => import("./assets/show-GEwOpIhh.js"),
+		"./pages/services/show.tsx": () => import("./assets/show-BmwkLmYL.js"),
 		"./pages/welcome.tsx": () => import("./assets/welcome-CkUBshqo.js")
 	})),
 	setup({ App, props }) {

@@ -22,9 +22,61 @@ function EmployeeCardSkeleton() {
 		]
 	});
 }
+function EmployeeGrid({ employees }) {
+	return /* @__PURE__ */ jsx("div", {
+		className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8",
+		children: employees.map((employee) => /* @__PURE__ */ jsxs(Link, {
+			href: team.show.url(employee.slug),
+			className: "group relative bg-background border border-border rounded-md flex flex-col items-center text-center p-8 transition-all duration-300 hover:border-primary hover:shadow-xl hover:-translate-y-1",
+			children: [
+				/* @__PURE__ */ jsx("div", {
+					className: "relative w-32 h-32 rounded-full overflow-hidden mb-6 border-4 border-muted group-hover:border-primary transition-colors duration-300",
+					children: employee.image_url ? /* @__PURE__ */ jsx("img", {
+						src: employee.image_url,
+						alt: `${employee.first_name} ${employee.last_name}`,
+						className: "w-full h-full object-cover"
+					}) : /* @__PURE__ */ jsx("div", {
+						className: "w-full h-full bg-muted flex items-center justify-center",
+						children: /* @__PURE__ */ jsxs("span", {
+							className: "text-3xl font-black text-muted-foreground/50",
+							children: [employee.first_name.charAt(0), employee.last_name.charAt(0)]
+						})
+					})
+				}),
+				/* @__PURE__ */ jsxs("h3", {
+					className: "text-xl font-bold text-foreground group-hover:text-primary transition-colors",
+					children: [
+						employee.first_name,
+						" ",
+						employee.last_name
+					]
+				}),
+				/* @__PURE__ */ jsx("p", {
+					className: "text-sm font-bold text-primary tracking-wider uppercase mt-2 mb-6",
+					children: employee.role
+				}),
+				/* @__PURE__ */ jsx("div", { className: "w-full h-px bg-border mb-6 group-hover:bg-primary/20 transition-colors" }),
+				/* @__PURE__ */ jsxs("div", {
+					className: "flex flex-col gap-3 w-full text-sm text-muted-foreground",
+					children: [/* @__PURE__ */ jsxs("div", {
+						className: "flex items-center justify-center gap-2",
+						children: [/* @__PURE__ */ jsx(Building2, { className: "w-4 h-4" }), /* @__PURE__ */ jsx("span", { children: employee.department })]
+					}), /* @__PURE__ */ jsxs("div", {
+						className: "flex items-center justify-center gap-2",
+						children: [/* @__PURE__ */ jsx(MapPin, { className: "w-4 h-4" }), /* @__PURE__ */ jsx("span", { children: employee.branch_location })]
+					})]
+				})
+			]
+		}, employee.id))
+	});
+}
 function Index({ employees, filters }) {
 	const [search, setSearch] = useState(filters?.search || "");
+	const [isMounted, setIsMounted] = useState(false);
 	const initialRender = useRef(true);
+	useEffect(() => {
+		setIsMounted(true);
+	}, []);
 	useEffect(() => {
 		if (initialRender.current) {
 			initialRender.current = false;
@@ -61,55 +113,10 @@ function Index({ employees, filters }) {
 		}),
 		/* @__PURE__ */ jsx("section", {
 			className: "py-24 bg-background",
-			children: /* @__PURE__ */ jsx(Wrapper, { children: /* @__PURE__ */ jsx(InfiniteScroll, {
+			children: /* @__PURE__ */ jsx(Wrapper, { children: isMounted ? /* @__PURE__ */ jsx(InfiniteScroll, {
 				data: "employees",
 				children: ({ loading, hasMore }) => /* @__PURE__ */ jsxs(Fragment, { children: [
-					/* @__PURE__ */ jsx("div", {
-						className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8",
-						children: employees.data.map((employee) => /* @__PURE__ */ jsxs(Link, {
-							href: team.show.url(employee.slug),
-							className: "group relative bg-background border border-border rounded-md flex flex-col items-center text-center p-8 transition-all duration-300 hover:border-primary hover:shadow-xl hover:-translate-y-1",
-							children: [
-								/* @__PURE__ */ jsx("div", {
-									className: "relative w-32 h-32 rounded-full overflow-hidden mb-6 border-4 border-muted group-hover:border-primary transition-colors duration-300",
-									children: employee.image_url ? /* @__PURE__ */ jsx("img", {
-										src: employee.image_url,
-										alt: `${employee.first_name} ${employee.last_name}`,
-										className: "w-full h-full object-cover"
-									}) : /* @__PURE__ */ jsx("div", {
-										className: "w-full h-full bg-muted flex items-center justify-center",
-										children: /* @__PURE__ */ jsxs("span", {
-											className: "text-3xl font-black text-muted-foreground/50",
-											children: [employee.first_name.charAt(0), employee.last_name.charAt(0)]
-										})
-									})
-								}),
-								/* @__PURE__ */ jsxs("h3", {
-									className: "text-xl font-bold text-foreground group-hover:text-primary transition-colors",
-									children: [
-										employee.first_name,
-										" ",
-										employee.last_name
-									]
-								}),
-								/* @__PURE__ */ jsx("p", {
-									className: "text-sm font-bold text-primary tracking-wider uppercase mt-2 mb-6",
-									children: employee.role
-								}),
-								/* @__PURE__ */ jsx("div", { className: "w-full h-px bg-border mb-6 group-hover:bg-primary/20 transition-colors" }),
-								/* @__PURE__ */ jsxs("div", {
-									className: "flex flex-col gap-3 w-full text-sm text-muted-foreground",
-									children: [/* @__PURE__ */ jsxs("div", {
-										className: "flex items-center justify-center gap-2",
-										children: [/* @__PURE__ */ jsx(Building2, { className: "w-4 h-4" }), /* @__PURE__ */ jsx("span", { children: employee.department })]
-									}), /* @__PURE__ */ jsxs("div", {
-										className: "flex items-center justify-center gap-2",
-										children: [/* @__PURE__ */ jsx(MapPin, { className: "w-4 h-4" }), /* @__PURE__ */ jsx("span", { children: employee.branch_location })]
-									})]
-								})
-							]
-						}, employee.id))
-					}),
+					/* @__PURE__ */ jsx(EmployeeGrid, { employees: employees.data }),
 					loading && /* @__PURE__ */ jsx("div", {
 						className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-8",
 						children: Array.from({ length: 4 }).map((_, i) => /* @__PURE__ */ jsx(EmployeeCardSkeleton, {}, i))
@@ -119,7 +126,7 @@ function Index({ employees, filters }) {
 						children: "— All team members loaded —"
 					})
 				] })
-			}) })
+			}) : /* @__PURE__ */ jsx(EmployeeGrid, { employees: employees.data }) })
 		})
 	] });
 }
@@ -127,4 +134,4 @@ Index.layout = (page) => /* @__PURE__ */ jsx(AppLayout, { children: page });
 //#endregion
 export { Index as default };
 
-//# sourceMappingURL=employees-CZsyV24z.js.map
+//# sourceMappingURL=employees--UtCqHnv.js.map

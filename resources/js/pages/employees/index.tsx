@@ -40,9 +40,58 @@ function EmployeeCardSkeleton() {
     );
 }
 
+function EmployeeGrid({ employees }: { employees: Employee[] }) {
+    return (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {employees.map((employee) => (
+                <Link
+                    key={employee.id}
+                    href={team.show.url(employee.slug)}
+                    className="group relative bg-background border border-border rounded-md flex flex-col items-center text-center p-8 transition-all duration-300 hover:border-primary hover:shadow-xl hover:-translate-y-1"
+                >
+                    <div className="relative w-32 h-32 rounded-full overflow-hidden mb-6 border-4 border-muted group-hover:border-primary transition-colors duration-300">
+                        {employee.image_url ? (
+                            <img src={employee.image_url} alt={`${employee.first_name} ${employee.last_name}`} className="w-full h-full object-cover" />
+                        ) : (
+                            <div className="w-full h-full bg-muted flex items-center justify-center">
+                                <span className="text-3xl font-black text-muted-foreground/50">
+                                    {employee.first_name.charAt(0)}{employee.last_name.charAt(0)}
+                                </span>
+                            </div>
+                        )}
+                    </div>
+
+                    <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                        {employee.first_name} {employee.last_name}
+                    </h3>
+                    <p className="text-sm font-bold text-primary tracking-wider uppercase mt-2 mb-6">
+                        {employee.role}
+                    </p>
+
+                    <div className="w-full h-px bg-border mb-6 group-hover:bg-primary/20 transition-colors"></div>
+
+                    <div className="flex flex-col gap-3 w-full text-sm text-muted-foreground">
+                        <div className="flex items-center justify-center gap-2">
+                            <Building2 className="w-4 h-4" />
+                            <span>{employee.department}</span>
+                        </div>
+                        <div className="flex items-center justify-center gap-2">
+                            <MapPin className="w-4 h-4" />
+                            <span>{employee.branch_location}</span>
+                        </div>
+                    </div>
+                </Link>
+            ))}
+        </div>
+    );
+}
+
 export default function Index({ employees, filters }: { employees: PaginatedData<Employee>, filters: { search?: string } }) {
     const [search, setSearch] = useState(filters?.search || '');
+    const [isMounted, setIsMounted] = useState(false);
     const initialRender = useRef(true);
+
+    useEffect(() => { setIsMounted(true); }, []);
 
     useEffect(() => {
         if (initialRender.current) {
@@ -90,69 +139,33 @@ export default function Index({ employees, filters }: { employees: PaginatedData
 
             <section className="py-24 bg-background">
                 <Wrapper>
-                    <InfiniteScroll data="employees">
-                        {({ loading, hasMore }: { loading: boolean; hasMore: boolean }) => (
-                            <>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                                    {employees.data.map((employee) => (
-                                        <Link
-                                            key={employee.id}
-                                            href={team.show.url(employee.slug)}
-                                            className="group relative bg-background border border-border rounded-md flex flex-col items-center text-center p-8 transition-all duration-300 hover:border-primary hover:shadow-xl hover:-translate-y-1"
-                                        >
-                                            <div className="relative w-32 h-32 rounded-full overflow-hidden mb-6 border-4 border-muted group-hover:border-primary transition-colors duration-300">
-                                                {employee.image_url ? (
-                                                    <img src={employee.image_url} alt={`${employee.first_name} ${employee.last_name}`} className="w-full h-full object-cover" />
-                                                ) : (
-                                                    <div className="w-full h-full bg-muted flex items-center justify-center">
-                                                        <span className="text-3xl font-black text-muted-foreground/50">
-                                                            {employee.first_name.charAt(0)}{employee.last_name.charAt(0)}
-                                                        </span>
-                                                    </div>
-                                                )}
-                                            </div>
+                    {isMounted ? (
+                        <InfiniteScroll data="employees">
+                            {({ loading, hasMore }: { loading: boolean; hasMore: boolean }) => (
+                                <>
+                                    <EmployeeGrid employees={employees.data} />
 
-                                            <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-                                                {employee.first_name} {employee.last_name}
-                                            </h3>
-                                            <p className="text-sm font-bold text-primary tracking-wider uppercase mt-2 mb-6">
-                                                {employee.role}
-                                            </p>
+                                    {/* Skeleton cards while next page loads */}
+                                    {loading && (
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
+                                            {Array.from({ length: 4 }).map((_, i) => (
+                                                <EmployeeCardSkeleton key={i} />
+                                            ))}
+                                        </div>
+                                    )}
 
-                                            <div className="w-full h-px bg-border mb-6 group-hover:bg-primary/20 transition-colors"></div>
-
-                                            <div className="flex flex-col gap-3 w-full text-sm text-muted-foreground">
-                                                <div className="flex items-center justify-center gap-2">
-                                                    <Building2 className="w-4 h-4" />
-                                                    <span>{employee.department}</span>
-                                                </div>
-                                                <div className="flex items-center justify-center gap-2">
-                                                    <MapPin className="w-4 h-4" />
-                                                    <span>{employee.branch_location}</span>
-                                                </div>
-                                            </div>
-                                        </Link>
-                                    ))}
-                                </div>
-
-                                {/* Skeleton cards while next page loads */}
-                                {loading && (
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
-                                        {Array.from({ length: 4 }).map((_, i) => (
-                                            <EmployeeCardSkeleton key={i} />
-                                        ))}
-                                    </div>
-                                )}
-
-                                {/* End of list */}
-                                {!loading && !hasMore && employees.data.length > 0 && (
-                                    <p className="text-center text-sm text-muted-foreground mt-16 font-medium tracking-widest uppercase">
-                                        — All team members loaded —
-                                    </p>
-                                )}
-                            </>
-                        )}
-                    </InfiniteScroll>
+                                    {/* End of list */}
+                                    {!loading && !hasMore && employees.data.length > 0 && (
+                                        <p className="text-center text-sm text-muted-foreground mt-16 font-medium tracking-widest uppercase">
+                                            — All team members loaded —
+                                        </p>
+                                    )}
+                                </>
+                            )}
+                        </InfiniteScroll>
+                    ) : (
+                        <EmployeeGrid employees={employees.data} />
+                    )}
                 </Wrapper>
             </section>
         </>
