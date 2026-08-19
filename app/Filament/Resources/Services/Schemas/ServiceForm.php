@@ -41,7 +41,22 @@ class ServiceForm
                             ->maxLength(255)
                             ->columnSpanFull(),
 
-                        Textarea::make('description')
+                        RichEditor::make('description')
+                            ->toolbarButtons([
+                                'blockquote',
+                                'bold',
+                                'bulletList',
+                                'codeBlock',
+                                'h2',
+                                'h3',
+                                'italic',
+                                'link',
+                                'orderedList',
+                                'redo',
+                                'strike',
+                                'underline',
+                                'undo',
+                            ])
                             ->columnSpanFull(),
                     ]),
 

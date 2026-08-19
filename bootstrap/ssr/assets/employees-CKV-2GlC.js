@@ -115,17 +115,19 @@ function Index({ employees, filters }) {
 			className: "py-24 bg-background",
 			children: /* @__PURE__ */ jsx(Wrapper, { children: isMounted ? /* @__PURE__ */ jsx(InfiniteScroll, {
 				data: "employees",
-				children: ({ loading, hasMore }) => /* @__PURE__ */ jsxs(Fragment, { children: [
-					/* @__PURE__ */ jsx(EmployeeGrid, { employees: employees.data }),
-					loading && /* @__PURE__ */ jsx("div", {
-						className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-8",
-						children: Array.from({ length: 4 }).map((_, i) => /* @__PURE__ */ jsx(EmployeeCardSkeleton, {}, i))
-					}),
-					!loading && !hasMore && employees.data.length > 0 && /* @__PURE__ */ jsx("p", {
-						className: "text-center text-sm text-muted-foreground mt-16 font-medium tracking-widest uppercase",
-						children: "— All team members loaded —"
-					})
-				] })
+				children: ({ loading, hasMore }) => {
+					return /* @__PURE__ */ jsxs(Fragment, { children: [
+						/* @__PURE__ */ jsx(EmployeeGrid, { employees: employees.data }),
+						loading && /* @__PURE__ */ jsx("div", {
+							className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-8",
+							children: Array.from({ length: 4 }).map((_, i) => /* @__PURE__ */ jsx(EmployeeCardSkeleton, {}, i))
+						}),
+						!loading && !hasMore && employees.data.length > 0 && /* @__PURE__ */ jsx("p", {
+							className: "text-center text-sm text-muted-foreground mt-16 font-medium tracking-widest uppercase",
+							children: "— All team members loaded —"
+						})
+					] });
+				}
 			}) : /* @__PURE__ */ jsx(EmployeeGrid, { employees: employees.data }) })
 		})
 	] });
@@ -134,4 +136,4 @@ Index.layout = (page) => /* @__PURE__ */ jsx(AppLayout, { children: page });
 //#endregion
 export { Index as default };
 
-//# sourceMappingURL=employees--UtCqHnv.js.map
+//# sourceMappingURL=employees-CKV-2GlC.js.map

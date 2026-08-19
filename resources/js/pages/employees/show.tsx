@@ -39,7 +39,7 @@ export default function Show({ employee }: { employee: EmployeeDetail }) {
 
                     <div className="flex flex-col md:flex-row gap-12 items-start">
                         {/* Profile Image Column */}
-                        <div className="w-full md:w-1/3 flex-shrink-0">
+                        <div className="w-full md:w-1/3 shrink-0">
                             <div className="relative aspect-square rounded-sm overflow-hidden bg-muted border border-border shadow-xl">
                                 {employee.image_url ? (
                                     <img src={employee.image_url} alt={`${employee.first_name} ${employee.last_name}`} className="w-full h-full object-cover" />

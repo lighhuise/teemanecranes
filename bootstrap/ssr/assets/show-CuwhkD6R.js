@@ -154,15 +154,15 @@ function Show({ service }) {
 		/* @__PURE__ */ jsx(Head, { title: service.title }),
 		/* @__PURE__ */ jsxs("div", {
 			className: "relative border-b border-border",
-			children: [service.featured_image_url && /* @__PURE__ */ jsxs("div", {
+			children: [service.featured_image_url && /* @__PURE__ */ jsx("div", {
 				className: "absolute inset-0 overflow-hidden",
-				children: [/* @__PURE__ */ jsx("img", {
+				children: /* @__PURE__ */ jsx("img", {
 					src: service.featured_image_url,
 					alt: service.title,
 					className: "w-full h-full object-cover"
-				}), /* @__PURE__ */ jsx("div", { className: "absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" })]
+				})
 			}), /* @__PURE__ */ jsxs(Wrapper, {
-				className: `relative py-24 ${service.featured_image_url ? "" : "bg-muted/30"}`,
+				className: `relative py-24 ${service.featured_image_url ? "" : "bg-transparent"}`,
 				children: [/* @__PURE__ */ jsxs(Link, {
 					href: "/services",
 					className: "inline-flex items-center text-sm text-muted-foreground hover:text-foreground mb-8 transition-colors gap-2",
@@ -191,4 +191,4 @@ function Show({ service }) {
 //#endregion
 export { Show as default };
 
-//# sourceMappingURL=show-BmwkLmYL.js.map
+//# sourceMappingURL=show-CuwhkD6R.js.map

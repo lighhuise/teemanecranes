@@ -141,27 +141,29 @@ export default function Index({ employees, filters }: { employees: PaginatedData
                 <Wrapper>
                     {isMounted ? (
                         <InfiniteScroll data="employees">
-                            {({ loading, hasMore }: { loading: boolean; hasMore: boolean }) => (
-                                <>
-                                    <EmployeeGrid employees={employees.data} />
+                            {({ loading, hasMore }: { loading: boolean; hasMore: boolean }) => {
+                                return (
+                                    <>
+                                        <EmployeeGrid employees={employees.data}/>
 
-                                    {/* Skeleton cards while next page loads */}
-                                    {loading && (
-                                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
-                                            {Array.from({ length: 4 }).map((_, i) => (
-                                                <EmployeeCardSkeleton key={i} />
-                                            ))}
-                                        </div>
-                                    )}
+                                        {/* Skeleton cards while next page loads */}
+                                        {loading && (
+                                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
+                                                {Array.from({length: 4}).map((_, i) => (
+                                                    <EmployeeCardSkeleton key={i}/>
+                                                ))}
+                                            </div>
+                                        )}
 
-                                    {/* End of list */}
-                                    {!loading && !hasMore && employees.data.length > 0 && (
-                                        <p className="text-center text-sm text-muted-foreground mt-16 font-medium tracking-widest uppercase">
-                                            — All team members loaded —
-                                        </p>
-                                    )}
-                                </>
-                            )}
+                                        {/* End of list */}
+                                        {!loading && !hasMore && employees.data.length > 0 && (
+                                            <p className="text-center text-sm text-muted-foreground mt-16 font-medium tracking-widest uppercase">
+                                                — All team members loaded —
+                                            </p>
+                                        )}
+                                    </>
+                                );
+                            }}
                         </InfiniteScroll>
                     ) : (
                         <EmployeeGrid employees={employees.data} />

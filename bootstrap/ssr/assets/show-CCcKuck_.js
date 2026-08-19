@@ -14,7 +14,7 @@ function Show({ employee }) {
 		}), /* @__PURE__ */ jsxs("div", {
 			className: "flex flex-col md:flex-row gap-12 items-start",
 			children: [/* @__PURE__ */ jsx("div", {
-				className: "w-full md:w-1/3 flex-shrink-0",
+				className: "w-full md:w-1/3 shrink-0",
 				children: /* @__PURE__ */ jsx("div", {
 					className: "relative aspect-square rounded-sm overflow-hidden bg-muted border border-border shadow-xl",
 					children: employee.image_url ? /* @__PURE__ */ jsx("img", {
@@ -140,4 +140,4 @@ Show.layout = (page) => /* @__PURE__ */ jsx(AppLayout, { children: page });
 //#endregion
 export { Show as default };
 
-//# sourceMappingURL=show-Bb_zvWw4.js.map
+//# sourceMappingURL=show-CCcKuck_.js.map

@@ -12,6 +12,14 @@ use Spatie\Honeypot\ProtectAgainstSpam;
 Route::get('/', HomePageIndexController::class)->name('home');
 Route::get('/about-us', AboutUsController::class)->name('about');
 
+Route::get('/privacy-policy', function () {
+    return inertia('legal/privacy-policy');
+})->name('privacy');
+
+Route::get('/terms-of-service', function () {
+    return inertia('legal/terms-of-service');
+})->name('terms');
+
 Route::get('/contact-us', [ContactController::class, 'index'])->name('contact.index');
 Route::post('/contact-us', [ContactController::class, 'store'])->name('contact.store')->middleware(ProtectAgainstSpam::class);
 

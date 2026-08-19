@@ -228,10 +228,10 @@ export default function Show({ service }: { service: Service }) {
                             alt={service.title}
                             className="w-full h-full object-cover"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
+
                     </div>
                 )}
-                <Wrapper className={`relative py-24 ${service.featured_image_url ? '' : 'bg-muted/30'}`}>
+                <Wrapper className={`relative py-24 ${service.featured_image_url ? '' : 'bg-transparent'}`}>
                     <Link
                         href="/services"
                         className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground mb-8 transition-colors gap-2"
@@ -246,7 +246,7 @@ export default function Show({ service }: { service: Service }) {
                         className="mb-8"
                     >
                         {service.description && (
-                            <div 
+                            <div
                                 className="prose prose-sm sm:prose lg:prose-lg xl:prose-xl max-w-none dark:prose-invert text-muted-foreground"
                                 dangerouslySetInnerHTML={{ __html: service.description }}
                             />

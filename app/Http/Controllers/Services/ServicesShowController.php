@@ -33,14 +33,14 @@ class ServicesShowController extends Controller
                 'image' => array_merge($block, [
                     'data' => array_merge($data, [
                         'image_url' => isset($data['image'])
-                            ? Storage::disk('public')->url($data['image'])
+                            ? (str_starts_with($data['image'], 'http') ? $data['image'] : Storage::disk('public')->url($data['image']))
                             : null,
                     ]),
                 ]),
                 'gallery' => array_merge($block, [
                     'data' => array_merge($data, [
                         'image_urls' => collect($data['images'] ?? [])->map(
-                            fn ($path) => Storage::disk('public')->url($path)
+                            fn ($path) => str_starts_with($path, 'http') ? $path : Storage::disk('public')->url($path)
                         )->values()->toArray(),
                     ]),
                 ]),

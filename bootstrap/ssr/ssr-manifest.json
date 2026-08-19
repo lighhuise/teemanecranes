@@ -185,10 +185,13 @@
     "/build/assets/contact-us-DXRHCpci.js"
   ],
   "resources/js/pages/employees/index.tsx": [
-    "/build/assets/employees--UtCqHnv.js"
+    "/build/assets/employees-CKV-2GlC.js"
   ],
   "resources/js/pages/employees/show.tsx": [
-    "/build/assets/show-Bb_zvWw4.js"
+    "/build/assets/show-CCcKuck_.js"
+  ],
+  "resources/js/pages/error.tsx": [
+    "/build/assets/error-CX_ZPUue.js"
   ],
   "resources/js/pages/home.tsx": [
     "/build/assets/home-BVcdIkD7.js",
@@ -197,11 +200,17 @@
     "/build/assets/IMG_0190-copy-870kN3in.webp",
     "/build/assets/d58f37a7-3ec9-4491-9d4a-3ca9dd8dd979-copy-2-W5YUsRxh.webp"
   ],
+  "resources/js/pages/legal/privacy-policy.tsx": [
+    "/build/assets/privacy-policy-DTcxByHr.js"
+  ],
+  "resources/js/pages/legal/terms-of-service.tsx": [
+    "/build/assets/terms-of-service-CgLYfk4u.js"
+  ],
   "resources/js/pages/services/index.tsx": [
     "/build/assets/services-DlMOvLca.js"
   ],
   "resources/js/pages/services/show.tsx": [
-    "/build/assets/show-BmwkLmYL.js"
+    "/build/assets/show-CuwhkD6R.js"
   ],
   "resources/js/pages/welcome.tsx": [
     "/build/assets/welcome-CkUBshqo.js"
