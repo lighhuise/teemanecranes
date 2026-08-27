@@ -20,13 +20,13 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Claude',
             'email' => 'claude@designbycode.co.za',
-            'password' => 'lighthousedev',
+            'password' => 'nvBcfGtre344GnM',
         ]);
 
         User::factory()->create([
             'name' => 'MW',
             'email' => 'mw@designbycode.co.za',
-            'password' => 'lighthousedev',
+            'password' => 'nvBcfGtre344GnM',
         ]);
 
         $this->call([
