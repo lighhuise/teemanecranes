@@ -16,8 +16,6 @@ const navLinks = [
   { name: 'Home', href: home.url() },
     { name: 'Services', href: '/services' },
     { name: 'About Us', href: '/about-us' },
-  // { name: 'Our Team', href: '/our-team' },
-  // { name: 'Equipment', href: '/equipment' },
 ];
 
 export default function Navigation() {
@@ -138,7 +136,7 @@ export default function Navigation() {
                   <Link
                     href="/contact-us"
                     prefetch="hover"
-                    className="mt-3 flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-sm font-bold tracking-widest uppercase bg-linear-to-r from-primary to-primary/70 hover:from-primary/90 hover:to-primary text-primary-foreground transition-all shadow-sm hover:shadow"
+                    className="mt-3 flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-sm font-bold tracking-widest uppercase bg-linear-  to-r from-primary to-primary/70 hover:from-primary/90 hover:to-primary text-primary-foreground transition-all shadow-sm hover:shadow"
                   >
                     Contact Us
                   </Link>
