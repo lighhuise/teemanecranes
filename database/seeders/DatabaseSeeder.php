@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
 
         User::factory()->create([
             'name' => 'MW',
-            'email' => 'mv@designbycode.co.za',
+            'email' => 'mw@designbycode.co.za',
             'password' => Hash::make('lighthousedev')
         ]);
 
