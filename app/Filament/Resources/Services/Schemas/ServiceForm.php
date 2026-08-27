@@ -20,7 +20,7 @@ class ServiceForm
         return $schema
             ->components([
                 Section::make('Details')
-                    ->columns(2)
+                    ->columns(1)
                     ->schema([
                         SpatieMediaLibraryFileUpload::make('featured_image')
                             ->label('Featured Image')
