@@ -15,7 +15,7 @@ class ServicesIndexController extends Controller
     public function __invoke(Service $services)
     {
         return Inertia::render('services/index', [
-            'services' => $services::all(),
+            'services' => $services::where('is_active', true)->get(),
         ]);
     }
 }

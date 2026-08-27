@@ -14,6 +14,8 @@ class ServicesShowController extends Controller
      */
     public function __invoke(Service $service)
     {
+        abort_if(! $service->is_active, 404);
+
         $service->load('media');
 
         $featuredImage = $service->getFirstMediaUrl('featured_image', 'webp')

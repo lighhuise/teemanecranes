@@ -10,6 +10,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
@@ -22,6 +23,12 @@ class ServiceForm
                 Section::make('Details')
                     ->columns(1)
                     ->schema([
+                        Toggle::make('is_active')
+                            ->label('Active')
+                            ->default(true)
+                            ->helperText('Disable this service to hide it from the website.')
+                            ->columnSpanFull(),
+
                         SpatieMediaLibraryFileUpload::make('featured_image')
                             ->label('Featured Image')
                             ->collection('featured_image')
