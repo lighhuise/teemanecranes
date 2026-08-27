@@ -83,7 +83,7 @@ export default function Navigation() {
             <Link
               href="/contact-us"
               prefetch="hover"
-              className="text-sm font-bold tracking-widest uppercase inline-flex items-center gap-2 bg-gradient-to-r from-primary to-primary/70 hover:from-primary/90 hover:to-primary text-primary-foreground transition-all shadow-sm hover:shadow px-5 py-2.5 rounded-lg"
+              className="text-sm font-bold tracking-widest uppercase inline-flex items-center gap-2 bg-linear-to-r from-primary to-primary/70 hover:from-primary/90 hover:to-primary text-primary-foreground transition-all shadow-sm hover:shadow px-5 py-2.5 rounded-lg"
             >
               Contact Us
             </Link>
@@ -105,7 +105,7 @@ export default function Navigation() {
                   <span className="sr-only">Toggle menu</span>
                 </button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[80vw] sm:w-[350px] bg-background border-l border-border flex flex-col p-0">
+              <SheetContent side="right" className="w-[80vw] sm:w-87.5 bg-background border-l border-border flex flex-col p-0">
                 <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
 
                 {/* Sheet Header with Logo */}
@@ -138,7 +138,7 @@ export default function Navigation() {
                   <Link
                     href="/contact-us"
                     prefetch="hover"
-                    className="mt-3 flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-sm font-bold tracking-widest uppercase bg-gradient-to-r from-primary to-primary/70 hover:from-primary/90 hover:to-primary text-primary-foreground transition-all shadow-sm hover:shadow"
+                    className="mt-3 flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-sm font-bold tracking-widest uppercase bg-linear-to-r from-primary to-primary/70 hover:from-primary/90 hover:to-primary text-primary-foreground transition-all shadow-sm hover:shadow"
                   >
                     Contact Us
                   </Link>
