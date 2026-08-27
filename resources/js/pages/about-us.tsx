@@ -1,7 +1,7 @@
 import { Head } from '@inertiajs/react';
 import AppLayout from '@/layouts/app-layout';
 import Wrapper from '@/components/ui/misc/wrapper';
-import { Target, ShieldCheck, Trophy, Truck, Users, Building2, Zap, Award } from 'lucide-react';
+import {Target, ShieldCheck, Trophy, Truck, Users, Building2, Zap, Award, HardHat} from 'lucide-react';
 import { FloatingStatCard } from '@/components/ui/misc/floating-stat-card';
 import SectionHeading from '@/components/ui/misc/section-heading';
 // @ts-ignore
@@ -16,18 +16,15 @@ export default function AboutUs() {
             <div className="bg-muted/30 py-24 lg:py-32 border-b border-border relative overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,var(--color-primary),transparent_50%)] opacity-10"></div>
                 <Wrapper className="relative z-10">
-                    <div className="max-w-4xl">
-                        <div className="inline-flex items-center gap-4 mb-8">
-                            <div className="h-px w-12 bg-primary"></div>
-                            <span className="text-sm font-bold text-primary tracking-widest uppercase">Our Story</span>
-                        </div>
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter text-foreground uppercase leading-[1.1] mb-8">
-                            Redefining What's Possible In <span className="text-primary">Mobile Crane</span> Hire.
-                        </h1>
-                        <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-medium">
+                    <SectionHeading
+                        label="Our Story"
+                        title={<>Redefining What's Possible In <span className="text-primary">Mobile Crane</span> Hire.</>}
+                        align="left"
+                    >
+                        <p className="text-xl md:text-2xl font-medium">
                             Established in 2012, Teemane Cranes prides itself on countless victories across South Africa's most demanding worksites, from high-stakes projects to complex operations.
                         </p>
-                    </div>
+                    </SectionHeading>
                 </Wrapper>
             </div>
 
@@ -84,7 +81,7 @@ export default function AboutUs() {
                                 </div>
                                 <div className="space-y-4">
                                     <div className="w-12 h-12 bg-primary/10 text-primary flex items-center justify-center rounded-lg border border-primary/20">
-                                        <ShieldCheck className="w-6 h-6" />
+                                        <HardHat className="w-6 h-6" />
                                     </div>
                                     <h3 className="text-xl font-bold uppercase">Unmatched Safety</h3>
                                     <p className="text-muted-foreground text-sm">Stringent safety protocols ensuring zero-incident operations on high-stakes projects.</p>

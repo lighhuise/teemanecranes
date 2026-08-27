@@ -25,13 +25,13 @@ export function FloatingStatCard({
     return (
         <div
             className={cn(
-                'absolute bg-background p-6 md:p-8 rounded-xl border border-border shadow-2xl pointer-events-none z-20',
+                'absolute bg-background/50 backdrop-blur-xs p-6 md:p-8 rounded-xl border border-border shadow-2xl pointer-events-none z-20',
                 positionClasses[position],
                 className
             )}
         >
             <div className="text-4xl md:text-5xl font-black text-primary mb-1 leading-none">{value}</div>
-            <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground">{label}</div>
+            <div className="text-xs font-bold uppercase tracking-widest text-foreground">{label}</div>
         </div>
     );
 }

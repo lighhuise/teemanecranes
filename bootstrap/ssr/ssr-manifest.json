@@ -8,44 +8,44 @@
     "/build/assets/marker-icon-hN30_KVU.png"
   ],
   "node_modules/swiper/modules/navigation.css": [
-    "/build/assets/show-BdQYkLlE.js",
+    "/build/assets/show-BR6y94JX.js",
     "/build/assets/show-DjMxu4j7.css"
   ],
   "node_modules/swiper/modules/pagination.css": [
-    "/build/assets/show-BdQYkLlE.js",
+    "/build/assets/show-BR6y94JX.js",
     "/build/assets/show-DjMxu4j7.css"
   ],
   "node_modules/swiper/swiper.css": [
-    "/build/assets/show-BdQYkLlE.js",
+    "/build/assets/show-BR6y94JX.js",
     "/build/assets/show-DjMxu4j7.css"
   ],
   "resources/images/IMG_0190-copy.webp": [
-    "/build/assets/home-B-ETABOv.js",
+    "/build/assets/home-Cv27enHQ.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/blue_crane_desert_storm-ofVqrzFL.webp",
     "/build/assets/IMG_0190-copy-870kN3in.webp",
     "/build/assets/d58f37a7-3ec9-4491-9d4a-3ca9dd8dd979-copy-2-W5YUsRxh.webp"
   ],
   "resources/images/Teemane-Boat.webp": [
-    "/build/assets/about-us-B3v-UJvZ.js",
+    "/build/assets/about-us-DtmaSctE.js",
     "/build/assets/Teemane-Boat-DihsRzVb.webp"
   ],
   "resources/images/blue_crane_desert_storm.webp": [
-    "/build/assets/home-B-ETABOv.js",
+    "/build/assets/home-Cv27enHQ.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/blue_crane_desert_storm-ofVqrzFL.webp",
     "/build/assets/IMG_0190-copy-870kN3in.webp",
     "/build/assets/d58f37a7-3ec9-4491-9d4a-3ca9dd8dd979-copy-2-W5YUsRxh.webp"
   ],
   "resources/images/d58f37a7-3ec9-4491-9d4a-3ca9dd8dd979-copy-2.webp": [
-    "/build/assets/home-B-ETABOv.js",
+    "/build/assets/home-Cv27enHQ.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/blue_crane_desert_storm-ofVqrzFL.webp",
     "/build/assets/IMG_0190-copy-870kN3in.webp",
     "/build/assets/d58f37a7-3ec9-4491-9d4a-3ca9dd8dd979-copy-2-W5YUsRxh.webp"
   ],
   "resources/images/hero-mask-2.svg": [
-    "/build/assets/home-B-ETABOv.js",
+    "/build/assets/home-Cv27enHQ.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/blue_crane_desert_storm-ofVqrzFL.webp",
     "/build/assets/IMG_0190-copy-870kN3in.webp",
@@ -67,7 +67,7 @@
     "/build/assets/welcome-BFPggGjS.js"
   ],
   "resources/js/components/hero.tsx": [
-    "/build/assets/home-B-ETABOv.js",
+    "/build/assets/home-Cv27enHQ.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/blue_crane_desert_storm-ofVqrzFL.webp",
     "/build/assets/IMG_0190-copy-870kN3in.webp",
@@ -88,6 +88,34 @@
     "/build/assets/app-layout-0hJMmrhr.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
+  "resources/js/components/sections/home-credentials-section.tsx": [
+    "/build/assets/home-Cv27enHQ.js",
+    "/build/assets/hero-mask-2-DJkSOBdI.svg",
+    "/build/assets/blue_crane_desert_storm-ofVqrzFL.webp",
+    "/build/assets/IMG_0190-copy-870kN3in.webp",
+    "/build/assets/d58f37a7-3ec9-4491-9d4a-3ca9dd8dd979-copy-2-W5YUsRxh.webp"
+  ],
+  "resources/js/components/sections/home-intro-section.tsx": [
+    "/build/assets/home-Cv27enHQ.js",
+    "/build/assets/hero-mask-2-DJkSOBdI.svg",
+    "/build/assets/blue_crane_desert_storm-ofVqrzFL.webp",
+    "/build/assets/IMG_0190-copy-870kN3in.webp",
+    "/build/assets/d58f37a7-3ec9-4491-9d4a-3ca9dd8dd979-copy-2-W5YUsRxh.webp"
+  ],
+  "resources/js/components/sections/home-safety-section.tsx": [
+    "/build/assets/home-Cv27enHQ.js",
+    "/build/assets/hero-mask-2-DJkSOBdI.svg",
+    "/build/assets/blue_crane_desert_storm-ofVqrzFL.webp",
+    "/build/assets/IMG_0190-copy-870kN3in.webp",
+    "/build/assets/d58f37a7-3ec9-4491-9d4a-3ca9dd8dd979-copy-2-W5YUsRxh.webp"
+  ],
+  "resources/js/components/sections/home-services-section.tsx": [
+    "/build/assets/home-Cv27enHQ.js",
+    "/build/assets/hero-mask-2-DJkSOBdI.svg",
+    "/build/assets/blue_crane_desert_storm-ofVqrzFL.webp",
+    "/build/assets/IMG_0190-copy-870kN3in.webp",
+    "/build/assets/d58f37a7-3ec9-4491-9d4a-3ca9dd8dd979-copy-2-W5YUsRxh.webp"
+  ],
   "resources/js/components/theme-provider.tsx": [
     "/build/assets/app-layout-0hJMmrhr.js",
     "/build/assets/logo--6nxw50_.svg"
@@ -107,10 +135,10 @@
     "/build/assets/input-DZki67TT.js"
   ],
   "resources/js/components/ui/misc/floating-stat-card.tsx": [
-    "/build/assets/floating-stat-card-CAJNR87Q.js"
+    "/build/assets/floating-stat-card-DxqWqvkg.js"
   ],
   "resources/js/components/ui/misc/section-heading.tsx": [
-    "/build/assets/section-heading-BeTPe4lc.js"
+    "/build/assets/section-heading-CqXLshFi.js"
   ],
   "resources/js/components/ui/misc/wrapper.tsx": [
     "/build/assets/app-layout-0hJMmrhr.js",
@@ -121,7 +149,7 @@
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/ui/textarea.tsx": [
-    "/build/assets/contact-us-04wl1iNf.js"
+    "/build/assets/contact-us-BEOP4Uz6.js"
   ],
   "resources/js/components/ui/toast.tsx": [
     "/build/assets/app-layout-0hJMmrhr.js",
@@ -136,14 +164,14 @@
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/pages/about-us.tsx": [
-    "/build/assets/about-us-B3v-UJvZ.js",
+    "/build/assets/about-us-DtmaSctE.js",
     "/build/assets/Teemane-Boat-DihsRzVb.webp"
   ],
   "resources/js/pages/contact-us.tsx": [
-    "/build/assets/contact-us-04wl1iNf.js"
+    "/build/assets/contact-us-BEOP4Uz6.js"
   ],
   "resources/js/pages/employees/index.tsx": [
-    "/build/assets/employees-Cqn9SP8b.js"
+    "/build/assets/employees-BZznqqEt.js"
   ],
   "resources/js/pages/employees/show.tsx": [
     "/build/assets/show-DgtSYcO0.js"
@@ -152,23 +180,23 @@
     "/build/assets/error-C700cOPw.js"
   ],
   "resources/js/pages/home.tsx": [
-    "/build/assets/home-B-ETABOv.js",
+    "/build/assets/home-Cv27enHQ.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/blue_crane_desert_storm-ofVqrzFL.webp",
     "/build/assets/IMG_0190-copy-870kN3in.webp",
     "/build/assets/d58f37a7-3ec9-4491-9d4a-3ca9dd8dd979-copy-2-W5YUsRxh.webp"
   ],
   "resources/js/pages/legal/privacy-policy.tsx": [
-    "/build/assets/privacy-policy-DSqzA9cw.js"
+    "/build/assets/privacy-policy-CNp3ksxF.js"
   ],
   "resources/js/pages/legal/terms-of-service.tsx": [
-    "/build/assets/terms-of-service-B5P9-iI7.js"
+    "/build/assets/terms-of-service-C10_aTvy.js"
   ],
   "resources/js/pages/services/index.tsx": [
-    "/build/assets/services-cJjexKTj.js"
+    "/build/assets/services-FuNeLIiN.js"
   ],
   "resources/js/pages/services/show.tsx": [
-    "/build/assets/show-BdQYkLlE.js",
+    "/build/assets/show-BR6y94JX.js",
     "/build/assets/show-DjMxu4j7.css"
   ],
   "resources/js/pages/welcome.tsx": [

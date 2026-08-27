@@ -23,7 +23,7 @@ export default function Index({ services }: { services: any[] }) {
 
                         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                             {services.map((service, idx) => (
-                                <Link key={service.id} href={`/services/${service.slug}`} className="reveal-up group relative p-8 bg-background border border-border flex flex-col justify-between min-h-[260px] transition-all hover:border-primary hover:shadow-lg hover:-translate-y-1 rounded-sm">
+                                <div key={service.id} className="reveal-up group relative p-8 bg-background border border-border flex flex-col justify-between min-h-[260px] transition-all hover:border-primary hover:shadow-lg hover:-translate-y-1 rounded-sm cursor-default">
                                     <div className="space-y-4">
                                         <span className="text-3xl font-black text-muted-foreground/20 group-hover:text-primary transition-colors">
                                             0{idx + 1}
@@ -35,8 +35,7 @@ export default function Index({ services }: { services: any[] }) {
                                             {service.short_description}
                                         </p>
                                     </div>
-                                    <ArrowRight className="w-6 h-6 text-primary opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 mt-8" />
-                                </Link>
+                                </div>
                             ))}
                         </div>
                     </Wrapper>

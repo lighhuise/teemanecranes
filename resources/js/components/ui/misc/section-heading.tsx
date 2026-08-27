@@ -7,7 +7,7 @@ interface SectionHeadingProps {
     /** Small label shown above the title with decorative lines */
     label: string;
     /** Main heading text */
-    title: string;
+    title: string | ReactNode;
     /** Optional descriptive paragraph or any children below the title */
     children?: ReactNode;
     /** Text alignment — controls layout of the label, title and children */
@@ -48,7 +48,7 @@ export default function SectionHeading({
             </div>
 
             {/* Title */}
-            <h2 className="text-4xl lg:text-5xl font-black tracking-tighter text-foreground leading-[1.1]">
+            <h2 className="text-4xl lg:text-5xl max-w-2xl text-balance font-black tracking-tighter text-foreground leading-[1.1]">
                 {title}
             </h2>
 
