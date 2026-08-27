@@ -1,0 +1,1 @@
+<?php $s = App\Models\Service::first(); $blocks = $s->content_blocks; foreach($blocks as &$b) { if(isset($b["data"]["images"])) { $b["data"]["images"] = array_reverse($b["data"]["images"]); } } $s->content_blocks = $blocks; $s->save(); echo "Reversed\n";

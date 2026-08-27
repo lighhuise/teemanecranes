@@ -14,9 +14,9 @@ import { home } from '@/routes';
 
 const navLinks = [
   { name: 'Home', href: home.url() },
-  { name: 'About Us', href: '/about-us' },
-  { name: 'Services', href: '/services' },
-  { name: 'Our Team', href: '/our-team' },
+    { name: 'Services', href: '/services' },
+    { name: 'About Us', href: '/about-us' },
+  // { name: 'Our Team', href: '/our-team' },
   // { name: 'Equipment', href: '/equipment' },
 ];
 

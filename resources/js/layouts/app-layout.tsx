@@ -3,10 +3,14 @@ import { Head } from '@inertiajs/react';
 import Footer from "@/components/footer";
 import {Toaster} from "@/components/ui/toast";
 import Navigation from "@/components/navigation";
-import Map from "@/components/map";
+import { useState, useEffect, Suspense, lazy } from 'react';
+const Map = lazy(() => import("@/components/map"));
 import EmergencyCta from "@/components/emergency-cta";
 
 export default function AppLayout({ children, title }: { children: React.ReactNode, title?: string }) {
+    const [mounted, setMounted] = useState(false);
+    useEffect(() => setMounted(true), []);
+    
     return (
         <div className="min-h-screen bg-background text-foreground transition-colors duration-300 ">
             {title && <Head title={title} />}
@@ -18,7 +22,11 @@ export default function AppLayout({ children, title }: { children: React.ReactNo
                 {children}
             </main>
 
-            <Map />
+            {mounted && (
+                <Suspense fallback={null}>
+                    <Map />
+                </Suspense>
+            )}
             <EmergencyCta />
             <Footer />
             <Toaster   />

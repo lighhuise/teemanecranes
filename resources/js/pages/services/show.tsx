@@ -4,6 +4,12 @@ import Wrapper from '@/components/ui/misc/wrapper';
 import { ArrowLeft, Play, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
 import SectionHeading from '@/components/ui/misc/section-heading';
+import { FloatingStatCard } from '@/components/ui/misc/floating-stat-card';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -12,8 +18,9 @@ interface ImageBlock     { type: 'image';      data: { image: string; image_url:
 interface GalleryBlock   { type: 'gallery';    data: { images: string[]; image_urls: string[]; caption?: string } }
 interface VideoBlock     { type: 'video';      data: { url: string; caption?: string } }
 interface CtaBlock       { type: 'cta';        data: { heading: string; text?: string; button_label: string; button_url: string } }
+interface MediaTextBlock { type: 'media_text'; data: { heading?: string; subheading?: string; content?: string; button_label?: string; button_url?: string; images: string[]; image_urls?: string[]; image_position: 'left' | 'right'; stat_card_value?: string; stat_card_label?: string; } }
 
-type ContentBlock = RichTextBlock | ImageBlock | GalleryBlock | VideoBlock | CtaBlock;
+type ContentBlock = RichTextBlock | ImageBlock | GalleryBlock | VideoBlock | CtaBlock | MediaTextBlock;
 
 interface Service {
     id: number;
@@ -199,6 +206,78 @@ function CtaRenderer({ data }: { data: CtaBlock['data'] }) {
     );
 }
 
+function MediaTextRenderer({ data }: { data: MediaTextBlock['data'] }) {
+    const isImageLeft = data.image_position === 'left';
+    const urls = data.image_urls ?? [];
+    const hasMultiple = urls.length > 1;
+
+    return (
+        <div className={`flex flex-col md:flex-row gap-10 md:gap-16 items-center ${isImageLeft ? 'md:flex-row-reverse' : ''}`}>
+            {/* Text Content */}
+            <div className="flex-1 min-w-0 w-full space-y-6">
+                {(data.heading || data.subheading) && (
+                    <div className="space-y-2">
+                        {data.subheading && <p className="text-sm font-bold tracking-widest uppercase text-primary">{data.subheading}</p>}
+                        {data.heading && <h3 className="text-3xl lg:text-4xl font-black text-foreground leading-[1.1]">{data.heading}</h3>}
+                    </div>
+                )}
+                {data.content && (
+                    <div className="prose prose-neutral dark:prose-invert max-w-none text-muted-foreground prose-a:text-primary hover:prose-a:underline" dangerouslySetInnerHTML={{ __html: data.content }} />
+                )}
+                {data.button_label && data.button_url && (
+                    <a href={data.button_url} className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-primary/70 text-primary-foreground font-bold tracking-widest uppercase text-sm px-8 py-4 rounded-lg shadow-sm hover:from-primary/90 hover:to-primary transition-all group">
+                        {data.button_label}
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </a>
+                )}
+            </div>
+
+            {/* Media Content */}
+            <div className="flex-1 min-w-0 w-full h-[400px] md:h-[500px] relative group">
+                <div className="w-full h-full rounded-2xl overflow-hidden shadow-xl relative">
+                    {hasMultiple ? (
+                        <Swiper
+                            modules={[Navigation, Pagination]}
+                            navigation
+                            pagination={{ clickable: true }}
+                            loop={true}
+                            className="w-full h-full"
+                            style={{
+                                '--swiper-theme-color': 'var(--primary)',
+                                '--swiper-navigation-size': '24px',
+                                '--swiper-navigation-color': 'white',
+                                '--swiper-pagination-color': 'var(--primary)',
+                                '--swiper-pagination-bullet-inactive-color': 'rgba(255, 255, 255, 0.7)',
+                                '--swiper-pagination-bullet-inactive-opacity': '1',
+                            } as React.CSSProperties}
+                        >
+                            {urls.map((url, i) => (
+                                <SwiperSlide key={i}>
+                                    <img src={url} alt="" className="w-full h-full object-cover" />
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    ) : urls.length === 1 ? (
+                        <img src={urls[0]} alt="" className="w-full h-full object-cover" />
+                    ) : (
+                        <div className="w-full h-full bg-muted flex items-center justify-center">
+                            <span className="text-muted-foreground text-sm uppercase tracking-widest">No Image</span>
+                        </div>
+                    )}
+                </div>
+                
+                {data.stat_card_value && data.stat_card_label && (
+                    <FloatingStatCard 
+                        value={data.stat_card_value} 
+                        label={data.stat_card_label} 
+                        position={isImageLeft ? 'bottom-right' : 'bottom-left'}
+                    />
+                )}
+            </div>
+        </div>
+    );
+}
+
 function ContentBlock({ block }: { block: ContentBlock }) {
     switch (block.type) {
         case 'rich_text': return <RichTextRenderer data={block.data} />;
@@ -206,6 +285,7 @@ function ContentBlock({ block }: { block: ContentBlock }) {
         case 'gallery':   return <GalleryRenderer data={block.data} />;
         case 'video':     return <VideoRenderer data={block.data} />;
         case 'cta':       return <CtaRenderer data={block.data} />;
+        case 'media_text':return <MediaTextRenderer data={block.data} />;
         default:          return null;
     }
 }

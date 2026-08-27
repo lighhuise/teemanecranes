@@ -77,7 +77,7 @@ export default function Home({ services }: { services: any[] }) {
                         align="center"
                         className="mb-16"
                     >
-                        We understand that every lifting project demands precision, reliability and efficiency. Our services offer the flexibility and strength needed to tackle any challenge — from construction sites to the most demanding industrial operations.
+                        We understand that every lifting project demands precision, reliability and efficiency. Our services offer the flexibility and strength needed to tackle any challenge from construction sites to the most demanding industrial operations.
                     </SectionHeading>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -137,16 +137,16 @@ export default function Home({ services }: { services: any[] }) {
                                 SAFETY STARTS <br />BEFORE THE LIFT
                             </h2>
                             <p className="text-lg text-muted-foreground leading-relaxed">
-                                With services available for both short- and long-term hire and backed by prompt, professional support, Teemane oversees every stage — from initial consultation and detailed site inspections to full project execution.
+                                With services available for both short- and long-term hire and backed by prompt, professional support, Teemane oversees every stage from initial consultation and detailed site inspections to full project execution.
                             </p>
-                            <p className="text-muted-foreground leading-relaxed">
+                            <p className="text-lg text-muted-foreground leading-relaxed">
                                 For specialised projects, we incorporate advanced lift studies and CAD drawings, allowing us to anticipate challenges and engineer safe, efficient solutions before operations begin. Combined with decades of experience, this defines how the most demanding projects are completed to unmatched standards.
                             </p>
                             <div className="flex flex-wrap items-center gap-4 pt-4">
-                                <Link href="/contact-us" className={buttonVariants({ size: "lg", className: "uppercase tracking-widest font-bold px-8 h-14" })}>
+                                <Link prefetch={`hover`} href="/contact-us" className={buttonVariants({ size: "lg", className: "uppercase tracking-widest font-bold px-8 h-14" })}>
                                     Start a Project
                                 </Link>
-                                <Link href="/about-us" className={buttonVariants({ variant: "outline", size: "lg", className: "uppercase tracking-widest font-bold px-8 h-14 border-2" })}>
+                                <Link prefetch={`hover`} href="/about-us" className={buttonVariants({ variant: "outline", size: "lg", className: "uppercase tracking-widest font-bold px-8 h-14 border-2" })}>
                                     Our Approach
                                 </Link>
                             </div>

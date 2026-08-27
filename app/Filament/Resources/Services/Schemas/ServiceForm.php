@@ -6,6 +6,7 @@ use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\Builder\Block;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -125,10 +126,12 @@ class ServiceForm
                                             ->label('Images')
                                             ->disk('public')
                                             ->directory('services/blocks/galleries')
+
                                             ->image()
                                             ->imageEditor()
                                             ->multiple()
                                             ->reorderable()
+                                            ->panelLayout('grid')
                                             ->required()
                                             ->columnSpanFull(),
 
@@ -175,6 +178,63 @@ class ServiceForm
                                             ->label('Button URL')
                                             ->url()
                                             ->required(),
+                                    ]),
+
+                                Block::make('media_text')
+                                    ->label('Media & Text')
+                                    ->icon('heroicon-o-view-columns')
+                                    ->schema([
+                                        TextInput::make('heading')
+                                            ->label('Heading')
+                                            ->maxLength(255),
+
+                                        TextInput::make('subheading')
+                                            ->label('Subheading')
+                                            ->maxLength(255),
+
+                                        RichEditor::make('content')
+                                            ->label('Text Content')
+                                            ->toolbarButtons([
+                                                'bold', 'italic', 'link', 'bulletList', 'orderedList', 'redo', 'undo',
+                                            ])
+                                            ->columnSpanFull(),
+
+                                        TextInput::make('button_label')
+                                            ->label('Button Label (Optional)')
+                                            ->maxLength(100),
+
+                                        TextInput::make('button_url')
+                                            ->label('Button URL (Optional)')
+                                            ->url(),
+
+                                        FileUpload::make('images')
+                                            ->label('Image(s)')
+                                            ->disk('public')
+                                            ->directory('services/blocks/media')
+                                            ->image()
+                                            ->imageEditor()
+                                            ->multiple()
+                                            ->reorderable()
+                                            ->panelLayout('grid')
+                                            ->required()
+                                            ->columnSpanFull(),
+
+                                        Select::make('image_position')
+                                            ->label('Image Position')
+                                            ->options([
+                                                'left' => 'Left',
+                                                'right' => 'Right',
+                                            ])
+                                            ->default('right')
+                                            ->required(),
+
+                                        TextInput::make('stat_card_value')
+                                            ->label('Stat Card Value (e.g. 50+)')
+                                            ->maxLength(255),
+
+                                        TextInput::make('stat_card_label')
+                                            ->label('Stat Card Label (e.g. Years Experience)')
+                                            ->maxLength(255),
                                     ]),
                             ]),
                     ]),

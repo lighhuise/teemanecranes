@@ -19,7 +19,7 @@ class ServicesShowController extends Controller
         $featuredImage = $service->getFirstMediaUrl('featured_image', 'webp')
             ?: $service->getFirstMediaUrl('featured_image');
 
-        if (!$featuredImage && $service->image) {
+        if (! $featuredImage && $service->image) {
             $featuredImage = str_starts_with($service->image, 'http')
                 ? $service->image
                 : Storage::disk('public')->url($service->image);
@@ -37,7 +37,7 @@ class ServicesShowController extends Controller
                             : null,
                     ]),
                 ]),
-                'gallery' => array_merge($block, [
+                'gallery', 'media_text' => array_merge($block, [
                     'data' => array_merge($data, [
                         'image_urls' => collect($data['images'] ?? [])->map(
                             fn ($path) => str_starts_with($path, 'http') ? $path : Storage::disk('public')->url($path)
