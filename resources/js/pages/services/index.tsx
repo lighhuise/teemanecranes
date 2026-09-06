@@ -25,7 +25,7 @@ export default function Index({ services }: { services: any[] }) {
                             {services.map((service, idx) => (
                                 <div key={service.id} className="reveal-up group relative p-8 bg-background border border-border flex flex-col justify-between min-h-[260px] transition-all hover:border-primary hover:shadow-lg hover:-translate-y-1 rounded-sm cursor-default">
                                     <div className="space-y-4">
-                                        <span className="text-3xl font-black text-muted-foreground/20 group-hover:text-primary transition-colors">
+                                        <span className="text-3xl font-bold tracking-wider text-muted-foreground/20 group-hover:text-primary transition-colors">
                                             0{idx + 1}
                                         </span>
                                         <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors uppercase">

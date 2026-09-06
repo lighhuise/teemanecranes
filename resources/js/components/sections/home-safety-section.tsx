@@ -31,7 +31,7 @@ export function HomeSafetySection() {
                             <span className="text-sm font-bold text-primary tracking-widest uppercase">Where Excellence Begins</span>
                             <div className="h-px w-8 bg-primary"></div>
                         </div>
-                        <h2 className="text-4xl lg:text-5xl font-black tracking-tighter text-foreground leading-[1.1]">
+                        <h2 className="text-4xl lg:text-5xl font-bold tracking-wider text-foreground leading-[1.1]">
                             SAFETY STARTS <br />BEFORE THE LIFT
                         </h2>
                         <p className="text-lg text-muted-foreground leading-relaxed">

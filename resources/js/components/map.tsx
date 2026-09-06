@@ -46,7 +46,7 @@ export default function Map() {
                                 <div className="h-px w-8 bg-primary"></div>
                                 <span className="text-sm font-bold text-primary tracking-widest uppercase">Headquarters</span>
                             </div>
-                            <h2 className="text-3xl md:text-5xl font-black uppercase text-foreground leading-[1.1]">
+                            <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-wider text-foreground leading-[1.1]">
                                 Find Us On The Map
                             </h2>
                             <p className="text-muted-foreground md:text-lg leading-relaxed pt-2">

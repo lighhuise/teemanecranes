@@ -48,7 +48,7 @@ export default function SectionHeading({
             </div>
 
             {/* Title */}
-            <h2 className="text-4xl lg:text-5xl max-w-2xl text-balance font-black tracking-tighter text-foreground leading-[1.1]">
+            <h2 className="text-4xl lg:text-5xl max-w-2xl text-balance font-bold tracking-wider text-foreground leading-[1.1]">
                 {title}
             </h2>
 

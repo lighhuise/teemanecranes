@@ -47,7 +47,7 @@ export default function Hero() {
             </div>
 
             <div className="relative z-10 w-full px-4 sm:px-6 block lg:hidden pt-10 pb-16">
-                <h1 className="text-5xl sm:text-6xl font-black tracking-tighter leading-[0.9] text-white drop-shadow-lg">
+                <h1 className="text-5xl sm:text-6xl font-bold tracking-wider leading-[0.9] text-white drop-shadow-lg">
                     A CUT ABOVE <br />
                     <span className="text-primary">THE REST</span>
                 </h1>
@@ -89,8 +89,8 @@ export default function Hero() {
                                     <CalendarDays className="w-8 h-8 text-white drop-shadow-md" />
                                 </div>
                                 <div className="flex flex-col">
-                                    <p className={`text-xl font-black text-shadow-black/75 text-shadow-sm text-white leading-tight mb-1`}>Years of<br/>Experience</p>
-                                    <p className={`text-6xl font-black text-shadow-black/75 text-shadow-sm text-white leading-none`}>25+</p>
+                                    <p className={`text-xl font-bold text-shadow-black/75 text-shadow-sm text-white leading-tight mb-1`}>Years of<br/>Experience</p>
+                                    <p className={`text-6xl font-bold text-shadow-black/75 text-shadow-sm text-white leading-none`}>25+</p>
                                 </div>
                             </div>
 
@@ -100,8 +100,8 @@ export default function Hero() {
                                     <HardHat className="w-8 h-8 text-white drop-shadow-md" />
                                 </div>
                                 <div className="flex flex-col">
-                                    <p className={`text-xl font-black text-shadow-black/75 text-shadow-sm text-white leading-tight mb-1`}>Successful<br/>Projects</p>
-                                    <p className={`text-6xl font-black text-shadow-black/75 text-shadow-sm text-white leading-none`}>500+</p>
+                                    <p className={`text-xl font-bold text-shadow-black/75 text-shadow-sm text-white leading-tight mb-1`}>Successful<br/>Projects</p>
+                                    <p className={`text-6xl font-bold text-shadow-black/75 text-shadow-sm text-white leading-none`}>500+</p>
                                 </div>
                             </div>
 
@@ -111,8 +111,8 @@ export default function Hero() {
                                     <Clock className="w-8 h-8 text-white drop-shadow-md" />
                                 </div>
                                 <div className="flex flex-col">
-                                    <p className={`text-xl font-black text-shadow-black/75 text-shadow-sm text-white leading-tight mb-1`}>Availability</p>
-                                    <p className={`text-6xl font-black text-shadow-black/75 text-shadow-sm text-white leading-none mt-7`}>24/7</p>
+                                    <p className={`text-xl font-bold text-shadow-black/75 text-shadow-sm text-white leading-tight mb-1`}>Availability</p>
+                                    <p className={`text-6xl font-bold text-shadow-black/75 text-shadow-sm text-white leading-none mt-7`}>24/7</p>
                                 </div>
                             </div>
 
@@ -125,7 +125,7 @@ export default function Hero() {
                       Text positioned significantly higher (top-[2%])
                     */}
                     <div className="absolute top-[10%] left-[1%] max-w-[50%] z-20">
-                        <h1 className="text-[5vw] xl:text-[75px] font-black tracking-tighter leading-[0.9] text-foreground">
+                        <h1 className="text-[5vw] xl:text-[75px] font-bold tracking-wider leading-[0.9] text-foreground">
                             A CUT ABOVE <br />
                             <span className="text-primary">THE REST</span>
                         </h1>

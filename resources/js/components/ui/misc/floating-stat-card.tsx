@@ -30,7 +30,7 @@ export function FloatingStatCard({
                 className
             )}
         >
-            <div className="text-4xl md:text-5xl font-black text-primary mb-1 leading-none">{value}</div>
+            <div className="text-4xl md:text-5xl font-bold text-primary mb-1 leading-none">{value}</div>
             <div className="text-xs font-bold uppercase tracking-widest text-foreground">{label}</div>
         </div>
     );

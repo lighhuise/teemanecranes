@@ -15,7 +15,7 @@ export function HomeIntroSection() {
                             <div className="h-px w-8 bg-primary"></div>
                             <span className="text-sm font-bold text-primary tracking-widest uppercase">Who We Are</span>
                         </div>
-                        <h2 className="text-4xl lg:text-5xl font-black tracking-tighter text-foreground leading-[1.1] ">
+                        <h2 className="text-4xl lg:text-5xl font-bold tracking-wider text-foreground leading-[1.1] ">
                             THE ONLY NAME <br />TRUSTED TO PERFORM
                         </h2>
                         <p className="text-lg text-muted-foreground leading-relaxed text-balance">

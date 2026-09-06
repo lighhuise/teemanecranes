@@ -54,7 +54,7 @@ function EmployeeGrid({ employees }: { employees: Employee[] }) {
                             <img src={employee.image_url} alt={`${employee.first_name} ${employee.last_name}`} className="w-full h-full object-cover" />
                         ) : (
                             <div className="w-full h-full bg-muted flex items-center justify-center">
-                                <span className="text-3xl font-black text-muted-foreground/50">
+                                <span className="text-3xl font-bold tracking-wider text-muted-foreground/50">
                                     {employee.first_name.charAt(0)}{employee.last_name.charAt(0)}
                                 </span>
                             </div>

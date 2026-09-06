@@ -65,7 +65,7 @@ export default function ContactUs({ flash, honeypot }: { flash: { success?: stri
                         {/* Contact Information */}
                         <div className="space-y-12">
                             <div>
-                                <h2 className="text-3xl font-black tracking-tighter text-foreground uppercase mb-4">
+                                <h2 className="text-3xl font-bold tracking-wider text-foreground uppercase mb-4">
                                     Our Office
                                 </h2>
                                 <p className="text-lg text-muted-foreground mb-8">
@@ -129,14 +129,14 @@ export default function ContactUs({ flash, honeypot }: { flash: { success?: stri
                                     <div className="w-20 h-20 bg-primary/10 text-primary rounded-full flex items-center justify-center mb-6">
                                         <CheckCircle2 className="w-10 h-10" />
                                     </div>
-                                    <h3 className="text-3xl font-black uppercase mb-4 text-foreground">Message Sent!</h3>
+                                    <h3 className="text-3xl font-bold uppercase tracking-wider mb-4 text-foreground">Message Sent!</h3>
                                     <p className="text-lg text-muted-foreground">
                                         {flash.success}
                                     </p>
                                 </div>
                             ) : null}
 
-                            <h2 className="text-2xl font-black tracking-tighter text-foreground uppercase mb-6">
+                            <h2 className="text-2xl font-bold tracking-wider text-foreground uppercase mb-6">
                                 Send a Message
                             </h2>
 

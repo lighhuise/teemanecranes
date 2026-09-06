@@ -46,7 +46,7 @@ export default function Show({ employee }: { employee: EmployeeDetail }) {
                                 ) : (
                                     <div className="w-full h-full flex flex-col items-center justify-center text-muted-foreground/30">
                                         <User className="w-32 h-32 mb-4" />
-                                        <span className="text-6xl font-black">
+                                        <span className="text-6xl font-bold">
                                             {employee.first_name.charAt(0)}{employee.last_name.charAt(0)}
                                         </span>
                                     </div>
@@ -61,7 +61,7 @@ export default function Show({ employee }: { employee: EmployeeDetail }) {
                                 <span className="text-sm font-bold text-primary tracking-widest uppercase">{employee.department}</span>
                             </div>
 
-                            <h1 className="text-4xl lg:text-6xl font-black tracking-tighter text-foreground uppercase mb-2">
+                            <h1 className="text-4xl lg:text-6xl font-bold tracking-wider text-foreground uppercase mb-2">
                                 {employee.first_name} {employee.last_name}
                             </h1>
 

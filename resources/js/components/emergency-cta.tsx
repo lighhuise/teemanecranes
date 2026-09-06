@@ -21,7 +21,7 @@ export default function EmergencyCta() {
                             <AlertTriangle className="w-5 h-5 text-background" />
                             <span className="font-bold tracking-widest uppercase text-sm">24/7 Rapid Response</span>
                         </div>
-                        <h2 className="text-3xl md:text-5xl font-black uppercase leading-[1.1] tracking-tight">
+                        <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-wider leading-[1.1] tracking-tight">
                             Emergencies Don't Wait For Business Hours.
                         </h2>
                         <p className="text-primary-foreground/90 md:text-lg max-w-2xl leading-relaxed">
@@ -36,7 +36,7 @@ export default function EmergencyCta() {
                             </div>
                             <div className="text-left">
                                 <span className="block text-xs font-bold uppercase tracking-widest text-muted-foreground mb-1">Emergency Hotline</span>
-                                <span className="block text-2xl md:text-3xl font-black tracking-tight text-primary">084 263 7690</span>
+                                <span className="block text-2xl md:text-3xl font-bold tracking-wider text-primary">084 263 7690</span>
                             </div>
                         </a>
                     </div>
