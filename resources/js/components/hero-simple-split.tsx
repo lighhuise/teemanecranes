@@ -15,7 +15,7 @@ export function HeroSimpleSplit() {
                         <Sparkles className="size-3" />
                         TALL + React Hybrid
                     </div>
-                    <h2 className="text-3xl leading-tight font-bold tracking-wider text-foreground md:text-5xl">
+                    <h2 className="text-3xl leading-tight font-black tracking-tighter text-foreground md:text-5xl">
                         Supercharge Your Development
                     </h2>
                     <p className="max-w-md text-sm leading-relaxed text-muted-foreground">

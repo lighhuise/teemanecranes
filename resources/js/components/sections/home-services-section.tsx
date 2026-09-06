@@ -24,7 +24,7 @@ export function HomeServicesSection({ services }: { services: any[] }) {
                                 <span className="text-3xl font-bold tracking-wider text-muted-foreground/20 group-hover:text-primary transition-colors">
                                     0{idx + 1}
                                 </span>
-                                <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                                <h3 className="text-xl font-black text-foreground group-hover:text-primary transition-colors">
                                     {service.title}
                                 </h3>
                                 <p className="text-sm text-muted-foreground leading-relaxed">
@@ -36,7 +36,7 @@ export function HomeServicesSection({ services }: { services: any[] }) {
                 </div>
 
                 <div className="mt-16 text-center">
-                    <Link href="/services" className={buttonVariants({ variant: "outline", size: "lg", className: "uppercase tracking-widest font-bold px-10 h-14 border-2" })}>
+                    <Link href="/services" className={buttonVariants({ variant: "secondary", size: "lg", className: "uppercase tracking-widest font-bold px-10 h-14 border-2" })}>
                         View All Services
                     </Link>
                 </div>

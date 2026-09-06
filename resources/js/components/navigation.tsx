@@ -27,16 +27,16 @@ export default function Navigation() {
   return (
     <>
       {/* Notification Bar - Static (scrolls away) */}
-      <div className="bg-foreground text-background text-[8px]  font-bold py-2.5 px-4 tracking-[0.2em] uppercase border-b border-border hidden sm:block">
+      <div className="bg-black/75 dark:bg-white/75 text-white/75 dark:text-black/75 text-[8px]  font-bold py-2.5 px-4 tracking-[0.2em] uppercase border-b border-border hidden sm:block">
         <Wrapper className="flex justify-between items-center w-full">
            <div className="flex items-center gap-6">
-              <span className="flex items-center gap-2 text-background/80">
+              <span className="flex items-center gap-2 ">
                 <MapPin className="w-3 h-3 text-primary" />
                 Operating across South Africa
               </span>
            </div>
            <div className="flex items-center gap-6">
-              <span className="flex items-center gap-2 text-background/80">
+              <span className="flex items-center gap-2 ">
                 <Clock className="w-3 h-3 text-primary" />
                 Available 24/7
               </span>

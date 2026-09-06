@@ -61,7 +61,7 @@ export default function Welcome() {
 
                 <div className="bg-primary/5 rounded-2xl p-8 mt-12 text-center md:text-left flex flex-col md:flex-row items-center justify-between border border-primary/20">
                     <div className="mb-6 md:mb-0">
-                        <h2 className="text-2xl font-bold mb-2 text-foreground">Ready to start building?</h2>
+                        <h2 className="text-2xl font-black mb-2 text-foreground">Ready to start building?</h2>
                         <p className="text-muted-foreground max-w-2xl">
                             Edit <code className="bg-primary/10 px-2 py-1 rounded text-sm mx-1">resources/js/pages/welcome.tsx</code> to see these changes live with Vite HMR.
                         </p>

@@ -61,7 +61,7 @@ export default function Show({ employee }: { employee: EmployeeDetail }) {
                                 <span className="text-sm font-bold text-primary tracking-widest uppercase">{employee.department}</span>
                             </div>
 
-                            <h1 className="text-4xl lg:text-6xl font-bold tracking-wider text-foreground uppercase mb-2">
+                            <h1 className="text-4xl lg:text-6xl font-black tracking-tighter text-foreground uppercase mb-2">
                                 {employee.first_name} {employee.last_name}
                             </h1>
 
@@ -122,7 +122,7 @@ export default function Show({ employee }: { employee: EmployeeDetail }) {
 
                             {employee.bio && (
                                 <div>
-                                    <h3 className="text-xl font-bold uppercase tracking-widest mb-6">About {employee.first_name}</h3>
+                                    <h3 className="text-xl font-black uppercase tracking-tighter mb-6">About {employee.first_name}</h3>
                                     <div className="prose prose-lg dark:prose-invert text-muted-foreground">
                                         {employee.bio.split('\n\n').map((paragraph, idx) => (
                                             <p key={idx} className="mb-4 leading-relaxed">{paragraph}</p>

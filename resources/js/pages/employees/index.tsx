@@ -61,7 +61,7 @@ function EmployeeGrid({ employees }: { employees: Employee[] }) {
                         )}
                     </div>
 
-                    <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                    <h3 className="text-xl font-black text-foreground group-hover:text-primary transition-colors">
                         {employee.first_name} {employee.last_name}
                     </h3>
                     <p className="text-sm font-bold text-primary tracking-wider uppercase mt-2 mb-6">

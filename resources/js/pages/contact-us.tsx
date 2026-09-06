@@ -65,7 +65,7 @@ export default function ContactUs({ flash, honeypot }: { flash: { success?: stri
                         {/* Contact Information */}
                         <div className="space-y-12">
                             <div>
-                                <h2 className="text-3xl font-bold tracking-wider text-foreground uppercase mb-4">
+                                <h2 className="text-3xl font-black tracking-tighter text-foreground uppercase mb-4">
                                     Our Office
                                 </h2>
                                 <p className="text-lg text-muted-foreground mb-8">
@@ -78,7 +78,7 @@ export default function ContactUs({ flash, honeypot }: { flash: { success?: stri
                                             <MapPin className="w-6 h-6" />
                                         </div>
                                         <div>
-                                            <h3 className="font-bold text-lg">Address</h3>
+                                            <h3 className="font-black text-lg">Address</h3>
                                             <p className="text-muted-foreground">
                                                 6 Van Eck St<br />
                                                 Bellville South, Cape Town, 7530
@@ -90,7 +90,7 @@ export default function ContactUs({ flash, honeypot }: { flash: { success?: stri
                                             <Phone className="w-6 h-6" />
                                         </div>
                                         <div>
-                                            <h3 className="font-bold text-lg">Phone</h3>
+                                            <h3 className="font-black text-lg">Phone</h3>
                                             <a href="tel:0842637690" className="text-muted-foreground hover:text-primary transition-colors">
                                                 084 263 7690
                                             </a>
@@ -102,7 +102,7 @@ export default function ContactUs({ flash, honeypot }: { flash: { success?: stri
                                             <Mail className="w-6 h-6" />
                                         </div>
                                         <div>
-                                            <h3 className="font-bold text-lg">Email</h3>
+                                            <h3 className="font-black text-lg">Email</h3>
                                             <a href="mailto:enquiries@teemanecranes.co.za" className="text-muted-foreground hover:text-primary transition-colors">
                                                 enquiries@teemanecranes.co.za
                                             </a>
@@ -129,14 +129,14 @@ export default function ContactUs({ flash, honeypot }: { flash: { success?: stri
                                     <div className="w-20 h-20 bg-primary/10 text-primary rounded-full flex items-center justify-center mb-6">
                                         <CheckCircle2 className="w-10 h-10" />
                                     </div>
-                                    <h3 className="text-3xl font-bold uppercase tracking-wider mb-4 text-foreground">Message Sent!</h3>
+                                    <h3 className="text-3xl font-black uppercase tracking-tighter mb-4 text-foreground">Message Sent!</h3>
                                     <p className="text-lg text-muted-foreground">
                                         {flash.success}
                                     </p>
                                 </div>
                             ) : null}
 
-                            <h2 className="text-2xl font-bold tracking-wider text-foreground uppercase mb-6">
+                            <h2 className="text-2xl font-black tracking-tighter text-foreground uppercase mb-6">
                                 Send a Message
                             </h2>
 

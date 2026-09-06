@@ -37,7 +37,7 @@ export default function ErrorPage({ status }: { status: number }) {
                         <AlertTriangle className="w-16 h-16 text-primary" />
                     </div>
                     
-                    <h1 className="text-4xl md:text-6xl font-bold tracking-wider text-foreground uppercase mb-6">
+                    <h1 className="text-4xl md:text-6xl font-black tracking-tighter text-foreground uppercase mb-6">
                         {title}
                     </h1>
                     

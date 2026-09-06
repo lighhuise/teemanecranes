@@ -8,13 +8,13 @@ export default function Index({ services }: { services: any[] }) {
     return (
         <AppLayout>
             <Head title="Services" />
-            
+
             <div className="bg-background selection:bg-primary selection:text-white pb-24">
                 <section className="py-24 bg-muted/30 border-b border-border">
                     <Wrapper>
                         <SectionHeading
                             label="Our Capabilities"
-                            title="ENGINEERED FOR THE LIFT"
+                            title={<>ENGINEERED FOR <span className={`text-primary`}>THE LIFT</span> </>}
                             align="center"
                             className="mb-16"
                         >
@@ -28,7 +28,7 @@ export default function Index({ services }: { services: any[] }) {
                                         <span className="text-3xl font-bold tracking-wider text-muted-foreground/20 group-hover:text-primary transition-colors">
                                             0{idx + 1}
                                         </span>
-                                        <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors uppercase">
+                                        <h3 className="text-xl font-black text-foreground group-hover:text-primary transition-colors uppercase">
                                             {service.title}
                                         </h3>
                                         <p className="text-sm text-muted-foreground leading-relaxed">

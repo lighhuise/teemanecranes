@@ -16,13 +16,12 @@ export default function AboutUs() {
             <div className="bg-muted/30 py-24 border-b border-border">
                 <Wrapper>
                     <SectionHeading
-                        label="Our Capabilities"
-                        title="ENGINEERED FOR THE LIFT"
+                        label="Our Story"
+                        title={<>Redefining What's Possible In <span className="text-primary">Mobile Crane</span> Hire.</>}
                         align="center"
+                        className="mb-16"
                     >
-
-                            Established in 2012, Teemane Cranes prides itself on countless victories across South Africa's most demanding worksites, from high-stakes projects to complex operations.
-
+                        Established in 2012, Teemane Cranes prides itself on countless victories across South Africa's most demanding worksites, from high-stakes projects to complex operations.
                     </SectionHeading>
                 </Wrapper>
             </div>
@@ -56,7 +55,7 @@ export default function AboutUs() {
                 <Wrapper>
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
                         <div className="space-y-8">
-                            <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wider text-foreground leading-[1.2]">
+                            <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter text-foreground leading-[1.2]">
                                 Leading the projects that shape industries today.
                             </h2>
                             <p className="text-lg text-muted-foreground leading-relaxed">
@@ -68,28 +67,28 @@ export default function AboutUs() {
                                     <div className="w-12 h-12 bg-primary/10 text-primary flex items-center justify-center rounded-lg border border-primary/20">
                                         <Trophy className="w-6 h-6" />
                                     </div>
-                                    <h3 className="text-xl font-bold uppercase">Proven Track Record</h3>
+                                    <h3 className="text-xl font-black uppercase">Proven Track Record</h3>
                                     <p className="text-muted-foreground text-sm">Countless victories across South Africa's most demanding worksites since 2012.</p>
                                 </div>
                                 <div className="space-y-4">
                                     <div className="w-12 h-12 bg-primary/10 text-primary flex items-center justify-center rounded-lg border border-primary/20">
                                         <Truck className="w-6 h-6" />
                                     </div>
-                                    <h3 className="text-xl font-bold uppercase">Massive Capacity</h3>
+                                    <h3 className="text-xl font-black uppercase">Massive Capacity</h3>
                                     <p className="text-muted-foreground text-sm">A modern fleet of hydraulic cranes with staggering capacities of up to 440 tons.</p>
                                 </div>
                                 <div className="space-y-4">
                                     <div className="w-12 h-12 bg-primary/10 text-primary flex items-center justify-center rounded-lg border border-primary/20">
                                         <HardHat className="w-6 h-6" />
                                     </div>
-                                    <h3 className="text-xl font-bold uppercase">Unmatched Safety</h3>
+                                    <h3 className="text-xl font-black uppercase">Unmatched Safety</h3>
                                     <p className="text-muted-foreground text-sm">Stringent safety protocols ensuring zero-incident operations on high-stakes projects.</p>
                                 </div>
                                 <div className="space-y-4">
                                     <div className="w-12 h-12 bg-primary/10 text-primary flex items-center justify-center rounded-lg border border-primary/20">
                                         <Target className="w-6 h-6" />
                                     </div>
-                                    <h3 className="text-xl font-bold uppercase">Precision Execution</h3>
+                                    <h3 className="text-xl font-black uppercase">Precision Execution</h3>
                                     <p className="text-muted-foreground text-sm">A highly skilled team driven to deliver unmatched results in complex operations.</p>
                                 </div>
                             </div>
@@ -125,28 +124,28 @@ export default function AboutUs() {
                                 <div className="w-14 h-14 bg-primary/10 text-primary flex items-center justify-center rounded-xl border border-primary/20 mb-6 group-hover:scale-110 transition-transform duration-300">
                                     <Building2 className="w-7 h-7" />
                                 </div>
-                                <h3 className="text-lg font-bold uppercase tracking-wider mb-3">Sole Provider</h3>
+                                <h3 className="text-lg font-black uppercase tracking-tighter mb-3">Sole Provider</h3>
                                 <p className="text-muted-foreground text-sm leading-relaxed">Trusted as the exclusive full turnkey solutions partner by South Africa's most established companies.</p>
                             </div>
                             <div className="bg-background rounded-xl p-8 border border-border hover:border-primary/40 hover:shadow-lg transition-all duration-300 group">
                                 <div className="w-14 h-14 bg-primary/10 text-primary flex items-center justify-center rounded-xl border border-primary/20 mb-6 group-hover:scale-110 transition-transform duration-300">
                                     <Users className="w-7 h-7" />
                                 </div>
-                                <h3 className="text-lg font-bold uppercase tracking-wider mb-3">100+ Years Experience</h3>
+                                <h3 className="text-lg font-black uppercase tracking-tighter mb-3">100+ Years Experience</h3>
                                 <p className="text-muted-foreground text-sm leading-relaxed">Our management team brings over a century of combined industry experience to every project.</p>
                             </div>
                             <div className="bg-background rounded-xl p-8 border border-border hover:border-primary/40 hover:shadow-lg transition-all duration-300 group">
                                 <div className="w-14 h-14 bg-primary/10 text-primary flex items-center justify-center rounded-xl border border-primary/20 mb-6 group-hover:scale-110 transition-transform duration-300">
                                     <Zap className="w-7 h-7" />
                                 </div>
-                                <h3 className="text-lg font-bold uppercase tracking-wider mb-3">High-Risk Certainty</h3>
+                                <h3 className="text-lg font-black uppercase tracking-tighter mb-3">High-Risk Certainty</h3>
                                 <p className="text-muted-foreground text-sm leading-relaxed">The depth of knowledge, control, and capability required to deliver certainty in high-risk environments.</p>
                             </div>
                             <div className="bg-background rounded-xl p-8 border border-border hover:border-primary/40 hover:shadow-lg transition-all duration-300 group">
                                 <div className="w-14 h-14 bg-primary/10 text-primary flex items-center justify-center rounded-xl border border-primary/20 mb-6 group-hover:scale-110 transition-transform duration-300">
                                     <Award className="w-7 h-7" />
                                 </div>
-                                <h3 className="text-lg font-bold uppercase tracking-wider mb-3">Complex Success</h3>
+                                <h3 className="text-lg font-black uppercase tracking-tighter mb-3">Complex Success</h3>
                                 <p className="text-muted-foreground text-sm leading-relaxed">A track record of success on projects of the highest complexity, delivered on time and to specification.</p>
                             </div>
                         </div>

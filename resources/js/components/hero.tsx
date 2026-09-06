@@ -7,7 +7,7 @@ import { CalendarDays, HardHat, Clock } from "lucide-react";
 // @ts-ignore
 import heroMaskSvg from "@/../images/hero-mask-2.svg";
 // @ts-ignore
-import heroBgImage from "@/../images/blue_crane_desert_storm.webp";
+import heroBgImage from "@/../images/hero-background.webp";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -41,13 +41,13 @@ export default function Hero() {
                 <img
                     src={heroBgImage}
                     alt="Hero Background"
-                    className="hero-bg-parallax w-full h-[130%] object-cover object-center -top-[15%] relative"
+                    className="hero-bg-parallax w-full h-[130%] object-cover object-center top-[-15%] relative"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-background via-background/80 to-black/40"></div>
             </div>
 
             <div className="relative z-10 w-full px-4 sm:px-6 block lg:hidden pt-10 pb-16">
-                <h1 className="text-5xl sm:text-6xl font-bold tracking-wider leading-[0.9] text-white drop-shadow-lg">
+                <h1 className="text-5xl sm:text-6xl font-black tracking-tighter leading-[0.9] text-white drop-shadow-lg">
                     A CUT ABOVE <br />
                     <span className="text-primary">THE REST</span>
                 </h1>
@@ -117,7 +117,7 @@ export default function Hero() {
                             </div>
 
                         </div>
-                        <div className="absolute inset-0 bg-gradient-to-tr from-black/80 via-black/20 to-transparent pointer-events-none"></div>
+                        {/*<div className="absolute inset-0 bg-linear-to-tr from-black/80 via-black/20 to-transparent pointer-events-none"></div>*/}
                     </div>
                     </div>
 
@@ -125,7 +125,7 @@ export default function Hero() {
                       Text positioned significantly higher (top-[2%])
                     */}
                     <div className="absolute top-[10%] left-[1%] max-w-[50%] z-20">
-                        <h1 className="text-[5vw] xl:text-[75px] font-bold tracking-wider leading-[0.9] text-foreground">
+                        <h1 className="text-[5vw] xl:text-[75px] font-black tracking-tighter leading-[0.9] text-foreground">
                             A CUT ABOVE <br />
                             <span className="text-primary">THE REST</span>
                         </h1>

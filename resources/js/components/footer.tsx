@@ -8,8 +8,8 @@ export default function Footer() {
     return (
         <footer className="bg-muted  z-5 text-muted-foreground relative overflow-hidden pt-24 pb-12 border-t-6 border-primary">
             {/* Background Typography */}
-            <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none select-none overflow-hidden">
-                <h2 className="text-[20vh] xl:text-[300px] font-bold tracking-wider leading-none whitespace-nowrap text-foreground">TEEMANE</h2>
+            <div className="absolute inset-0 flex items-center justify-center opacity-5 dark:opacity-[1%] pointer-events-none select-none overflow-hidden">
+                <h2 className="text-[20vh] xl:text-[300px] font-black tracking-tighter leading-none whitespace-nowrap text-foreground">TEEMANE</h2>
             </div>
 
             <Wrapper className="relative z-10">
@@ -33,7 +33,7 @@ export default function Footer() {
 
                     {/* Navigation Column */}
                     <div className="lg:col-span-3 lg:col-start-6">
-                        <h3 className="text-foreground text-lg font-bold mb-8 tracking-widest uppercase">Navigation</h3>
+                        <h3 className="text-foreground text-lg font-black mb-8 tracking-tighter uppercase">Navigation</h3>
                         <ul className="flex flex-col gap-4">
                             {[
                                 { name: 'Home', href: '/' },
@@ -54,7 +54,7 @@ export default function Footer() {
 
                     {/* Contact Column */}
                     <div className="lg:col-span-4">
-                        <h3 className="text-foreground text-lg font-bold mb-8 tracking-widest uppercase">Contact Us</h3>
+                        <h3 className="text-foreground text-lg font-black mb-8 tracking-tighter uppercase">Contact Us</h3>
                         <ul className="flex flex-col gap-6">
                             <li className="flex items-start gap-4">
                                 <MapPin className="w-6 h-6 text-primary shrink-0 mt-1" />
@@ -76,13 +76,16 @@ export default function Footer() {
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground font-medium">
+                <div className="py-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground font-medium">
                     <p>&copy; {new Date().getFullYear()} Teemane Cranes. All rights reserved.</p>
                     <div className="flex items-center gap-6">
                         <Link href="/privacy-policy" className="hover:text-foreground transition-colors">Privacy Policy</Link>
                         <Link href="/terms-of-service" className="hover:text-foreground transition-colors">Terms of Service</Link>
                     </div>
                 </div>
+            </Wrapper>
+            <Wrapper className={`pt-8 border-t border-border text-center`}>
+                Designed and developed by  <a target={`_blank`} className={`text-primary hover:underline inline`} href="https://designbycode.co.za">designbycode</a>
             </Wrapper>
         </footer>
     );

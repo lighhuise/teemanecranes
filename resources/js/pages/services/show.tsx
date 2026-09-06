@@ -188,7 +188,7 @@ function CtaRenderer({ data }: { data: CtaBlock['data'] }) {
     return (
         <div className="bg-muted/40 border border-border rounded-xl p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="flex-1">
-                <h3 className="text-2xl font-bold tracking-wider text-foreground mb-2">
+                <h3 className="text-2xl font-black tracking-tighter text-foreground mb-2">
                     {data.heading}
                 </h3>
                 {data.text && (
@@ -218,7 +218,7 @@ function MediaTextRenderer({ data }: { data: MediaTextBlock['data'] }) {
                 {(data.heading || data.subheading) && (
                     <div className="space-y-2">
                         {data.subheading && <p className="text-sm font-bold tracking-widest uppercase text-primary">{data.subheading}</p>}
-                        {data.heading && <h3 className="text-3xl lg:text-4xl font-bold tracking-wider text-foreground leading-[1.1]">{data.heading}</h3>}
+                        {data.heading && <h3 className="text-3xl lg:text-4xl font-black tracking-tighter text-foreground leading-[1.1]">{data.heading}</h3>}
                     </div>
                 )}
                 {data.content && (
