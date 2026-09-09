@@ -11,7 +11,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 var hero_mask_2_default = "/build/assets/hero-mask-2-DJkSOBdI.svg";
 //#endregion
 //#region resources/images/hero-background.webp
-var hero_background_default = "/build/assets/hero-background-BYWD5peB.webp";
+var hero_background_default = "/build/assets/hero-background-cmMG4vjK.webp";
 //#endregion
 //#region resources/js/components/hero.tsx
 gsap.registerPlugin(ScrollTrigger);
@@ -405,4 +405,4 @@ Home.layout = AppLayout;
 //#endregion
 export { Home as default };
 
-//# sourceMappingURL=home-dHj9-S7C.js.map
+//# sourceMappingURL=home-B4TRGjt4.js.map
