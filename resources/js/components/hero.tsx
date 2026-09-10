@@ -43,17 +43,38 @@ export default function Hero() {
                     alt="Hero Background"
                     className="hero-bg-parallax w-full h-[130%] object-cover object-center top-[-15%] relative"
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-background via-background/80 to-black/40"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/60 to-black/20"></div>
             </div>
 
-            <div className="relative z-10 w-full px-4 sm:px-6 block lg:hidden pt-10 pb-16">
-                <h1 className="text-5xl sm:text-6xl font-black tracking-tighter leading-[0.9] text-white drop-shadow-lg">
-                    A CUT ABOVE <br />
-                    <span className="text-primary">THE REST</span>
-                </h1>
-                <p className="mt-6 text-sm font-bold tracking-tight text-accent">
-                    CRANE HIRE • HEAVY LIFTING • SPECIALISED TRANSPORT
-                </p>
+            <div className="relative z-10 w-full px-5 flex flex-col justify-end lg:hidden min-h-[75vh] pb-10 pt-24">
+                <div className="max-w-md">
+                    <h1 className="text-[3.25rem] sm:text-6xl font-black tracking-tighter leading-[0.9] text-white drop-shadow-md">
+                        A CUT ABOVE <br />
+                        <span className="text-primary">THE REST</span>
+                    </h1>
+                    <p className="mt-5 text-xs sm:text-sm font-bold tracking-widest text-white/90 uppercase border-l-4 border-primary pl-3">
+                        Crane Hire • Heavy Lifting<br/>Specialised Transport
+                    </p>
+                    
+                    {/* Mobile Stats */}
+                    <div className="mt-8 grid grid-cols-2 gap-3">
+                        <div className="bg-white/10 backdrop-blur-md border border-white/20 p-3 rounded-lg flex flex-col justify-between">
+                            <p className="text-[10px] font-bold text-white/80 uppercase tracking-widest mb-1">Experience</p>
+                            <p className="text-3xl font-black text-white">25+</p>
+                        </div>
+                        <div className="bg-white/10 backdrop-blur-md border border-white/20 p-3 rounded-lg flex flex-col justify-between">
+                            <p className="text-[10px] font-bold text-white/80 uppercase tracking-widest mb-1">Projects</p>
+                            <p className="text-3xl font-black text-white">500+</p>
+                        </div>
+                        <div className="col-span-2 bg-primary/20 backdrop-blur-md border border-primary/30 p-3 rounded-lg flex items-center justify-between">
+                            <p className="text-[10px] font-bold text-white uppercase tracking-widest">Availability</p>
+                            <div className="flex items-center gap-2">
+                                <Clock className="w-4 h-4 text-primary" />
+                                <p className="text-2xl font-black text-white">24/7</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             {/* Desktop View: Perfectly matching example.svg proportions */}
