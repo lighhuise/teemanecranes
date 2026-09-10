@@ -19,17 +19,17 @@ var renderPage = (page) => createInertiaApp({
 	render: ReactDOMServer.renderToString,
 	title: (title) => `${title} - ${appName}`,
 	resolve: (name) => resolvePageComponent(`./pages/${name}.tsx`, /* #__PURE__ */ Object.assign({
-		"./pages/about-us.tsx": () => import("./assets/about-us-IBUGev_E.js"),
-		"./pages/contact-us.tsx": () => import("./assets/contact-us-RfcUEqXq.js"),
-		"./pages/employees/index.tsx": () => import("./assets/employees-B_IDXCWR.js"),
-		"./pages/employees/show.tsx": () => import("./assets/show-Bi1SXbx7.js"),
-		"./pages/error.tsx": () => import("./assets/error-DJ2Fa6ut.js"),
-		"./pages/home.tsx": () => import("./assets/home-B4TRGjt4.js"),
-		"./pages/legal/privacy-policy.tsx": () => import("./assets/privacy-policy-Be_nHD-w.js"),
-		"./pages/legal/terms-of-service.tsx": () => import("./assets/terms-of-service-DgW_dy8a.js"),
-		"./pages/services/index.tsx": () => import("./assets/services-BMwuPoV1.js"),
-		"./pages/services/show.tsx": () => import("./assets/show-Cn8VQGYG.js"),
-		"./pages/welcome.tsx": () => import("./assets/welcome-BypgJekk.js")
+		"./pages/about-us.tsx": () => import("./assets/about-us-DX2t83sC.js"),
+		"./pages/contact-us.tsx": () => import("./assets/contact-us-C2LPwaTx.js"),
+		"./pages/employees/index.tsx": () => import("./assets/employees-CtXsdZ1p.js"),
+		"./pages/employees/show.tsx": () => import("./assets/show-Cp9A2hAT.js"),
+		"./pages/error.tsx": () => import("./assets/error-CmzAtRCS.js"),
+		"./pages/home.tsx": () => import("./assets/home-CfQMPqsA.js"),
+		"./pages/legal/privacy-policy.tsx": () => import("./assets/privacy-policy-CEBVcm_u.js"),
+		"./pages/legal/terms-of-service.tsx": () => import("./assets/terms-of-service-DXw5foWk.js"),
+		"./pages/services/index.tsx": () => import("./assets/services-Csc0gg65.js"),
+		"./pages/services/show.tsx": () => import("./assets/show-DEqmkfH7.js"),
+		"./pages/welcome.tsx": () => import("./assets/welcome-Cm9-jOMR.js")
 	})),
 	setup({ App, props }) {
 		return /* @__PURE__ */ jsx(App, { ...props });

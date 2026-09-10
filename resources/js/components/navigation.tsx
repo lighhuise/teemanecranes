@@ -136,7 +136,7 @@ export default function Navigation() {
                   <Link
                     href="/contact-us"
                     prefetch="hover"
-                    className="mt-3 flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-sm font-bold tracking-widest uppercase bg-linear-  to-r from-primary to-primary/70 hover:from-primary/90 hover:to-primary text-primary-foreground transition-all shadow-sm hover:shadow"
+                    className="mt-3 flex items-center justify-start gap-2 px-4 py-3 rounded-lg text-sm font-bold tracking-widest uppercase bg-linear-to-r from-primary to-primary/70 hover:from-primary/90 hover:to-primary text-primary-foreground transition-all shadow-sm hover:shadow"
                   >
                     Contact Us
                   </Link>
