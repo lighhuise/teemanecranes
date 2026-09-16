@@ -5,7 +5,7 @@ type Align = 'left' | 'center' | 'right';
 
 interface SectionHeadingProps {
     /** Small label shown above the title with decorative lines */
-    label: string;
+    label?: string;
     /** Main heading text */
     title: string | ReactNode;
     /** Optional descriptive paragraph or any children below the title */
@@ -37,18 +37,22 @@ export default function SectionHeading({
     return (
         <div className={cn('flex flex-col space-y-6', alignClass[align], className)}>
             {/* Label with decorative lines */}
-            <div className={cn('inline-flex items-center gap-4', lineClass[align])}>
-                {/* Left line — hidden on right-aligned, always shown on left/center */}
-                {align !== 'right' && <div className="h-px w-8 bg-primary shrink-0" />}
-                <span className="text-sm font-bold text-primary tracking-widest uppercase whitespace-nowrap">
+
+            {label && (
+                <div className={cn('inline-flex items-center gap-4', lineClass[align])}>
+                    {/* Left line — hidden on right-aligned, always shown on left/center */}
+                    {align !== 'right' && <div className="h-px w-8 bg-primary shrink-0" />}
+                    <span className="text-sm font-bold text-primary tracking-widest uppercase whitespace-nowrap">
                     {label}
                 </span>
-                {/* Right line — shown on center and right */}
-                {align !== 'left' && <div className="h-px w-8 bg-primary shrink-0" />}
-            </div>
+                    {/* Right line — shown on center and right */}
+                    {align !== 'left' && <div className="h-px w-8 bg-primary shrink-0" />}
+                </div>
+            )}
+
 
             {/* Title */}
-            <h2 className="text-4xl lg:text-5xl max-w-2xl text-balance font-black tracking-tighter uppercase text-foreground leading-[1.1]">
+            <h2 className="text-4xl lg:text-5xl max-w-2xl text-balance font-black tracking-[0.35px] uppercase text-foreground leading-[1.1]">
                 {title}
             </h2>
 

@@ -19,6 +19,7 @@ class ServiceForm
     public static function configure(Schema $schema): Schema
     {
         return $schema
+            ->columns(1)
             ->components([
                 Section::make('Details')
                     ->columns(1)
@@ -101,6 +102,11 @@ class ServiceForm
                                             ])
                                             ->required()
                                             ->columnSpanFull(),
+                                            
+                                        Toggle::make('darker_background')
+                                            ->label('Slightly Darker Background')
+                                            ->default(false)
+                                            ->columnSpanFull(),
                                     ]),
 
                                 Block::make('image')
@@ -123,12 +129,30 @@ class ServiceForm
                                         TextInput::make('alt')
                                             ->label('Alt text')
                                             ->maxLength(255),
+                                            
+                                        Toggle::make('darker_background')
+                                            ->label('Slightly Darker Background')
+                                            ->default(false)
+                                            ->columnSpanFull(),
                                     ]),
 
                                 Block::make('gallery')
                                     ->label('Image Gallery')
                                     ->icon('heroicon-o-rectangle-stack')
                                     ->schema([
+                                        TextInput::make('heading')
+                                            ->label('Heading (Optional)')
+                                            ->maxLength(255),
+
+                                        TextInput::make('subheading')
+                                            ->label('Subheading (Optional)')
+                                            ->maxLength(255),
+
+                                        Textarea::make('description')
+                                            ->label('Description (Optional)')
+                                            ->rows(3)
+                                            ->columnSpanFull(),
+
                                         FileUpload::make('images')
                                             ->label('Images')
                                             ->disk('public')
@@ -145,12 +169,30 @@ class ServiceForm
                                         TextInput::make('caption')
                                             ->label('Gallery caption (optional)')
                                             ->maxLength(255),
+                                            
+                                        Toggle::make('darker_background')
+                                            ->label('Slightly Darker Background')
+                                            ->default(false)
+                                            ->columnSpanFull(),
                                     ]),
 
                                 Block::make('video')
                                     ->label('Video Embed')
                                     ->icon('heroicon-o-play-circle')
                                     ->schema([
+                                        TextInput::make('heading')
+                                            ->label('Heading (Optional)')
+                                            ->maxLength(255),
+
+                                        TextInput::make('subheading')
+                                            ->label('Subheading (Optional)')
+                                            ->maxLength(255),
+
+                                        Textarea::make('description')
+                                            ->label('Description (Optional)')
+                                            ->rows(3)
+                                            ->columnSpanFull(),
+
                                         TextInput::make('url')
                                             ->label('YouTube or Vimeo URL')
                                             ->url()
@@ -160,6 +202,11 @@ class ServiceForm
                                         TextInput::make('caption')
                                             ->label('Caption (optional)')
                                             ->maxLength(255),
+                                            
+                                        Toggle::make('darker_background')
+                                            ->label('Slightly Darker Background')
+                                            ->default(false)
+                                            ->columnSpanFull(),
                                     ]),
 
                                 Block::make('cta')
@@ -185,6 +232,11 @@ class ServiceForm
                                             ->label('Button URL')
                                             ->url()
                                             ->required(),
+                                            
+                                        Toggle::make('darker_background')
+                                            ->label('Slightly Darker Background')
+                                            ->default(false)
+                                            ->columnSpanFull(),
                                     ]),
 
                                 Block::make('media_text')
@@ -242,6 +294,11 @@ class ServiceForm
                                         TextInput::make('stat_card_label')
                                             ->label('Stat Card Label (e.g. Years Experience)')
                                             ->maxLength(255),
+
+                                        Toggle::make('darker_background')
+                                            ->label('Slightly Darker Background')
+                                            ->default(false)
+                                            ->columnSpanFull(),
                                     ]),
                             ]),
                     ]),

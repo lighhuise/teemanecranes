@@ -15,8 +15,8 @@ class ServicesTable
     {
         return $table
             ->columns([
-                SpatieMediaLibraryImageColumn::make('image')
-                    ->collection('default'),
+                SpatieMediaLibraryImageColumn::make('featured_image')
+                    ->collection('featured_image'),
                 TextColumn::make('title')
                     ->searchable()
                     ->sortable(),

@@ -3,6 +3,7 @@ import SectionHeading from "@/components/ui/misc/section-heading";
 import { Link } from "@inertiajs/react";
 import { buttonVariants } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { ServiceCard } from "@/components/service-card";
 
 export function HomeServicesSection({ services }: { services: any[] }) {
     return (
@@ -19,19 +20,7 @@ export function HomeServicesSection({ services }: { services: any[] }) {
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {services.map((service, idx) => (
-                        <div key={service.id} className="group relative p-8 bg-background border border-border flex flex-col justify-between min-h-65 transition-all hover:border-primary hover:shadow-lg hover:-translate-y-1 rounded-md cursor-default">
-                            <div className="space-y-4">
-                                <span className="text-3xl font-bold tracking-wider text-muted-foreground/20 group-hover:text-primary transition-colors">
-                                    0{idx + 1}
-                                </span>
-                                <h3 className="text-xl font-black text-foreground group-hover:text-primary transition-colors">
-                                    {service.title}
-                                </h3>
-                                <p className="text-sm text-muted-foreground leading-relaxed">
-                                    {service.short_description}
-                                </p>
-                            </div>
-                        </div>
+                        <ServiceCard key={service.id} service={service} index={idx} />
                     ))}
                 </div>
 

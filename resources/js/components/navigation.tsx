@@ -16,6 +16,7 @@ const navLinks = [
   { name: 'Home', href: home.url() },
     { name: 'Services', href: '/services' },
     { name: 'About Us', href: '/about-us' },
+    { name: 'FAQ', href: '/faq' },
 ];
 
 export default function Navigation() {

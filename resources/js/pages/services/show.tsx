@@ -13,12 +13,12 @@ import 'swiper/css/pagination';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-interface RichTextBlock  { type: 'rich_text';  data: { content: string } }
-interface ImageBlock     { type: 'image';      data: { image: string; image_url: string; caption?: string; alt?: string } }
-interface GalleryBlock   { type: 'gallery';    data: { images: string[]; image_urls: string[]; caption?: string } }
-interface VideoBlock     { type: 'video';      data: { url: string; caption?: string } }
-interface CtaBlock       { type: 'cta';        data: { heading: string; text?: string; button_label: string; button_url: string } }
-interface MediaTextBlock { type: 'media_text'; data: { heading?: string; subheading?: string; content?: string; button_label?: string; button_url?: string; images: string[]; image_urls?: string[]; image_position: 'left' | 'right'; stat_card_value?: string; stat_card_label?: string; } }
+interface RichTextBlock  { type: 'rich_text';  data: { content: string; darker_background?: boolean } }
+interface ImageBlock     { type: 'image';      data: { image: string; image_url: string; caption?: string; alt?: string; darker_background?: boolean } }
+interface GalleryBlock   { type: 'gallery';    data: { images: string[]; image_urls: string[]; caption?: string; darker_background?: boolean; heading?: string; subheading?: string; description?: string; } }
+interface VideoBlock     { type: 'video';      data: { url: string; caption?: string; darker_background?: boolean; heading?: string; subheading?: string; description?: string; } }
+interface CtaBlock       { type: 'cta';        data: { heading: string; text?: string; button_label: string; button_url: string; darker_background?: boolean } }
+interface MediaTextBlock { type: 'media_text'; data: { heading?: string; subheading?: string; content?: string; button_label?: string; button_url?: string; images: string[]; image_urls?: string[]; image_position: 'left' | 'right'; stat_card_value?: string; stat_card_label?: string; darker_background?: boolean; } }
 
 type ContentBlock = RichTextBlock | ImageBlock | GalleryBlock | VideoBlock | CtaBlock | MediaTextBlock;
 
@@ -57,7 +57,11 @@ function RichTextRenderer({ data }: { data: RichTextBlock['data'] }) {
     return (
         <div
             className="prose prose-neutral dark:prose-invert max-w-none
-                       prose-headings:font-bold prose-headings:tracking-wider
+                       prose-headings:font-black prose-headings:tracking-[0.35px] prose-headings:uppercase prose-headings:text-foreground prose-headings:leading-[1.1]
+                       prose-h1:text-4xl lg:prose-h1:text-5xl
+                       prose-h2:text-4xl lg:prose-h2:text-5xl
+                       prose-h3:text-2xl lg:prose-h3:text-3xl
+                       prose-p:text-lg prose-p:text-muted-foreground prose-p:leading-relaxed
                        prose-a:text-primary prose-a:no-underline hover:prose-a:underline
                        prose-blockquote:border-primary prose-blockquote:text-muted-foreground"
             dangerouslySetInnerHTML={{ __html: data.content }}
@@ -87,8 +91,14 @@ function GalleryRenderer({ data }: { data: GalleryBlock['data'] }) {
     const urls = data.image_urls ?? [];
 
     return (
-        <figure>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+        <div className="space-y-12">
+            {(data.heading || data.subheading || data.description) && (
+                <SectionHeading align="left" label={data.subheading} title={data.heading}>
+                    {data.description && <p className="whitespace-pre-wrap">{data.description}</p>}
+                </SectionHeading>
+            )}
+            <figure>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                 {urls.map((url, i) => (
                     <button
                         key={i}
@@ -146,6 +156,7 @@ function GalleryRenderer({ data }: { data: GalleryBlock['data'] }) {
                 </div>
             )}
         </figure>
+        </div>
     );
 }
 
@@ -153,8 +164,14 @@ function VideoRenderer({ data }: { data: VideoBlock['data'] }) {
     const embedUrl = getEmbedUrl(data.url);
 
     return (
-        <figure>
-            {embedUrl ? (
+        <div className="space-y-12">
+            {(data.heading || data.subheading || data.description) && (
+                <SectionHeading align="left" label={data.subheading} title={data.heading}>
+                    {data.description && <p className="whitespace-pre-wrap">{data.description}</p>}
+                </SectionHeading>
+            )}
+            <figure>
+                {embedUrl ? (
                 <div className="relative aspect-video rounded-lg overflow-hidden bg-black">
                     <iframe
                         src={embedUrl}
@@ -181,6 +198,7 @@ function VideoRenderer({ data }: { data: VideoBlock['data'] }) {
                 </figcaption>
             )}
         </figure>
+        </div>
     );
 }
 
@@ -216,13 +234,16 @@ function MediaTextRenderer({ data }: { data: MediaTextBlock['data'] }) {
             {/* Text Content */}
             <div className="flex-1 min-w-0 w-full space-y-6">
                 {(data.heading || data.subheading) && (
-                    <div className="space-y-2">
-                        {data.subheading && <p className="text-sm font-bold tracking-widest uppercase text-primary">{data.subheading}</p>}
-                        {data.heading && <h3 className="text-3xl lg:text-4xl font-black tracking-tighter text-foreground leading-[1.1]">{data.heading}</h3>}
-                    </div>
+                    <SectionHeading align={`left`} label={data.subheading} title={data.heading}/>
                 )}
                 {data.content && (
-                    <div className="prose prose-neutral dark:prose-invert max-w-none text-muted-foreground prose-a:text-primary hover:prose-a:underline" dangerouslySetInnerHTML={{ __html: data.content }} />
+                    <div className="prose prose-neutral dark:prose-invert max-w-none text-muted-foreground
+                                    prose-headings:font-black prose-headings:tracking-[0.35px] prose-headings:uppercase prose-headings:text-foreground prose-headings:leading-[1.1]
+                                    prose-h1:text-4xl lg:prose-h1:text-5xl
+                                    prose-h2:text-4xl lg:prose-h2:text-5xl
+                                    prose-h3:text-2xl lg:prose-h3:text-3xl
+                                    prose-p:text-lg prose-p:text-muted-foreground prose-p:leading-relaxed
+                                    prose-a:text-primary hover:prose-a:underline" dangerouslySetInnerHTML={{ __html: data.content }} />
                 )}
                 {data.button_label && data.button_url && (
                     <a href={data.button_url} className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-primary/70 text-primary-foreground font-bold tracking-widest uppercase text-sm px-8 py-4 rounded-lg shadow-sm hover:from-primary/90 hover:to-primary transition-all group">
@@ -233,7 +254,7 @@ function MediaTextRenderer({ data }: { data: MediaTextBlock['data'] }) {
             </div>
 
             {/* Media Content */}
-            <div className="flex-1 min-w-0 w-full h-[400px] md:h-[500px] relative group">
+            <div className="flex-1 min-w-0 w-full h-100 md:h-125 relative group">
                 <div className="w-full h-full rounded-2xl overflow-hidden shadow-xl relative">
                     {hasMultiple ? (
                         <Swiper
@@ -265,11 +286,11 @@ function MediaTextRenderer({ data }: { data: MediaTextBlock['data'] }) {
                         </div>
                     )}
                 </div>
-                
+
                 {data.stat_card_value && data.stat_card_label && (
-                    <FloatingStatCard 
-                        value={data.stat_card_value} 
-                        label={data.stat_card_label} 
+                    <FloatingStatCard
+                        value={data.stat_card_value}
+                        label={data.stat_card_label}
                         position={isImageLeft ? 'bottom-right' : 'bottom-left'}
                     />
                 )}
@@ -300,50 +321,69 @@ export default function Show({ service }: { service: Service }) {
             <Head title={service.title} />
 
             {/* Hero */}
-            <div className="relative border-b border-border">
+            <div className="relative border-b border-border bg-muted/20">
                 {service.featured_image_url && (
-                    <div className="absolute inset-0 overflow-hidden">
+                    <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
                         <img
                             src={service.featured_image_url}
-                            alt={service.title}
-                            className="w-full h-full object-cover"
+                            alt=""
+                            className="w-full h-full object-cover opacity-20  blur-xs"
                         />
-
                     </div>
                 )}
-                <Wrapper className={`relative py-24 ${service.featured_image_url ? '' : 'bg-transparent'}`}>
-                    <Link
-                        href="/services"
-                        className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground mb-8 transition-colors gap-2"
-                    >
-                        <ArrowLeft className="h-4 w-4" />
-                        Back to Services
-                    </Link>
-                    <SectionHeading
-                        label="Service Profile"
-                        title={service.title}
-                        align="left"
-                        className="mb-8"
-                    >
-                        {service.description && (
-                            <div
-                                className="prose prose-sm sm:prose lg:prose-lg xl:prose-xl max-w-none dark:prose-invert text-muted-foreground"
-                                dangerouslySetInnerHTML={{ __html: service.description }}
-                            />
+                <Wrapper className="relative py-24 z-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+                        <div>
+                            <Link
+                                href="/services"
+                                className="inline-flex items-center text-sm font-bold tracking-widest uppercase text-muted-foreground hover:text-primary mb-8 transition-colors gap-2"
+                            >
+                                <ArrowLeft className="h-4 w-4" />
+                                Back to Services
+                            </Link>
+                            <SectionHeading
+                                label="Service Profile"
+                                title={service.title}
+                                align="left"
+                                className="mb-0"
+                            >
+                                {service.description && (
+                                    <div
+                                        className="prose prose-sm sm:prose lg:prose-lg xl:prose-xl max-w-none dark:prose-invert text-muted-foreground"
+                                        dangerouslySetInnerHTML={{ __html: service.description }}
+                                    />
+                                )}
+                            </SectionHeading>
+                        </div>
+
+                        {service.featured_image_url && (
+                            <div className="relative w-full aspect-4/3 rounded-2xl overflow-hidden shadow-2xl">
+                                <img
+                                    src={service.featured_image_url}
+                                    alt={service.title}
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
                         )}
-                    </SectionHeading>
+                    </div>
                 </Wrapper>
             </div>
 
             {/* Content Blocks */}
             {hasBlocks && (
-                <Wrapper className="py-16 md:py-24">
-                    <div className="flex flex-col gap-16">
-                        {service.content_blocks.map((block, i) => (
-                            <ContentBlock key={i} block={block} />
-                        ))}
-                    </div>
-                </Wrapper>
+                <div className="flex flex-col">
+                    {service.content_blocks.map((block, i) => {
+                        const isDark = block.data.darker_background;
+
+                        return (
+                            <div key={i} className={`w-full py-16 md:py-24 ${isDark ? 'bg-muted border-y border-border' : ''}`}>
+                                <Wrapper>
+                                    <ContentBlock block={block} />
+                                </Wrapper>
+                            </div>
+                        );
+                    })}
+                </div>
             )}
         </AppLayout>
     );

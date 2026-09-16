@@ -41,9 +41,9 @@ export default function Hero() {
                 <img
                     src={heroBgImage}
                     alt="Hero Background"
-                    className="hero-bg-parallax w-full h-[130%] object-cover object-center top-[-15%] relative"
+                    className="hero-bg-parallax w-full h-full object-cover object-center top-0 relative"
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/60 to-black/20"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-black/50 to-black/20"></div>
             </div>
 
             <div className="relative z-10 w-full px-5 flex flex-col justify-end lg:hidden min-h-[75vh] pb-10 pt-24">
@@ -55,7 +55,7 @@ export default function Hero() {
                     <p className="mt-5 text-xs sm:text-sm font-bold tracking-widest text-white/90 uppercase border-l-4 border-primary pl-3">
                         Crane Hire • Heavy Lifting<br/>Specialised Transport
                     </p>
-                    
+
                     {/* Mobile Stats */}
                     <div className="mt-8 grid grid-cols-2 gap-3">
                         <div className="bg-white/10 backdrop-blur-md border border-white/20 p-3 rounded-lg flex flex-col justify-between">
@@ -99,7 +99,7 @@ export default function Hero() {
                         <img
                             src={heroBgImage}
                             alt="Hero Background"
-                            className="hero-bg-parallax w-full h-[130%] object-cover object-center top-[-25%] relative"
+                            className="hero-bg-parallax w-full h-[110%] object-cover object-center -top-10 relative"
                         />
                         {/* Stats */}
                         <div id={`stats`} className="absolute inset-x-4 bottom-4 z-10 flex space-x-2">

@@ -29,6 +29,12 @@ class DatabaseSeeder extends Seeder
             'password' => 'nvBcfGtre344GnM',
         ]);
 
+        User::factory()->create([
+            'name' => 'Robyn',
+            'email' => 'robyn@teemaniecranes.co.za',
+            'password' => 'RnvBcfGtre344GnM',
+        ]);
+
         $this->call([
             //            EmployeeSeeder::class,
             ServiceSeeder::class,

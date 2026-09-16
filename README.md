@@ -1,14 +1,29 @@
-# Laravel + React + Filament Starter Kit
+# Teemane Cranes - Corporate Website & CMS
 
-Welcome to the ultimate TALL/React stack hybrid starter kit. This project is configured to give you a powerful Laravel backend with a beautiful Filament admin panel, combined seamlessly with a modern React + Inertia.js frontend.
+This repository contains the official corporate website and Content Management System for **Teemane Cranes**.
+
+## 🏗️ About Teemane Cranes
+
+Established in 2012, Teemane Cranes is a leading provider of crane hire, heavy lifting, rigging, and specialised transport across South Africa's most demanding worksites. 
+
+- **Headquarters:** Bellville South, Cape Town, South Africa.
+- **Capacity:** Modern fleet of hydraulic cranes with capacities of up to 440 tons.
+- **Availability:** 24 hours a day, 365 days a year for emergency response.
+- **Experience:** Over 100+ years of combined management experience, executing complex and high-stakes projects with a proven track record.
+- **Services:** Mobile Crane Hire, Heavy Lifting, Rigging Services, Crane Truck Hire, Heavy Haulage, Machinery Relocation, Abnormal Transport, and Lift Planning.
 
 ## 🚀 Tech Stack
 
-- **Backend:** [Laravel 13](https://laravel.com)
-- **Admin Panel:** [Filament 5](https://filamentphp.com)
+The application is built using a modern, hybrid approach. The user-facing website is a high-performance React SPA, while the back-office CMS leverages Laravel and Filament for powerful content management.
+
+- **Backend / API:** [Laravel 13](https://laravel.com)
+- **CMS / Admin Panel:** [Filament 5](https://filamentphp.com)
 - **Frontend SPA:** [React 19](https://react.dev) + [Inertia.js v3](https://inertiajs.com)
 - **Styling:** [Tailwind CSS v4](https://tailwindcss.com)
-- **UI Components:** [Shadcn UI](https://ui.shadcn.com) (Base UI Preset)
+- **UI Components:** [Shadcn UI](https://ui.shadcn.com) (React)
+- **Testing:** [Pest PHP](https://pestphp.com/)
+
+---
 
 ## 🛠️ Getting Started
 
@@ -20,10 +35,13 @@ Ensure you have PHP and Composer installed, then run:
 composer install
 cp .env.example .env
 php artisan key:generate
-php artisan migrate
 ```
 
-> **Note:** Filament has its own robust authentication and user management system built-in, accessible out-of-the-box. 
+Configure your database in the `.env` file, then run the migrations and seeders (seeders will populate the initial users and dynamic service data):
+
+```bash
+php artisan migrate --seed
+```
 
 ### 2. Frontend Setup
 
@@ -54,43 +72,16 @@ php artisan serve
 ### The Frontend (React + Inertia)
 
 The user-facing website is completely powered by React and Inertia.
-- **Routes:** Define your web routes in `routes/web.php` and return Inertia responses (e.g., `Inertia::render('welcome')`).
+- **Routes:** Web routes are defined in `routes/web.php` and return Inertia responses (e.g., `Inertia::render('home')`).
 - **Pages:** React pages are located in `resources/js/pages/`.
-- **Layouts:** A default layout (`resources/js/layouts/app-layout.tsx`) is provided with a built-in Dark Mode toggle that saves to `localStorage` and respects system preferences.
+- **Content Formatting:** Shadcn UI components and Tailwind Typography (`prose`) are used heavily to render rich text content securely.
 
 ### The Admin Panel (Filament)
 
-The admin panel is handled independently by Filament.
+The CMS is handled independently by Filament.
 - Access the admin panel by visiting `/admin` in your browser.
-- The admin dashboard uses Laravel Blade and Livewire, staying completely separated from your Inertia React frontend to keep administrative tasks clean, simple, and fully integrated with the TALL stack.
+- Content managers can dynamically build the Services pages using a flexible Block Builder (Rich Text, Image Galleries, Video Embeds, Media & Text).
 
-### Shadcn UI Components
+### Client Content Handoff
 
-[Shadcn UI](https://ui.shadcn.com) is fully configured for your React frontend. You can scaffold beautifully designed, accessible components directly into your project.
-
-To add a new component, run:
-
-```bash
-npx shadcn@latest add [component-name]
-```
-
-For example, to add a Card component:
-
-```bash
-npx shadcn@latest add card
-```
-
-Components will be generated in `resources/js/components/ui/` and can be customized to your liking.
-
----
-
-## 💡 Dark Mode (Tailwind v4)
-
-This starter kit utilizes Tailwind CSS v4. Dark mode is implemented via the class strategy. 
-The custom variant is registered in `resources/css/app.css`:
-
-```css
-@custom-variant dark (&:where(.dark, .dark *));
-```
-
-You can use the `dark:` prefix on any Tailwind utility class to apply styling specifically when dark mode is toggled on in the layout.
+There is a `data-docs/` directory included in the root of the project. This acts as an offline drafting tool for the client to review and edit website copy, SEO metadata, and images in a clean Markdown format before they are inputted into the CMS.

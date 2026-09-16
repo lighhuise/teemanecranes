@@ -11,6 +11,7 @@ use Spatie\Honeypot\ProtectAgainstSpam;
 
 Route::get('/', HomePageIndexController::class)->name('home');
 Route::get('/about-us', AboutUsController::class)->name('about');
+Route::get('/faq', \App\Http\Controllers\FaqController::class)->name('faq');
 
 Route::get('/privacy-policy', function () {
     return inertia('legal/privacy-policy');
@@ -21,7 +22,8 @@ Route::get('/terms-of-service', function () {
 })->name('terms');
 
 Route::get('/contact-us', [ContactController::class, 'index'])->name('contact.index');
-Route::post('/contact-us', [ContactController::class, 'store'])->name('contact.store')->middleware(ProtectAgainstSpam::class);
+Route::post('/contact-us', [ContactController::class, 'store'])->name('contact.store')
+    ->middleware(ProtectAgainstSpam::class);
 
 Route::get('/services', ServicesIndexController::class)->name('services.index');
 Route::get('/services/{service:slug}', ServicesShowController::class)->name('services.show');

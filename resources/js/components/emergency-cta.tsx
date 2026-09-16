@@ -21,11 +21,11 @@ export default function EmergencyCta() {
                             <AlertTriangle className="w-5 h-5 text-background" />
                             <span className="font-bold tracking-widest uppercase text-sm">24/7 Rapid Response</span>
                         </div>
-                        <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter leading-[1.1] tracking-tight">
+                        <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter leading-[1.1]">
                             Emergencies Don't Wait For Business Hours.
                         </h2>
                         <p className="text-primary-foreground/90 md:text-lg max-w-2xl leading-relaxed">
-                            Unexpected equipment failures and critical incidents demand immediate action. Our specialized rapid-response teams are on standby 24/7 to provide urgent crane lifting and transport solutions minimizing your downtime and mitigating potential losses.
+                            Unexpected equipment failures and critical incidents demand immediate action. Our specialised rapid-response teams are on standby 24/7 to provide urgent crane lifting and transport solutions minimizing your downtime and mitigating potential losses.
                         </p>
                     </div>
 
