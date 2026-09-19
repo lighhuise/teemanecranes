@@ -5,8 +5,8 @@ import SectionHeading from '@/components/ui/misc/section-heading';
 
 export default function TermsOfService() {
     return (
-        <AppLayout>
-            <Head title="Terms of Service" />
+        <AppLayout title="Terms of Service">
+            
             <div className="bg-background selection:bg-primary selection:text-white pb-24">
                 <section className="py-24 bg-muted/30 border-b border-border">
                     <Wrapper>

@@ -45,7 +45,7 @@ export default function ContactUs({ flash, honeypot }: { flash: { success?: stri
 
     return (
         <>
-            <Head title="Contact Us" />
+            
 
             <div className="bg-muted/30 py-24 border-b border-border">
                 <Wrapper>
@@ -210,4 +210,4 @@ export default function ContactUs({ flash, honeypot }: { flash: { success?: stri
     );
 }
 
-ContactUs.layout = (page: React.ReactNode) => <AppLayout>{page}</AppLayout>;
+ContactUs.layout = (page: React.ReactNode) => <AppLayout title="Contact Us">{page}</AppLayout>;

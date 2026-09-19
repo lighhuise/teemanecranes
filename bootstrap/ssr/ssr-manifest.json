@@ -1,226 +1,234 @@
 {
   "node_modules/laravel-vite-plugin/inertia-helpers/index.js": [],
   "node_modules/leaflet/dist/leaflet.css": [
-    "/build/assets/map-BWu0EKq_.js",
+    "/build/assets/map-BDBDkJE_.js",
     "/build/assets/map-1DTFk8zz.css",
     "/build/assets/layers-BWBAp2CZ.png",
     "/build/assets/layers-2x-Bpkbi35X.png",
     "/build/assets/marker-icon-hN30_KVU.png"
   ],
   "node_modules/swiper/modules/navigation.css": [
-    "/build/assets/show-VHwWn3qW.js",
-    "/build/assets/show-DjMxu4j7.css"
+    "/build/assets/show-DCPRUsTa.js",
+    "/build/assets/show-BgP3iXkL.css"
   ],
   "node_modules/swiper/modules/pagination.css": [
-    "/build/assets/show-VHwWn3qW.js",
-    "/build/assets/show-DjMxu4j7.css"
+    "/build/assets/show-DCPRUsTa.js",
+    "/build/assets/show-BgP3iXkL.css"
   ],
   "node_modules/swiper/swiper.css": [
-    "/build/assets/show-VHwWn3qW.js",
-    "/build/assets/show-DjMxu4j7.css"
+    "/build/assets/show-DCPRUsTa.js",
+    "/build/assets/show-BgP3iXkL.css"
+  ],
+  "node_modules/yet-another-react-lightbox/dist/styles.css": [
+    "/build/assets/show-DCPRUsTa.js",
+    "/build/assets/show-BgP3iXkL.css"
   ],
   "resources/images/IMG_0190-copy.webp": [
-    "/build/assets/home-bzMWhB5u.js",
+    "/build/assets/home-CVhFfgZs.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
-    "/build/assets/hero-background-CjPEGvQC.webp",
+    "/build/assets/hero-background-DXnEaOUr.webp",
     "/build/assets/IMG_0190-copy-870kN3in.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp"
   ],
   "resources/images/Teemane-Boat.webp": [
-    "/build/assets/about-us-NQAY6fdq.js",
+    "/build/assets/about-us-CoogYp6E.js",
     "/build/assets/Teemane-Boat-DihsRzVb.webp"
   ],
   "resources/images/hero-background.webp": [
-    "/build/assets/home-bzMWhB5u.js",
+    "/build/assets/home-CVhFfgZs.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
-    "/build/assets/hero-background-CjPEGvQC.webp",
+    "/build/assets/hero-background-DXnEaOUr.webp",
     "/build/assets/IMG_0190-copy-870kN3in.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp"
   ],
   "resources/images/hero-mask-2.svg": [
-    "/build/assets/home-bzMWhB5u.js",
+    "/build/assets/home-CVhFfgZs.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
-    "/build/assets/hero-background-CjPEGvQC.webp",
+    "/build/assets/hero-background-DXnEaOUr.webp",
     "/build/assets/IMG_0190-copy-870kN3in.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp"
   ],
   "resources/images/logo.svg": [
-    "/build/assets/app-layout-DlRbq52i.js",
+    "/build/assets/app-layout-Ayo5GjO9.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/images/media-24-building.webp": [
-    "/build/assets/home-bzMWhB5u.js",
+    "/build/assets/home-CVhFfgZs.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
-    "/build/assets/hero-background-CjPEGvQC.webp",
+    "/build/assets/hero-background-DXnEaOUr.webp",
     "/build/assets/IMG_0190-copy-870kN3in.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp"
   ],
   "resources/js/components/emergency-cta.tsx": [
-    "/build/assets/app-layout-DlRbq52i.js",
+    "/build/assets/app-layout-Ayo5GjO9.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/footer.tsx": [
-    "/build/assets/app-layout-DlRbq52i.js",
+    "/build/assets/app-layout-Ayo5GjO9.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/hero-simple-split.tsx": [
-    "/build/assets/welcome-DAsNClmg.js"
+    "/build/assets/welcome-DTCZfZ0e.js"
   ],
   "resources/js/components/hero.tsx": [
-    "/build/assets/home-bzMWhB5u.js",
+    "/build/assets/home-CVhFfgZs.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
-    "/build/assets/hero-background-CjPEGvQC.webp",
+    "/build/assets/hero-background-DXnEaOUr.webp",
     "/build/assets/IMG_0190-copy-870kN3in.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp"
   ],
   "resources/js/components/map.tsx": [
-    "/build/assets/map-BWu0EKq_.js",
+    "/build/assets/map-BDBDkJE_.js",
     "/build/assets/map-1DTFk8zz.css",
     "/build/assets/layers-BWBAp2CZ.png",
     "/build/assets/layers-2x-Bpkbi35X.png",
     "/build/assets/marker-icon-hN30_KVU.png"
   ],
   "resources/js/components/mode-toggle.tsx": [
-    "/build/assets/app-layout-DlRbq52i.js",
+    "/build/assets/app-layout-Ayo5GjO9.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/navigation.tsx": [
-    "/build/assets/app-layout-DlRbq52i.js",
+    "/build/assets/app-layout-Ayo5GjO9.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/sections/home-credentials-section.tsx": [
-    "/build/assets/home-bzMWhB5u.js",
+    "/build/assets/home-CVhFfgZs.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
-    "/build/assets/hero-background-CjPEGvQC.webp",
+    "/build/assets/hero-background-DXnEaOUr.webp",
     "/build/assets/IMG_0190-copy-870kN3in.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp"
   ],
   "resources/js/components/sections/home-intro-section.tsx": [
-    "/build/assets/home-bzMWhB5u.js",
+    "/build/assets/home-CVhFfgZs.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
-    "/build/assets/hero-background-CjPEGvQC.webp",
+    "/build/assets/hero-background-DXnEaOUr.webp",
     "/build/assets/IMG_0190-copy-870kN3in.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp"
   ],
   "resources/js/components/sections/home-safety-section.tsx": [
-    "/build/assets/home-bzMWhB5u.js",
+    "/build/assets/home-CVhFfgZs.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
-    "/build/assets/hero-background-CjPEGvQC.webp",
+    "/build/assets/hero-background-DXnEaOUr.webp",
     "/build/assets/IMG_0190-copy-870kN3in.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp"
   ],
   "resources/js/components/sections/home-services-section.tsx": [
-    "/build/assets/home-bzMWhB5u.js",
+    "/build/assets/home-CVhFfgZs.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
-    "/build/assets/hero-background-CjPEGvQC.webp",
+    "/build/assets/hero-background-DXnEaOUr.webp",
     "/build/assets/IMG_0190-copy-870kN3in.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp"
   ],
   "resources/js/components/service-card.tsx": [
     "/build/assets/service-card-Clo69VCm.js"
   ],
+  "resources/js/components/stats-bar.tsx": [
+    "/build/assets/about-us-CoogYp6E.js",
+    "/build/assets/Teemane-Boat-DihsRzVb.webp"
+  ],
   "resources/js/components/theme-provider.tsx": [
-    "/build/assets/app-layout-DlRbq52i.js",
+    "/build/assets/app-layout-Ayo5GjO9.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/ui/accordion.tsx": [
-    "/build/assets/faq-D7Ry5Whr.js"
+    "/build/assets/faq-aygsKCFd.js"
   ],
   "resources/js/components/ui/button.tsx": [
-    "/build/assets/app-layout-DlRbq52i.js",
+    "/build/assets/app-layout-Ayo5GjO9.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/ui/card.tsx": [
-    "/build/assets/welcome-DAsNClmg.js"
+    "/build/assets/welcome-DTCZfZ0e.js"
   ],
   "resources/js/components/ui/dropdown-menu.tsx": [
-    "/build/assets/app-layout-DlRbq52i.js",
+    "/build/assets/app-layout-Ayo5GjO9.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/ui/input.tsx": [
-    "/build/assets/input-D2X4xw16.js"
+    "/build/assets/input-srR3NNTC.js"
   ],
   "resources/js/components/ui/misc/floating-stat-card.tsx": [
-    "/build/assets/floating-stat-card-B4Au-b17.js"
+    "/build/assets/floating-stat-card-DJ9MgYJg.js"
   ],
   "resources/js/components/ui/misc/section-heading.tsx": [
-    "/build/assets/section-heading-Cwxpl3uj.js"
+    "/build/assets/section-heading-DeqHoJ2u.js"
   ],
   "resources/js/components/ui/misc/wrapper.tsx": [
-    "/build/assets/app-layout-DlRbq52i.js",
+    "/build/assets/app-layout-Ayo5GjO9.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/ui/sheet.tsx": [
-    "/build/assets/app-layout-DlRbq52i.js",
+    "/build/assets/app-layout-Ayo5GjO9.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/ui/textarea.tsx": [
-    "/build/assets/contact-us-T50xG3RJ.js"
+    "/build/assets/contact-us-8Bn5Db_n.js"
   ],
   "resources/js/components/ui/toast.tsx": [
-    "/build/assets/app-layout-DlRbq52i.js",
+    "/build/assets/app-layout-Ayo5GjO9.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/layouts/app-layout.tsx": [
-    "/build/assets/app-layout-DlRbq52i.js",
+    "/build/assets/app-layout-Ayo5GjO9.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/lib/utils.ts": [
-    "/build/assets/app-layout-DlRbq52i.js",
+    "/build/assets/app-layout-Ayo5GjO9.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/pages/about-us.tsx": [
-    "/build/assets/about-us-NQAY6fdq.js",
+    "/build/assets/about-us-CoogYp6E.js",
     "/build/assets/Teemane-Boat-DihsRzVb.webp"
   ],
   "resources/js/pages/contact-us.tsx": [
-    "/build/assets/contact-us-T50xG3RJ.js"
+    "/build/assets/contact-us-8Bn5Db_n.js"
   ],
   "resources/js/pages/employees/index.tsx": [
-    "/build/assets/employees-BncM87hg.js"
+    "/build/assets/employees-MvoJFa4S.js"
   ],
   "resources/js/pages/employees/show.tsx": [
-    "/build/assets/show-BpZdz0v3.js"
+    "/build/assets/show-CyT_e9Tc.js"
   ],
   "resources/js/pages/error.tsx": [
-    "/build/assets/error-DQqjDU9L.js"
+    "/build/assets/error-C_yg35my.js"
   ],
   "resources/js/pages/faq.tsx": [
-    "/build/assets/faq-D7Ry5Whr.js"
+    "/build/assets/faq-aygsKCFd.js"
   ],
   "resources/js/pages/home.tsx": [
-    "/build/assets/home-bzMWhB5u.js",
+    "/build/assets/home-CVhFfgZs.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
-    "/build/assets/hero-background-CjPEGvQC.webp",
+    "/build/assets/hero-background-DXnEaOUr.webp",
     "/build/assets/IMG_0190-copy-870kN3in.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp"
   ],
   "resources/js/pages/legal/privacy-policy.tsx": [
-    "/build/assets/privacy-policy-BK2oCDVv.js"
+    "/build/assets/privacy-policy-VQ9_EtXz.js"
   ],
   "resources/js/pages/legal/terms-of-service.tsx": [
-    "/build/assets/terms-of-service-6lmdJpGY.js"
+    "/build/assets/terms-of-service-Cg_nQKZH.js"
   ],
   "resources/js/pages/services/index.tsx": [
-    "/build/assets/services-8Ya5nKk8.js"
+    "/build/assets/services-DXd9IRHZ.js"
   ],
   "resources/js/pages/services/show.tsx": [
-    "/build/assets/show-VHwWn3qW.js",
-    "/build/assets/show-DjMxu4j7.css"
+    "/build/assets/show-DCPRUsTa.js",
+    "/build/assets/show-BgP3iXkL.css"
   ],
   "resources/js/pages/welcome.tsx": [
-    "/build/assets/welcome-DAsNClmg.js"
+    "/build/assets/welcome-DTCZfZ0e.js"
   ],
   "resources/js/routes/index.ts": [
-    "/build/assets/app-layout-DlRbq52i.js",
+    "/build/assets/app-layout-Ayo5GjO9.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/routes/team/index.ts": [
-    "/build/assets/team-B5AJNbHL.js"
+    "/build/assets/team-BTgv5esI.js"
   ],
   "resources/js/ssr.tsx": [],
   "resources/js/wayfinder/index.ts": [
-    "/build/assets/app-layout-DlRbq52i.js",
+    "/build/assets/app-layout-Ayo5GjO9.js",
     "/build/assets/logo--6nxw50_.svg"
   ]
 }

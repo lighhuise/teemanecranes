@@ -96,7 +96,7 @@ export default function Navigation() {
           <div className="flex items-center gap-2 md:hidden">
             <ModeToggle />
             <Sheet>
-              <SheetTrigger>
+              <SheetTrigger asChild>
                 <button
                   className="inline-flex h-10 w-10 items-center justify-center rounded-md hover:bg-accent hover:text-accent-foreground"
                 >

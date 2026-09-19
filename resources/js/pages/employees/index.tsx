@@ -112,7 +112,7 @@ export default function Index({ employees, filters }: { employees: PaginatedData
 
     return (
         <>
-            <Head title="Our Team" />
+            
 
             <div className="bg-muted/30 py-24 border-b border-border">
                 <Wrapper>
@@ -174,4 +174,4 @@ export default function Index({ employees, filters }: { employees: PaginatedData
     );
 }
 
-Index.layout = (page: React.ReactNode) => <AppLayout>{page}</AppLayout>;
+Index.layout = (page: React.ReactNode) => <AppLayout title="Our Team">{page}</AppLayout>;

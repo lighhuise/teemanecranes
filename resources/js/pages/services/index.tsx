@@ -7,8 +7,8 @@ import { ServiceCard } from '@/components/service-card';
 
 export default function Index({ services }: { services: any[] }) {
     return (
-        <AppLayout>
-            <Head title="Services" />
+        <AppLayout title="Services">
+            
 
             <div className="bg-background selection:bg-primary selection:text-white pb-24">
                 <section className="py-24 bg-muted/30 border-b border-border">

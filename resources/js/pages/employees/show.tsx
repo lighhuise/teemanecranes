@@ -28,8 +28,6 @@ interface EmployeeDetail {
 export default function Show({ employee }: { employee: EmployeeDetail }) {
     return (
         <>
-            <Head title={`${employee.first_name} ${employee.last_name}`} />
-
             <section className="py-12 bg-muted/30 border-b border-border">
                 <Wrapper>
                     <Link href={team.index.url()} className="inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-primary transition-colors mb-12">
@@ -138,4 +136,15 @@ export default function Show({ employee }: { employee: EmployeeDetail }) {
     );
 }
 
-Show.layout = (page: React.ReactNode) => <AppLayout>{page}</AppLayout>;
+Show.layout = (page: React.ReactElement<any>) => {
+    const employee = page.props.employee;
+    return (
+        <AppLayout 
+            title={`${employee.first_name} ${employee.last_name}`}
+            image={employee.image_url}
+            description={employee.bio ? employee.bio.substring(0, 160) : undefined}
+        >
+            {page}
+        </AppLayout>
+    );
+};

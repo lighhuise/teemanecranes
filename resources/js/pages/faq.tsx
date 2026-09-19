@@ -6,8 +6,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 
 export default function FaqPage({ faqs }: { faqs: any[] }) {
     return (
-        <AppLayout>
-            <Head title="Frequently Asked Questions - Teemane Cranes" />
+        <AppLayout title="Frequently Asked Questions - Teemane Cranes">
+            
             
             <div className="bg-muted/30 py-24 border-b border-border">
                 <Wrapper>

@@ -4,13 +4,13 @@ import Wrapper from '@/components/ui/misc/wrapper';
 import {Target, ShieldCheck, Trophy, Truck, Users, Building2, Zap, Award, HardHat} from 'lucide-react';
 import { FloatingStatCard } from '@/components/ui/misc/floating-stat-card';
 import SectionHeading from '@/components/ui/misc/section-heading';
+import StatsBar from '@/components/stats-bar';
 // @ts-ignore
 import imgBoat from '@/../images/Teemane-Boat.webp';
 
 export default function AboutUs() {
     return (
         <>
-            <Head title="About Us - Teemane Cranes" />
 
             {/* Hero Section */}
             <div className="bg-muted/30 py-24 border-b border-border">
@@ -27,28 +27,7 @@ export default function AboutUs() {
             </div>
 
             {/* Stats Bar */}
-            <div className="bg-radial-[at_50%_85%] from-primary/70 to-primary text-primary-foreground  py-10 border-b border-primary/20">
-                <Wrapper>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                        <div>
-                            <div className="text-4xl md:text-5xl font-bold tracking-wider">2012</div>
-                            <div className="text-xs font-bold tracking-widest uppercase text-primary-foreground/70 mt-1">Established</div>
-                        </div>
-                        <div>
-                            <div className="text-4xl md:text-5xl font-bold tracking-wider">440T</div>
-                            <div className="text-xs font-bold tracking-widest uppercase text-primary-foreground/70 mt-1">Max Lift Capacity</div>
-                        </div>
-                        <div>
-                            <div className="text-4xl md:text-5xl font-bold tracking-wider">100+</div>
-                            <div className="text-xs font-bold tracking-widest uppercase text-primary-foreground/70 mt-1">Years Combined Experience</div>
-                        </div>
-                        <div>
-                            <div className="text-4xl md:text-5xl font-bold tracking-wider">24/7</div>
-                            <div className="text-xs font-bold tracking-widest uppercase text-primary-foreground/70 mt-1">Emergency Response</div>
-                        </div>
-                    </div>
-                </Wrapper>
-            </div>
+            <StatsBar />
 
             {/* Core Content Section */}
             <section className="py-24 bg-background">
@@ -177,4 +156,4 @@ export default function AboutUs() {
     );
 }
 
-AboutUs.layout = (page: React.ReactNode) => <AppLayout>{page}</AppLayout>;
+AboutUs.layout = (page: React.ReactNode) => <AppLayout title="About Us - Teemane Cranes">{page}</AppLayout>;

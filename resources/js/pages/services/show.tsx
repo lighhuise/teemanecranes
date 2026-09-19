@@ -10,6 +10,8 @@ import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -90,6 +92,8 @@ function GalleryRenderer({ data }: { data: GalleryBlock['data'] }) {
     const [lightbox, setLightbox] = useState<number | null>(null);
     const urls = data.image_urls ?? [];
 
+    const slides = urls.map(url => ({ src: url }));
+
     return (
         <div className="space-y-12">
             {(data.heading || data.subheading || data.description) && (
@@ -120,41 +124,12 @@ function GalleryRenderer({ data }: { data: GalleryBlock['data'] }) {
             )}
 
             {/* Lightbox */}
-            {lightbox !== null && (
-                <div
-                    className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
-                    onClick={() => setLightbox(null)}
-                >
-                    <div className="relative max-w-5xl w-full" onClick={e => e.stopPropagation()}>
-                        <img
-                            src={urls[lightbox]}
-                            alt=""
-                            className="max-h-[80vh] w-full object-contain rounded-lg"
-                        />
-                        <div className="flex items-center justify-between mt-4">
-                            <button
-                                onClick={() => setLightbox(i => i !== null && i > 0 ? i - 1 : urls.length - 1)}
-                                className="text-white/70 hover:text-white transition-colors px-4 py-2 text-sm font-bold tracking-widest uppercase"
-                            >
-                                ← Prev
-                            </button>
-                            <span className="text-white/50 text-sm">{lightbox + 1} / {urls.length}</span>
-                            <button
-                                onClick={() => setLightbox(i => i !== null && i < urls.length - 1 ? i + 1 : 0)}
-                                className="text-white/70 hover:text-white transition-colors px-4 py-2 text-sm font-bold tracking-widest uppercase"
-                            >
-                                Next →
-                            </button>
-                        </div>
-                        <button
-                            onClick={() => setLightbox(null)}
-                            className="absolute -top-10 right-0 text-white/70 hover:text-white text-sm font-bold tracking-widest uppercase transition-colors"
-                        >
-                            Close ✕
-                        </button>
-                    </div>
-                </div>
-            )}
+            <Lightbox
+                open={lightbox !== null}
+                close={() => setLightbox(null)}
+                index={lightbox ?? 0}
+                slides={slides}
+            />
         </figure>
         </div>
     );
@@ -317,9 +292,11 @@ export default function Show({ service }: { service: Service }) {
     const hasBlocks = service.content_blocks && service.content_blocks.length > 0;
 
     return (
-        <AppLayout>
-            <Head title={service.title} />
-
+        <AppLayout 
+            title={service.title} 
+            description={service.short_description || service.description?.substring(0, 160)}
+            image={service.featured_image_url || undefined}
+        >
             {/* Hero */}
             <div className="relative border-b border-border bg-muted/20">
                 {service.featured_image_url && (

@@ -17,23 +17,16 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Claude',
-            'email' => 'claude@designbycode.co.za',
-            'password' => 'nvBcfGtre344GnM',
-        ]);
+        $users = config('seeder.users', []);
+        $password = config('seeder.default_password', 'password');
 
-        User::factory()->create([
-            'name' => 'MW',
-            'email' => 'mw@designbycode.co.za',
-            'password' => 'nvBcfGtre344GnM',
-        ]);
-
-        User::factory()->create([
-            'name' => 'Robyn',
-            'email' => 'robyn@teemaniecranes.co.za',
-            'password' => 'RnvBcfGtre344GnM',
-        ]);
+        foreach ($users as $user) {
+            User::factory()->create([
+                'name' => $user['name'],
+                'email' => $user['email'],
+                'password' => $password,
+            ]);
+        }
 
         $this->call([
             //            EmployeeSeeder::class,

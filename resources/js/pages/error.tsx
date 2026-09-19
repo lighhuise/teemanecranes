@@ -29,8 +29,8 @@ export default function ErrorPage({ status }: { status: number }) {
     };
 
     return (
-        <AppLayout>
-            <Head title={title} />
+        <AppLayout title={title}>
+            
             <div className="bg-background selection:bg-primary selection:text-white pb-24 min-h-[70vh] flex flex-col justify-center">
                 <Wrapper className="text-center flex flex-col items-center justify-center">
                     <div className="bg-muted/30 p-8 rounded-full mb-8">
