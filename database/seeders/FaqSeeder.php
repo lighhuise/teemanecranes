@@ -15,15 +15,15 @@ class FaqSeeder extends Seeder
     {
         $faqs = [
             [
-                'question' => 'What is the maximum lifting capacity of your cranes?',
-                'answer' => 'Our modern fleet of hydraulic cranes can handle capacities of up to 440 tons, allowing us to perform heavy lifting and complex operations on the most demanding worksites.',
-                'sort_order' => 1,
-                'is_active' => true,
-            ],
-            [
                 'question' => 'Are your services available 24/7?',
                 'answer' => 'Yes, our team is available 24 hours a day, 365 days a year for emergency response and specialized operations.',
                 'sort_order' => 2,
+                'is_active' => true,
+            ],
+            [
+                'question' => 'What is the maximum lifting capacity of your cranes?',
+                'answer' => 'Our modern fleet of hydraulic cranes can handle capacities of up to 440 tons, allowing us to perform heavy lifting and complex operations on the most demanding worksites.',
+                'sort_order' => 1,
                 'is_active' => true,
             ],
             [
