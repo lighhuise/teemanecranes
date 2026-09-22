@@ -38,14 +38,12 @@ class ServiceForm
                             ->imageEditor()
                             ->columnSpanFull(),
 
+                     
                         TextInput::make('title')
                             ->required()
                             ->maxLength(255)
-                            ->live(onBlur: true)
-                            ->afterStateUpdated(function (string $operation, $state, \Filament\Forms\Set $set) {
-                                if ($operation !== 'create') {
-                                    return;
-                                }
+                            ->live(debounce: 500)
+                            ->afterStateUpdated(function ($state, \Filament\Forms\Set $set) {
                                 $set('slug', \Illuminate\Support\Str::slug($state));
                             }),
 
@@ -110,7 +108,7 @@ class ServiceForm
                                             ])
                                             ->required()
                                             ->columnSpanFull(),
-                                            
+
                                         Toggle::make('darker_background')
                                             ->label('Slightly Darker Background')
                                             ->default(false)
@@ -137,7 +135,7 @@ class ServiceForm
                                         TextInput::make('alt')
                                             ->label('Alt text')
                                             ->maxLength(255),
-                                            
+
                                         Toggle::make('darker_background')
                                             ->label('Slightly Darker Background')
                                             ->default(false)
@@ -177,7 +175,7 @@ class ServiceForm
                                         TextInput::make('caption')
                                             ->label('Gallery caption (optional)')
                                             ->maxLength(255),
-                                            
+
                                         Toggle::make('darker_background')
                                             ->label('Slightly Darker Background')
                                             ->default(false)
@@ -210,7 +208,7 @@ class ServiceForm
                                         TextInput::make('caption')
                                             ->label('Caption (optional)')
                                             ->maxLength(255),
-                                            
+
                                         Toggle::make('darker_background')
                                             ->label('Slightly Darker Background')
                                             ->default(false)
@@ -240,7 +238,7 @@ class ServiceForm
                                             ->label('Button URL')
                                             ->url()
                                             ->required(),
-                                            
+
                                         Toggle::make('darker_background')
                                             ->label('Slightly Darker Background')
                                             ->default(false)
