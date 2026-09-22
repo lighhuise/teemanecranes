@@ -43,7 +43,7 @@ class ServiceForm
                             ->required()
                             ->maxLength(255)
                             ->live(debounce: 500)
-                            ->afterStateUpdated(function ($state, \Filament\Forms\Set $set) {
+                            ->afterStateUpdated(function ($state, \Filament\Schemas\Components\Utilities\Set $set) {
                                 $set('slug', \Illuminate\Support\Str::slug($state));
                             }),
 

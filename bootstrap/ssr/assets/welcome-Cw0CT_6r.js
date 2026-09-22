@@ -194,7 +194,7 @@ function Welcome() {
 								children: "Laravel 13 Backend"
 							})] }), /* @__PURE__ */ jsx(CardContent, { children: /* @__PURE__ */ jsx("p", {
 								className: "text-muted-foreground",
-								children: "Powered by the latest Laravel features. Build robust APIs, manage database elegantly with Eloquent, and utilize a powerful ecosystem."
+								children: "Powered by the latest Laravel features. Build robust APIs, manage database elegantly with Eloquent, and utilise a powerful ecosystem."
 							}) })]
 						}),
 						/* @__PURE__ */ jsxs(Card, {
@@ -295,4 +295,4 @@ function Welcome() {
 //#endregion
 export { Welcome as default };
 
-//# sourceMappingURL=welcome-BIPMg_cG.js.map
+//# sourceMappingURL=welcome-Cw0CT_6r.js.map
