@@ -29,7 +29,7 @@ class ServiceSeeder extends Seeder
                 'short_description' => 'Precision lifting solutions for demanding loads and complex environments.',
                 'description' => '<p>When standard lifting equipment falls short, our heavy lifting solutions provide the muscle and engineering required for your most demanding loads.</p>',
                 'content_blocks' => [
-                    ['type' => 'rich_text', 'data' => ['content' => '<h3>Engineering and Muscle</h3><p>We specialize in handling oversized components for mining, energy, and heavy industry using state-of-the-art lifting technology.</p>']],
+                    ['type' => 'rich_text', 'data' => ['content' => '<h3>Engineering and Muscle</h3><p>We specialise in handling oversized components for mining, energy, and heavy industry using state-of-the-art lifting technology.</p>']],
                     ['type' => 'image', 'data' => ['image' => 'https://images.unsplash.com/photo-1504307651254-35680f356f58?auto=format&fit=crop&q=80&w=1200&h=600', 'alt' => 'Heavy Lifting', 'caption' => 'Complex heavy lifting operation']],
                 ],
             ],
@@ -65,7 +65,7 @@ class ServiceSeeder extends Seeder
                 'short_description' => 'Safe and efficient relocation of industrial machinery and specialised equipment.',
                 'description' => '<p>We offer comprehensive machinery relocation services, covering dismantling, extraction, transport, and final positioning.</p>',
                 'content_blocks' => [
-                    ['type' => 'rich_text', 'data' => ['content' => '<h3>Precision Moves</h3><p>Using specialized skates and jacks, our crews maneuver heavy machinery through confined spaces with minimal disruption.</p>']],
+                    ['type' => 'rich_text', 'data' => ['content' => '<h3>Precision Moves</h3><p>Using specialised skates and jacks, our crews maneuver heavy machinery through confined spaces with minimal disruption.</p>']],
                     ['type' => 'image', 'data' => ['image' => 'https://images.unsplash.com/photo-1565439390124-b5f7e7f7bb10?auto=format&fit=crop&q=80&w=1200&h=600', 'alt' => 'Factory Machinery', 'caption' => 'Industrial equipment relocation']],
                 ],
             ],
@@ -74,7 +74,7 @@ class ServiceSeeder extends Seeder
                 'short_description' => 'Transport solutions for loads exceeding conventional size or weight limits.',
                 'description' => '<p>When your cargo exceeds standard legal dimensions, our abnormal transport division provides custom-engineered transport solutions.</p>',
                 'content_blocks' => [
-                    ['type' => 'rich_text', 'data' => ['content' => '<h3>Custom Configurations</h3><p>Whether it\'s a wind turbine blade or a pressure vessel, we manage regulatory compliance and specialized trailer configurations.</p>']],
+                    ['type' => 'rich_text', 'data' => ['content' => '<h3>Custom Configurations</h3><p>Whether it\'s a wind turbine blade or a pressure vessel, we manage regulatory compliance and specialised trailer configurations.</p>']],
                     ['type' => 'image', 'data' => ['image' => 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=1200&h=600', 'alt' => 'Abnormal Transport', 'caption' => 'Transporting oversized industrial parts']],
                 ],
             ],
@@ -83,7 +83,7 @@ class ServiceSeeder extends Seeder
                 'short_description' => 'Detailed planning and technical expertise for complex lifting operations.',
                 'description' => '<p>Our comprehensive lift planning services provide the engineering assurance required for complex, high-risk operations.</p>',
                 'content_blocks' => [
-                    ['type' => 'rich_text', 'data' => ['content' => '<h3>3D Simulation</h3><p>Our technical team utilizes advanced CAD software and 3D simulation to produce detailed lift plans and rigging configurations.</p>']],
+                    ['type' => 'rich_text', 'data' => ['content' => '<h3>3D Simulation</h3><p>Our technical team utilises advanced CAD software and 3D simulation to produce detailed lift plans and rigging configurations.</p>']],
                     ['type' => 'image', 'data' => ['image' => 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=1200&h=600', 'alt' => 'Engineering Plans', 'caption' => 'CAD models for complex lift planning']],
                 ],
             ]

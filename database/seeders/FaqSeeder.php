@@ -16,7 +16,7 @@ class FaqSeeder extends Seeder
         $faqs = [
             [
                 'question' => 'Are your services available 24/7?',
-                'answer' => 'Yes, our team is available 24 hours a day, 365 days a year for emergency response and specialized operations.',
+                'answer' => 'Yes, our team is available 24 hours a day, 365 days a year for emergency response and specialised operations.',
                 'sort_order' => 2,
                 'is_active' => true,
             ],
@@ -39,7 +39,7 @@ class FaqSeeder extends Seeder
                 'is_active' => true,
             ],
             [
-                'question' => 'Do you offer specialized transport in addition to crane hire?',
+                'question' => 'Do you offer specialised transport in addition to crane hire?',
                 'answer' => 'Yes, we provide heavy haulage and abnormal transport solutions for loads exceeding conventional size or weight limits.',
                 'sort_order' => 5,
                 'is_active' => true,

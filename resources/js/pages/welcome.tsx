@@ -21,7 +21,7 @@ export default function Welcome() {
                         </CardHeader>
                         <CardContent>
                             <p className="text-muted-foreground">
-                                Powered by the latest Laravel features. Build robust APIs, manage database elegantly with Eloquent, and utilize a powerful ecosystem.
+                                Powered by the latest Laravel features. Build robust APIs, manage database elegantly with Eloquent, and utilise a powerful ecosystem.
                             </p>
                         </CardContent>
                     </Card>

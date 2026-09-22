@@ -40,11 +40,19 @@ class ServiceForm
 
                         TextInput::make('title')
                             ->required()
-                            ->maxLength(255),
+                            ->maxLength(255)
+                            ->live(onBlur: true)
+                            ->afterStateUpdated(function (string $operation, $state, \Filament\Forms\Set $set) {
+                                if ($operation !== 'create') {
+                                    return;
+                                }
+                                $set('slug', \Illuminate\Support\Str::slug($state));
+                            }),
 
                         TextInput::make('slug')
                             ->required()
-                            ->maxLength(255),
+                            ->maxLength(255)
+                            ->unique(ignoreRecord: true),
 
                         TextInput::make('short_description')
                             ->maxLength(255)
