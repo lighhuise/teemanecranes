@@ -33,6 +33,7 @@ class ServiceForm
                         SpatieMediaLibraryFileUpload::make('featured_image')
                             ->label('Featured Image')
                             ->collection('featured_image')
+                            ->conversion('thumb')
                             ->disk('public')
                             ->image()
                             ->imageEditor()
