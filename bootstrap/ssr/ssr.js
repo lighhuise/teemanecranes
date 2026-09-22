@@ -19,18 +19,18 @@ var renderPage = (page) => createInertiaApp({
 	render: ReactDOMServer.renderToString,
 	title: (title) => `${title} - ${appName}`,
 	resolve: (name) => resolvePageComponent(`./pages/${name}.tsx`, /* #__PURE__ */ Object.assign({
-		"./pages/about-us.tsx": () => import("./assets/about-us-CoogYp6E.js"),
-		"./pages/contact-us.tsx": () => import("./assets/contact-us-8Bn5Db_n.js"),
-		"./pages/employees/index.tsx": () => import("./assets/employees-MvoJFa4S.js"),
-		"./pages/employees/show.tsx": () => import("./assets/show-CyT_e9Tc.js"),
-		"./pages/error.tsx": () => import("./assets/error-C_yg35my.js"),
-		"./pages/faq.tsx": () => import("./assets/faq-aygsKCFd.js"),
-		"./pages/home.tsx": () => import("./assets/home-CVhFfgZs.js"),
-		"./pages/legal/privacy-policy.tsx": () => import("./assets/privacy-policy-VQ9_EtXz.js"),
-		"./pages/legal/terms-of-service.tsx": () => import("./assets/terms-of-service-Cg_nQKZH.js"),
-		"./pages/services/index.tsx": () => import("./assets/services-DXd9IRHZ.js"),
-		"./pages/services/show.tsx": () => import("./assets/show-DCPRUsTa.js"),
-		"./pages/welcome.tsx": () => import("./assets/welcome-DTCZfZ0e.js")
+		"./pages/about-us.tsx": () => import("./assets/about-us-B7Y0ww4T.js"),
+		"./pages/contact-us.tsx": () => import("./assets/contact-us-_ZNj6jQg.js"),
+		"./pages/employees/index.tsx": () => import("./assets/employees-lcfOHDix.js"),
+		"./pages/employees/show.tsx": () => import("./assets/show-BrRJ9V_u.js"),
+		"./pages/error.tsx": () => import("./assets/error-K01LNbkr.js"),
+		"./pages/faq.tsx": () => import("./assets/faq-C9idvQVk.js"),
+		"./pages/home.tsx": () => import("./assets/home-CP895RUF.js"),
+		"./pages/legal/privacy-policy.tsx": () => import("./assets/privacy-policy-BvEi7IDF.js"),
+		"./pages/legal/terms-of-service.tsx": () => import("./assets/terms-of-service-CsZHIwJ2.js"),
+		"./pages/services/index.tsx": () => import("./assets/services-DbL63MBG.js"),
+		"./pages/services/show.tsx": () => import("./assets/show-demk_UNn.js"),
+		"./pages/welcome.tsx": () => import("./assets/welcome-BIPMg_cG.js")
 	})),
 	setup({ App, props }) {
 		return /* @__PURE__ */ jsx(App, { ...props });

@@ -13,7 +13,7 @@ export default function Map() {
     }, []);
 
     // 6 Van Eck St, Bellville South, Cape Town, 7530
-    const position: [number, number] = [-33.9317, 18.6473];
+    const position: [number, number] = [-33.926637890850294, 18.645063943495657];
 
     if (!mounted) {
         return (
@@ -64,8 +64,7 @@ export default function Map() {
                                     <span className="text-muted-foreground text-sm">6 Van Eck St, Bellville South,<br/>Cape Town, 7530</span>
                                 </div>
                             </div>
-                            
-                            <a href="https://maps.google.com/?q=-33.9317,18.6473" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 text-sm font-bold tracking-widest uppercase bg-gradient-to-r from-primary to-primary/70 hover:from-primary/90 hover:to-primary text-primary-foreground transition-all shadow-sm hover:shadow px-6 py-4 rounded-lg group shrink-0">
+                            <a href="https://maps.google.com/?q=-33.926637890850294,18.645063943495657" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 text-sm font-bold tracking-widest uppercase bg-gradient-to-r from-primary to-primary/70 hover:from-primary/90 hover:to-primary text-primary-foreground transition-all shadow-sm hover:shadow px-6 py-4 rounded-lg group shrink-0">
                                 <NavIcon className="w-4 h-4 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
                                 Get Directions
                             </a>
