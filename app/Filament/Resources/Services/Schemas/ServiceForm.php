@@ -13,6 +13,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
+use Illuminate\Support\Str;
 
 class ServiceForm
 {
@@ -39,13 +40,13 @@ class ServiceForm
                             ->imageEditor()
                             ->columnSpanFull(),
 
-                     
+
                         TextInput::make('title')
                             ->required()
                             ->maxLength(255)
                             ->live(debounce: 500)
                             ->afterStateUpdated(function ($state, \Filament\Schemas\Components\Utilities\Set $set) {
-                                $set('slug', \Illuminate\Support\Str::slug($state));
+                                $set('slug', Str::slug($state));
                             }),
 
                         TextInput::make('slug')
@@ -108,6 +109,20 @@ class ServiceForm
                                                 'undo',
                                             ])
                                             ->required()
+                                            ->columnSpanFull(),
+
+                                        Select::make('max_width')
+                                            ->label('Content Max Width')
+                                            ->options([
+                                                'max-w-3xl' => 'Small (3xl)',
+                                                'max-w-4xl' => 'Medium (4xl)',
+                                                'max-w-5xl' => 'Large (5xl)',
+                                                'max-w-6xl' => 'Extra Large (6xl)',
+                                                'max-w-7xl' => 'Huge (7xl)',
+                                                'max-w-full' => 'Full Width',
+                                                'max-w-none' => 'None (Default)',
+                                            ])
+                                            ->default('max-w-none')
                                             ->columnSpanFull(),
 
                                         Toggle::make('darker_background')

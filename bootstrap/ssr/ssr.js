@@ -29,7 +29,7 @@ var renderPage = (page) => createInertiaApp({
 		"./pages/legal/privacy-policy.tsx": () => import("./assets/privacy-policy-BvEi7IDF.js"),
 		"./pages/legal/terms-of-service.tsx": () => import("./assets/terms-of-service-CsZHIwJ2.js"),
 		"./pages/services/index.tsx": () => import("./assets/services-DbL63MBG.js"),
-		"./pages/services/show.tsx": () => import("./assets/show-demk_UNn.js"),
+		"./pages/services/show.tsx": () => import("./assets/show-D-svSsS3.js"),
 		"./pages/welcome.tsx": () => import("./assets/welcome-Cw0CT_6r.js")
 	})),
 	setup({ App, props }) {

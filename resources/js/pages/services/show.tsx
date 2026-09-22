@@ -15,7 +15,7 @@ import "yet-another-react-lightbox/styles.css";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-interface RichTextBlock  { type: 'rich_text';  data: { content: string; darker_background?: boolean } }
+interface RichTextBlock  { type: 'rich_text';  data: { content: string; max_width?: string; darker_background?: boolean } }
 interface ImageBlock     { type: 'image';      data: { image: string; image_url: string; caption?: string; alt?: string; darker_background?: boolean } }
 interface GalleryBlock   { type: 'gallery';    data: { images: string[]; image_urls: string[]; caption?: string; darker_background?: boolean; heading?: string; subheading?: string; description?: string; } }
 interface VideoBlock     { type: 'video';      data: { url: string; caption?: string; darker_background?: boolean; heading?: string; subheading?: string; description?: string; } }
@@ -56,16 +56,17 @@ function getEmbedUrl(url: string): string | null {
 // ─── Block Renderers ──────────────────────────────────────────────────────────
 
 function RichTextRenderer({ data }: { data: RichTextBlock['data'] }) {
+    const maxWidthClass = data.max_width || 'max-w-none';
     return (
         <div
-            className="prose prose-neutral dark:prose-invert max-w-none
+            className={`prose prose-neutral dark:prose-invert mx-auto ${maxWidthClass}
                        prose-headings:font-black prose-headings:tracking-[0.35px] prose-headings:uppercase prose-headings:text-foreground prose-headings:leading-[1.1]
                        prose-h1:text-4xl lg:prose-h1:text-5xl
                        prose-h2:text-4xl lg:prose-h2:text-5xl
                        prose-h3:text-2xl lg:prose-h3:text-3xl
                        prose-p:text-lg prose-p:text-muted-foreground prose-p:leading-relaxed
                        prose-a:text-primary prose-a:no-underline hover:prose-a:underline
-                       prose-blockquote:border-primary prose-blockquote:text-muted-foreground"
+                       prose-blockquote:border-primary prose-blockquote:text-muted-foreground`}
             dangerouslySetInnerHTML={{ __html: data.content }}
         />
     );

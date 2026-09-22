@@ -18,8 +18,16 @@ function getEmbedUrl(url) {
 	return null;
 }
 function RichTextRenderer({ data }) {
+	const maxWidthClass = data.max_width || "max-w-none";
 	return /* @__PURE__ */ jsx("div", {
-		className: "prose prose-neutral dark:prose-invert max-w-none\n                       prose-headings:font-black prose-headings:tracking-[0.35px] prose-headings:uppercase prose-headings:text-foreground prose-headings:leading-[1.1]\n                       prose-h1:text-4xl lg:prose-h1:text-5xl\n                       prose-h2:text-4xl lg:prose-h2:text-5xl\n                       prose-h3:text-2xl lg:prose-h3:text-3xl\n                       prose-p:text-lg prose-p:text-muted-foreground prose-p:leading-relaxed\n                       prose-a:text-primary prose-a:no-underline hover:prose-a:underline\n                       prose-blockquote:border-primary prose-blockquote:text-muted-foreground",
+		className: `prose prose-neutral dark:prose-invert mx-auto ${maxWidthClass}
+                       prose-headings:font-black prose-headings:tracking-[0.35px] prose-headings:uppercase prose-headings:text-foreground prose-headings:leading-[1.1]
+                       prose-h1:text-4xl lg:prose-h1:text-5xl
+                       prose-h2:text-4xl lg:prose-h2:text-5xl
+                       prose-h3:text-2xl lg:prose-h3:text-3xl
+                       prose-p:text-lg prose-p:text-muted-foreground prose-p:leading-relaxed
+                       prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+                       prose-blockquote:border-primary prose-blockquote:text-muted-foreground`,
 		dangerouslySetInnerHTML: { __html: data.content }
 	});
 }
@@ -262,4 +270,4 @@ function Show({ service }) {
 //#endregion
 export { Show as default };
 
-//# sourceMappingURL=show-demk_UNn.js.map
+//# sourceMappingURL=show-D-svSsS3.js.map
