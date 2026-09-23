@@ -8,7 +8,7 @@ import { ServiceCard } from '@/components/service-card';
 export default function Index({ services }: { services: any[] }) {
     return (
         <AppLayout title="Services">
-            
+
 
             <div className="bg-background selection:bg-primary selection:text-white pb-24">
                 <section className="py-24 bg-muted/30 border-b border-border">
@@ -22,7 +22,7 @@ export default function Index({ services }: { services: any[] }) {
                             We understand that every lifting project demands precision, reliability and efficiency. Our services offer the flexibility and strength needed to tackle any challenge.
                         </SectionHeading>
 
-                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {services.map((service, idx) => (
                                 <ServiceCard key={service.id} service={service} index={idx} />
                             ))}

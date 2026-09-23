@@ -1,13 +1,6 @@
 import AppLayout from "@/layouts/app-layout";
 import Hero from "@/components/hero";
-import Wrapper from "@/components/ui/misc/wrapper";
-import { StackedImage } from "@/components/ui/misc/stacked-image";
-import { FloatingStatCard } from "@/components/ui/misc/floating-stat-card";
-import SectionHeading from "@/components/ui/misc/section-heading";
-import { Head, Link } from "@inertiajs/react";
-import { buttonVariants } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
-
+import { Head } from "@inertiajs/react";
 import { HomeIntroSection } from "@/components/sections/home-intro-section";
 import { HomeServicesSection } from "@/components/sections/home-services-section";
 import { HomeSafetySection } from "@/components/sections/home-safety-section";

@@ -18,8 +18,8 @@ export function HomeServicesSection({ services }: { services: any[] }) {
                     We understand that every lifting project demands precision, reliability and efficiency. Our services offer the flexibility and strength needed to tackle any challenge from construction sites to the most demanding industrial operations.
                 </SectionHeading>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {services.map((service, idx) => (
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {(services || []).map((service, idx) => (
                         <ServiceCard key={service.id} service={service} index={idx} />
                     ))}
                 </div>

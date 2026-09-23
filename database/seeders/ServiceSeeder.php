@@ -42,51 +42,51 @@ class ServiceSeeder extends Seeder
                     ['type' => 'image', 'data' => ['image' => 'https://images.unsplash.com/photo-1587582423116-ec07293f0395?auto=format&fit=crop&q=80&w=1200&h=600', 'alt' => 'Rigging equipment', 'caption' => 'Professional rigging gear']],
                 ],
             ],
-            [
-                'title' => 'CRANE TRUCK HIRE',
-                'short_description' => 'Flexible lifting, loading and transport solutions.',
-                'description' => '<p>For operations requiring both transport and lifting capabilities, our versatile crane trucks provide the perfect dual-purpose solution.</p>',
-                'content_blocks' => [
-                    ['type' => 'rich_text', 'data' => ['content' => '<h3>Dual-Purpose Efficiency</h3><p>Also known as boom trucks, these vehicles can load, transport, and unload heavy materials independently, reducing your project costs.</p>']],
-                    ['type' => 'image', 'data' => ['image' => 'https://images.unsplash.com/photo-1581094369796-03487c653eb6?auto=format&fit=crop&q=80&w=1200&h=600', 'alt' => 'Crane Truck', 'caption' => 'Crane truck delivering materials']],
-                ],
-            ],
-            [
-                'title' => 'HEAVY HAULAGE',
-                'short_description' => 'Specialised transport for oversized, overweight and high-value equipment.',
-                'description' => '<p>Teemane Cranes is your trusted partner for heavy haulage, operating a fleet of heavy-duty prime movers and multi-axle trailers.</p>',
-                'content_blocks' => [
-                    ['type' => 'rich_text', 'data' => ['content' => '<h3>Logistics Handled</h3><p>Our dedicated transport logistics team handles route planning, permits, and escorts to ensure your cargo reaches its destination securely.</p>']],
-                    ['type' => 'image', 'data' => ['image' => 'https://images.unsplash.com/photo-1616423640778-28d1b53229bd?auto=format&fit=crop&q=80&w=1200&h=600', 'alt' => 'Heavy Haulage', 'caption' => 'Oversized transport on the highway']],
-                ],
-            ],
-            [
-                'title' => 'MACHINERY RELOCATION',
-                'short_description' => 'Safe and efficient relocation of industrial machinery and specialised equipment.',
-                'description' => '<p>We offer comprehensive machinery relocation services, covering dismantling, extraction, transport, and final positioning.</p>',
-                'content_blocks' => [
-                    ['type' => 'rich_text', 'data' => ['content' => '<h3>Precision Moves</h3><p>Using specialised skates and jacks, our crews maneuver heavy machinery through confined spaces with minimal disruption.</p>']],
-                    ['type' => 'image', 'data' => ['image' => 'https://images.unsplash.com/photo-1565439390124-b5f7e7f7bb10?auto=format&fit=crop&q=80&w=1200&h=600', 'alt' => 'Factory Machinery', 'caption' => 'Industrial equipment relocation']],
-                ],
-            ],
-            [
-                'title' => 'ABNORMAL TRANSPORT',
-                'short_description' => 'Transport solutions for loads exceeding conventional size or weight limits.',
-                'description' => '<p>When your cargo exceeds standard legal dimensions, our abnormal transport division provides custom-engineered transport solutions.</p>',
-                'content_blocks' => [
-                    ['type' => 'rich_text', 'data' => ['content' => '<h3>Custom Configurations</h3><p>Whether it\'s a wind turbine blade or a pressure vessel, we manage regulatory compliance and specialised trailer configurations.</p>']],
-                    ['type' => 'image', 'data' => ['image' => 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=1200&h=600', 'alt' => 'Abnormal Transport', 'caption' => 'Transporting oversized industrial parts']],
-                ],
-            ],
-            [
-                'title' => 'LIFT PLANNING',
-                'short_description' => 'Detailed planning and technical expertise for complex lifting operations.',
-                'description' => '<p>Our comprehensive lift planning services provide the engineering assurance required for complex, high-risk operations.</p>',
-                'content_blocks' => [
-                    ['type' => 'rich_text', 'data' => ['content' => '<h3>3D Simulation</h3><p>Our technical team utilises advanced CAD software and 3D simulation to produce detailed lift plans and rigging configurations.</p>']],
-                    ['type' => 'image', 'data' => ['image' => 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=1200&h=600', 'alt' => 'Engineering Plans', 'caption' => 'CAD models for complex lift planning']],
-                ],
-            ]
+//            [
+//                'title' => 'CRANE TRUCK HIRE',
+//                'short_description' => 'Flexible lifting, loading and transport solutions.',
+//                'description' => '<p>For operations requiring both transport and lifting capabilities, our versatile crane trucks provide the perfect dual-purpose solution.</p>',
+//                'content_blocks' => [
+//                    ['type' => 'rich_text', 'data' => ['content' => '<h3>Dual-Purpose Efficiency</h3><p>Also known as boom trucks, these vehicles can load, transport, and unload heavy materials independently, reducing your project costs.</p>']],
+//                    ['type' => 'image', 'data' => ['image' => 'https://images.unsplash.com/photo-1581094369796-03487c653eb6?auto=format&fit=crop&q=80&w=1200&h=600', 'alt' => 'Crane Truck', 'caption' => 'Crane truck delivering materials']],
+//                ],
+//            ],
+//            [
+//                'title' => 'HEAVY HAULAGE',
+//                'short_description' => 'Specialised transport for oversized, overweight and high-value equipment.',
+//                'description' => '<p>Teemane Cranes is your trusted partner for heavy haulage, operating a fleet of heavy-duty prime movers and multi-axle trailers.</p>',
+//                'content_blocks' => [
+//                    ['type' => 'rich_text', 'data' => ['content' => '<h3>Logistics Handled</h3><p>Our dedicated transport logistics team handles route planning, permits, and escorts to ensure your cargo reaches its destination securely.</p>']],
+//                    ['type' => 'image', 'data' => ['image' => 'https://images.unsplash.com/photo-1616423640778-28d1b53229bd?auto=format&fit=crop&q=80&w=1200&h=600', 'alt' => 'Heavy Haulage', 'caption' => 'Oversized transport on the highway']],
+//                ],
+//            ],
+//            [
+//                'title' => 'MACHINERY RELOCATION',
+//                'short_description' => 'Safe and efficient relocation of industrial machinery and specialised equipment.',
+//                'description' => '<p>We offer comprehensive machinery relocation services, covering dismantling, extraction, transport, and final positioning.</p>',
+//                'content_blocks' => [
+//                    ['type' => 'rich_text', 'data' => ['content' => '<h3>Precision Moves</h3><p>Using specialised skates and jacks, our crews maneuver heavy machinery through confined spaces with minimal disruption.</p>']],
+//                    ['type' => 'image', 'data' => ['image' => 'https://images.unsplash.com/photo-1565439390124-b5f7e7f7bb10?auto=format&fit=crop&q=80&w=1200&h=600', 'alt' => 'Factory Machinery', 'caption' => 'Industrial equipment relocation']],
+//                ],
+//            ],
+//            [
+//                'title' => 'ABNORMAL TRANSPORT',
+//                'short_description' => 'Transport solutions for loads exceeding conventional size or weight limits.',
+//                'description' => '<p>When your cargo exceeds standard legal dimensions, our abnormal transport division provides custom-engineered transport solutions.</p>',
+//                'content_blocks' => [
+//                    ['type' => 'rich_text', 'data' => ['content' => '<h3>Custom Configurations</h3><p>Whether it\'s a wind turbine blade or a pressure vessel, we manage regulatory compliance and specialised trailer configurations.</p>']],
+//                    ['type' => 'image', 'data' => ['image' => 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=1200&h=600', 'alt' => 'Abnormal Transport', 'caption' => 'Transporting oversized industrial parts']],
+//                ],
+//            ],
+//            [
+//                'title' => 'LIFT PLANNING',
+//                'short_description' => 'Detailed planning and technical expertise for complex lifting operations.',
+//                'description' => '<p>Our comprehensive lift planning services provide the engineering assurance required for complex, high-risk operations.</p>',
+//                'content_blocks' => [
+//                    ['type' => 'rich_text', 'data' => ['content' => '<h3>3D Simulation</h3><p>Our technical team utilises advanced CAD software and 3D simulation to produce detailed lift plans and rigging configurations.</p>']],
+//                    ['type' => 'image', 'data' => ['image' => 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=1200&h=600', 'alt' => 'Engineering Plans', 'caption' => 'CAD models for complex lift planning']],
+//                ],
+//            ]
         ];
 
         foreach ($services as $serviceData) {

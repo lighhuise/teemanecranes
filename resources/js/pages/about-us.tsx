@@ -145,7 +145,7 @@ export default function AboutUs() {
                                     </p>
                                 </div>
                             </SectionHeading>
-                            <a href="/contact-us" className="inline-flex items-center gap-3 bg-gradient-to-r from-primary to-primary/70 hover:from-primary/90 hover:to-primary text-primary-foreground transition-all shadow-sm hover:shadow px-8 py-4 rounded-lg font-bold tracking-widest uppercase text-sm">
+                            <a href="/contact-us" className="inline-flex items-center gap-3 bg-linear-to-r from-primary to-primary/70 hover:from-primary/90 hover:to-primary text-primary-foreground transition-all shadow-sm hover:shadow px-8 py-4 rounded-lg font-bold tracking-widest uppercase text-sm">
                                 Work With Us
                             </a>
                         </div>
