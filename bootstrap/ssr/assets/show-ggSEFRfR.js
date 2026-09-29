@@ -163,13 +163,13 @@ function MediaTextRenderer({ data }) {
 		}), /* @__PURE__ */ jsxs("div", {
 			className: "flex-1 min-w-0 w-full h-100 md:h-125 relative group",
 			children: [/* @__PURE__ */ jsx("div", {
-				className: "w-full h-full rounded-2xl overflow-hidden shadow-xl relative",
+				className: "w-full aspect-square rounded-2xl overflow-hidden shadow-xl relative",
 				children: hasMultiple ? /* @__PURE__ */ jsx(Swiper, {
 					modules: [Navigation$1, Pagination],
 					navigation: true,
 					pagination: { clickable: true },
 					loop: true,
-					className: "w-full h-full",
+					className: "w-full aspect-square",
 					style: {
 						"--swiper-theme-color": "var(--primary)",
 						"--swiper-navigation-size": "24px",
@@ -181,14 +181,14 @@ function MediaTextRenderer({ data }) {
 					children: urls.map((url, i) => /* @__PURE__ */ jsx(SwiperSlide, { children: /* @__PURE__ */ jsx("img", {
 						src: url,
 						alt: "",
-						className: "w-full h-full object-cover"
+						className: "w-full aspect-square object-cover"
 					}) }, i))
 				}) : urls.length === 1 ? /* @__PURE__ */ jsx("img", {
 					src: urls[0],
 					alt: "",
-					className: "w-full h-full object-cover"
+					className: "w-full aspect-square object-cover"
 				}) : /* @__PURE__ */ jsx("div", {
-					className: "w-full h-full bg-muted flex items-center justify-center",
+					className: "w-full aspect-square bg-muted flex items-center justify-center",
 					children: /* @__PURE__ */ jsx("span", {
 						className: "text-muted-foreground text-sm uppercase tracking-widest",
 						children: "No Image"
@@ -270,4 +270,4 @@ function Show({ service }) {
 //#endregion
 export { Show as default };
 
-//# sourceMappingURL=show-D-svSsS3.js.map
+//# sourceMappingURL=show-ggSEFRfR.js.map

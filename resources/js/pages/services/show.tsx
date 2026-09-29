@@ -231,14 +231,14 @@ function MediaTextRenderer({ data }: { data: MediaTextBlock['data'] }) {
 
             {/* Media Content */}
             <div className="flex-1 min-w-0 w-full h-100 md:h-125 relative group">
-                <div className="w-full h-full rounded-2xl overflow-hidden shadow-xl relative">
+                <div className="w-full aspect-square rounded-2xl overflow-hidden shadow-xl relative">
                     {hasMultiple ? (
                         <Swiper
                             modules={[Navigation, Pagination]}
                             navigation
                             pagination={{ clickable: true }}
                             loop={true}
-                            className="w-full h-full"
+                            className="w-full aspect-square"
                             style={{
                                 '--swiper-theme-color': 'var(--primary)',
                                 '--swiper-navigation-size': '24px',
@@ -250,14 +250,14 @@ function MediaTextRenderer({ data }: { data: MediaTextBlock['data'] }) {
                         >
                             {urls.map((url, i) => (
                                 <SwiperSlide key={i}>
-                                    <img src={url} alt="" className="w-full h-full object-cover" />
+                                    <img src={url} alt="" className="w-full aspect-square object-cover" />
                                 </SwiperSlide>
                             ))}
                         </Swiper>
                     ) : urls.length === 1 ? (
-                        <img src={urls[0]} alt="" className="w-full h-full object-cover" />
+                        <img src={urls[0]} alt="" className="w-full aspect-square object-cover" />
                     ) : (
-                        <div className="w-full h-full bg-muted flex items-center justify-center">
+                        <div className="w-full aspect-square bg-muted flex items-center justify-center">
                             <span className="text-muted-foreground text-sm uppercase tracking-widest">No Image</span>
                         </div>
                     )}
@@ -293,8 +293,8 @@ export default function Show({ service }: { service: Service }) {
     const hasBlocks = service.content_blocks && service.content_blocks.length > 0;
 
     return (
-        <AppLayout 
-            title={service.title} 
+        <AppLayout
+            title={service.title}
             description={service.short_description || service.description?.substring(0, 160)}
             image={service.featured_image_url || undefined}
         >
