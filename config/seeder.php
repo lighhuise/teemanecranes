@@ -12,9 +12,9 @@ return [
         ],
         [
             'name' => 'Robyn',
-            'email' => 'robyn@teemaniecranes.co.za',
+            'email' => 'robyncox98@gmail.com',
         ],
     ],
-    
+
     'default_password' => env('SEEDER_DEFAULT_PASSWORD', 'password'),
 ];

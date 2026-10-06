@@ -21,7 +21,14 @@ export default function AboutUs() {
                         align="center"
                         className="mb-16"
                     >
-                        Established in 2012, Teemane Cranes prides itself on countless victories across South Africa's most demanding worksites, from high-stakes projects to complex operations.
+                        Established in 2012, Teemane Cranes prides itself on countless
+                        victories across South Africa’s most demanding worksites, from
+                        high-stakes projects to complex operations that have redefined
+                        what’s possible in mobile crane hire. Backed by a fleet of
+                        hydraulic cranes with capacities of up to 440 tons and a team
+                        driven to deliver unmatched results, we stand at the forefront of
+                        the sector, leading the projects that continue to shape
+                        industries today.
                     </SectionHeading>
                 </Wrapper>
             </div>

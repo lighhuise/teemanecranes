@@ -7,7 +7,9 @@ import imgSafety from "@/../images/media-24-building.webp";
 
 export function HomeSafetySection() {
     return (
-        <section className="py-24 bg-background">
+        <section className="py-24 bg-background relative">
+            <div aria-hidden={true} className={`text-[20vh] opacity-5 absolute top-2 pointer-events-none right-3 xl:text-[300px] font-black tracking-tighter leading-none whitespace-nowrap text-foreground`}>Solutions</div>
+
             <Wrapper>
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
                     <div className="relative pb-6 lg:pb-0 order-2 lg:order-1">
@@ -28,11 +30,11 @@ export function HomeSafetySection() {
 
                     <div className="space-y-8 order-1 lg:order-2">
                         <div className="inline-flex items-center gap-4">
-                            <span className="text-sm font-bold text-primary tracking-widest uppercase">Where Excellence Begins</span>
+                            <span className="text-sm font-bold text-primary tracking-widest uppercase">Turnkey Solutions</span>
                             <div className="h-px w-8 bg-primary"></div>
                         </div>
                         <h2 className="text-4xl lg:text-5xl font-black tracking-tighter text-foreground leading-[1.1]">
-                            SAFETY STARTS <br />BEFORE THE LIFT
+                            PRECISION PLANNING <br />& EXECUTION
                         </h2>
                         <p className="text-lg text-muted-foreground leading-relaxed">
                             With services available for both short- and long-term hire and backed by prompt, professional support, Teemane oversees every stage from initial consultation and detailed site inspections to full project execution.

@@ -8,7 +8,7 @@ export default function Footer() {
     return (
         <footer className="bg-muted  z-5 text-muted-foreground relative overflow-hidden pt-24 pb-12 border-t-6 border-primary">
             {/* Background Typography */}
-            <div className="absolute inset-0 flex items-center justify-center opacity-5 dark:opacity-[1%] pointer-events-none select-none overflow-hidden">
+            <div aria-hidden={true} className="absolute inset-0 flex items-center justify-center opacity-5 dark:opacity-[1%] pointer-events-none select-none overflow-hidden">
                 <h2 className="text-[20vh] xl:text-[300px] font-black tracking-tighter leading-none whitespace-nowrap text-foreground">TEEMANE</h2>
             </div>
 

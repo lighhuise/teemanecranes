@@ -8,7 +8,8 @@ import {DotPattern} from "@/components/ui/misc/dot-pattern";
 
 export function HomeIntroSection() {
     return (
-        <section className="py-24 bg-background">
+        <section className="py-24 bg-background relative">
+            <div aria-hidden={true} className={`text-[20vh] pointer-events-none opacity-5 absolute top-2 left-3 xl:text-[300px] font-black tracking-tighter leading-none whitespace-nowrap text-foreground`}>TRUSTED</div>
             <Wrapper className={`relative`}>
                 <DotPattern className={'opacity-10'} />
                 <div className="grid lg:grid-cols-2 gap-16 items-center">

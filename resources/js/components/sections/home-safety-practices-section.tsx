@@ -2,7 +2,7 @@ import Wrapper from "@/components/ui/misc/wrapper";
 import SectionHeading from "@/components/ui/misc/section-heading";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 // @ts-ignore
-import imgSafety from "@/../images/media-24-building.webp"; // fallback or same image
+import imgSafety from "@/../images/extended curves edited Cape Town.webp"; // fallback or same image
 
 const safetyItems = [
     {
@@ -33,27 +33,26 @@ const safetyItems = [
 
 export function HomeSafetyPracticesSection() {
     return (
-        <section className="py-24 bg-background">
+        <section className="py-24 bg-muted/30 border-y border-border relative">
+            <div aria-hidden={true} className={`text-[20vh] pointer-events-none opacity-5 absolute top-2 left-3 xl:text-[300px] font-black tracking-tighter leading-none whitespace-nowrap text-foreground`}>SAFETY</div>
             <Wrapper>
                 <div className="grid lg:grid-cols-3 gap-12 lg:gap-16 items-start">
 
                     {/* Column 1: Image */}
                     <div className="relative order-1 lg:order-2 lg:sticky lg:top-32">
-                        <div className="aspect-[4/5] rounded-xl overflow-hidden border border-border shadow-xl">
+                        <div className="aspect-4/5 rounded-xl overflow-hidden border border-border shadow-xl">
                             <img
                                 src={imgSafety}
                                 alt="Teemane Safety Operations"
                                 className="w-full h-full object-cover"
                             />
                         </div>
-                        {/* Decorative element behind image */}
-                        <div className="absolute -inset-4 -z-10 rounded-2xl bg-primary/5 blur-2xl"></div>
                     </div>
 
                     {/* Column 2 & 3: Text & Accordion */}
                     <div className="order-2 lg:order-1 lg:col-span-2 space-y-10">
                         <SectionHeading
-                            title="Safety"
+                            title={`SAFETY STARTS BEFORE THE LIFT`}
                             label="Our Priority"
                             align="left"
                         />
@@ -71,18 +70,20 @@ export function HomeSafetyPracticesSection() {
                         </div>
 
                         <div className="pt-2">
-                            <Accordion className="space-y-4">
+                            <Accordion className="w-full">
                                 {safetyItems.map((item, index) => (
                                     <AccordionItem
                                         key={index}
                                         value={`item-${index}`}
-                                        className="border border-border bg-card/50 hover:bg-card/80 transition-colors rounded-xl px-5 shadow-sm"
+                                        className="py-2"
                                     >
-                                        <AccordionTrigger className="text-base sm:text-lg font-bold py-4">
+                                        <AccordionTrigger className="text-left font-bold text-lg py-5 hover:no-underline hover:text-primary transition-colors">
                                             {item.title}
                                         </AccordionTrigger>
-                                        <AccordionContent className="text-muted-foreground text-sm sm:text-base leading-relaxed pb-4">
-                                            {item.content}
+                                        <AccordionContent className="pb-6">
+                                            <div className="text-muted-foreground leading-relaxed text-base max-w-none">
+                                                {item.content}
+                                            </div>
                                         </AccordionContent>
                                     </AccordionItem>
                                 ))}
