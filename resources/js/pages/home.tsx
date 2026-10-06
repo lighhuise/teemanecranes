@@ -4,6 +4,7 @@ import { Head } from "@inertiajs/react";
 import { HomeIntroSection } from "@/components/sections/home-intro-section";
 import { HomeServicesSection } from "@/components/sections/home-services-section";
 import { HomeSafetySection } from "@/components/sections/home-safety-section";
+import { HomeSafetyPracticesSection } from "@/components/sections/home-safety-practices-section";
 import { HomeCredentialsSection } from "@/components/sections/home-credentials-section";
 
 export default function Home({ services }: { services: any[] }) {
@@ -18,6 +19,7 @@ export default function Home({ services }: { services: any[] }) {
             <HomeIntroSection />
             <HomeServicesSection services={services} />
             <HomeSafetySection />
+            <HomeSafetyPracticesSection />
             <HomeCredentialsSection />
         </div>
     );
