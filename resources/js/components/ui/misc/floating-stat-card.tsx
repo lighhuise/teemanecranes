@@ -10,10 +10,10 @@ interface FloatingStatCardProps {
 }
 
 const positionClasses: Record<FloatingPosition, string> = {
-    'top-left':     'top-0 left-0 md:-left-8 md:-top-6',
-    'top-right':    'top-0 right-0 md:-right-8 md:-top-6',
-    'bottom-left':  'bottom-0 left-0 md:-left-8 md:-bottom-6',
-    'bottom-right': 'bottom-0 right-0 md:-right-8 md:-bottom-6',
+    'top-left':     'top-0 left-0 md:-left-8 md:-translate-y-1/2',
+    'top-right':    'top-0 right-0 md:-right-8 md:-translate-y-1/2',
+    'bottom-left':  'bottom-0 left-0 md:-left-8 md:translate-y-1/2',
+    'bottom-right': 'bottom-0 right-0 md:-right-8 md:translate-y-1/2',
 };
 
 export function FloatingStatCard({

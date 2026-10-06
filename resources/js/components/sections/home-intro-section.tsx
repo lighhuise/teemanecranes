@@ -4,11 +4,13 @@ import { buttonVariants } from "@/components/ui/button";
 import { FloatingStatCard } from "@/components/ui/misc/floating-stat-card";
 // @ts-ignore
 import imgCompanyIntro from "@/../images/IMG_0190-copy.webp";
+import {DotPattern} from "@/components/ui/misc/dot-pattern";
 
 export function HomeIntroSection() {
     return (
         <section className="py-24 bg-background">
-            <Wrapper>
+            <Wrapper className={`relative`}>
+                <DotPattern className={'opacity-10'} />
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
                     <div className="space-y-8">
                         <div className="inline-flex items-center gap-4">

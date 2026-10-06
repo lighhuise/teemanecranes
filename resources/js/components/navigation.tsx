@@ -53,7 +53,7 @@ export default function Navigation() {
           <Link href="/" prefetch="hover" className="flex items-center gap-2 group">
             <img
               src={logoUrl}
-              alt="Teemane Cranes Logo"
+              alt="Teemane Heavy Haulage Logo"
               className="h-11 w-auto transition-transform duration-300 group-hover:scale-105"
             />
           </Link>
@@ -96,7 +96,7 @@ export default function Navigation() {
           <div className="flex items-center gap-2 md:hidden">
             <ModeToggle />
             <Sheet>
-              <SheetTrigger asChild>
+              <SheetTrigger >
                 <button
                   className="inline-flex h-10 w-10 items-center justify-center rounded-md hover:bg-accent hover:text-accent-foreground"
                 >
@@ -145,7 +145,7 @@ export default function Navigation() {
 
                 <div className="mt-auto px-6 pb-8 space-y-2">
                   <div className="h-px w-full bg-border mb-4"></div>
-                  <p className="text-xs font-bold tracking-[0.2em] text-primary uppercase">TEEMANE CRANES</p>
+                  <p className="text-xs font-bold tracking-[0.2em] text-primary uppercase">TEEMANE HEAVY HAULAGE</p>
                   <p className="text-sm text-muted-foreground">A Cut Above The Rest</p>
                 </div>
               </SheetContent>
