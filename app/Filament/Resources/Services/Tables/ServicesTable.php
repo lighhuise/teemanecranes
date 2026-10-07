@@ -17,6 +17,7 @@ class ServicesTable
             ->columns([
                 SpatieMediaLibraryImageColumn::make('featured_image')
                     ->collection('featured_image')
+                    ->visibility('public')
                     ->conversion('thumb'),
                 TextColumn::make('title')
                     ->searchable()
