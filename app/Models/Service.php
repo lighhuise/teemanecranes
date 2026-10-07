@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\ClearsCache;
 use Database\Factories\ServiceFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -12,7 +13,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 class Service extends Model implements HasMedia
 {
     /** @use HasFactory<ServiceFactory> */
-    use HasFactory, InteractsWithMedia;
+    use HasFactory, InteractsWithMedia, ClearsCache;
 
     protected $guarded = [];
 

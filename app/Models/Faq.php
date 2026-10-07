@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use App\Traits\ClearsCache;
 use Illuminate\Database\Eloquent\Model;
 
 class Faq extends Model
 {
+    use ClearsCache;
+
     protected $fillable = [
         'question',
         'answer',

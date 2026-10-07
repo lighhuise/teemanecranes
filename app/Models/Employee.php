@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Observers\EmployeeObserver;
 use Illuminate\Database\Eloquent\Attributes\ObservedBy;
+use App\Traits\ClearsCache;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -15,7 +16,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 #[ObservedBy(EmployeeObserver::class)]
 class Employee extends Model implements HasMedia
 {
-    use HasFactory, InteractsWithMedia;
+    use HasFactory, InteractsWithMedia, ClearsCache;
 
     protected $guarded = [];
 
