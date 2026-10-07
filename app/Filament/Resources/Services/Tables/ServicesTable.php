@@ -18,6 +18,8 @@ class ServicesTable
                 SpatieMediaLibraryImageColumn::make('featured_image')
                     ->collection('featured_image')
                     ->visibility('public')
+                    ->imageHeight(40)
+                    ->circular()
                     ->conversion('thumb'),
                 TextColumn::make('title')
                     ->searchable()
