@@ -5,6 +5,7 @@ import Wrapper from "@/components/ui/misc/wrapper";
 import { Building2, MapPin, Calendar, User, ArrowLeft } from 'lucide-react';
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { BackgroundText } from '@/components/ui/misc/background-text';
 
 interface EmployeeDetail {
     id: number;
@@ -28,7 +29,8 @@ interface EmployeeDetail {
 export default function Show({ employee }: { employee: EmployeeDetail }) {
     return (
         <>
-            <section className="py-12 bg-muted/30 border-b border-border">
+            <section className="py-12 bg-muted/30 border-b border-border relative overflow-hidden">
+                <BackgroundText position="center">MEMBER</BackgroundText>
                 <Wrapper>
                     <Link href={team.index.url()} className="inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-primary transition-colors mb-12">
                         <ArrowLeft className="w-4 h-4" />

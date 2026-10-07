@@ -8,6 +8,7 @@ import { Building2, MapPin, Search } from 'lucide-react';
 import Wrapper from "@/components/ui/misc/wrapper";
 import { Input } from "@/components/ui/input";
 import SectionHeading from '@/components/ui/misc/section-heading';
+import { BackgroundText } from '@/components/ui/misc/background-text';
 
 interface Employee {
     id: number;
@@ -114,7 +115,8 @@ export default function Index({ employees, filters }: { employees: PaginatedData
         <>
             
 
-            <div className="bg-muted/30 py-24 border-b border-border">
+            <div className="bg-muted/30 py-24 border-b border-border relative overflow-hidden">
+                <BackgroundText position="center">TEAM</BackgroundText>
                 <Wrapper>
                     <SectionHeading
                         label="The Teemane Family"

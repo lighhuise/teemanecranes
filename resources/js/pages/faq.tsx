@@ -3,13 +3,15 @@ import AppLayout from '@/layouts/app-layout';
 import Wrapper from '@/components/ui/misc/wrapper';
 import SectionHeading from '@/components/ui/misc/section-heading';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { BackgroundText } from '@/components/ui/misc/background-text';
 
 export default function FaqPage({ faqs }: { faqs: any[] }) {
     return (
         <AppLayout title="Frequently Asked Questions - Teemane Cranes">
             
             
-            <div className="bg-muted/30 py-24 border-b border-border">
+            <div className="bg-muted/30 py-24 border-b border-border relative overflow-hidden">
+                <BackgroundText position="center">FAQ</BackgroundText>
                 <Wrapper>
                     <SectionHeading
                         label="FAQ"

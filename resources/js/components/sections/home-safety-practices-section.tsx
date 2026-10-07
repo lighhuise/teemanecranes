@@ -1,8 +1,9 @@
 import Wrapper from "@/components/ui/misc/wrapper";
 import SectionHeading from "@/components/ui/misc/section-heading";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
+import { BackgroundText } from "@/components/ui/misc/background-text";
 // @ts-ignore
-import imgSafety from "@/../images/extended curves edited Cape Town.webp"; // fallback or same image
+import imgSafety from "@/../images/safety.png"; // fallback or same image
 
 const safetyItems = [
     {
@@ -34,30 +35,31 @@ const safetyItems = [
 export function HomeSafetyPracticesSection() {
     return (
         <section className="py-24 bg-muted/30 border-y border-border relative">
-            <div aria-hidden={true} className={`text-[20vh] pointer-events-none opacity-5 absolute top-2 left-3 xl:text-[300px] font-black tracking-tighter leading-none whitespace-nowrap text-foreground`}>SAFETY</div>
+            <BackgroundText position="left">SAFETY</BackgroundText>
             <Wrapper>
-                <div className="grid lg:grid-cols-3 gap-12 lg:gap-16 items-start">
+                <div className="block">
 
-                    {/* Column 1: Image */}
-                    <div className="relative order-1 lg:order-2 lg:sticky lg:top-32">
-                        <div className="aspect-4/5 rounded-xl overflow-hidden border border-border shadow-xl">
-                            <img
-                                src={imgSafety}
-                                alt="Teemane Safety Operations"
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
-                    </div>
+                    {/* Floated Image */}
+                    <img
+                        src={imgSafety}
+                        alt="Teemane Safety Operations"
+                        className="float-right w-[45%] sm:w-[35%] lg:w-[45%] rounded-xl drop-shadow-black object-contain ml-4 lg:ml-12 mb-4 lg:mb-0 mt-2 lg:mt-10"
+                        style={{
+                            shapeOutside: `url(${imgSafety})`,
+                            shapeImageThreshold: 0.1,
+                            shapeMargin: '1.5rem'
+                        }}
+                    />
 
-                    {/* Column 2 & 3: Text & Accordion */}
-                    <div className="order-2 lg:order-1 lg:col-span-2 space-y-10">
+                    {/* Text & Accordion */}
+                    <div className="space-y-10">
                         <SectionHeading
                             title={`SAFETY STARTS BEFORE THE LIFT`}
                             label="Our Priority"
                             align="left"
                         />
 
-                        <div className="text-muted-foreground text-base sm:text-lg leading-relaxed space-y-6">
+                        <div className="text-muted-foreground  text-base sm:text-lg leading-relaxed space-y-6">
                             <p>
                                 Safety is firmly embedded in the way Teemane operates and remains a leading factor in every decision we make. In the environments we work in, there is no separating safety from the job itself. It influences how we plan, how we prepare our team, how we inspect our equipment and how work is carried out on site.
                             </p>
@@ -70,7 +72,7 @@ export function HomeSafetyPracticesSection() {
                         </div>
 
                         <div className="pt-2">
-                            <Accordion className="w-full">
+                            <Accordion>
                                 {safetyItems.map((item, index) => (
                                     <AccordionItem
                                         key={index}
@@ -91,6 +93,8 @@ export function HomeSafetyPracticesSection() {
                         </div>
                     </div>
 
+                    {/* Clearfix to ensure container wraps floated element if it's taller than text */}
+                    <div className="clear-both"></div>
                 </div>
             </Wrapper>
         </section>

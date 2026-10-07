@@ -1,268 +1,266 @@
 {
   "node_modules/laravel-vite-plugin/inertia-helpers/index.js": [],
   "node_modules/leaflet/dist/leaflet.css": [
-    "/build/assets/map-9WsstbHu.js",
+    "/build/assets/map-CZkuF8As.js",
     "/build/assets/map-1DTFk8zz.css",
     "/build/assets/layers-BWBAp2CZ.png",
     "/build/assets/layers-2x-Bpkbi35X.png",
     "/build/assets/marker-icon-hN30_KVU.png"
   ],
   "node_modules/swiper/modules/navigation.css": [
-    "/build/assets/show-C-Cp7xSC.js",
+    "/build/assets/show-BPPvr3FT.js",
     "/build/assets/show-BgP3iXkL.css"
   ],
   "node_modules/swiper/modules/pagination.css": [
-    "/build/assets/show-C-Cp7xSC.js",
+    "/build/assets/show-BPPvr3FT.js",
     "/build/assets/show-BgP3iXkL.css"
   ],
   "node_modules/swiper/swiper.css": [
-    "/build/assets/show-C-Cp7xSC.js",
+    "/build/assets/show-BPPvr3FT.js",
     "/build/assets/show-BgP3iXkL.css"
   ],
   "node_modules/yet-another-react-lightbox/dist/styles.css": [
-    "/build/assets/show-C-Cp7xSC.js",
+    "/build/assets/show-BPPvr3FT.js",
     "/build/assets/show-BgP3iXkL.css"
   ],
   "resources/images/IMG_0190-copy.webp": [
-    "/build/assets/home-hpsO8NiG.js",
+    "/build/assets/home-BUmGKQ8j.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-background-DXnEaOUr.webp",
     "/build/assets/IMG_0190-copy-870kN3in.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
-    "/build/assets/extended curves edited Cape Town-P_UjrPSu.webp"
+    "/build/assets/safety-77FjWXCW.png"
   ],
   "resources/images/Teemane-Boat.webp": [
-    "/build/assets/about-us-DtRk8MyB.js",
+    "/build/assets/about-us-DfPEDkwA.js",
     "/build/assets/Teemane-Boat-DihsRzVb.webp"
   ],
-  "resources/images/extended curves edited Cape Town.webp": [
-    "/build/assets/home-hpsO8NiG.js",
-    "/build/assets/hero-mask-2-DJkSOBdI.svg",
-    "/build/assets/hero-background-DXnEaOUr.webp",
-    "/build/assets/IMG_0190-copy-870kN3in.webp",
-    "/build/assets/media-24-building-C-uGPsNs.webp",
-    "/build/assets/extended curves edited Cape Town-P_UjrPSu.webp"
-  ],
   "resources/images/hero-background.webp": [
-    "/build/assets/home-hpsO8NiG.js",
+    "/build/assets/home-BUmGKQ8j.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-background-DXnEaOUr.webp",
     "/build/assets/IMG_0190-copy-870kN3in.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
-    "/build/assets/extended curves edited Cape Town-P_UjrPSu.webp"
+    "/build/assets/safety-77FjWXCW.png"
   ],
   "resources/images/hero-mask-2.svg": [
-    "/build/assets/home-hpsO8NiG.js",
+    "/build/assets/home-BUmGKQ8j.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-background-DXnEaOUr.webp",
     "/build/assets/IMG_0190-copy-870kN3in.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
-    "/build/assets/extended curves edited Cape Town-P_UjrPSu.webp"
+    "/build/assets/safety-77FjWXCW.png"
   ],
   "resources/images/logo.svg": [
-    "/build/assets/app-layout-hIVnGOzR.js",
+    "/build/assets/app-layout-DjyJ2qIA.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/images/media-24-building.webp": [
-    "/build/assets/home-hpsO8NiG.js",
+    "/build/assets/home-BUmGKQ8j.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-background-DXnEaOUr.webp",
     "/build/assets/IMG_0190-copy-870kN3in.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
-    "/build/assets/extended curves edited Cape Town-P_UjrPSu.webp"
+    "/build/assets/safety-77FjWXCW.png"
+  ],
+  "resources/images/safety.png": [
+    "/build/assets/home-BUmGKQ8j.js",
+    "/build/assets/hero-mask-2-DJkSOBdI.svg",
+    "/build/assets/hero-background-DXnEaOUr.webp",
+    "/build/assets/IMG_0190-copy-870kN3in.webp",
+    "/build/assets/media-24-building-C-uGPsNs.webp",
+    "/build/assets/safety-77FjWXCW.png"
   ],
   "resources/js/components/emergency-cta.tsx": [
-    "/build/assets/app-layout-hIVnGOzR.js",
+    "/build/assets/app-layout-DjyJ2qIA.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/footer.tsx": [
-    "/build/assets/app-layout-hIVnGOzR.js",
+    "/build/assets/app-layout-DjyJ2qIA.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/hero-simple-split.tsx": [
-    "/build/assets/welcome-uyQo91ft.js"
+    "/build/assets/welcome-DaADtfzi.js"
   ],
   "resources/js/components/hero.tsx": [
-    "/build/assets/home-hpsO8NiG.js",
+    "/build/assets/home-BUmGKQ8j.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-background-DXnEaOUr.webp",
     "/build/assets/IMG_0190-copy-870kN3in.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
-    "/build/assets/extended curves edited Cape Town-P_UjrPSu.webp"
+    "/build/assets/safety-77FjWXCW.png"
   ],
   "resources/js/components/map.tsx": [
-    "/build/assets/map-9WsstbHu.js",
+    "/build/assets/map-CZkuF8As.js",
     "/build/assets/map-1DTFk8zz.css",
     "/build/assets/layers-BWBAp2CZ.png",
     "/build/assets/layers-2x-Bpkbi35X.png",
     "/build/assets/marker-icon-hN30_KVU.png"
   ],
   "resources/js/components/mode-toggle.tsx": [
-    "/build/assets/app-layout-hIVnGOzR.js",
+    "/build/assets/app-layout-DjyJ2qIA.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/navigation.tsx": [
-    "/build/assets/app-layout-hIVnGOzR.js",
+    "/build/assets/app-layout-DjyJ2qIA.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/sections/home-credentials-section.tsx": [
-    "/build/assets/home-hpsO8NiG.js",
+    "/build/assets/home-BUmGKQ8j.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-background-DXnEaOUr.webp",
     "/build/assets/IMG_0190-copy-870kN3in.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
-    "/build/assets/extended curves edited Cape Town-P_UjrPSu.webp"
+    "/build/assets/safety-77FjWXCW.png"
   ],
   "resources/js/components/sections/home-intro-section.tsx": [
-    "/build/assets/home-hpsO8NiG.js",
+    "/build/assets/home-BUmGKQ8j.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-background-DXnEaOUr.webp",
     "/build/assets/IMG_0190-copy-870kN3in.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
-    "/build/assets/extended curves edited Cape Town-P_UjrPSu.webp"
+    "/build/assets/safety-77FjWXCW.png"
   ],
   "resources/js/components/sections/home-safety-practices-section.tsx": [
-    "/build/assets/home-hpsO8NiG.js",
+    "/build/assets/home-BUmGKQ8j.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-background-DXnEaOUr.webp",
     "/build/assets/IMG_0190-copy-870kN3in.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
-    "/build/assets/extended curves edited Cape Town-P_UjrPSu.webp"
+    "/build/assets/safety-77FjWXCW.png"
   ],
   "resources/js/components/sections/home-safety-section.tsx": [
-    "/build/assets/home-hpsO8NiG.js",
+    "/build/assets/home-BUmGKQ8j.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-background-DXnEaOUr.webp",
     "/build/assets/IMG_0190-copy-870kN3in.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
-    "/build/assets/extended curves edited Cape Town-P_UjrPSu.webp"
+    "/build/assets/safety-77FjWXCW.png"
   ],
   "resources/js/components/sections/home-services-section.tsx": [
-    "/build/assets/home-hpsO8NiG.js",
+    "/build/assets/home-BUmGKQ8j.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-background-DXnEaOUr.webp",
     "/build/assets/IMG_0190-copy-870kN3in.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
-    "/build/assets/extended curves edited Cape Town-P_UjrPSu.webp"
+    "/build/assets/safety-77FjWXCW.png"
   ],
   "resources/js/components/service-card.tsx": [
     "/build/assets/service-card-Dv_Lv5JI.js"
   ],
   "resources/js/components/stats-bar.tsx": [
-    "/build/assets/about-us-DtRk8MyB.js",
+    "/build/assets/about-us-DfPEDkwA.js",
     "/build/assets/Teemane-Boat-DihsRzVb.webp"
   ],
   "resources/js/components/theme-provider.tsx": [
-    "/build/assets/app-layout-hIVnGOzR.js",
+    "/build/assets/app-layout-DjyJ2qIA.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/ui/accordion.tsx": [
     "/build/assets/accordion-D3uePtWl.js"
   ],
   "resources/js/components/ui/button.tsx": [
-    "/build/assets/app-layout-hIVnGOzR.js",
+    "/build/assets/app-layout-DjyJ2qIA.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/ui/card.tsx": [
-    "/build/assets/welcome-uyQo91ft.js"
+    "/build/assets/welcome-DaADtfzi.js"
   ],
   "resources/js/components/ui/dropdown-menu.tsx": [
-    "/build/assets/app-layout-hIVnGOzR.js",
+    "/build/assets/app-layout-DjyJ2qIA.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/ui/input.tsx": [
-    "/build/assets/input-DjOSq6-B.js"
+    "/build/assets/input-CeBOzzTZ.js"
+  ],
+  "resources/js/components/ui/misc/background-text.tsx": [
+    "/build/assets/background-text-DxXS2cqf.js"
   ],
   "resources/js/components/ui/misc/dot-pattern.tsx": [
-    "/build/assets/home-hpsO8NiG.js",
-    "/build/assets/hero-mask-2-DJkSOBdI.svg",
-    "/build/assets/hero-background-DXnEaOUr.webp",
-    "/build/assets/IMG_0190-copy-870kN3in.webp",
-    "/build/assets/media-24-building-C-uGPsNs.webp",
-    "/build/assets/extended curves edited Cape Town-P_UjrPSu.webp"
+    "/build/assets/dot-pattern-Dth4XF_L.js"
   ],
   "resources/js/components/ui/misc/floating-stat-card.tsx": [
-    "/build/assets/floating-stat-card-DlPCxRHe.js"
+    "/build/assets/floating-stat-card-B9mTpaTg.js"
   ],
   "resources/js/components/ui/misc/section-heading.tsx": [
-    "/build/assets/section-heading-BeebpZAh.js"
+    "/build/assets/section-heading-CKRAgxdD.js"
   ],
   "resources/js/components/ui/misc/wrapper.tsx": [
-    "/build/assets/app-layout-hIVnGOzR.js",
+    "/build/assets/app-layout-DjyJ2qIA.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/ui/sheet.tsx": [
-    "/build/assets/app-layout-hIVnGOzR.js",
+    "/build/assets/app-layout-DjyJ2qIA.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/ui/textarea.tsx": [
-    "/build/assets/contact-us-Cr19IGAU.js"
+    "/build/assets/contact-us-X1srCS9H.js"
   ],
   "resources/js/components/ui/toast.tsx": [
-    "/build/assets/app-layout-hIVnGOzR.js",
+    "/build/assets/app-layout-DjyJ2qIA.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/layouts/app-layout.tsx": [
-    "/build/assets/app-layout-hIVnGOzR.js",
+    "/build/assets/app-layout-DjyJ2qIA.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/lib/utils.ts": [
-    "/build/assets/app-layout-hIVnGOzR.js",
+    "/build/assets/app-layout-DjyJ2qIA.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/pages/about-us.tsx": [
-    "/build/assets/about-us-DtRk8MyB.js",
+    "/build/assets/about-us-DfPEDkwA.js",
     "/build/assets/Teemane-Boat-DihsRzVb.webp"
   ],
   "resources/js/pages/contact-us.tsx": [
-    "/build/assets/contact-us-Cr19IGAU.js"
+    "/build/assets/contact-us-X1srCS9H.js"
   ],
   "resources/js/pages/employees/index.tsx": [
-    "/build/assets/employees-7ZaqCZTM.js"
+    "/build/assets/employees-CBiifKxh.js"
   ],
   "resources/js/pages/employees/show.tsx": [
-    "/build/assets/show-DpmfuRPA.js"
+    "/build/assets/show-D7dp5SIU.js"
   ],
   "resources/js/pages/error.tsx": [
-    "/build/assets/error-DDtpUqrq.js"
+    "/build/assets/error-sD1w8jVs.js"
   ],
   "resources/js/pages/faq.tsx": [
-    "/build/assets/faq-C1ClYQrd.js"
+    "/build/assets/faq-DuQ2rl0O.js"
   ],
   "resources/js/pages/home.tsx": [
-    "/build/assets/home-hpsO8NiG.js",
+    "/build/assets/home-BUmGKQ8j.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-background-DXnEaOUr.webp",
     "/build/assets/IMG_0190-copy-870kN3in.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
-    "/build/assets/extended curves edited Cape Town-P_UjrPSu.webp"
+    "/build/assets/safety-77FjWXCW.png"
   ],
   "resources/js/pages/legal/privacy-policy.tsx": [
-    "/build/assets/privacy-policy-CdWIei5D.js"
+    "/build/assets/privacy-policy-C3FZOg_5.js"
   ],
   "resources/js/pages/legal/terms-of-service.tsx": [
-    "/build/assets/terms-of-service-CKTHoBOU.js"
+    "/build/assets/terms-of-service-BEyYWr5R.js"
   ],
   "resources/js/pages/services/index.tsx": [
-    "/build/assets/services-5ytx-J2Y.js"
+    "/build/assets/services-BVtBovuN.js"
   ],
   "resources/js/pages/services/show.tsx": [
-    "/build/assets/show-C-Cp7xSC.js",
+    "/build/assets/show-BPPvr3FT.js",
     "/build/assets/show-BgP3iXkL.css"
   ],
   "resources/js/pages/welcome.tsx": [
-    "/build/assets/welcome-uyQo91ft.js"
+    "/build/assets/welcome-DaADtfzi.js"
   ],
   "resources/js/routes/index.ts": [
-    "/build/assets/app-layout-hIVnGOzR.js",
+    "/build/assets/app-layout-DjyJ2qIA.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/routes/team/index.ts": [
-    "/build/assets/team-Cf7YrZ7U.js"
+    "/build/assets/team-DB6Cpant.js"
   ],
   "resources/js/ssr.tsx": [],
   "resources/js/wayfinder/index.ts": [
-    "/build/assets/app-layout-hIVnGOzR.js",
+    "/build/assets/app-layout-DjyJ2qIA.js",
     "/build/assets/logo--6nxw50_.svg"
   ]
 }

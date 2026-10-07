@@ -12,6 +12,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+import { BackgroundText } from '@/components/ui/misc/background-text';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -299,7 +300,8 @@ export default function Show({ service }: { service: Service }) {
             image={service.featured_image_url || undefined}
         >
             {/* Hero */}
-            <div className="relative border-b border-border bg-muted/20">
+            <div className="relative border-b border-border bg-muted/20 overflow-hidden">
+                <BackgroundText position="center">SERVICE</BackgroundText>
                 {service.featured_image_url && (
                     <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
                         <img

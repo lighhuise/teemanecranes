@@ -2,13 +2,15 @@ import { Head } from '@inertiajs/react';
 import AppLayout from '@/layouts/app-layout';
 import Wrapper from '@/components/ui/misc/wrapper';
 import SectionHeading from '@/components/ui/misc/section-heading';
+import { BackgroundText } from '@/components/ui/misc/background-text';
 
 export default function TermsOfService() {
     return (
         <AppLayout title="Terms of Service">
             
             <div className="bg-background selection:bg-primary selection:text-white pb-24">
-                <section className="py-24 bg-muted/30 border-b border-border">
+                <section className="py-24 bg-muted/30 border-b border-border relative overflow-hidden">
+                    <BackgroundText position="center">TERMS</BackgroundText>
                     <Wrapper>
                         <SectionHeading
                             label="Legal"

@@ -4,11 +4,12 @@ import { Link } from "@inertiajs/react";
 import { buttonVariants } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { ServiceCard } from "@/components/service-card";
+import { BackgroundText } from "@/components/ui/misc/background-text";
 
 export function HomeServicesSection({ services }: { services: any[] }) {
     return (
         <section className="py-24 bg-muted/30 border-y border-border relative">
-            <div aria-hidden={true} className={`text-[20vh] pointer-events-none opacity-5 absolute top-2 left-1/2 -translate-x-1/2 xl:text-[300px] font-black tracking-tighter leading-none whitespace-nowrap text-foreground`}>SERVICES</div>
+            <BackgroundText position="center">SERVICES</BackgroundText>
 
             <Wrapper>
                 <SectionHeading

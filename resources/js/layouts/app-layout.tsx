@@ -25,16 +25,16 @@ export default function AppLayout({ children, title, description, image }: AppLa
     const siteTitle = title ? `${title} - ${defaultTitle}` : defaultTitle;
     const siteDescription = description || "The only name trusted to perform on South Africa's most demanding worksites. Unmatched excellence in crane hire, heavy lifting and specialised transport since 2012.";
     // Need a default image, ideally the logo or a hero image
-    const siteImage = image || '/images/logo.svg'; 
+    const siteImage = image || '/images/logo.svg';
     // Construct full URL using window.location if available, fallback to path
     const fullUrl = typeof window !== 'undefined' ? window.location.href : url;
 
     return (
-        <div className="min-h-screen bg-background text-foreground transition-colors duration-300 ">
+        <div className="min-h-screen bg-background text-foreground transition-colors duration-300 max-w-full overflow-x-clip">
             <Head>
                 {title ? <title>{title}</title> : <title>{defaultTitle}</title>}
                 <meta name="description" content={siteDescription} />
-                
+
                 {/* Open Graph / Facebook */}
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content={fullUrl} />

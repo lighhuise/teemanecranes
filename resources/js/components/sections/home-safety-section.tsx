@@ -4,11 +4,12 @@ import { buttonVariants } from "@/components/ui/button";
 import { FloatingStatCard } from "@/components/ui/misc/floating-stat-card";
 // @ts-ignore
 import imgSafety from "@/../images/media-24-building.webp";
+import { BackgroundText } from "@/components/ui/misc/background-text";
 
 export function HomeSafetySection() {
     return (
         <section className="py-24 bg-background relative">
-            <div aria-hidden={true} className={`text-[20vh] opacity-5 absolute top-2 pointer-events-none right-3 xl:text-[300px] font-black tracking-tighter leading-none whitespace-nowrap text-foreground`}>Solutions</div>
+            <BackgroundText position="right">Solutions</BackgroundText>
 
             <Wrapper>
                 <div className="grid lg:grid-cols-2 gap-16 items-center">

@@ -5,6 +5,7 @@ import {Target, ShieldCheck, Trophy, Truck, Users, Building2, Zap, Award, HardHa
 import { FloatingStatCard } from '@/components/ui/misc/floating-stat-card';
 import SectionHeading from '@/components/ui/misc/section-heading';
 import StatsBar from '@/components/stats-bar';
+import { BackgroundText } from '@/components/ui/misc/background-text';
 // @ts-ignore
 import imgBoat from '@/../images/Teemane-Boat.webp';
 
@@ -13,7 +14,8 @@ export default function AboutUs() {
         <>
 
             {/* Hero Section */}
-            <div className="bg-muted/30 py-24 border-b border-border">
+            <div className="bg-muted/30 py-24 border-b border-border relative overflow-hidden">
+                <BackgroundText position="center">ABOUT US</BackgroundText>
                 <Wrapper>
                     <SectionHeading
                         label="Our Story"

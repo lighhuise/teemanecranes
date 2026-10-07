@@ -2,14 +2,16 @@ import Wrapper from '@/components/ui/misc/wrapper';
 import CountUpPkg from 'react-countup';
 const CountUp = (CountUpPkg as any).default || CountUpPkg;
 import { useState, useEffect } from 'react';
+import {DotPattern} from "@/components/ui/misc/dot-pattern";
 
 export default function StatsBar() {
     const [mounted, setMounted] = useState(false);
     useEffect(() => setMounted(true), []);
 
     return (
-        <div className="bg-radial-[at_50%_85%] from-primary/70 to-primary text-primary-foreground py-10 border-b border-primary/20">
+        <div className="bg-radial-[at_50%_85%] from-primary/70 to-primary py-16 relative overflow-clip text-primary-foreground ">
             <Wrapper>
+                <DotPattern className={`text-primary-foreground/30 top-0` }/>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                     <div>
                         <div className="text-4xl md:text-5xl font-bold tracking-wider">

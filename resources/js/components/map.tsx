@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
+// @ts-ignore
+import "leaflet/dist/leaflet.css";
 import L from 'leaflet';
 import Wrapper from './ui/misc/wrapper';
 import { MapPin, Navigation as NavIcon } from 'lucide-react';
+import {BackgroundText} from "@/components/ui/misc/background-text";
 
 export default function Map() {
     const [mounted, setMounted] = useState(false);
-    
+
     useEffect(() => {
         setMounted(true);
     }, []);
@@ -19,6 +21,7 @@ export default function Map() {
         return (
             <section className="bg-background relative z-10 w-full mb-24 mt-12">
                 <Wrapper>
+
                     <div className="w-full h-[500px] lg:h-[600px] rounded-lg overflow-hidden border border-border bg-muted flex items-center justify-center">
                         <span className="text-muted-foreground animate-pulse font-medium tracking-widest uppercase">Loading Map...</span>
                     </div>
@@ -31,14 +34,15 @@ export default function Map() {
     const customMarkerIcon = L.divIcon({
         className: 'custom-marker',
         html: `<div style="background-color: var(--primary); width: 28px; height: 28px; border-radius: 50%; border: 4px solid var(--background); box-shadow: 0 0 20px var(--primary); display: flex; align-items: center; justify-content: center; position: relative; top: -14px; left: -14px;"><div style="background-color: var(--background); width: 8px; height: 8px; border-radius: 50%;"></div></div>`,
-        iconSize: [0, 0], 
+        iconSize: [0, 0],
     });
 
     return (
         <section className="bg-background relative z-10 w-full pb-24 pt-12">
+            <BackgroundText position="center">LOCATION</BackgroundText>
             <Wrapper>
                 <div className="flex flex-col gap-10">
-                    
+
                     {/* Header Text Section */}
                     <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 w-full">
                         <div className="space-y-4 max-w-2xl">
@@ -53,7 +57,7 @@ export default function Map() {
                                 Centrally located to rapidly deploy cranes, rigging teams, and heavy transport equipment anywhere across the Western Cape.
                             </p>
                         </div>
-                        
+
                         <div className="flex flex-col sm:flex-row gap-6 sm:items-center">
                             <div className="flex items-center gap-4 border-l-4 border-primary/20 pl-4 py-1">
                                 <div className="shrink-0 w-12 h-12 bg-primary/10 text-primary flex items-center justify-center rounded-full">
@@ -87,7 +91,7 @@ export default function Map() {
                                 </Popup>
                             </Marker>
                         </MapContainer>
-                        
+
                         <style>{`
                             html.dark .leaflet-tile-pane {
                                 filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);

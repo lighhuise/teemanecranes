@@ -5,11 +5,12 @@ import { FloatingStatCard } from "@/components/ui/misc/floating-stat-card";
 // @ts-ignore
 import imgCompanyIntro from "@/../images/IMG_0190-copy.webp";
 import {DotPattern} from "@/components/ui/misc/dot-pattern";
+import { BackgroundText } from "@/components/ui/misc/background-text";
 
 export function HomeIntroSection() {
     return (
         <section className="py-24 bg-background relative">
-            <div aria-hidden={true} className={`text-[20vh] pointer-events-none opacity-5 absolute top-2 left-3 xl:text-[300px] font-black tracking-tighter leading-none whitespace-nowrap text-foreground`}>TRUSTED</div>
+            <BackgroundText position="left">TRUSTED</BackgroundText>
             <Wrapper className={`relative`}>
                 <DotPattern className={'opacity-10'} />
                 <div className="grid lg:grid-cols-2 gap-16 items-center">

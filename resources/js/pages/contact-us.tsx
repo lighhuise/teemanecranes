@@ -9,6 +9,7 @@ import { FormEvent, useEffect } from 'react';
 import { toast } from '@/components/ui/toast';
 import { cn } from "@/lib/utils";
 import SectionHeading from '@/components/ui/misc/section-heading';
+import { BackgroundText } from '@/components/ui/misc/background-text';
 
 interface HoneypotData {
     enabled: boolean;
@@ -47,7 +48,8 @@ export default function ContactUs({ flash, honeypot }: { flash: { success?: stri
         <>
             
 
-            <div className="bg-muted/30 py-24 border-b border-border">
+            <div className="bg-muted/30 py-24 border-b border-border relative overflow-hidden">
+                <BackgroundText position="center">CONTACT</BackgroundText>
                 <Wrapper>
                     <SectionHeading
                         label="Get In Touch"
