@@ -6,7 +6,7 @@ import { t as DotPattern } from "./dot-pattern-Dth4XF_L.js";
 import { i as AccordionTrigger, n as AccordionContent, r as AccordionItem, t as Accordion } from "./accordion-D3uePtWl.js";
 import { t as ServiceCard } from "./service-card-Dv_Lv5JI.js";
 import { Head, Link } from "@inertiajs/react";
-import { jsx, jsxs } from "react/jsx-runtime";
+import { Fragment, jsx, jsxs } from "react/jsx-runtime";
 import { useEffect, useRef } from "react";
 import { BadgeCheck, CalendarDays, Clock, FileCheck, HardHat, ShieldPlus } from "lucide-react";
 import gsap from "gsap";
@@ -415,27 +415,60 @@ var safety_default = "/build/assets/safety-77FjWXCW.png";
 var safetyItems = [
 	{
 		title: "Risk Assessment & Planning",
-		content: "Thorough risk assessment and planning form a critical part of how we prepare for every job. Each site is carefully assessed, potential hazards are identified and the required safety procedures and controls are put in place before our team commences work. We stand firmly behind these processes, ensuring the conditions, environment and scope of work have been properly considered. If the required safety standards are not met, work will not commence."
+		content: /* @__PURE__ */ jsxs(Fragment, { children: [
+			/* @__PURE__ */ jsx("strong", { children: "Thorough risk assessment and planning" }),
+			" form a critical part of how we prepare for every job. Each site is carefully assessed, ",
+			/* @__PURE__ */ jsx("strong", { children: "potential hazards are identified" }),
+			" and the required safety procedures and controls are put in place before our team commences work. We stand firmly behind these processes, ensuring the conditions, environment and scope of work have been properly considered. ",
+			/* @__PURE__ */ jsx("strong", { children: "If the required safety standards are not met, work will not commence." })
+		] })
 	},
 	{
 		title: "Equipment & Certification",
-		content: "We place the same level of importance on the condition of our equipment as we do on the work itself. Our cranes, lifting equipment and rigging gear are inspected, certified and subject to the required checks to ensure they remain safe and fit for use."
+		content: /* @__PURE__ */ jsxs(Fragment, { children: [
+			"We place the same level of importance on the condition of our equipment as we do on the work itself. Our cranes, lifting equipment and rigging gear are ",
+			/* @__PURE__ */ jsx("strong", { children: "inspected, certified and subject to the required checks" }),
+			" to ensure they remain safe and fit for use."
+		] })
 	},
 	{
 		title: "Lift Planning & Setup",
-		content: "Each lift is planned around the specific requirements of the job. Load weight, lifting points, rigging, crane capacity, ground conditions and crane setup are all carefully considered before lifting begins. If the required setup is not in place, the lift does not proceed."
+		content: /* @__PURE__ */ jsxs(Fragment, { children: [
+			"Each lift is planned around the specific requirements of the job. ",
+			/* @__PURE__ */ jsx("strong", { children: "Load weight, lifting points, rigging, crane capacity, ground conditions" }),
+			" and crane setup are all carefully considered before lifting begins. ",
+			/* @__PURE__ */ jsx("strong", { children: "If the required setup is not in place, the lift does not proceed." })
+		] })
 	},
 	{
 		title: "Controlled Working Areas",
-		content: "We take responsibility for maintaining a safe working area around our operations. Exclusion zones and access are carefully controlled to keep unauthorised persons clear of lifting, rigging and moving equipment, protecting everyone on site and in the surrounding area."
+		content: /* @__PURE__ */ jsxs(Fragment, { children: [
+			"We take responsibility for maintaining a safe working area around our operations. ",
+			/* @__PURE__ */ jsx("strong", { children: "Exclusion zones and access are carefully controlled" }),
+			" to keep unauthorised persons clear of lifting, rigging and moving equipment, ",
+			/* @__PURE__ */ jsx("strong", { children: "protecting everyone on site" }),
+			" and in the surrounding area."
+		] })
 	},
 	{
 		title: "Weather & Working Conditions",
-		content: "We monitor weather conditions before and throughout the work. If conditions are deemed unsafe, work will not commence. Should conditions change at any stage, work is stopped immediately and will only continue once it is safe to do so."
+		content: /* @__PURE__ */ jsxs(Fragment, { children: [
+			"We ",
+			/* @__PURE__ */ jsx("strong", { children: "monitor weather conditions" }),
+			" before and throughout the work. ",
+			/* @__PURE__ */ jsx("strong", { children: "If conditions are deemed unsafe, work will not commence." }),
+			" Should conditions change at any stage, work is stopped immediately and will only continue once it is safe to do so."
+		] })
 	},
 	{
 		title: "Safety Compliance",
-		content: "We stand firmly behind the safety standards that govern our work. Our operations are carried out in line with applicable OHS legislation, client requirements and Teemane procedures, with accountability for safety maintained across every level of our business. These standards are continuously reviewed and upheld to ensure that the way we work remains responsible, compliant and reflective of the safety standards our clients have come to trust Teemane for."
+		content: /* @__PURE__ */ jsxs(Fragment, { children: [
+			"We stand firmly behind the safety standards that govern our work. Our operations are carried out in line with applicable ",
+			/* @__PURE__ */ jsx("strong", { children: "OHS legislation, client requirements and Teemane procedures" }),
+			", with ",
+			/* @__PURE__ */ jsx("strong", { children: "accountability for safety" }),
+			" maintained across every level of our business. These standards are continuously reviewed and upheld to ensure that the way we work remains responsible, compliant and reflective of the safety standards our clients have come to trust Teemane for."
+		] })
 	}
 ];
 function HomeSafetyPracticesSection() {
@@ -466,11 +499,25 @@ function HomeSafetyPracticesSection() {
 							align: "left"
 						}),
 						/* @__PURE__ */ jsxs("div", {
-							className: "text-muted-foreground  text-base sm:text-lg leading-relaxed space-y-6",
+							className: "text-muted-foreground text-base sm:text-lg leading-relaxed space-y-6",
 							children: [
-								/* @__PURE__ */ jsx("p", { children: "Safety is firmly embedded in the way Teemane operates and remains a leading factor in every decision we make. In the environments we work in, there is no separating safety from the job itself. It influences how we plan, how we prepare our team, how we inspect our equipment and how work is carried out on site." }),
-								/* @__PURE__ */ jsx("p", { children: "Our approach begins with identifying hazards, assessing risk and making sure the correct controls are in place before any work commences. Just as importantly, we place strong emphasis on the team behind the work. Medical fitness, training, competency, PPE and day-to-day readiness all form part of making sure our team is able to perform safely and responsibly." }),
-								/* @__PURE__ */ jsx("p", { children: "For us, health and safety is not something reviewed only when required. It is continually monitored, measured and strengthened across the business, with the protection of our team, our clients, contractors, visitors, property and the surrounding environment remaining a constant priority." })
+								/* @__PURE__ */ jsxs("p", { children: [/* @__PURE__ */ jsx("strong", { children: "Safety is firmly embedded" }), " in the way Teemane operates and remains a leading factor in every decision we make. In the environments we work in, there is no separating safety from the job itself. It influences how we plan, how we prepare our team, how we inspect our equipment and how work is carried out on site."] }),
+								/* @__PURE__ */ jsxs("p", { children: [
+									"Our approach begins with ",
+									/* @__PURE__ */ jsx("strong", { children: "identifying hazards, assessing risk" }),
+									" and making sure the ",
+									/* @__PURE__ */ jsx("strong", { children: "correct controls are in place" }),
+									" before any work commences. Just as importantly, we place strong emphasis on the team behind the work. ",
+									/* @__PURE__ */ jsx("strong", { children: "Medical fitness, training, competency, PPE" }),
+									" and day-to-day readiness all form part of making sure our team is able to perform safely and responsibly."
+								] }),
+								/* @__PURE__ */ jsxs("p", { children: [
+									"For us, health and safety is not something reviewed only when required. It is ",
+									/* @__PURE__ */ jsx("strong", { children: "continually monitored, measured and strengthened" }),
+									" across the business, with the protection of our team, our clients, contractors, visitors, property and the surrounding environment remaining a ",
+									/* @__PURE__ */ jsx("strong", { children: "constant priority" }),
+									"."
+								] })
 							]
 						}),
 						/* @__PURE__ */ jsx("div", {
@@ -565,4 +612,4 @@ Home.layout = AppLayout;
 //#endregion
 export { Home as default };
 
-//# sourceMappingURL=home-BUmGKQ8j.js.map
+//# sourceMappingURL=home-CwHcUjg_.js.map
