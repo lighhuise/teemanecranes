@@ -5,11 +5,12 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Mail, Phone, MapPin, CheckCircle2 } from 'lucide-react';
-import { FormEvent, useEffect } from 'react';
+import React, { FormEvent, useEffect } from 'react';
 import { toast } from '@/components/ui/toast';
 import { cn } from "@/lib/utils";
 import SectionHeading from '@/components/ui/misc/section-heading';
 import { BackgroundText } from '@/components/ui/misc/background-text';
+import DiamondPattern from "@/components/ui/misc/diamond-pattern";
 
 interface HoneypotData {
     enabled: boolean;
@@ -46,10 +47,11 @@ export default function ContactUs({ flash, honeypot }: { flash: { success?: stri
 
     return (
         <>
-            
+
 
             <div className="bg-muted/30 py-24 border-b border-border relative overflow-hidden">
                 <BackgroundText position="center">CONTACT</BackgroundText>
+                <DiamondPattern corner="top-right" />
                 <Wrapper>
                     <SectionHeading
                         label="Get In Touch"

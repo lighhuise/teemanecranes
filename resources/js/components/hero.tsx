@@ -7,7 +7,7 @@ import { CalendarDays, HardHat, Clock } from "lucide-react";
 // @ts-ignore
 import heroMaskSvg from "@/../images/hero-mask-2.svg";
 // @ts-ignore
-import heroBgImage from "@/../images/hero-background.webp";
+import heroBgImage from "@/../images/hero-image.webp";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -43,7 +43,7 @@ export default function Hero() {
                     alt="Hero Background"
                     className="hero-bg-parallax w-full h-full object-cover object-center top-0 relative"
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-black/50 to-black/20"></div>
+                {/*<div className="absolute inset-0 bg-linear-to-t from-black/90 to-black/20"></div>*/}
             </div>
 
             <div className="relative z-10 w-full px-5 flex flex-col justify-end lg:hidden min-h-[75vh] pb-10 pt-24">

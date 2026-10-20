@@ -5,6 +5,8 @@ import { ArrowRight } from 'lucide-react';
 import SectionHeading from '@/components/ui/misc/section-heading';
 import { ServiceCard } from '@/components/service-card';
 import { BackgroundText } from '@/components/ui/misc/background-text';
+import DiamondPattern from "@/components/ui/misc/diamond-pattern";
+import React from "react";
 
 export default function Index({ services }: { services: any[] }) {
     return (
@@ -14,6 +16,7 @@ export default function Index({ services }: { services: any[] }) {
             <div className="bg-background selection:bg-primary selection:text-white pb-24">
                 <section className="py-24 bg-muted/30 border-b border-border relative overflow-hidden">
                     <BackgroundText position="center">SERVICES</BackgroundText>
+                    <DiamondPattern corner="top-right" />
                     <Wrapper>
                         <SectionHeading
                             label="Our Capabilities"

@@ -223,7 +223,7 @@ function MediaTextRenderer({ data }: { data: MediaTextBlock['data'] }) {
                                     prose-a:text-primary hover:prose-a:underline" dangerouslySetInnerHTML={{ __html: data.content }} />
                 )}
                 {data.button_label && data.button_url && (
-                    <a href={data.button_url} className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-primary/70 text-primary-foreground font-bold tracking-widest uppercase text-sm px-8 py-4 rounded-lg shadow-sm hover:from-primary/90 hover:to-primary transition-all group">
+                    <a href={data.button_url} className="inline-flex items-center justify-center gap-2 bg-linear-to-r from-primary to-primary/70 text-primary-foreground font-bold tracking-widest uppercase text-sm px-8 py-4 rounded-lg shadow-sm hover:from-primary/90 hover:to-primary transition-all group">
                         {data.button_label}
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </a>

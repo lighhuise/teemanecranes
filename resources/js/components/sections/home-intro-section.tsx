@@ -6,13 +6,15 @@ import { FloatingStatCard } from "@/components/ui/misc/floating-stat-card";
 import imgCompanyIntro from "@/../images/IMG_0190-copy.webp";
 import {DotPattern} from "@/components/ui/misc/dot-pattern";
 import { BackgroundText } from "@/components/ui/misc/background-text";
+import DiamondPattern from "@/components/ui/misc/diamond-pattern";
+import React from "react";
 
 export function HomeIntroSection() {
     return (
         <section className="py-24 bg-background relative">
             <BackgroundText position="left">TRUSTED</BackgroundText>
             <Wrapper className={`relative`}>
-                <DotPattern className={'opacity-10'} />
+                <DiamondPattern corner="top-right" />
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
                     <div className="space-y-8">
                         <div className="inline-flex items-center gap-4">

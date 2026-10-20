@@ -19,17 +19,17 @@ var renderPage = (page) => createInertiaApp({
 	render: ReactDOMServer.renderToString,
 	title: (title) => `${title} - ${appName}`,
 	resolve: (name) => resolvePageComponent(`./pages/${name}.tsx`, /* #__PURE__ */ Object.assign({
-		"./pages/about-us.tsx": () => import("./assets/about-us-DfPEDkwA.js"),
-		"./pages/contact-us.tsx": () => import("./assets/contact-us-X1srCS9H.js"),
+		"./pages/about-us.tsx": () => import("./assets/about-us-BnKp5DnN.js"),
+		"./pages/contact-us.tsx": () => import("./assets/contact-us-VdC_xWAV.js"),
 		"./pages/employees/index.tsx": () => import("./assets/employees-CBiifKxh.js"),
 		"./pages/employees/show.tsx": () => import("./assets/show-D7dp5SIU.js"),
 		"./pages/error.tsx": () => import("./assets/error-sD1w8jVs.js"),
-		"./pages/faq.tsx": () => import("./assets/faq-DuQ2rl0O.js"),
-		"./pages/home.tsx": () => import("./assets/home-CwHcUjg_.js"),
+		"./pages/faq.tsx": () => import("./assets/faq-Dv6rhtfB.js"),
+		"./pages/home.tsx": () => import("./assets/home-Btt1BoNb.js"),
 		"./pages/legal/privacy-policy.tsx": () => import("./assets/privacy-policy-C3FZOg_5.js"),
 		"./pages/legal/terms-of-service.tsx": () => import("./assets/terms-of-service-BEyYWr5R.js"),
-		"./pages/services/index.tsx": () => import("./assets/services-BVtBovuN.js"),
-		"./pages/services/show.tsx": () => import("./assets/show-BPPvr3FT.js"),
+		"./pages/services/index.tsx": () => import("./assets/services-Diw4wRmP.js"),
+		"./pages/services/show.tsx": () => import("./assets/show-ilZ9g_qa.js"),
 		"./pages/welcome.tsx": () => import("./assets/welcome-DaADtfzi.js")
 	})),
 	setup({ App, props }) {
