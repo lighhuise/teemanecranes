@@ -15,7 +15,7 @@ class HomePageIndexController extends Controller
     public function __invoke()
     {
         return Inertia::render('home', [
-            'services' => Cache::remember('homepage_services', 86400, fn () => array_values(Service::with('media')->where('is_active', true)->take(6)->get()->toArray())),
+            'services' => Cache::remember('homepage_services', 86400, fn () => array_values(Service::with('media')->where('is_active', true)->take(3)->get()->toArray())),
         ]);
     }
 }

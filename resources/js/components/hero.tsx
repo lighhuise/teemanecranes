@@ -34,45 +34,36 @@ export default function Hero() {
     return (
         <section
             ref={heroRef}
-            className="relative w-full pt-24 pb-12 lg:pt-2 lg:pb-16 flex justify-center overflow-hidden"
+            className="relative w-full pt-0 pb-0 lg:pt-2 lg:pb-16 flex justify-center overflow-hidden"
         >
-            {/* Mobile View: Standard full bleed image with text overlay */}
-            <div className="absolute inset-0 block lg:hidden z-0">
+            {/* Mobile View: Full-bleed edge-to-edge image with top-left SVG cutout and no stats */}
+            <div className="relative w-full aspect-4/5 sm:aspect-16/10 min-h-[60vh] block lg:hidden overflow-hidden">
                 <img
                     src={heroBgImage}
                     alt="Hero Background"
-                    className="hero-bg-parallax w-full h-full object-cover object-center top-0 relative"
+                    className="hero-bg-parallax w-full h-[115%] object-cover object-[65%_center] -top-8 relative"
                 />
-                {/*<div className="absolute inset-0 bg-linear-to-t from-black/90 to-black/20"></div>*/}
-            </div>
 
-            <div className="relative z-10 w-full px-5 flex flex-col justify-end lg:hidden min-h-[75vh] pb-10 pt-24">
-                <div className="max-w-md">
-                    <h1 className="text-[3.25rem] sm:text-6xl font-black tracking-tighter leading-[0.9] text-white drop-shadow-md">
-                        A CUT ABOVE <br />
-                        <span className="text-primary">THE REST</span>
-                    </h1>
-                    <p className="mt-5 text-xs sm:text-sm font-bold tracking-widest text-white/90 uppercase border-l-4 border-primary pl-3">
-                        Crane Hire • Heavy Lifting<br/>Specialised Transport
-                    </p>
+                {/* Top-left SVG Cutout Overlay fixed to corner */}
+                <div className="absolute top-0 left-0 z-10 w-[68%] sm:w-[52%] aspect-[543.19/270.12]">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        data-name="Layer 2"
+                        viewBox="0 0 543.19 270.12"
+                        className="w-full h-full fill-background block"
+                    >
+                        <path d="M543.19 0v129.35c0 4.25-1.69 8.32-4.69 11.32L413.73 265.44c-3 3-7.06 4.68-11.31 4.68H0V0z" />
+                    </svg>
 
-                    {/* Mobile Stats */}
-                    <div className="mt-8 grid grid-cols-2 gap-3">
-                        <div className="bg-white/10 backdrop-blur-md border border-white/20 p-3 rounded-lg flex flex-col justify-between">
-                            <p className="text-[10px] font-bold text-white/80 uppercase tracking-widest mb-1">Experience</p>
-                            <p className="text-3xl font-black text-white">25+</p>
-                        </div>
-                        <div className="bg-white/10 backdrop-blur-md border border-white/20 p-3 rounded-lg flex flex-col justify-between">
-                            <p className="text-[10px] font-bold text-white/80 uppercase tracking-widest mb-1">Projects</p>
-                            <p className="text-3xl font-black text-white">500+</p>
-                        </div>
-                        <div className="col-span-2 bg-primary/20 backdrop-blur-md border border-primary/30 p-3 rounded-lg flex items-center justify-between">
-                            <p className="text-[10px] font-bold text-white uppercase tracking-widest">Availability</p>
-                            <div className="flex items-center gap-2">
-                                <Clock className="w-4 h-4 text-primary" />
-                                <p className="text-2xl font-black text-white">24/7</p>
-                            </div>
-                        </div>
+                    {/* Heading & Subtitle inside the SVG cutout */}
+                    <div className="absolute inset-0 flex flex-col justify-center pl-4 sm:pl-6 pr-[20%] pb-[6%]">
+                        <h1 className="text-[6.8vw] sm:text-4xl font-black tracking-tighter leading-[0.9] text-foreground">
+                            A CUT ABOVE <br />
+                            <span className="text-primary">THE REST</span>
+                        </h1>
+                        <p className="mt-1.5 sm:mt-2 text-[1.8vw] sm:text-[10px] font-bold tracking-tight text-muted-foreground uppercase leading-tight">
+                            CRANE HIRE • HEAVY LIFTING • SPECIALISED TRANSPORT
+                        </p>
                     </div>
                 </div>
             </div>

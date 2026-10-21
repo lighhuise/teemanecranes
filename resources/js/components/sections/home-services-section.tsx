@@ -22,7 +22,7 @@ export function HomeServicesSection({ services }: { services: any[] }) {
                 </SectionHeading>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {(services || []).map((service, idx) => (
+                    {(services || []).slice(0, 3).map((service, idx) => (
                         <ServiceCard key={service.id} service={service} index={idx} />
                     ))}
                 </div>

@@ -39,184 +39,141 @@ function Hero() {
 	}, []);
 	return /* @__PURE__ */ jsxs("section", {
 		ref: heroRef,
-		className: "relative w-full pt-24 pb-12 lg:pt-2 lg:pb-16 flex justify-center overflow-hidden",
-		children: [
-			/* @__PURE__ */ jsx("div", {
-				className: "absolute inset-0 block lg:hidden z-0",
-				children: /* @__PURE__ */ jsx("img", {
-					src: hero_image_default,
-					alt: "Hero Background",
-					className: "hero-bg-parallax w-full h-full object-cover object-center top-0 relative"
-				})
-			}),
-			/* @__PURE__ */ jsx("div", {
-				className: "relative z-10 w-full px-5 flex flex-col justify-end lg:hidden min-h-[75vh] pb-10 pt-24",
-				children: /* @__PURE__ */ jsxs("div", {
-					className: "max-w-md",
-					children: [
-						/* @__PURE__ */ jsxs("h1", {
-							className: "text-[3.25rem] sm:text-6xl font-black tracking-tighter leading-[0.9] text-white drop-shadow-md",
-							children: [
-								"A CUT ABOVE ",
-								/* @__PURE__ */ jsx("br", {}),
-								/* @__PURE__ */ jsx("span", {
-									className: "text-primary",
-									children: "THE REST"
-								})
-							]
-						}),
-						/* @__PURE__ */ jsxs("p", {
-							className: "mt-5 text-xs sm:text-sm font-bold tracking-widest text-white/90 uppercase border-l-4 border-primary pl-3",
-							children: [
-								"Crane Hire • Heavy Lifting",
-								/* @__PURE__ */ jsx("br", {}),
-								"Specialised Transport"
-							]
-						}),
-						/* @__PURE__ */ jsxs("div", {
-							className: "mt-8 grid grid-cols-2 gap-3",
+		className: "relative w-full pt-0 pb-0 lg:pt-2 lg:pb-16 flex justify-center overflow-hidden",
+		children: [/* @__PURE__ */ jsxs("div", {
+			className: "relative w-full aspect-4/5 sm:aspect-16/10 min-h-[60vh] block lg:hidden overflow-hidden",
+			children: [/* @__PURE__ */ jsx("img", {
+				src: hero_image_default,
+				alt: "Hero Background",
+				className: "hero-bg-parallax w-full h-[115%] object-cover object-[65%_center] -top-8 relative"
+			}), /* @__PURE__ */ jsxs("div", {
+				className: "absolute top-0 left-0 z-10 w-[68%] sm:w-[52%] aspect-[543.19/270.12]",
+				children: [/* @__PURE__ */ jsx("svg", {
+					xmlns: "http://www.w3.org/2000/svg",
+					"data-name": "Layer 2",
+					viewBox: "0 0 543.19 270.12",
+					className: "w-full h-full fill-background block",
+					children: /* @__PURE__ */ jsx("path", { d: "M543.19 0v129.35c0 4.25-1.69 8.32-4.69 11.32L413.73 265.44c-3 3-7.06 4.68-11.31 4.68H0V0z" })
+				}), /* @__PURE__ */ jsxs("div", {
+					className: "absolute inset-0 flex flex-col justify-center pl-4 sm:pl-6 pr-[20%] pb-[6%]",
+					children: [/* @__PURE__ */ jsxs("h1", {
+						className: "text-[6.8vw] sm:text-4xl font-black tracking-tighter leading-[0.9] text-foreground",
+						children: [
+							"A CUT ABOVE ",
+							/* @__PURE__ */ jsx("br", {}),
+							/* @__PURE__ */ jsx("span", {
+								className: "text-primary",
+								children: "THE REST"
+							})
+						]
+					}), /* @__PURE__ */ jsx("p", {
+						className: "mt-1.5 sm:mt-2 text-[1.8vw] sm:text-[10px] font-bold tracking-tight text-muted-foreground uppercase leading-tight",
+						children: "CRANE HIRE • HEAVY LIFTING • SPECIALISED TRANSPORT"
+					})]
+				})]
+			})]
+		}), /* @__PURE__ */ jsx(Wrapper, {
+			className: "hidden lg:flex relative w-full items-center justify-center",
+			children: /* @__PURE__ */ jsxs("div", {
+				className: "relative w-full aspect-1337/540 max-h-175",
+				children: [/* @__PURE__ */ jsx("div", {
+					className: "absolute inset-0 w-full h-full drop-shadow-sm drop-shadow-black/25",
+					children: /* @__PURE__ */ jsxs("div", {
+						className: "absolute inset-0 w-full h-full",
+						style: {
+							maskImage: `url(${hero_mask_2_default})`,
+							WebkitMaskImage: `url(${hero_mask_2_default})`,
+							maskSize: "100% 100%",
+							WebkitMaskSize: "100% 100%",
+							maskRepeat: "no-repeat",
+							WebkitMaskRepeat: "no-repeat"
+						},
+						children: [/* @__PURE__ */ jsx("img", {
+							src: hero_image_default,
+							alt: "Hero Background",
+							className: "hero-bg-parallax w-full h-[110%] object-cover object-center -top-10 relative"
+						}), /* @__PURE__ */ jsxs("div", {
+							id: `stats`,
+							className: "absolute inset-x-4 bottom-4 z-10 flex space-x-2",
 							children: [
 								/* @__PURE__ */ jsxs("div", {
-									className: "bg-white/10 backdrop-blur-md border border-white/20 p-3 rounded-lg flex flex-col justify-between",
-									children: [/* @__PURE__ */ jsx("p", {
-										className: "text-[10px] font-bold text-white/80 uppercase tracking-widest mb-1",
-										children: "Experience"
-									}), /* @__PURE__ */ jsx("p", {
-										className: "text-3xl font-black text-white",
-										children: "25+"
-									})]
-								}),
-								/* @__PURE__ */ jsxs("div", {
-									className: "bg-white/10 backdrop-blur-md border border-white/20 p-3 rounded-lg flex flex-col justify-between",
-									children: [/* @__PURE__ */ jsx("p", {
-										className: "text-[10px] font-bold text-white/80 uppercase tracking-widest mb-1",
-										children: "Projects"
-									}), /* @__PURE__ */ jsx("p", {
-										className: "text-3xl font-black text-white",
-										children: "500+"
-									})]
-								}),
-								/* @__PURE__ */ jsxs("div", {
-									className: "col-span-2 bg-primary/20 backdrop-blur-md border border-primary/30 p-3 rounded-lg flex items-center justify-between",
-									children: [/* @__PURE__ */ jsx("p", {
-										className: "text-[10px] font-bold text-white uppercase tracking-widest",
-										children: "Availability"
+									className: `size-52 border-2 p-4 border-white/25 flex flex-col justify-between bg-white/15 rounded-sm transition-all duration-150 hover:backdrop-blur-xs `,
+									children: [/* @__PURE__ */ jsx("div", {
+										className: "flex justify-between items-start",
+										children: /* @__PURE__ */ jsx(CalendarDays, { className: "w-8 h-8 text-white drop-shadow-md" })
 									}), /* @__PURE__ */ jsxs("div", {
-										className: "flex items-center gap-2",
-										children: [/* @__PURE__ */ jsx(Clock, { className: "w-4 h-4 text-primary" }), /* @__PURE__ */ jsx("p", {
-											className: "text-2xl font-black text-white",
+										className: "flex flex-col",
+										children: [/* @__PURE__ */ jsxs("p", {
+											className: `text-xl font-bold text-shadow-black/75 text-shadow-sm text-white leading-tight mb-1`,
+											children: [
+												"Years of",
+												/* @__PURE__ */ jsx("br", {}),
+												"Experience"
+											]
+										}), /* @__PURE__ */ jsx("p", {
+											className: `text-6xl font-bold text-shadow-black/75 text-shadow-sm text-white leading-none`,
+											children: "25+"
+										})]
+									})]
+								}),
+								/* @__PURE__ */ jsxs("div", {
+									className: `size-52 border-2 p-4 border-white/25 flex flex-col justify-between bg-white/15 rounded-sm transition-all duration-150 hover:backdrop-blur-xs `,
+									children: [/* @__PURE__ */ jsx("div", {
+										className: "flex justify-between items-start",
+										children: /* @__PURE__ */ jsx(HardHat, { className: "w-8 h-8 text-white drop-shadow-md" })
+									}), /* @__PURE__ */ jsxs("div", {
+										className: "flex flex-col",
+										children: [/* @__PURE__ */ jsxs("p", {
+											className: `text-xl font-bold text-shadow-black/75 text-shadow-sm text-white leading-tight mb-1`,
+											children: [
+												"Successful",
+												/* @__PURE__ */ jsx("br", {}),
+												"Projects"
+											]
+										}), /* @__PURE__ */ jsx("p", {
+											className: `text-6xl font-bold text-shadow-black/75 text-shadow-sm text-white leading-none`,
+											children: "500+"
+										})]
+									})]
+								}),
+								/* @__PURE__ */ jsxs("div", {
+									className: `size-52 border-2 p-4 border-white/25 flex flex-col justify-between bg-white/15 rounded-sm transition-all duration-150 hover:backdrop-blur-xs `,
+									children: [/* @__PURE__ */ jsx("div", {
+										className: "flex justify-between items-start",
+										children: /* @__PURE__ */ jsx(Clock, { className: "w-8 h-8 text-white drop-shadow-md" })
+									}), /* @__PURE__ */ jsxs("div", {
+										className: "flex flex-col",
+										children: [/* @__PURE__ */ jsx("p", {
+											className: `text-xl font-bold text-shadow-black/75 text-shadow-sm text-white leading-tight mb-1`,
+											children: "Availability"
+										}), /* @__PURE__ */ jsx("p", {
+											className: `text-6xl font-bold text-shadow-black/75 text-shadow-sm text-white leading-none mt-7`,
 											children: "24/7"
 										})]
 									})]
 								})
 							]
-						})
-					]
-				})
-			}),
-			/* @__PURE__ */ jsx(Wrapper, {
-				className: "hidden lg:flex relative w-full items-center justify-center",
-				children: /* @__PURE__ */ jsxs("div", {
-					className: "relative w-full aspect-1337/540 max-h-175",
-					children: [/* @__PURE__ */ jsx("div", {
-						className: "absolute inset-0 w-full h-full drop-shadow-sm drop-shadow-black/25",
-						children: /* @__PURE__ */ jsxs("div", {
-							className: "absolute inset-0 w-full h-full",
-							style: {
-								maskImage: `url(${hero_mask_2_default})`,
-								WebkitMaskImage: `url(${hero_mask_2_default})`,
-								maskSize: "100% 100%",
-								WebkitMaskSize: "100% 100%",
-								maskRepeat: "no-repeat",
-								WebkitMaskRepeat: "no-repeat"
-							},
-							children: [/* @__PURE__ */ jsx("img", {
-								src: hero_image_default,
-								alt: "Hero Background",
-								className: "hero-bg-parallax w-full h-[110%] object-cover object-center -top-10 relative"
-							}), /* @__PURE__ */ jsxs("div", {
-								id: `stats`,
-								className: "absolute inset-x-4 bottom-4 z-10 flex space-x-2",
-								children: [
-									/* @__PURE__ */ jsxs("div", {
-										className: `size-52 border-2 p-4 border-white/25 flex flex-col justify-between bg-white/15 rounded-sm transition-all duration-150 hover:backdrop-blur-xs `,
-										children: [/* @__PURE__ */ jsx("div", {
-											className: "flex justify-between items-start",
-											children: /* @__PURE__ */ jsx(CalendarDays, { className: "w-8 h-8 text-white drop-shadow-md" })
-										}), /* @__PURE__ */ jsxs("div", {
-											className: "flex flex-col",
-											children: [/* @__PURE__ */ jsxs("p", {
-												className: `text-xl font-bold text-shadow-black/75 text-shadow-sm text-white leading-tight mb-1`,
-												children: [
-													"Years of",
-													/* @__PURE__ */ jsx("br", {}),
-													"Experience"
-												]
-											}), /* @__PURE__ */ jsx("p", {
-												className: `text-6xl font-bold text-shadow-black/75 text-shadow-sm text-white leading-none`,
-												children: "25+"
-											})]
-										})]
-									}),
-									/* @__PURE__ */ jsxs("div", {
-										className: `size-52 border-2 p-4 border-white/25 flex flex-col justify-between bg-white/15 rounded-sm transition-all duration-150 hover:backdrop-blur-xs `,
-										children: [/* @__PURE__ */ jsx("div", {
-											className: "flex justify-between items-start",
-											children: /* @__PURE__ */ jsx(HardHat, { className: "w-8 h-8 text-white drop-shadow-md" })
-										}), /* @__PURE__ */ jsxs("div", {
-											className: "flex flex-col",
-											children: [/* @__PURE__ */ jsxs("p", {
-												className: `text-xl font-bold text-shadow-black/75 text-shadow-sm text-white leading-tight mb-1`,
-												children: [
-													"Successful",
-													/* @__PURE__ */ jsx("br", {}),
-													"Projects"
-												]
-											}), /* @__PURE__ */ jsx("p", {
-												className: `text-6xl font-bold text-shadow-black/75 text-shadow-sm text-white leading-none`,
-												children: "500+"
-											})]
-										})]
-									}),
-									/* @__PURE__ */ jsxs("div", {
-										className: `size-52 border-2 p-4 border-white/25 flex flex-col justify-between bg-white/15 rounded-sm transition-all duration-150 hover:backdrop-blur-xs `,
-										children: [/* @__PURE__ */ jsx("div", {
-											className: "flex justify-between items-start",
-											children: /* @__PURE__ */ jsx(Clock, { className: "w-8 h-8 text-white drop-shadow-md" })
-										}), /* @__PURE__ */ jsxs("div", {
-											className: "flex flex-col",
-											children: [/* @__PURE__ */ jsx("p", {
-												className: `text-xl font-bold text-shadow-black/75 text-shadow-sm text-white leading-tight mb-1`,
-												children: "Availability"
-											}), /* @__PURE__ */ jsx("p", {
-												className: `text-6xl font-bold text-shadow-black/75 text-shadow-sm text-white leading-none mt-7`,
-												children: "24/7"
-											})]
-										})]
-									})
-								]
-							})]
-						})
-					}), /* @__PURE__ */ jsxs("div", {
-						className: "absolute top-[10%] left-[1%] max-w-[50%] z-20",
-						children: [/* @__PURE__ */ jsxs("h1", {
-							className: "text-[5vw] xl:text-[75px] font-black tracking-tighter leading-[0.9] text-foreground",
-							children: [
-								"A CUT ABOVE ",
-								/* @__PURE__ */ jsx("br", {}),
-								/* @__PURE__ */ jsx("span", {
-									className: "text-primary",
-									children: "THE REST"
-								})
-							]
-						}), /* @__PURE__ */ jsx("p", {
-							className: "mt-[3%] xl:mt-3 text-[1.2vw] xl:text-[16px] font-bold tracking-tight text-muted-foreground whitespace-nowrap",
-							children: "CRANE HIRE • HEAVY LIFTING • SPECIALISED TRANSPORT"
 						})]
+					})
+				}), /* @__PURE__ */ jsxs("div", {
+					className: "absolute top-[10%] left-[1%] max-w-[50%] z-20",
+					children: [/* @__PURE__ */ jsxs("h1", {
+						className: "text-[5vw] xl:text-[75px] font-black tracking-tighter leading-[0.9] text-foreground",
+						children: [
+							"A CUT ABOVE ",
+							/* @__PURE__ */ jsx("br", {}),
+							/* @__PURE__ */ jsx("span", {
+								className: "text-primary",
+								children: "THE REST"
+							})
+						]
+					}), /* @__PURE__ */ jsx("p", {
+						className: "mt-[3%] xl:mt-3 text-[1.2vw] xl:text-[16px] font-bold tracking-tight text-muted-foreground whitespace-nowrap",
+						children: "CRANE HIRE • HEAVY LIFTING • SPECIALISED TRANSPORT"
 					})]
-				})
+				})]
 			})
-		]
+		})]
 	});
 }
 //#endregion
@@ -306,7 +263,7 @@ function HomeServicesSection({ services }) {
 			}),
 			/* @__PURE__ */ jsx("div", {
 				className: "grid md:grid-cols-2 lg:grid-cols-3 gap-6",
-				children: (services || []).map((service, idx) => /* @__PURE__ */ jsx(ServiceCard, {
+				children: (services || []).slice(0, 3).map((service, idx) => /* @__PURE__ */ jsx(ServiceCard, {
 					service,
 					index: idx
 				}, service.id))
@@ -664,7 +621,7 @@ function Home({ services }) {
 			})] }),
 			/* @__PURE__ */ jsx(Hero, {}),
 			/* @__PURE__ */ jsx(HomeIntroSection, {}),
-			/* @__PURE__ */ jsx(HomeServicesSection, { services }),
+			/* @__PURE__ */ jsx(HomeServicesSection, { services: (services || []).slice(0, 3) }),
 			/* @__PURE__ */ jsx(HomeSafetySection, {}),
 			/* @__PURE__ */ jsx(HomeSafetyPracticesSection, {}),
 			/* @__PURE__ */ jsx(HomeCredentialsSection, {})
@@ -676,4 +633,4 @@ Home.layout = AppLayout;
 //#endregion
 export { Home as default };
 
-//# sourceMappingURL=home-Btt1BoNb.js.map
+//# sourceMappingURL=home-Dh2ezMrl.js.map

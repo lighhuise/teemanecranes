@@ -17,7 +17,7 @@ export default function Home({ services }: { services: any[] }) {
 
             <Hero />
             <HomeIntroSection />
-            <HomeServicesSection services={services} />
+            <HomeServicesSection services={(services || []).slice(0, 3)} />
             <HomeSafetySection />
             <HomeSafetyPracticesSection />
             <HomeCredentialsSection />
