@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
 use App\Models\Faq;
+use Illuminate\Database\Seeder;
 
 class FaqSeeder extends Seeder
 {
@@ -22,7 +21,7 @@ class FaqSeeder extends Seeder
             ],
             [
                 'question' => 'What is the maximum lifting capacity of your cranes?',
-                'answer' => 'Our modern fleet of hydraulic cranes can handle capacities of up to 440 tons, allowing us to perform heavy lifting and complex operations on the most demanding worksites.',
+                'answer' => 'Our modern fleet of mobile cranes can handle capacities of up to 440 tons, allowing us to perform heavy lifting and complex operations on the most demanding worksites.',
                 'sort_order' => 1,
                 'is_active' => true,
             ],

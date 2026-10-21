@@ -6,7 +6,6 @@ import { FloatingStatCard } from "@/components/ui/misc/floating-stat-card";
 import imgCompanyIntro from "@/../images/IMG_0190-copy.webp";
 import {DotPattern} from "@/components/ui/misc/dot-pattern";
 import { BackgroundText } from "@/components/ui/misc/background-text";
-import DiamondPattern from "@/components/ui/misc/diamond-pattern";
 import React from "react";
 
 export function HomeIntroSection() {
@@ -14,7 +13,6 @@ export function HomeIntroSection() {
         <section className="py-24 bg-background relative">
             <BackgroundText position="left">TRUSTED</BackgroundText>
             <Wrapper className={`relative`}>
-                <DiamondPattern corner="top-right" />
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
                     <div className="space-y-8">
                         <div className="inline-flex items-center gap-4">
@@ -28,7 +26,7 @@ export function HomeIntroSection() {
                             Established in 2012, Teemane Cranes prides itself on countless victories across South Africa's most demanding worksites. From high-stakes projects to complex operations that have redefined what's possible in mobile crane hire.
                         </p>
                         <p className="text-lg text-muted-foreground leading-relaxed text-balance">
-                            Backed by a fleet of hydraulic cranes with capacities of up to 440 tons and more than 100 years of combined management experience, we bring the depth of knowledge, control and capability required to deliver certainty in high-risk environments.
+                            Backed by a fleet of mobile cranes with capacities of up to 440 tons and more than 100 years of combined management experience, we bring the depth of knowledge, control and capability required to deliver certainty in high-risk environments.
                         </p>
                         <div className="pt-4">
                             <Link href="/about-us" className={buttonVariants({ size: "lg", className: "uppercase tracking-widest font-bold px-8 h-14" })}>

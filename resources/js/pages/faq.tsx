@@ -5,14 +5,12 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { BackgroundText } from '@/components/ui/misc/background-text';
 import { HelpCircle } from 'lucide-react';
 import React from 'react';
-import DiamondPattern from '@/components/ui/misc/diamond-pattern';
 
 export default function FaqPage({ faqs }: { faqs: any[] }) {
     return (
         <AppLayout title="Frequently Asked Questions - Teemane Cranes">
             <div className="bg-muted/30 py-24 border-b border-border relative overflow-hidden">
                 <BackgroundText position="center">FAQ</BackgroundText>
-                <DiamondPattern corner="top-right" />
                 <Wrapper>
                     <SectionHeading
                         label="FAQ"
@@ -25,9 +23,6 @@ export default function FaqPage({ faqs }: { faqs: any[] }) {
             </div>
 
             <section className="py-24 bg-background relative overflow-x-clip">
-                <div aria-hidden={true} className="pointer-events-none absolute inset-0 overflow-hidden z-0">
-                    <DiamondPattern corner="bottom-left" />
-                </div>
                 <Wrapper className="relative z-10">
                     <div className="max-w-3xl mx-auto">
                         {faqs.length > 0 ? (

@@ -38,11 +38,11 @@ Please fill out the content for each block below. If a block requires an image, 
 **Stat Card Label:** Maximum Fleet Capacity
 
 **Content (Rich Text):**
-Backed by a fleet of hydraulic cranes with capacities of up to 440 tons and a team driven to deliver unmatched results, we stand at the forefront of the sector. Every lift, transport, and rigging operation is executed with precision, safety, and efficiency at its core.
+Backed by a fleet of mobile cranes with capacities of up to 440 tons and a team driven to deliver unmatched results, we stand at the forefront of the sector. Every lift, transport, and rigging operation is executed with precision, safety, and efficiency at its core.
 
 **Feature List:**
 - **Proven Track Record:** Countless victories across South Africa's most demanding worksites since 2012.
-- **Massive Capacity:** A modern fleet of hydraulic cranes with staggering capacities of up to 440 tons.
+- **Massive Capacity:** A modern fleet of mobile cranes with staggering capacities of up to 440 tons.
 - **Unmatched Safety:** Stringent safety protocols ensuring zero-incident operations on high-stakes projects.
 - **Precision Execution:** A highly skilled team driven to deliver unmatched results in complex operations.
 

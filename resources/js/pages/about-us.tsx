@@ -27,7 +27,7 @@ export default function AboutUs() {
                         victories across South Africa’s most demanding worksites, from
                         high-stakes projects to complex operations that have redefined
                         what’s possible in mobile crane hire. Backed by a fleet of
-                        hydraulic cranes with capacities of up to 440 tons and a team
+                        mobile cranes with capacities of up to 440 tons and a team
                         driven to deliver unmatched results, we stand at the forefront of
                         the sector, leading the projects that continue to shape
                         industries today.
@@ -47,7 +47,7 @@ export default function AboutUs() {
                                 Leading the projects that shape industries today.
                             </h2>
                             <p className="text-lg text-muted-foreground leading-relaxed">
-                                Backed by a fleet of hydraulic cranes with capacities of up to 440 tons and a team driven to deliver unmatched results, we stand at the forefront of the sector. Every lift, transport, and rigging operation is executed with precision, safety, and efficiency at its core.
+                                Backed by a fleet of mobile cranes with capacities of up to 440 tons and a team driven to deliver unmatched results, we stand at the forefront of the sector. Every lift, transport, and rigging operation is executed with precision, safety, and efficiency at its core.
                             </p>
 
                             <div className="grid sm:grid-cols-2 gap-8 pt-8">
@@ -63,7 +63,7 @@ export default function AboutUs() {
                                         <Truck className="w-6 h-6" />
                                     </div>
                                     <h3 className="text-xl font-black uppercase">Massive Capacity</h3>
-                                    <p className="text-muted-foreground text-sm">A modern fleet of hydraulic cranes with staggering capacities of up to 440 tons.</p>
+                                    <p className="text-muted-foreground text-sm">A modern fleet of mobile cranes with staggering capacities of up to 440 tons.</p>
                                 </div>
                                 <div className="space-y-4">
                                     <div className="w-12 h-12 bg-primary/10 text-primary flex items-center justify-center rounded-lg border border-primary/20">

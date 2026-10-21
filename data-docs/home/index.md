@@ -35,7 +35,7 @@ Please fill out the content for each block below. If a block requires an image, 
 **Content (Rich Text):**
 Established in 2012, Teemane Cranes prides itself on countless victories across South Africa's most demanding worksites. From high-stakes projects to complex operations that have redefined what's possible in mobile crane hire.
 
-Backed by a fleet of hydraulic cranes with capacities of up to 440 tons and more than 100 years of combined management experience, we bring the depth of knowledge, control and capability required to deliver certainty in high-risk environments.
+Backed by a fleet of mobile cranes with capacities of up to 440 tons and more than 100 years of combined management experience, we bring the depth of knowledge, control and capability required to deliver certainty in high-risk environments.
 
 **Button Label:** Our Story
 **Button URL:** /about-us

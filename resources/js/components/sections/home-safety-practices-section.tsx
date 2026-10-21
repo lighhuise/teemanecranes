@@ -2,7 +2,6 @@ import Wrapper from "@/components/ui/misc/wrapper";
 import SectionHeading from "@/components/ui/misc/section-heading";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { BackgroundText } from "@/components/ui/misc/background-text";
-import { DiamondPattern } from "@/components/ui/misc/diamond-pattern";
 import { AlertOctagon, Compass, FileCheck2, HardHat, Scale, ShieldCheck } from "lucide-react";
 import React from "react";
 
@@ -54,7 +53,6 @@ export function HomeSafetyPracticesSection() {
             {/* Section 1: Core Safety Philosophy + Right-Edge Full-Height Cutout Image */}
             <section className="relative bg-muted/30 border-y border-border overflow-hidden">
                 <BackgroundText position="left">SAFETY</BackgroundText>
-                <DiamondPattern corner="top-left" />
                 <img
                     src={imgSafety}
                     alt="Teemane Safety Operations"
@@ -86,9 +84,6 @@ export function HomeSafetyPracticesSection() {
 
             {/* Section 2: Dedicated Restyled Safety Protocols Accordion Section */}
             <section className="py-16 sm:py-20 lg:py-28 bg-background border-b border-border relative overflow-x-clip">
-                <div aria-hidden={true} className="pointer-events-none absolute inset-0 overflow-hidden z-0">
-                    <DiamondPattern corner="bottom-left" />
-                </div>
                 <Wrapper className="relative z-10">
                     <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
                         {/* Left Sticky Column */}
@@ -106,7 +101,7 @@ export function HomeSafetyPracticesSection() {
                                 </span>
                             </h2>
                             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-                                Every mobile crane deployment follows six non-negotiable operational safeguards—from
+                                Every mobile crane deployment follows six non-negotiable operational safeguards from
                                 thorough risk assessment and equipment certification to controlled working areas and
                                 strict OHS compliance.
                             </p>

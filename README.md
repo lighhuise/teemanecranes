@@ -7,7 +7,7 @@ This repository contains the official corporate website and Content Management S
 Established in 2012, Teemane Cranes is a leading provider of crane hire, heavy lifting, rigging, and specialised transport across South Africa's most demanding worksites. 
 
 - **Headquarters:** Bellville South, Cape Town, South Africa.
-- **Capacity:** Modern fleet of hydraulic cranes with capacities of up to 440 tons.
+- **Capacity:** Modern fleet of mobile cranes with capacities of up to 440 tons.
 - **Availability:** 24 hours a day, 365 days a year for emergency response.
 - **Experience:** Over 100+ years of combined management experience, executing complex and high-stakes projects with a proven track record.
 - **Services:** Mobile Crane Hire, Heavy Lifting, Rigging Services, Crane Truck Hire, Heavy Haulage, Machinery Relocation, Abnormal Transport, and Lift Planning.

@@ -40,7 +40,7 @@ At Teemane Cranes, we pride ourselves on delivering top-notch crane services wit
 
 Established in 2012, Teemane Cranes prides itself on countless victories across South Africa’s most demanding worksites, from high-stakes projects to complex operations that have redefined what’s possible in mobile crane hire.
 
-Backed by a fleet of hydraulic cranes with capacities of up to 440 tons and a team driven to deliver unmatched results, we stand at the forefront of the sector, leading the projects that continue to shape industries today.
+Backed by a fleet of mobile cranes with capacities of up to 440 tons and a team driven to deliver unmatched results, we stand at the forefront of the sector, leading the projects that continue to shape industries today.
 
 Operating across some of the most advanced and complex sites, we are entrusted by some of South Africa’s most established companies as their sole provider for full turnkey solutions.
 
@@ -493,7 +493,7 @@ This should be reviewed and replaced with the correct production website informa
 
 Established in 2012, Teemane Cranes prides itself on countless victories across South Africa’s most demanding worksites, from high-stakes projects to complex operations that have redefined what’s possible in mobile crane hire.
 
-Backed by a fleet of hydraulic cranes with capacities of up to 440 tons and a team driven to deliver unmatched results, we stand at the forefront of the sector, leading the projects that continue to shape industries today.
+Backed by a fleet of mobile cranes with capacities of up to 440 tons and a team driven to deliver unmatched results, we stand at the forefront of the sector, leading the projects that continue to shape industries today.
 
 Operating across some of the most advanced and complex sites, we are entrusted by some of South Africa’s most established companies as their sole provider for full turnkey solutions.
 
@@ -565,7 +565,7 @@ There are several differences between the supplied company profile and the curre
    - Current website: Claims 25+ years of experience.
 
 2. **Fleet capacity**
-   - Company profile: Hydraulic cranes with capacities up to 440 tons.
+   - Company profile: Mobile cranes with capacities up to 440 tons.
    - Current website: Lists lattice boom cranes from 250 to 600 Ton.
 
 3. **Service terminology**
