@@ -34,7 +34,7 @@ export function HomeIntroSection() {
                             </Link>
                         </div>
                     </div>
-                    <div className="relative pb-6 lg:pb-0">
+                    <div className="relative mb-6 lg:mb-0">
                         <div className="aspect-4/5 rounded-xl overflow-hidden border border-border shadow-lg">
                             <img
                                 src={imgCompanyIntro}

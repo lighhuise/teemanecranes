@@ -13,7 +13,7 @@ export function HomeSafetySection() {
 
             <Wrapper>
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
-                    <div className="relative pb-6 lg:pb-0 order-2 lg:order-1">
+                    <div className="relative mb-6 lg:mb-0 order-2 lg:order-1">
                         <div className="aspect-4/5 rounded-xl overflow-hidden border border-border shadow-lg">
                             <img
                                 src={imgSafety}

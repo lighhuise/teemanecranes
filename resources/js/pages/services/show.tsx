@@ -231,7 +231,7 @@ function MediaTextRenderer({ data }: { data: MediaTextBlock['data'] }) {
             </div>
 
             {/* Media Content */}
-            <div className="flex-1 min-w-0 w-full h-100 md:h-125 relative group">
+            <div className="flex-1 min-w-0 w-full relative group">
                 <div className="w-full aspect-square rounded-2xl overflow-hidden shadow-xl relative">
                     {hasMultiple ? (
                         <Swiper
@@ -356,11 +356,11 @@ export default function Show({ service }: { service: Service }) {
                         const isDark = block.data.darker_background;
 
                         return (
-                            <div key={i} className={`w-full py-16 md:py-24 ${isDark ? 'bg-muted border-y border-border' : ''}`}>
+                            <section key={i} className={`w-full py-24 ${isDark ? 'bg-muted border-y border-border' : ''}`}>
                                 <Wrapper>
                                     <ContentBlock block={block} />
                                 </Wrapper>
-                            </div>
+                            </section>
                         );
                     })}
                 </div>
