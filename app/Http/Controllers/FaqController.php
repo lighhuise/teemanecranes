@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Faq;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Inertia\Inertia;
 
@@ -22,7 +22,7 @@ class FaqController extends Controller
         });
 
         return Inertia::render('faq', [
-            'faqs' => $faqs
+            'faqs' => $faqs,
         ]);
     }
 }

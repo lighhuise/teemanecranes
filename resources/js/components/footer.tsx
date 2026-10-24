@@ -38,6 +38,7 @@ export default function Footer() {
                             {[
                                 { name: 'Home', href: '/' },
                                 { name: 'Services', href: '/services' },
+                                { name: 'Projects', href: '/projects' },
                                 { name: 'About Us', href: '/about-us' },
                                 { name: 'FAQ', href: '/faq' },
                                 // { name: 'Our Team', href: '/our-team' },

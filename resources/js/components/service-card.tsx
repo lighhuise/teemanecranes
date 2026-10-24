@@ -14,10 +14,10 @@ interface Service {
 
 interface ServiceCardProps {
     service: Service;
-    index: number;
+    index?: number;
 }
 
-export function ServiceCard({ service, index }: ServiceCardProps) {
+export function ServiceCard({ service }: ServiceCardProps) {
     const imageUrl = service.featured_image_url || service.image || fallbackImage;
 
     return (
@@ -33,9 +33,6 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/15 to-transparent" />
-                <span className="absolute top-4 left-4 inline-flex size-10 items-center justify-center rounded-lg bg-background/90 backdrop-blur-xs border border-border text-sm font-black tracking-wider text-primary shadow-sm transition-colors group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary">
-                    0{index + 1}
-                </span>
             </div>
 
             {/* Card Body */}

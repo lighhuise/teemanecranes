@@ -1,252 +1,261 @@
 {
   "node_modules/laravel-vite-plugin/inertia-helpers/index.js": [],
   "node_modules/leaflet/dist/leaflet.css": [
-    "/build/assets/map-CZkuF8As.js",
+    "/build/assets/map-BRtyzucU.js",
     "/build/assets/map-1DTFk8zz.css",
     "/build/assets/layers-BWBAp2CZ.png",
     "/build/assets/layers-2x-Bpkbi35X.png",
     "/build/assets/marker-icon-hN30_KVU.png"
   ],
   "node_modules/swiper/modules/navigation.css": [
-    "/build/assets/show-BaAG8izQ.js",
-    "/build/assets/show-BgP3iXkL.css"
+    "/build/assets/show-DrOG1Nze.js",
+    "/build/assets/show-DjMxu4j7.css",
+    "/build/assets/styles-Du3uL6IP.css"
   ],
   "node_modules/swiper/modules/pagination.css": [
-    "/build/assets/show-BaAG8izQ.js",
-    "/build/assets/show-BgP3iXkL.css"
+    "/build/assets/show-DrOG1Nze.js",
+    "/build/assets/show-DjMxu4j7.css",
+    "/build/assets/styles-Du3uL6IP.css"
   ],
   "node_modules/swiper/swiper.css": [
-    "/build/assets/show-BaAG8izQ.js",
-    "/build/assets/show-BgP3iXkL.css"
-  ],
-  "node_modules/yet-another-react-lightbox/dist/styles.css": [
-    "/build/assets/show-BaAG8izQ.js",
-    "/build/assets/show-BgP3iXkL.css"
+    "/build/assets/show-DrOG1Nze.js",
+    "/build/assets/show-DjMxu4j7.css",
+    "/build/assets/styles-Du3uL6IP.css"
   ],
   "resources/images/IMG_0190-copy.webp": [
-    "/build/assets/service-card-CndqbKAN.js",
+    "/build/assets/IMG_0190-copy-BHJv3jgA.js",
     "/build/assets/IMG_0190-copy-870kN3in.webp"
   ],
   "resources/images/Teemane-Boat.webp": [
-    "/build/assets/about-us-CCN69Cqm.js",
+    "/build/assets/about-us-p9Wp8eKB.js",
     "/build/assets/Teemane-Boat-DihsRzVb.webp"
   ],
   "resources/images/hero-image.webp": [
-    "/build/assets/home-BqguitxJ.js",
+    "/build/assets/home-B8kaxrWW.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
     "/build/assets/safety-77FjWXCW.png"
   ],
   "resources/images/hero-mask-2.svg": [
-    "/build/assets/home-BqguitxJ.js",
+    "/build/assets/home-B8kaxrWW.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
     "/build/assets/safety-77FjWXCW.png"
   ],
   "resources/images/logo.svg": [
-    "/build/assets/app-layout-DjyJ2qIA.js",
+    "/build/assets/app-layout-DgCw17Rw.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/images/media-24-building.webp": [
-    "/build/assets/home-BqguitxJ.js",
+    "/build/assets/home-B8kaxrWW.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
     "/build/assets/safety-77FjWXCW.png"
   ],
   "resources/images/safety.png": [
-    "/build/assets/home-BqguitxJ.js",
+    "/build/assets/home-B8kaxrWW.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
     "/build/assets/safety-77FjWXCW.png"
   ],
   "resources/js/components/emergency-cta.tsx": [
-    "/build/assets/app-layout-DjyJ2qIA.js",
+    "/build/assets/app-layout-DgCw17Rw.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/footer.tsx": [
-    "/build/assets/app-layout-DjyJ2qIA.js",
+    "/build/assets/app-layout-DgCw17Rw.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/hero-simple-split.tsx": [
-    "/build/assets/welcome-DaADtfzi.js"
+    "/build/assets/welcome-xfiuyc1M.js"
   ],
   "resources/js/components/hero.tsx": [
-    "/build/assets/home-BqguitxJ.js",
+    "/build/assets/home-B8kaxrWW.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
     "/build/assets/safety-77FjWXCW.png"
   ],
   "resources/js/components/map.tsx": [
-    "/build/assets/map-CZkuF8As.js",
+    "/build/assets/map-BRtyzucU.js",
     "/build/assets/map-1DTFk8zz.css",
     "/build/assets/layers-BWBAp2CZ.png",
     "/build/assets/layers-2x-Bpkbi35X.png",
     "/build/assets/marker-icon-hN30_KVU.png"
   ],
   "resources/js/components/mode-toggle.tsx": [
-    "/build/assets/app-layout-DjyJ2qIA.js",
+    "/build/assets/app-layout-DgCw17Rw.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/navigation.tsx": [
-    "/build/assets/app-layout-DjyJ2qIA.js",
+    "/build/assets/app-layout-DgCw17Rw.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
+  "resources/js/components/project-card.tsx": [
+    "/build/assets/project-card-BnHmvmVG.js"
+  ],
   "resources/js/components/sections/home-credentials-section.tsx": [
-    "/build/assets/home-BqguitxJ.js",
+    "/build/assets/home-B8kaxrWW.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
     "/build/assets/safety-77FjWXCW.png"
   ],
   "resources/js/components/sections/home-intro-section.tsx": [
-    "/build/assets/home-BqguitxJ.js",
+    "/build/assets/home-B8kaxrWW.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
     "/build/assets/safety-77FjWXCW.png"
   ],
   "resources/js/components/sections/home-safety-practices-section.tsx": [
-    "/build/assets/home-BqguitxJ.js",
+    "/build/assets/home-B8kaxrWW.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
     "/build/assets/safety-77FjWXCW.png"
   ],
   "resources/js/components/sections/home-safety-section.tsx": [
-    "/build/assets/home-BqguitxJ.js",
+    "/build/assets/home-B8kaxrWW.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
     "/build/assets/safety-77FjWXCW.png"
   ],
   "resources/js/components/sections/home-services-section.tsx": [
-    "/build/assets/home-BqguitxJ.js",
+    "/build/assets/home-B8kaxrWW.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
     "/build/assets/safety-77FjWXCW.png"
   ],
   "resources/js/components/service-card.tsx": [
-    "/build/assets/service-card-CndqbKAN.js",
-    "/build/assets/IMG_0190-copy-870kN3in.webp"
+    "/build/assets/service-card-Cop-Jusq.js"
   ],
   "resources/js/components/stats-bar.tsx": [
-    "/build/assets/about-us-CCN69Cqm.js",
+    "/build/assets/about-us-p9Wp8eKB.js",
     "/build/assets/Teemane-Boat-DihsRzVb.webp"
   ],
   "resources/js/components/theme-provider.tsx": [
-    "/build/assets/app-layout-DjyJ2qIA.js",
+    "/build/assets/app-layout-DgCw17Rw.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/ui/accordion.tsx": [
     "/build/assets/accordion-D3uePtWl.js"
   ],
   "resources/js/components/ui/button.tsx": [
-    "/build/assets/app-layout-DjyJ2qIA.js",
+    "/build/assets/app-layout-DgCw17Rw.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/ui/card.tsx": [
-    "/build/assets/welcome-DaADtfzi.js"
+    "/build/assets/welcome-xfiuyc1M.js"
   ],
   "resources/js/components/ui/dropdown-menu.tsx": [
-    "/build/assets/app-layout-DjyJ2qIA.js",
+    "/build/assets/app-layout-DgCw17Rw.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/ui/input.tsx": [
-    "/build/assets/input-CeBOzzTZ.js"
+    "/build/assets/input-DELN4wow.js"
   ],
   "resources/js/components/ui/misc/background-text.tsx": [
-    "/build/assets/background-text-DxXS2cqf.js"
+    "/build/assets/background-text-COfE04Lg.js"
   ],
   "resources/js/components/ui/misc/dot-pattern.tsx": [
-    "/build/assets/dot-pattern-Dth4XF_L.js"
+    "/build/assets/dot-pattern-BUu7WYKS.js"
   ],
   "resources/js/components/ui/misc/floating-stat-card.tsx": [
-    "/build/assets/floating-stat-card-2Em_vlmr.js"
+    "/build/assets/floating-stat-card-CCeZuqsC.js"
   ],
   "resources/js/components/ui/misc/section-heading.tsx": [
-    "/build/assets/section-heading-CKRAgxdD.js"
+    "/build/assets/section-heading-oIkusPXT.js"
   ],
   "resources/js/components/ui/misc/wrapper.tsx": [
-    "/build/assets/app-layout-DjyJ2qIA.js",
+    "/build/assets/app-layout-DgCw17Rw.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/ui/sheet.tsx": [
-    "/build/assets/app-layout-DjyJ2qIA.js",
+    "/build/assets/app-layout-DgCw17Rw.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/ui/textarea.tsx": [
-    "/build/assets/contact-us-X1srCS9H.js"
+    "/build/assets/contact-us-NbVFcz39.js"
   ],
   "resources/js/components/ui/toast.tsx": [
-    "/build/assets/app-layout-DjyJ2qIA.js",
+    "/build/assets/app-layout-DgCw17Rw.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/layouts/app-layout.tsx": [
-    "/build/assets/app-layout-DjyJ2qIA.js",
+    "/build/assets/app-layout-DgCw17Rw.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/lib/utils.ts": [
-    "/build/assets/app-layout-DjyJ2qIA.js",
+    "/build/assets/app-layout-DgCw17Rw.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/pages/about-us.tsx": [
-    "/build/assets/about-us-CCN69Cqm.js",
+    "/build/assets/about-us-p9Wp8eKB.js",
     "/build/assets/Teemane-Boat-DihsRzVb.webp"
   ],
   "resources/js/pages/contact-us.tsx": [
-    "/build/assets/contact-us-X1srCS9H.js"
+    "/build/assets/contact-us-NbVFcz39.js"
   ],
   "resources/js/pages/employees/index.tsx": [
-    "/build/assets/employees-CBiifKxh.js"
+    "/build/assets/employees-k2Fov0GG.js"
   ],
   "resources/js/pages/employees/show.tsx": [
-    "/build/assets/show-D7dp5SIU.js"
+    "/build/assets/show-Bu9qyFHR.js"
   ],
   "resources/js/pages/error.tsx": [
-    "/build/assets/error-sD1w8jVs.js"
+    "/build/assets/error-BOYXjud3.js"
   ],
   "resources/js/pages/faq.tsx": [
-    "/build/assets/faq-CKA8hfvK.js"
+    "/build/assets/faq-Au3E_1K7.js"
   ],
   "resources/js/pages/home.tsx": [
-    "/build/assets/home-BqguitxJ.js",
+    "/build/assets/home-B8kaxrWW.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
     "/build/assets/safety-77FjWXCW.png"
   ],
   "resources/js/pages/legal/privacy-policy.tsx": [
-    "/build/assets/privacy-policy-C3FZOg_5.js"
+    "/build/assets/privacy-policy-CuidlD-y.js"
   ],
   "resources/js/pages/legal/terms-of-service.tsx": [
-    "/build/assets/terms-of-service-BEyYWr5R.js"
+    "/build/assets/terms-of-service-Ca6D5dpJ.js"
+  ],
+  "resources/js/pages/projects/index.tsx": [
+    "/build/assets/projects-rA-QJeAM.js"
+  ],
+  "resources/js/pages/projects/show.tsx": [
+    "/build/assets/show-DSDL5sV2.js",
+    "/build/assets/styles-Du3uL6IP.css"
   ],
   "resources/js/pages/services/index.tsx": [
-    "/build/assets/services-DXU7h0B1.js"
+    "/build/assets/services-BADDGUTJ.js"
   ],
   "resources/js/pages/services/show.tsx": [
-    "/build/assets/show-BaAG8izQ.js",
-    "/build/assets/show-BgP3iXkL.css"
+    "/build/assets/show-DrOG1Nze.js",
+    "/build/assets/show-DjMxu4j7.css",
+    "/build/assets/styles-Du3uL6IP.css"
   ],
   "resources/js/pages/welcome.tsx": [
-    "/build/assets/welcome-DaADtfzi.js"
+    "/build/assets/welcome-xfiuyc1M.js"
   ],
   "resources/js/routes/index.ts": [
-    "/build/assets/app-layout-DjyJ2qIA.js",
+    "/build/assets/app-layout-DgCw17Rw.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/routes/team/index.ts": [
-    "/build/assets/team-DB6Cpant.js"
+    "/build/assets/team-CyA7vSYq.js"
   ],
   "resources/js/ssr.tsx": [],
   "resources/js/wayfinder/index.ts": [
-    "/build/assets/app-layout-DjyJ2qIA.js",
+    "/build/assets/app-layout-DgCw17Rw.js",
     "/build/assets/logo--6nxw50_.svg"
   ]
 }

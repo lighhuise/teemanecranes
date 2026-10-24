@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Cache;
 
 it('clears cache when faq is created or updated', function () {
     Cache::put('test_key', 'test_value');
-    
+
     expect(Cache::has('test_key'))->toBeTrue();
 
     $faq = Faq::create([

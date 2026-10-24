@@ -9,7 +9,7 @@ it('loads the services index page successfully', function () {
 
 it('loads a single service page successfully', function () {
     $service = Service::factory()->create(['is_active' => true]);
-    
-    $response = $this->get('/services/' . $service->slug);
+
+    $response = $this->get('/services/'.$service->slug);
     $response->assertStatus(200);
 });

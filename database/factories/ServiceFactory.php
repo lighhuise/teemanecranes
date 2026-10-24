@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Service;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 /**
  * @extends Factory<Service>
@@ -18,9 +19,10 @@ class ServiceFactory extends Factory
     public function definition(): array
     {
         $title = fake()->unique()->words(3, true);
+
         return [
             'title' => ucwords($title),
-            'slug' => \Illuminate\Support\Str::slug($title),
+            'slug' => Str::slug($title),
             'short_description' => fake()->sentence(),
             'description' => fake()->paragraphs(3, true),
             'icon' => null,

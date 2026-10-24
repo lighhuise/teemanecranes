@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Services;
 
 use App\Http\Controllers\Controller;
 use App\Models\Service;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage as StorageBlock;
 use Inertia\Inertia;
 
@@ -16,9 +17,9 @@ class ServicesShowController extends Controller
     {
         abort_if(! $service->is_active, 404);
 
-        $cacheKey = 'service_show_' . $service->id;
+        $cacheKey = 'service_show_'.$service->id;
 
-        $serviceData = \Illuminate\Support\Facades\Cache::remember($cacheKey, 86400, function () use ($service) {
+        $serviceData = Cache::remember($cacheKey, 86400, function () use ($service) {
             $service->load('media');
 
             $featuredImage = $service->getFirstMediaUrl('featured_image', 'webp')

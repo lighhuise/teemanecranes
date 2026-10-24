@@ -4,11 +4,11 @@ namespace App\Filament\Resources\Employees\Schemas;
 
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Textarea;
-use Filament\Schemas\Schema;
-
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Schema;
 
 class EmployeeForm
 {
@@ -17,7 +17,7 @@ class EmployeeForm
         return $schema
             ->columns(1)
             ->components([
-                \Filament\Schemas\Components\Section::make('Details')
+                Section::make('Details')
                     ->columns(2)
                     ->schema([
                         SpatieMediaLibraryFileUpload::make('image')

@@ -13,7 +13,7 @@ it('displays active faqs on the faq page', function () {
         'answer' => 'Test Answer',
         'is_active' => true,
     ]);
-    
+
     $response = $this->get('/faq');
     $response->assertStatus(200);
 });

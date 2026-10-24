@@ -12,6 +12,7 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Section;
+use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
 use Illuminate\Support\Str;
 
@@ -40,12 +41,11 @@ class ServiceForm
                             ->imageEditor()
                             ->columnSpanFull(),
 
-
                         TextInput::make('title')
                             ->required()
                             ->maxLength(255)
                             ->live(debounce: 500)
-                            ->afterStateUpdated(function ($state, \Filament\Schemas\Components\Utilities\Set $set) {
+                            ->afterStateUpdated(function ($state, Set $set) {
                                 $set('slug', Str::slug($state));
                             }),
 

@@ -2,11 +2,11 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Employee;
+use App\Models\Service;
 use Illuminate\Console\Command;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
-use App\Models\Service;
-use App\Models\Employee;
 
 class GenerateSitemap extends Command
 {
