@@ -213,6 +213,12 @@ Teemane Cranes uses a structural, flat-by-default layering model. Depth is estab
 ### Signature Component: Interactive Bento Project Card
 - **Pattern**: Live thumbnail photo switcher positioned on the card's bottom edge, allowing visitors to inspect multiple angles of a heavy lift operation directly without leaving the catalog view.
 - **Active State**: Focused image highlighted with a 2px active ring (`ring-2 ring-primary`) and a count pill (`+{remaining}`).
+- **Project Ordering Standard**: All project showcases (`HomeLatestProjectsSection` and `projects/index`) are ordered chronologically by `project_date` descending (`orderedByProjectDate()` scope with fallback to `created_at desc`) so recent field operations take precedence.
+
+### Gallery Image Ordering Standard
+- **Database & Model Ordering**: All gallery images (main project gallery, custom repeater galleries, and service blocks) strictly preserve the exact sequence set in the admin panel. Accessors (`galleryImageUrls` and `galleriesWithUrls`) sort Spatie media by `order_column` and normalize JSON arrays with sequential 0-indexed keys.
+- **Visual Sequence Indication**: Every gallery photo across project showcases, custom photo collections, service galleries, and field captures displays a persistent sequence indicator pill in the top-left corner (`Photo #01`, `Photo #02`, etc.) matching the exact 1-to-1 slide index in full-screen lightboxes.
+- **Defensive Responsive Grid**: Responsive bento spans (`col-span-2 row-span-2` hero and `col-span-2` wide tiles) are only activated when a gallery has 4 or more photos, preventing broken layout holes or visual gaps when smaller image sets are uploaded.
 
 ## Do's and Don'ts
 

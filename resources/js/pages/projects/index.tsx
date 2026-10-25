@@ -14,14 +14,26 @@ interface ProjectsIndexProps {
     projects: ProjectListItem[];
 }
 
-export default function Index({ projects }: ProjectsIndexProps) {
+export default function Index({ projects = [] }: ProjectsIndexProps) {
     const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
+    // Always ensure ordering by project_date descending
+    const sortedProjects = React.useMemo(() => {
+        return [...projects].sort((a, b) => {
+            const timeA = a.project_date_raw ? new Date(a.project_date_raw).getTime() : 0;
+            const timeB = b.project_date_raw ? new Date(b.project_date_raw).getTime() : 0;
+            if (timeB !== timeA) {
+                return timeB - timeA;
+            }
+            return (b.id ?? 0) - (a.id ?? 0);
+        });
+    }, [projects]);
+
     // Featured flagship project (first in the list)
-    const featuredProject = projects.length > 0 ? projects[0] : null;
+    const featuredProject = sortedProjects.length > 0 ? sortedProjects[0] : null;
 
     // Collect all unique gallery photos across projects for the Field Photography showcase
-    const allGalleryShots = projects
+    const allGalleryShots = sortedProjects
         .flatMap((p) => {
             const urls = [
                 ...(p.gallery_image_urls || []),
@@ -144,11 +156,13 @@ export default function Index({ projects }: ProjectsIndexProps) {
                                     {/* Right Interactive Photo Bento */}
                                     <div className="lg:col-span-7">
                                         {(() => {
-                                            const featuredShots = [
-                                                featuredProject.featured_image_url,
-                                                ...(featuredProject.gallery_image_urls || []),
-                                                ...(featuredProject.galleries_with_urls?.flatMap((g) => g.image_urls) || []),
-                                            ].filter(Boolean) as string[];
+                                            const featuredShots = Array.from(
+                                                new Set([
+                                                    featuredProject.featured_image_url,
+                                                    ...(featuredProject.gallery_image_urls || []),
+                                                    ...(featuredProject.galleries_with_urls?.flatMap((g) => g.image_urls) || []),
+                                                ])
+                                            ).filter(Boolean) as string[];
 
                                             const mainHeroShot = featuredShots[0];
                                             const subShots = featuredShots.slice(1, 4);
@@ -203,9 +217,9 @@ export default function Index({ projects }: ProjectsIndexProps) {
                         )}
 
                         {/* Projects Grid Header */}
-                        {projects.length > 0 && (
+                        {sortedProjects.length > 0 && (
                             <div className="flex items-center justify-between mb-8 pb-4 border-b border-border">
-                                <SectionOverline label={`All Projects (${projects.length})`} align="left" />
+                                <SectionOverline label={`All Projects (${sortedProjects.length})`} align="left" />
                                 <span className="text-xs text-muted-foreground font-medium hidden sm:inline-block">
                                     Hover preview tiles to browse project galleries
                                 </span>
@@ -213,9 +227,9 @@ export default function Index({ projects }: ProjectsIndexProps) {
                         )}
 
                         {/* Projects Card Grid */}
-                        {projects.length > 0 ? (
+                        {sortedProjects.length > 0 ? (
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                                {projects.map((project) => (
+                                {sortedProjects.map((project) => (
                                     <ProjectCard
                                         key={project.id}
                                         project={project}
@@ -258,9 +272,9 @@ export default function Index({ projects }: ProjectsIndexProps) {
                             {/* Responsive Bento Mosaic */}
                             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
                                 {allGalleryShots.map((shot, idx) => {
-                                    // Make first image large (2 columns and 2 rows on medium+)
-                                    const isHeroTile = idx === 0;
-                                    const isWideTile = idx === 3;
+                                    // Make first image large (2 columns and 2 rows on medium+) when 4+ items exist
+                                    const isHeroTile = allGalleryShots.length >= 4 && idx === 0;
+                                    const isWideTile = allGalleryShots.length >= 4 && idx === 3;
 
                                     return (
                                         <button
@@ -277,10 +291,17 @@ export default function Index({ projects }: ProjectsIndexProps) {
                                         >
                                             <img
                                                 src={shot.src}
-                                                alt={shot.projectTitle}
+                                                alt={`${shot.projectTitle} - Photo #${idx + 1}`}
                                                 className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
                                                 loading="lazy"
                                             />
+
+                                            {/* Persistent Sequence / Order Pill */}
+                                            <div className="absolute top-3 left-3 z-10 pointer-events-none">
+                                                <span className="inline-flex items-center gap-1.5 rounded-md border border-white/20 bg-black/70 px-2.5 py-1 text-[11px] font-mono font-bold uppercase tracking-wider text-white backdrop-blur-xs shadow-xs">
+                                                    Photo #{String(idx + 1).padStart(2, '0')}
+                                                </span>
+                                            </div>
 
                                             {/* Hover Vignette Overlay */}
                                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-4 sm:p-5 text-left">

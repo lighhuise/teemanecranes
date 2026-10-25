@@ -1,7 +1,7 @@
 import { Head, Link } from '@inertiajs/react';
 import AppLayout from '@/layouts/app-layout';
 import Wrapper from '@/components/ui/misc/wrapper';
-import { ArrowLeft, Play, ArrowRight } from 'lucide-react';
+import { ArrowLeft, Play, ArrowRight, Expand } from 'lucide-react';
 import { useState } from 'react';
 import SectionHeading from '@/components/ui/misc/section-heading';
 import { FloatingStatCard } from '@/components/ui/misc/floating-stat-card';
@@ -104,21 +104,45 @@ function GalleryRenderer({ data }: { data: GalleryBlock['data'] }) {
                 </SectionHeading>
             )}
             <figure>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                {urls.map((url, i) => (
-                    <button
-                        key={i}
-                        onClick={() => setLightbox(i)}
-                        className="aspect-square overflow-hidden rounded-lg group focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-                    >
-                        <img
-                            src={url}
-                            alt=""
-                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                        />
-                    </button>
-                ))}
-            </div>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
+                    {urls.map((url, i) => (
+                        <button
+                            key={i}
+                            type="button"
+                            onClick={() => setLightbox(i)}
+                            className="aspect-square overflow-hidden rounded-2xl relative group border border-border bg-muted cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300 hover:scale-[1.01] hover:shadow-xl"
+                        >
+                            <img
+                                src={url}
+                                alt={`Service Gallery Photo #${i + 1}`}
+                                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-106"
+                                loading="lazy"
+                            />
+
+                            {/* Persistent Sequence / Order Pill */}
+                            <div className="absolute top-3 left-3 z-10 pointer-events-none">
+                                <span className="inline-flex items-center gap-1.5 rounded-md border border-white/20 bg-black/70 px-2.5 py-1 text-[11px] font-mono font-bold uppercase tracking-wider text-white backdrop-blur-xs shadow-xs">
+                                    Photo #{String(i + 1).padStart(2, '0')}
+                                </span>
+                            </div>
+
+                            {/* Hover Vignette Overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-4 text-left">
+                                <div className="flex justify-between items-start">
+                                    <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/50 px-3 py-1 text-[10px] font-mono font-bold uppercase tracking-wider text-white backdrop-blur-xs">
+                                        Photo #{String(i + 1).padStart(2, '0')}
+                                    </span>
+                                    <div className="size-9 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg transform translate-y-1 group-hover:translate-y-0 transition-transform">
+                                        <Expand className="size-4" />
+                                    </div>
+                                </div>
+                                <span className="text-xs font-bold uppercase tracking-wider text-white/90">
+                                    Inspect High-Res
+                                </span>
+                            </div>
+                        </button>
+                    ))}
+                </div>
             {data.caption && (
                 <figcaption className="text-center text-sm text-muted-foreground mt-3 italic">
                     {data.caption}

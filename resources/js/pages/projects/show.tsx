@@ -129,7 +129,7 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
                     aria-hidden="true"
                     className="absolute inset-0 h-full w-full object-cover opacity-50 mix-blend-luminosity filter contrast-125"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/40 to-primary/80" />
+                <div className="absolute inset-0 bg-linear-to-r from-primary/80 via-primary/40 to-primary/80" />
                 <Wrapper className="relative z-10 h-full flex items-center justify-between">
                     <div className="flex items-center gap-3">
                         <span className="size-2 rounded-full bg-primary animate-pulse" />
@@ -208,8 +208,9 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
 
                         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
                             {project.gallery_image_urls.map((url, idx) => {
-                                const isHero = idx === 0;
-                                const isWide = idx === 3;
+                                const totalImgs = project.gallery_image_urls.length;
+                                const isHero = totalImgs >= 4 && idx === 0;
+                                const isWide = totalImgs >= 4 && idx === 3;
 
                                 return (
                                     <button
@@ -226,14 +227,22 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
                                     >
                                         <img
                                             src={url}
-                                            alt={`${project.title} - Site Photography`}
+                                            alt={`${project.title} - Site Photography #${idx + 1}`}
                                             className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-106"
                                             loading="lazy"
                                         />
+
+                                        {/* Persistent Sequence / Order Pill */}
+                                        <div className="absolute top-3 left-3 z-10 pointer-events-none">
+                                            <span className="inline-flex items-center gap-1.5 rounded-md border border-white/20 bg-black/70 px-2.5 py-1 text-[11px] font-mono font-bold uppercase tracking-wider text-white backdrop-blur-xs shadow-xs">
+                                                Photo #{String(idx + 1).padStart(2, '0')}
+                                            </span>
+                                        </div>
+
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-4 sm:p-5">
                                             <div className="flex justify-between items-start">
-                                                <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/50 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-xs">
-                                                    Photo #{idx + 1}
+                                                <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/50 px-3 py-1 text-[10px] font-mono font-bold uppercase tracking-wider text-white backdrop-blur-xs">
+                                                    Photo #{String(idx + 1).padStart(2, '0')}
                                                 </span>
                                                 <div className="size-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg transform translate-y-1 group-hover:translate-y-0 transition-transform">
                                                     <Expand className="size-4" />
@@ -291,8 +300,9 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
 
                                         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
                                             {(gallery.image_urls ?? []).map((url, imgIdx) => {
-                                                const isHero = imgIdx === 0;
-                                                const isWide = imgIdx === 3;
+                                                const totalImgs = (gallery.image_urls ?? []).length;
+                                                const isHero = totalImgs >= 4 && imgIdx === 0;
+                                                const isWide = totalImgs >= 4 && imgIdx === 3;
 
                                                 return (
                                                     <button
@@ -314,14 +324,22 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
                                                     >
                                                         <img
                                                             src={url}
-                                                            alt={`${gallery.title} - Project Photography`}
+                                                            alt={`${gallery.title} - Photography #${imgIdx + 1}`}
                                                             className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-106"
                                                             loading="lazy"
                                                         />
+
+                                                        {/* Persistent Sequence / Order Pill */}
+                                                        <div className="absolute top-3 left-3 z-10 pointer-events-none">
+                                                            <span className="inline-flex items-center gap-1.5 rounded-md border border-white/20 bg-black/70 px-2.5 py-1 text-[11px] font-mono font-bold uppercase tracking-wider text-white backdrop-blur-xs shadow-xs">
+                                                                Photo #{String(imgIdx + 1).padStart(2, '0')}
+                                                            </span>
+                                                        </div>
+
                                                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-4 sm:p-5">
                                                             <div className="flex justify-between items-start">
-                                                                <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/50 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-xs">
-                                                                    #{imgIdx + 1}
+                                                                <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/50 px-3 py-1 text-[10px] font-mono font-bold uppercase tracking-wider text-white backdrop-blur-xs">
+                                                                    Photo #{String(imgIdx + 1).padStart(2, '0')}
                                                                 </span>
                                                                 <div className="size-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg transform translate-y-1 group-hover:translate-y-0 transition-transform">
                                                                     <Expand className="size-4" />

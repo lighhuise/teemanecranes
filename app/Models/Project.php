@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Traits\ClearsCache;
 use Database\Factories\ProjectFactory;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -53,7 +54,8 @@ class Project extends Model implements HasMedia
                     ?: $this->getFirstMediaUrl('featured_image');
 
                 if (! $url && ! empty($this->gallery) && is_array($this->gallery)) {
-                    $first = $this->gallery[0] ?? null;
+                    $orderedGallery = array_values(array_filter($this->gallery));
+                    $first = $orderedGallery[0] ?? null;
                     if ($first) {
                         $url = str_starts_with($first, 'http')
                             ? $first
@@ -67,7 +69,7 @@ class Project extends Model implements HasMedia
     }
 
     /**
-     * Resolve all URLs for main gallery images.
+     * Resolve all URLs for main gallery images strictly preserving order.
      */
     protected function galleryImageUrls(): Attribute
     {
@@ -75,17 +77,17 @@ class Project extends Model implements HasMedia
             get: function (): array {
                 $urls = [];
 
-                // 1. Spatie media collection
-                $mediaItems = $this->getMedia('gallery');
+                // 1. Spatie media collection ordered by order_column
+                $mediaItems = $this->getMedia('gallery')->sortBy('order_column');
                 if ($mediaItems->isNotEmpty()) {
                     foreach ($mediaItems as $media) {
                         $urls[] = $media->getUrl('thumb') ?: $media->getUrl();
                     }
                 }
 
-                // 2. Direct paths stored in json column
+                // 2. Direct paths stored in json column in exact array order
                 if (! empty($this->gallery) && is_array($this->gallery)) {
-                    foreach ($this->gallery as $path) {
+                    foreach (array_values($this->gallery) as $path) {
                         if ($path) {
                             $urls[] = str_starts_with($path, 'http')
                                 ? $path
@@ -100,7 +102,7 @@ class Project extends Model implements HasMedia
     }
 
     /**
-     * Resolve galleries with full image URLs for frontend use.
+     * Resolve galleries with full image URLs for frontend use, strictly preserving gallery and image order.
      *
      * @return array<int, array{title: string, description: ?string, images: array<int, string>, image_urls: array<int, string>}>
      */
@@ -112,13 +114,13 @@ class Project extends Model implements HasMedia
                     return [];
                 }
 
-                return array_map(function ($gallery) {
-                    $images = (array) ($gallery['images'] ?? []);
-                    $imageUrls = array_map(function ($path) {
+                return array_values(array_map(function ($gallery) {
+                    $images = array_values(array_filter((array) ($gallery['images'] ?? [])));
+                    $imageUrls = array_values(array_map(function ($path) {
                         return str_starts_with($path, 'http')
                             ? $path
                             : Storage::disk('public')->url($path);
-                    }, $images);
+                    }, $images));
 
                     return [
                         'title' => (string) ($gallery['title'] ?? ''),
@@ -126,7 +128,7 @@ class Project extends Model implements HasMedia
                         'images' => $images,
                         'image_urls' => $imageUrls,
                     ];
-                }, $this->galleries);
+                }, array_values($this->galleries)));
             },
         );
     }
@@ -169,6 +171,14 @@ class Project extends Model implements HasMedia
         return Attribute::make(
             get: fn (): ?string => $this->project_date?->format('F Y'),
         );
+    }
+
+    /**
+     * Scope a query to order projects by project_date descending with fallback to created_at descending.
+     */
+    public function scopeOrderedByProjectDate(Builder $query): Builder
+    {
+        return $query->orderByDesc('project_date')->latest('created_at');
     }
 
     public function registerMediaCollections(): void

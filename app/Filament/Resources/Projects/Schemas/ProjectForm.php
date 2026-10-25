@@ -108,6 +108,7 @@ class ProjectForm
                             ->multiple()
                             ->reorderable()
                             ->panelLayout('grid')
+                            ->dehydrateStateUsing(fn ($state) => is_array($state) ? array_values(array_filter($state)) : $state)
                             ->columnSpanFull()
                             ->helperText('Upload and reorder multiple photos of this project.'),
                     ]),
@@ -139,6 +140,7 @@ class ProjectForm
                                     ->multiple()
                                     ->reorderable()
                                     ->panelLayout('grid')
+                                    ->dehydrateStateUsing(fn ($state) => is_array($state) ? array_values(array_filter($state)) : $state)
                                     ->required()
                                     ->columnSpanFull(),
                             ])

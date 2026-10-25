@@ -18,8 +18,20 @@ export function HomeLatestProjectsSection({ projects = [] }: HomeLatestProjectsS
         return null;
     }
 
-    const featuredProject = projects[0];
-    const secondaryProjects = projects.slice(1, 3);
+    // Always ensure ordering by project_date descending
+    const sortedProjects = React.useMemo(() => {
+        return [...projects].sort((a, b) => {
+            const timeA = a.project_date_raw ? new Date(a.project_date_raw).getTime() : 0;
+            const timeB = b.project_date_raw ? new Date(b.project_date_raw).getTime() : 0;
+            if (timeB !== timeA) {
+                return timeB - timeA;
+            }
+            return (b.id ?? 0) - (a.id ?? 0);
+        });
+    }, [projects]);
+
+    const featuredProject = sortedProjects[0];
+    const secondaryProjects = sortedProjects.slice(1, 3);
 
     const featuredImage =
         featuredProject.featured_image_url ||

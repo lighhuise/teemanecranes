@@ -19,7 +19,7 @@ class ProjectsIndexController extends Controller
             return Project::query()
                 ->with('media')
                 ->where('is_active', true)
-                ->latest()
+                ->orderedByProjectDate()
                 ->get()
                 ->map(function (Project $project) {
                     $totalImages = count($project->gallery_image_urls)

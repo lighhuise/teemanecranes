@@ -55,6 +55,45 @@ it('can create a project with title, description, content, and galleries', funct
         ->and($project->galleries_with_urls[0]['image_urls'])->toHaveCount(2);
 });
 
+it('strictly preserves the exact order of images in main gallery and custom galleries', function () {
+    $project = Project::factory()->create([
+        'gallery' => [
+            'projects/gallery/third.jpg',
+            'projects/gallery/first.jpg',
+            'projects/gallery/second.jpg',
+        ],
+        'galleries' => [
+            [
+                'title' => 'Phase 2',
+                'description' => 'Second phase',
+                'images' => [
+                    'projects/galleries/b.jpg',
+                    'projects/galleries/a.jpg',
+                ],
+            ],
+            [
+                'title' => 'Phase 1',
+                'description' => 'First phase',
+                'images' => [
+                    'projects/galleries/z.jpg',
+                    'projects/galleries/y.jpg',
+                ],
+            ],
+        ],
+    ]);
+
+    expect($project->gallery_image_urls[0])->toContain('third.jpg')
+        ->and($project->gallery_image_urls[1])->toContain('first.jpg')
+        ->and($project->gallery_image_urls[2])->toContain('second.jpg');
+
+    expect($project->galleries_with_urls[0]['title'])->toBe('Phase 2')
+        ->and($project->galleries_with_urls[0]['image_urls'][0])->toContain('b.jpg')
+        ->and($project->galleries_with_urls[0]['image_urls'][1])->toContain('a.jpg')
+        ->and($project->galleries_with_urls[1]['title'])->toBe('Phase 1')
+        ->and($project->galleries_with_urls[1]['image_urls'][0])->toContain('z.jpg')
+        ->and($project->galleries_with_urls[1]['image_urls'][1])->toContain('y.jpg');
+});
+
 it('loads the projects index page with active projects', function () {
     Project::factory()->create(['title' => 'Active Project', 'is_active' => true]);
     Project::factory()->create(['title' => 'Hidden Project', 'is_active' => false]);
@@ -66,6 +105,68 @@ it('loads the projects index page with active projects', function () {
         ->component('projects/index')
         ->has('projects', 1)
         ->where('projects.0.title', 'Active Project')
+    );
+});
+
+it('orders projects by project_date descending on the projects index page', function () {
+    Cache::flush();
+
+    Project::factory()->create([
+        'title' => 'Older Project',
+        'project_date' => '2023-01-15',
+        'is_active' => true,
+    ]);
+    Project::factory()->create([
+        'title' => 'Newest Project',
+        'project_date' => '2026-03-20',
+        'is_active' => true,
+    ]);
+    Project::factory()->create([
+        'title' => 'Middle Project',
+        'project_date' => '2024-06-10',
+        'is_active' => true,
+    ]);
+
+    $response = $this->get('/projects');
+
+    $response->assertStatus(200);
+    $response->assertInertia(fn (Assert $page) => $page
+        ->component('projects/index')
+        ->has('projects', 3)
+        ->where('projects.0.title', 'Newest Project')
+        ->where('projects.1.title', 'Middle Project')
+        ->where('projects.2.title', 'Older Project')
+    );
+});
+
+it('orders projects by project_date descending on the homepage', function () {
+    Cache::flush();
+
+    Project::factory()->create([
+        'title' => 'Oldest Crane Job',
+        'project_date' => '2022-05-01',
+        'is_active' => true,
+    ]);
+    Project::factory()->create([
+        'title' => 'Latest Crane Job',
+        'project_date' => '2026-08-10',
+        'is_active' => true,
+    ]);
+    Project::factory()->create([
+        'title' => 'Recent Crane Job',
+        'project_date' => '2025-11-20',
+        'is_active' => true,
+    ]);
+
+    $response = $this->get('/');
+
+    $response->assertStatus(200);
+    $response->assertInertia(fn (Assert $page) => $page
+        ->component('home')
+        ->has('projects', 3)
+        ->where('projects.0.title', 'Latest Crane Job')
+        ->where('projects.1.title', 'Recent Crane Job')
+        ->where('projects.2.title', 'Oldest Crane Job')
     );
 });
 

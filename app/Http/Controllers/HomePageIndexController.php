@@ -21,7 +21,7 @@ class HomePageIndexController extends Controller
                 return Project::query()
                     ->with('media')
                     ->where('is_active', true)
-                    ->latest()
+                    ->orderedByProjectDate()
                     ->take(3)
                     ->get()
                     ->map(function (Project $project) {

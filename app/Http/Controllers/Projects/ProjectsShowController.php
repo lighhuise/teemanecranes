@@ -25,7 +25,7 @@ class ProjectsShowController extends Controller
             $related = Project::query()
                 ->where('is_active', true)
                 ->where('id', '!=', $project->id)
-                ->latest()
+                ->orderedByProjectDate()
                 ->limit(3)
                 ->get()
                 ->map(fn (Project $p) => [
