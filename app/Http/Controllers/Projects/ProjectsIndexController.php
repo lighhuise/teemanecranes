@@ -33,6 +33,10 @@ class ProjectsIndexController extends Controller
                         'featured_image_url' => $project->featured_image_url,
                         'gallery_image_urls' => $project->gallery_image_urls,
                         'galleries_with_urls' => $project->galleries_with_urls,
+                        'video_url' => $project->video_url,
+                        'embed_video_url' => $project->embed_video_url,
+                        'project_date' => $project->formatted_project_date,
+                        'project_date_raw' => $project->project_date?->toDateString(),
                         'total_images' => $totalImages,
                     ];
                 })

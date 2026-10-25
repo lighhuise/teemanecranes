@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Projects\Schemas;
 
+use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
@@ -53,6 +54,18 @@ class ProjectForm
                             ->required()
                             ->maxLength(255)
                             ->unique(ignoreRecord: true),
+
+                        DatePicker::make('project_date')
+                            ->label('Project Date')
+                            ->helperText('Date when the project was executed / created.')
+                            ->native(false),
+
+                        TextInput::make('video_url')
+                            ->label('Video URL')
+                            ->placeholder('https://www.youtube.com/watch?v=... or https://vimeo.com/...')
+                            ->url()
+                            ->helperText('YouTube or Vimeo video link.')
+                            ->maxLength(255),
 
                         Textarea::make('description')
                             ->label('Description')

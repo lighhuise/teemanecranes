@@ -1,9 +1,10 @@
 import { cn } from '@/lib/utils';
 import { ReactNode } from 'react';
+import SectionOverline, { SectionOverlineAlign } from './section-overline';
 
-type Align = 'left' | 'center' | 'right';
+export type Align = SectionOverlineAlign;
 
-interface SectionHeadingProps {
+export interface SectionHeadingProps {
     /** Small label shown above the title with decorative lines */
     label?: string;
     /** Main heading text */
@@ -21,12 +22,6 @@ const alignClass: Record<Align, string> = {
     right:  'items-end text-right',
 };
 
-const lineClass: Record<Align, string> = {
-    left:   'flex-row',
-    center: 'flex-row',
-    right:  'flex-row-reverse',
-};
-
 export default function SectionHeading({
     label,
     title,
@@ -36,20 +31,13 @@ export default function SectionHeading({
 }: SectionHeadingProps) {
     return (
         <div className={cn('flex flex-col space-y-6', alignClass[align], className)}>
-            {/* Label with decorative lines */}
-
+            {/* Unified Reusable Overline */}
             {label && (
-                <div className={cn('inline-flex items-center gap-4', lineClass[align])}>
-                    {/* Left line — hidden on right-aligned, always shown on left/center */}
-                    {align !== 'right' && <div className="h-px w-8 bg-primary shrink-0" />}
-                    <span className="text-sm font-bold text-primary tracking-widest uppercase whitespace-nowrap">
-                    {label}
-                </span>
-                    {/* Right line — shown on center and right */}
-                    {align !== 'left' && <div className="h-px w-8 bg-primary shrink-0" />}
-                </div>
+                <SectionOverline
+                    label={label}
+                    align={align}
+                />
             )}
-
 
             {/* Title */}
             <h2 className="text-4xl lg:text-5xl max-w-2xl text-balance font-black tracking-[0.35px] uppercase text-foreground leading-[1.1]">
@@ -70,3 +58,5 @@ export default function SectionHeading({
         </div>
     );
 }
+
+export { SectionOverline };

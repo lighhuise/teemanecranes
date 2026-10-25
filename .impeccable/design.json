@@ -1,0 +1,217 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-25T13:21:30Z",
+  "title": "Design System: Teemane Cranes",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Industrial Cobalt",
+        "canonical": "oklch(0.469344 0.112698 242.6308)",
+        "tonalRamp": [
+          "oklch(0.20 0.08 242.6)",
+          "oklch(0.30 0.10 242.6)",
+          "oklch(0.40 0.11 242.6)",
+          "oklch(0.469 0.113 242.6)",
+          "oklch(0.58 0.11 242.6)",
+          "oklch(0.70 0.09 242.6)",
+          "oklch(0.85 0.06 242.6)",
+          "oklch(0.95 0.02 242.6)"
+        ]
+      },
+      "background": {
+        "role": "neutral",
+        "displayName": "Worksite Pure White",
+        "canonical": "oklch(1 0 0)",
+        "tonalRamp": [
+          "oklch(0.18 0 0)",
+          "oklch(0.22 0 0)",
+          "oklch(0.35 0 0)",
+          "oklch(0.55 0 0)",
+          "oklch(0.75 0 0)",
+          "oklch(0.88 0 0)",
+          "oklch(0.96 0 0)",
+          "oklch(1.00 0 0)"
+        ]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Technical Hairline Border",
+        "canonical": "oklch(0.922 0 0)",
+        "tonalRamp": [
+          "oklch(0.25 0 0)",
+          "oklch(0.38 0 0)",
+          "oklch(0.50 0 0)",
+          "oklch(0.65 0 0)",
+          "oklch(0.78 0 0)",
+          "oklch(0.88 0 0)",
+          "oklch(0.922 0 0)",
+          "oklch(0.98 0 0)"
+        ]
+      },
+      "accent": {
+        "role": "accent",
+        "displayName": "Safety Amber Accent",
+        "canonical": "oklch(0.603 0.019 79.16)",
+        "tonalRamp": [
+          "oklch(0.25 0.02 79.1)",
+          "oklch(0.35 0.02 79.1)",
+          "oklch(0.48 0.02 79.1)",
+          "oklch(0.603 0.019 79.16)",
+          "oklch(0.72 0.02 79.1)",
+          "oklch(0.82 0.02 79.1)",
+          "oklch(0.90 0.01 79.1)",
+          "oklch(0.97 0.005 79.1)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display Monumental",
+        "purpose": "Hero statements and massive capability headlines."
+      },
+      "headline": {
+        "displayName": "Section Headline",
+        "purpose": "Major section titles and landmark project headlines."
+      },
+      "title": {
+        "displayName": "Card & Specification Title",
+        "purpose": "Card headers, load chart titles, and modal headers."
+      },
+      "body": {
+        "displayName": "Technical Body",
+        "purpose": "Descriptive copy, engineering narratives, and load parameters."
+      },
+      "label": {
+        "displayName": "Uppercase Operational Label",
+        "purpose": "Status pills, metric units, category badges, and tracking labels."
+      }
+    },
+    "shadows": [
+      {
+        "name": "resting-utility",
+        "value": "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+        "purpose": "Subtle elevation for resting buttons and stat badges."
+      },
+      {
+        "name": "interactive-lift",
+        "value": "0 4px 12px -2px rgba(0, 0, 0, 0.08)",
+        "purpose": "Active focus and hover lift on project cards and interactive controls."
+      },
+      {
+        "name": "modal-depth",
+        "value": "0 20px 25px -5px rgba(0, 0, 0, 0.25)",
+        "purpose": "Backdrop elevation for full-screen lightbox previews and emergency overlays."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Default easing for color shifts and thumbnail transitions."
+      },
+      {
+        "name": "duration-fast",
+        "value": "150ms",
+        "purpose": "Immediate feedback on button clicks and thumbnail selection."
+      },
+      {
+        "name": "duration-normal",
+        "value": "300ms",
+        "purpose": "Smooth fade and zoom transitions for image overlays."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" },
+      { "name": "2xl", "value": "1536px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Industrial Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Primary conversion button with subtle gradient, white text, and hover elevation.",
+      "html": "<button class=\"ds-btn-primary\">START A PROJECT</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; height: 36px; padding: 0 16px; background: linear-gradient(to right, oklch(0.469 0.113 242.6), oklch(0.469 0.113 242.6 / 0.75)); color: #fff; font-family: 'Montserrat Variable', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; border: none; border-radius: 8px; cursor: pointer; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 1px 2px rgba(0,0,0,0.06); } .ds-btn-primary:hover { background: linear-gradient(to right, oklch(0.43 0.12 242.6), oklch(0.469 0.113 242.6)); box-shadow: 0 4px 10px rgba(0,0,0,0.12); transform: translateY(-1px); } .ds-btn-primary:active { transform: translateY(0); }"
+    },
+    {
+      "name": "Outline Engineering Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary outline button for browsing services and downloading load charts.",
+      "html": "<button class=\"ds-btn-outline\">VIEW SPECIFICATIONS</button>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; justify-content: center; height: 36px; padding: 0 16px; background: transparent; color: #1e293b; font-family: 'Montserrat Variable', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; border: 1px solid oklch(0.922 0 0); border-radius: 8px; cursor: pointer; transition: all 0.2s ease; } .ds-btn-outline:hover { background: #f8fafc; border-color: oklch(0.469 0.113 242.6); color: oklch(0.469 0.113 242.6); }"
+    },
+    {
+      "name": "Technical Input Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Clean, high-legibility input field with active focus ring.",
+      "html": "<input type=\"text\" class=\"ds-input\" placeholder=\"Required tonnage (e.g. 250T)\" />",
+      "css": ".ds-input { width: 100%; height: 36px; padding: 0 12px; background: #fff; color: #0f172a; border: 1px solid oklch(0.922 0 0); border-radius: 8px; font-family: 'Geist Variable', sans-serif; font-size: 14px; outline: none; transition: border-color 0.15s, box-shadow 0.15s; } .ds-input:focus { border-color: oklch(0.469 0.113 242.6); box-shadow: 0 0 0 3px oklch(0.469 0.113 242.6 / 0.15); }"
+    },
+    {
+      "name": "Operational Metric Pill",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "High-contrast technical badge for fleet specs and safety indicators.",
+      "html": "<div class=\"ds-pill\"><span class=\"ds-pill-dot\"></span>440T CAPACITY</div>",
+      "css": ".ds-pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; background: oklch(0.469 0.113 242.6 / 0.08); color: oklch(0.469 0.113 242.6); font-family: 'Geist Variable', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid oklch(0.469 0.113 242.6 / 0.2); border-radius: 9999px; } .ds-pill-dot { width: 6px; height: 6px; border-radius: 50%; background: oklch(0.469 0.113 242.6); }"
+    },
+    {
+      "name": "Interactive Bento Project Card",
+      "kind": "card",
+      "refersTo": "card-project",
+      "description": "Structured project card featuring thumbnail gallery switcher and gradient contrast.",
+      "html": "<div class=\"ds-card\"><div class=\"ds-card-badge\">CAPE TOWN HARBOUR</div><div class=\"ds-card-title\">Vessel Subsea Manifold Installation</div><div class=\"ds-card-spec\">400T Mobile Crane • 120m Boom Reach</div></div>",
+      "css": ".ds-card { position: relative; padding: 24px; background: #fff; border: 1px solid oklch(0.922 0 0); border-radius: 14px; transition: transform 0.25s ease, box-shadow 0.25s ease; box-shadow: 0 1px 3px rgba(0,0,0,0.04); } .ds-card:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); border-color: oklch(0.469 0.113 242.6 / 0.3); } .ds-card-badge { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: oklch(0.469 0.113 242.6); margin-bottom: 8px; } .ds-card-title { font-family: 'Montserrat Variable', sans-serif; font-size: 18px; font-weight: 800; letter-spacing: -0.03em; color: #0f172a; margin-bottom: 6px; } .ds-card-spec { font-family: 'Geist Variable', sans-serif; font-size: 13px; color: #64748b; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Industrial Monolith",
+    "overview": "The visual language of Teemane Cranes communicates monumental heavy-duty authority, CAD-backed engineering rigor, and unwavering operational certainty. Every surface feels structured like an engineered steel rigging frame—defined by hairline structural gridlines, clean geometric rhythm, and massive typography that conveys physical scale and lifting power up to 440 tons.\n\nThe system firmly rejects generic SaaS corporate gradients, flashy cartoonish safety badges, and cheap construction marketing tropes. Instead, it balances stark, technical restraint with authentic heavy machinery photography, crisp high-contrast data readouts, and purposeful interactive feedback.",
+    "keyCharacteristics": [
+      "Monumental Headings & Technical Body: Heavyweight geometric Montserrat titles set with tight tracking (-0.05em), counterbalanced by highly legible, analytical Geist Sans for specifications and load metrics.",
+      "Architectural Hairline Grid: Surfaces and cards sit grounded in crisp 1px borders (border-border) with subtle tonal elevation rather than heavy drop shadows.",
+      "Engineered Color Precision: Deep industrial cobalt serves as the sole focal anchor, applied with deliberate economy to guide procurement and emergency action."
+    ],
+    "rules": [
+      {
+        "name": "The Single Anchor Rule",
+        "body": "Industrial Cobalt is strictly reserved for actionable elements, key brand accents, and primary conversion metrics. It must never coat expansive decorative backgrounds without radial/linear grounding.",
+        "section": "colors"
+      },
+      {
+        "name": "The Contrast Integrity Rule",
+        "body": "Card surfaces and overlay gradients must never hardcode dark overlays on light themes; cards adapt dynamically (from-background in light mode, dark:from-black/95 in dark mode) to maintain flawless typography legibility.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tight Headline Rule",
+        "body": "Montserrat headings above 1.5rem must always use tight tracking (tracking-tighter / -0.04em to -0.05em) to preserve architectural solidity and prevent loose typographic drift.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-at-Rest Rule",
+        "body": "All cards, tables, and inputs sit flush at rest. Elevated shadows only manifest dynamically as feedback to cursor focus or active hovering.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use real job-site photography depicting cranes, heavy transport, and certified rigging teams.",
+      "Do set Montserrat display headings with tight tracking (tracking-tighter / -0.05em).",
+      "Do ensure all card overlays support both light mode and dark mode via semantic theme utilities (from-background / dark:from-black/95).",
+      "Do display concrete lift capacities, tonnages, and operational specs alongside project case studies."
+    ],
+    "donts": [
+      "Don't use generic construction stock clipart, cartoonish hard-hat icons, or gaudy neon badges.",
+      "Don't use heavy drop shadows on resting cards; rely on 1px borders and subtle tonal backgrounds.",
+      "Don't fabricate artificial testimonials, fictional clients, or unverified safety awards.",
+      "Don't hardcode pitch-black gradient overlays on light-mode cards that ruin text contrast."
+    ]
+  }
+}

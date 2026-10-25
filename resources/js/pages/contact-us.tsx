@@ -8,7 +8,7 @@ import { Mail, Phone, MapPin, CheckCircle2 } from 'lucide-react';
 import React, { FormEvent, useEffect } from 'react';
 import { toast } from '@/components/ui/toast';
 import { cn } from "@/lib/utils";
-import SectionHeading from '@/components/ui/misc/section-heading';
+import SectionHeading, { SectionOverline } from '@/components/ui/misc/section-heading';
 import { BackgroundText } from '@/components/ui/misc/background-text';
 
 interface HoneypotData {
@@ -67,6 +67,7 @@ export default function ContactUs({ flash, honeypot }: { flash: { success?: stri
                         {/* Contact Information */}
                         <div className="space-y-12">
                             <div>
+                                <SectionOverline label="Headquarters" align="left" className="mb-3" />
                                 <h2 className="text-3xl font-black tracking-tighter text-foreground uppercase mb-4">
                                     Our Office
                                 </h2>
@@ -138,6 +139,7 @@ export default function ContactUs({ flash, honeypot }: { flash: { success?: stri
                                 </div>
                             ) : null}
 
+                            <SectionOverline label="Direct Dispatch" align="left" className="mb-3" />
                             <h2 className="text-2xl font-black tracking-tighter text-foreground uppercase mb-6">
                                 Send a Message
                             </h2>

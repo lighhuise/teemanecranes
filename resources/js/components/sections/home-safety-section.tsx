@@ -5,6 +5,7 @@ import { FloatingStatCard } from "@/components/ui/misc/floating-stat-card";
 // @ts-ignore
 import imgSafety from "@/../images/media-24-building.webp";
 import { BackgroundText } from "@/components/ui/misc/background-text";
+import SectionOverline from "@/components/ui/misc/section-overline";
 
 export function HomeSafetySection() {
     return (
@@ -30,10 +31,7 @@ export function HomeSafetySection() {
                     </div>
 
                     <div className="space-y-8 order-1 lg:order-2">
-                        <div className="inline-flex items-center gap-4">
-                            <span className="text-sm font-bold text-primary tracking-widest uppercase">Turnkey Solutions</span>
-                            <div className="h-px w-8 bg-primary"></div>
-                        </div>
+                        <SectionOverline label="Turnkey Solutions" align="left" />
                         <h2 className="text-4xl lg:text-5xl font-black tracking-tighter text-foreground leading-[1.1]">
                             PRECISION PLANNING <br />& EXECUTION
                         </h2>

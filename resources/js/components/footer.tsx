@@ -1,6 +1,7 @@
 import { Link } from '@inertiajs/react';
 import { ArrowRight, MapPin, Phone, Mail } from 'lucide-react';
 import Wrapper from "@/components/ui/misc/wrapper";
+import SectionOverline from "@/components/ui/misc/section-overline";
 // @ts-ignore
 import logoUrl from '@/../images/logo.svg';
 
@@ -24,55 +25,74 @@ export default function Footer() {
                             The only name trusted to perform on South Africa's most demanding worksites. Unmatched excellence in crane hire, heavy lifting and specialised transport since 2012.
                         </p>
                         <div className="flex flex-col gap-4 mt-4">
-                            <div className="flex items-center gap-4 text-sm font-bold tracking-widest text-foreground uppercase">
-                                <div className="h-px w-8 bg-primary"></div>
-                                A Cut Above The Rest
-                            </div>
+                            <SectionOverline label="A Cut Above The Rest" align="left" />
                         </div>
                     </div>
 
                     {/* Navigation Column */}
                     <div className="lg:col-span-3 lg:col-start-6">
                         <h3 className="text-foreground text-lg font-black mb-8 tracking-tighter uppercase">Navigation</h3>
-                        <ul className="flex flex-col gap-4">
-                            {[
-                                { name: 'Home', href: '/' },
-                                { name: 'Services', href: '/services' },
-                                { name: 'Projects', href: '/projects' },
-                                { name: 'About Us', href: '/about-us' },
-                                { name: 'FAQ', href: '/faq' },
-                                // { name: 'Our Team', href: '/our-team' },
-                                { name: 'Contact Us', href: '/contact-us' },
-                            ].map((item) => (
-                                <li key={item.name}>
-                                    <Link href={item.href} className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group w-fit font-medium">
-                                        <ArrowRight className="w-4 h-4 opacity-0 -ml-6 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300 text-primary" />
-                                        <span>{item.name}</span>
-                                    </Link>
-                                </li>
-                            ))}
+                        <ul className="flex flex-col gap-3.5">
+                          {[
+                            { name: 'Home', href: '/' },
+                            { name: 'Services', href: '/services' },
+                            { name: 'Projects', href: '/projects' },
+                            { name: 'About Us', href: '/about-us' },
+                            { name: 'FAQ', href: '/faq' },
+                            { name: 'Contact Us', href: '/contact-us' },
+                          ].map((item) => (
+                            <li key={item.name}>
+                              <Link
+                                href={item.href}
+                                className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors text-sm font-medium w-fit"
+                              >
+                                <span className="w-1.5 h-1.5 rounded-full bg-border group-hover:w-4 group-hover:h-0.5 group-hover:rounded-none group-hover:bg-primary transition-all duration-300" />
+                                <span className="tracking-wide">{item.name}</span>
+                              </Link>
+                            </li>
+                          ))}
                         </ul>
                     </div>
 
                     {/* Contact Column */}
                     <div className="lg:col-span-4">
                         <h3 className="text-foreground text-lg font-black mb-8 tracking-tighter uppercase">Contact Us</h3>
-                        <ul className="flex flex-col gap-6">
-                            <li className="flex items-start gap-4">
-                                <MapPin className="w-6 h-6 text-primary shrink-0 mt-1" />
-                                <div>
-                                    <span className="block text-foreground font-bold mb-1">Address</span>
-                                    <span className="text-muted-foreground">6 Van Eck St, Bellville South, Cape Town, 7530</span>
-                                </div>
-                            </li>
-                            <li className="flex items-center gap-4">
-                                <Phone className="w-6 h-6 text-primary shrink-0" />
-                                <span className="text-muted-foreground">084 263 7690</span>
-                            </li>
-                            <li className="flex items-center gap-4">
-                                <Mail className="w-6 h-6 text-primary shrink-0" />
-                                <span className="text-muted-foreground">enquiries@teemanecranes.co.za</span>
-                            </li>
+                        <ul className="flex flex-col divide-y divide-border/80 border-y border-border/80">
+                          <li className="py-3.5 flex items-start gap-3.5 group">
+                            <span className="size-7 rounded-md bg-muted border border-border flex items-center justify-center shrink-0 mt-0.5 text-primary group-hover:border-primary/40 transition-colors">
+                              <MapPin className="size-4" />
+                            </span>
+                            <div className="space-y-0.5 min-w-0">
+                              <span className="text-xs font-mono font-bold uppercase tracking-wider text-muted-foreground block">Yard Location</span>
+                              <span className="text-sm font-bold text-foreground block leading-tight">6 Van Eck St, Bellville South</span>
+                              <span className="text-xs text-muted-foreground block">Cape Town, 7530</span>
+                            </div>
+                          </li>
+                          <li className="py-3.5 flex items-center justify-between gap-3 group">
+                            <a href="tel:0842637690" className="flex items-center gap-3.5 min-w-0 flex-1">
+                              <span className="size-7 rounded-md bg-muted border border-border flex items-center justify-center shrink-0 text-primary group-hover:border-primary/40 transition-colors">
+                                <Phone className="size-4" />
+                              </span>
+                              <div className="space-y-0.5">
+                                <span className="text-xs font-mono font-bold uppercase tracking-wider text-muted-foreground block">Phone</span>
+                                <span className="text-sm font-mono font-bold text-foreground group-hover:text-primary transition-colors">084 263 7690</span>
+                              </div>
+                            </a>
+                            <span className="inline-flex items-center text-[10px] font-mono font-bold uppercase px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                              Active
+                            </span>
+                          </li>
+                          <li className="py-3.5 flex items-center justify-between gap-3 group">
+                            <a href="mailto:enquiries@teemanecranes.co.za" className="flex items-center gap-3.5 min-w-0 flex-1">
+                              <span className="size-7 rounded-md bg-muted border border-border flex items-center justify-center shrink-0 text-primary group-hover:border-primary/40 transition-colors">
+                                <Mail className="size-4" />
+                              </span>
+                              <div className="space-y-0.5 min-w-0">
+                                <span className="text-xs font-mono font-bold uppercase tracking-wider text-muted-foreground block">Email</span>
+                                <span className="text-sm font-medium text-foreground truncate block group-hover:text-primary transition-colors">enquiries@teemanecranes.co.za</span>
+                              </div>
+                            </a>
+                          </li>
                         </ul>
                     </div>
                 </div>

@@ -22,6 +22,8 @@ class Project extends Model implements HasMedia
     protected $appends = [
         'featured_image_url',
         'gallery_image_urls',
+        'embed_video_url',
+        'formatted_project_date',
     ];
 
     /**
@@ -32,6 +34,7 @@ class Project extends Model implements HasMedia
     protected function casts(): array
     {
         return [
+            'project_date' => 'date',
             'gallery' => 'array',
             'galleries' => 'array',
             'is_active' => 'boolean',
@@ -125,6 +128,46 @@ class Project extends Model implements HasMedia
                     ];
                 }, $this->galleries);
             },
+        );
+    }
+
+    /**
+     * Resolve YouTube or Vimeo embed URL if a valid video link is present.
+     */
+    protected function embedVideoUrl(): Attribute
+    {
+        return Attribute::make(
+            get: function (): ?string {
+                if (empty($this->video_url)) {
+                    return null;
+                }
+
+                $url = trim($this->video_url);
+
+                // YouTube: standard watch, short URL, embed, or shorts
+                if (preg_match('/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?|shorts)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i', $url, $matches)) {
+                    return 'https://www.youtube-nocookie.com/embed/'.$matches[1];
+                }
+
+                // Vimeo: standard, channels, groups, or player
+                if (preg_match('/(?:vimeo\.com\/(?:channels\/(?:\w+\/)?|groups\/[^\/]*\/videos\/|album\/\d+\/video\/|video\/)?|player\.vimeo\.com\/video\/)([0-9]+)/i', $url, $matches)) {
+                    $vimeoId = end($matches);
+
+                    return 'https://player.vimeo.com/video/'.$vimeoId;
+                }
+
+                return null;
+            },
+        );
+    }
+
+    /**
+     * Resolve formatted project execution date.
+     */
+    protected function formattedProjectDate(): Attribute
+    {
+        return Attribute::make(
+            get: fn (): ?string => $this->project_date?->format('F Y'),
         );
     }
 

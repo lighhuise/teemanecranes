@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { Link } from '@inertiajs/react';
 import AppLayout from '@/layouts/app-layout';
 import Wrapper from '@/components/ui/misc/wrapper';
-import SectionHeading from '@/components/ui/misc/section-heading';
+import SectionHeading, { SectionOverline } from '@/components/ui/misc/section-heading';
 import { BackgroundText } from '@/components/ui/misc/background-text';
 import { ProjectCard, ProjectListItem } from '@/components/project-card';
+import PageSeparator from '@/components/page-separator';
 import EmergencyCta from '@/components/emergency-cta';
-import { ArrowLeft, Calendar, Expand, Images, Phone } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Calendar, Clock, Expand, HardHat, Images, Phone, ShieldCheck, Wrench } from 'lucide-react';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
 
@@ -26,6 +27,10 @@ interface ProjectDetail {
     featured_image_url: string | null;
     gallery_image_urls: string[];
     galleries_with_urls: GalleryItem[];
+    video_url?: string | null;
+    embed_video_url?: string | null;
+    project_date?: string | null;
+    project_date_raw?: string | null;
     created_at?: string | null;
 }
 
@@ -56,81 +61,127 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
             image={project.featured_image_url || undefined}
         >
             {/* Hero Header */}
-            <div className="relative border-b border-border bg-muted/20 overflow-hidden">
-                <BackgroundText position="center">PROJECT</BackgroundText>
-                {project.featured_image_url && (
-                    <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
+            <div className="relative overflow-hidden border-b border-border bg-muted/30 py-16 lg:py-24">
+              {/* Background Dot Matrix Texture */}
+              <div className="absolute inset-0 bg-[radial-gradient(oklch(0.469_0.113_242.6/0.14)_1.5px,transparent_1.5px)] bg-[size:24px_24px] pointer-events-none opacity-80" />
+              <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent pointer-events-none" />
+
+              <Wrapper className="relative z-10">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                  <div className="lg:col-span-5 space-y-6">
+                    <SectionOverline label="Field Record // Crane Ops" align="left" />
+                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-foreground leading-[1.05]">
+                      {project.title}
+                    </h1>
+                    {project.description && (
+                      <p className="text-base text-muted-foreground leading-relaxed max-w-xl">
+                        {project.description}
+                      </p>
+                    )}
+                    <div className="flex flex-wrap gap-2.5 pt-2">
+                      {project.project_date && (
+                        <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-border bg-card text-xs font-semibold text-foreground shadow-2xs font-mono">
+                          <Calendar className="size-3.5 text-primary" />
+                          {project.project_date}
+                        </span>
+                      )}
+                      <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-border bg-card text-xs font-semibold text-foreground shadow-2xs">
+                        <Wrench className="size-3.5 text-primary" />
+                        Mobile Crane &amp; Heavy Lift
+                      </span>
+                      <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-border bg-card text-xs font-semibold text-foreground shadow-2xs">
+                        <ShieldCheck className="size-3.5 text-primary" />
+                        ISO-Compliant Precision
+                      </span>
+                      <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-border bg-card text-xs font-semibold text-foreground shadow-2xs">
+                        <Clock className="size-3.5 text-primary" />
+                        Turnkey Mobilisation
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Enlarged Image Display */}
+                  <div className="lg:col-span-7">
+                    {project.featured_image_url && (
+                      <div className="relative aspect-16/10 lg:aspect-4/3 rounded-2xl overflow-hidden shadow-2xl border-2 border-border/80 bg-card">
                         <img
-                            src={project.featured_image_url}
-                            alt=""
-                            className="w-full h-full object-cover opacity-20 blur-xs"
+                          src={project.featured_image_url}
+                          alt={project.title}
+                          className="w-full h-full object-cover"
                         />
-                    </div>
-                )}
-
-                <Wrapper className="relative py-20 lg:py-24 z-10">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-                        <div>
-                            <Link
-                                href="/projects"
-                                className="inline-flex items-center text-sm font-bold tracking-widest uppercase text-muted-foreground hover:text-primary mb-8 transition-colors gap-2"
-                            >
-                                <ArrowLeft className="h-4 w-4" />
-                                Back to All Projects
-                            </Link>
-
-                            {project.created_at && (
-                                <div className="inline-flex items-center gap-2 px-3 py-1 mb-4 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-wider">
-                                    <Calendar className="w-3.5 h-3.5" />
-                                    <span>{project.created_at}</span>
-                                </div>
-                            )}
-
-                            <SectionHeading
-                                label="Project Profile"
-                                title={project.title}
-                                align="left"
-                                className="mb-0"
-                            >
-                                {project.description && (
-                                    <p className="text-lg text-muted-foreground leading-relaxed">
-                                        {project.description}
-                                    </p>
-                                )}
-                            </SectionHeading>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                        <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs font-bold uppercase text-white font-mono">
+                          <span>REF: {project.slug.toUpperCase()}</span>
+                          <span className="text-primary font-bold">LIVE EXECUTION</span>
                         </div>
-
-                        {project.featured_image_url && (
-                            <div className="relative w-full aspect-4/3 rounded-2xl overflow-hidden shadow-2xl border border-border bg-muted">
-                                <img
-                                    src={project.featured_image_url}
-                                    alt={project.title}
-                                    className="w-full h-full object-cover"
-                                />
-                            </div>
-                        )}
-                    </div>
-                </Wrapper>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </Wrapper>
             </div>
 
-            {/* Project Content / Scope of Work */}
-            {project.content && (
+            {/* Cinematic Letterbox Page Divider directly under Overview */}
+            <section className="relative isolate overflow-hidden h-52 sm:h-64 w-full border-y border-border bg-black">
+                <img
+                    src={project.featured_image_url || undefined}
+                    alt=""
+                    aria-hidden="true"
+                    className="absolute inset-0 h-full w-full object-cover opacity-50 mix-blend-luminosity filter contrast-125"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/40 to-primary/80" />
+                <Wrapper className="relative z-10 h-full flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                        <span className="size-2 rounded-full bg-primary animate-pulse" />
+                        <span className="text-xs sm:text-sm font-mono font-bold uppercase tracking-[0.25em] text-white">
+                            // FIELD LOG : SITE OPERATIONS
+                        </span>
+                    </div>
+                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/20 bg-white/10 text-xs font-bold text-white uppercase tracking-wider backdrop-blur-xs">
+                        <span>Project Documentation Below</span>
+                        <span className="text-primary font-bold">↓</span>
+                    </div>
+                </Wrapper>
+            </section>
+
+            {/* Video Showcase Section (YouTube / Vimeo) */}
+            {project.embed_video_url && (
                 <section className="py-20 bg-background border-b border-border">
                     <Wrapper>
-                        <div className="max-w-4xl mx-auto">
-                            <div className="flex items-center gap-4 text-xs font-bold tracking-widest text-primary uppercase mb-6">
-                                <div className="h-px w-8 bg-primary"></div>
-                                Project Overview & Scope
-                            </div>
+                        <SectionHeading
+                            label="On-Site Footage"
+                            title={
+                                <>
+                                    PROJECT <span className="text-primary">VIDEO</span>
+                                </>
+                            }
+                            align="left"
+                            className="mb-10"
+                        >
+                            Live operational footage and site execution recorded during project mobilization.
+                        </SectionHeading>
+
+                        <div className="relative aspect-16/9 w-full max-w-4xl mx-auto rounded-2xl overflow-hidden border border-border shadow-2xl bg-black">
+                            <iframe
+                                src={project.embed_video_url}
+                                title={`${project.title} Video Documentation`}
+                                className="w-full h-full border-0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowFullScreen
+                            />
+                        </div>
+                    </Wrapper>
+                </section>
+            )}
+
+            {/* Case Study Content */}
+            {project.content && (
+                <section className="py-16 bg-muted/20 border-b border-border">
+                    <Wrapper>
+                        <div className="max-w-4xl">
+                            <SectionOverline label="Case Study // Scope of Work" align="left" className="mb-6" />
                             <div
-                                className="prose prose-neutral dark:prose-invert max-w-none
-                                           prose-headings:font-black prose-headings:tracking-tight prose-headings:uppercase prose-headings:text-foreground
-                                           prose-h2:text-3xl lg:prose-h2:text-4xl prose-h2:mt-10
-                                           prose-h3:text-xl lg:prose-h3:text-2xl prose-h3:mt-8
-                                           prose-p:text-base sm:prose-p:text-lg prose-p:text-muted-foreground prose-p:leading-relaxed
-                                           prose-a:text-primary prose-a:no-underline hover:prose-a:underline
-                                           prose-blockquote:border-primary prose-blockquote:text-muted-foreground
-                                           prose-li:text-muted-foreground"
+                                className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tight prose-a:text-primary prose-img:rounded-xl"
                                 dangerouslySetInnerHTML={{ __html: project.content }}
                             />
                         </div>
@@ -155,27 +206,46 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
                             High-resolution photography from the site lift operations and rigging phases.
                         </SectionHeading>
 
-                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                            {project.gallery_image_urls.map((url, idx) => (
-                                <button
-                                    key={idx}
-                                    type="button"
-                                    onClick={() => setMainLightboxIndex(idx)}
-                                    className="group relative aspect-4/3 w-full overflow-hidden rounded-xl border border-border bg-muted cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-transform duration-300 hover:scale-[1.02]"
-                                >
-                                    <img
-                                        src={url}
-                                        alt={`${project.title} - Site Photography`}
-                                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                        loading="lazy"
-                                    />
-                                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                        <div className="size-11 rounded-full bg-primary/90 text-primary-foreground flex items-center justify-center shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform">
-                                            <Expand className="size-5" />
+                        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+                            {project.gallery_image_urls.map((url, idx) => {
+                                const isHero = idx === 0;
+                                const isWide = idx === 3;
+
+                                return (
+                                    <button
+                                        key={idx}
+                                        type="button"
+                                        onClick={() => setMainLightboxIndex(idx)}
+                                        className={`group relative overflow-hidden rounded-2xl border border-border bg-muted cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300 hover:scale-[1.01] hover:shadow-xl ${
+                                            isHero
+                                                ? 'col-span-2 row-span-2 min-h-[280px] sm:min-h-[420px]'
+                                                : isWide
+                                                  ? 'col-span-2 aspect-16/9'
+                                                  : 'aspect-4/3'
+                                        }`}
+                                    >
+                                        <img
+                                            src={url}
+                                            alt={`${project.title} - Site Photography`}
+                                            className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-106"
+                                            loading="lazy"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-4 sm:p-5">
+                                            <div className="flex justify-between items-start">
+                                                <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/50 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-xs">
+                                                    Photo #{idx + 1}
+                                                </span>
+                                                <div className="size-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg transform translate-y-1 group-hover:translate-y-0 transition-transform">
+                                                    <Expand className="size-4" />
+                                                </div>
+                                            </div>
+                                            <span className="text-xs font-bold uppercase tracking-wider text-white/90">
+                                                Inspect High-Res
+                                            </span>
                                         </div>
-                                    </div>
-                                </button>
-                            ))}
+                                    </button>
+                                );
+                            })}
                         </div>
 
                         <Lightbox
@@ -219,32 +289,51 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
                                             )}
                                         </div>
 
-                                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                                            {(gallery.image_urls ?? []).map((url, imgIdx) => (
-                                                <button
-                                                    key={imgIdx}
-                                                    type="button"
-                                                    onClick={() =>
-                                                        setCustomLightbox({
-                                                            galleryIndex: gIdx,
-                                                            imageIndex: imgIdx,
-                                                        })
-                                                    }
-                                                    className="group relative aspect-4/3 w-full overflow-hidden rounded-xl border border-border bg-muted cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-transform duration-300 hover:scale-[1.02]"
-                                                >
-                                                    <img
-                                                        src={url}
-                                                        alt={`${gallery.title} - Project Photography`}
-                                                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                                        loading="lazy"
-                                                    />
-                                                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                                        <div className="size-11 rounded-full bg-primary/90 text-primary-foreground flex items-center justify-center shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform">
-                                                            <Expand className="size-5" />
+                                        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+                                            {(gallery.image_urls ?? []).map((url, imgIdx) => {
+                                                const isHero = imgIdx === 0;
+                                                const isWide = imgIdx === 3;
+
+                                                return (
+                                                    <button
+                                                        key={imgIdx}
+                                                        type="button"
+                                                        onClick={() =>
+                                                            setCustomLightbox({
+                                                                galleryIndex: gIdx,
+                                                                imageIndex: imgIdx,
+                                                            })
+                                                        }
+                                                        className={`group relative overflow-hidden rounded-2xl border border-border bg-muted cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300 hover:scale-[1.01] hover:shadow-xl ${
+                                                            isHero
+                                                                ? 'col-span-2 row-span-2 min-h-[280px] sm:min-h-[420px]'
+                                                                : isWide
+                                                                  ? 'col-span-2 aspect-16/9'
+                                                                  : 'aspect-4/3'
+                                                        }`}
+                                                    >
+                                                        <img
+                                                            src={url}
+                                                            alt={`${gallery.title} - Project Photography`}
+                                                            className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-106"
+                                                            loading="lazy"
+                                                        />
+                                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-4 sm:p-5">
+                                                            <div className="flex justify-between items-start">
+                                                                <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/50 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-xs">
+                                                                    #{imgIdx + 1}
+                                                                </span>
+                                                                <div className="size-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg transform translate-y-1 group-hover:translate-y-0 transition-transform">
+                                                                    <Expand className="size-4" />
+                                                                </div>
+                                                            </div>
+                                                            <span className="text-xs font-bold uppercase tracking-wider text-white/90">
+                                                                Inspect High-Res
+                                                            </span>
                                                         </div>
-                                                    </div>
-                                                </button>
-                                            ))}
+                                                    </button>
+                                                );
+                                            })}
                                         </div>
 
                                         <Lightbox
@@ -260,40 +349,6 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
                     })}
                 </div>
             )}
-
-            {/* Inquire for Similar Projects CTA */}
-            <section className="py-20 bg-background border-b border-border">
-                <Wrapper>
-                    <div className="rounded-2xl border border-border bg-muted/40 p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
-                        <div className="space-y-2 text-center md:text-left">
-                            <span className="text-xs font-bold uppercase tracking-widest text-primary">
-                                Have A Similar Requirement?
-                            </span>
-                            <h3 className="text-2xl sm:text-3xl font-black uppercase text-foreground tracking-tight">
-                                Consult With Our Rigging & Lift Specialists
-                            </h3>
-                            <p className="text-muted-foreground max-w-xl text-sm leading-relaxed">
-                                From site inspections and CAD lift studies to end-to-end crane hire and turnkey project execution, we have the fleet and expertise ready.
-                            </p>
-                        </div>
-                        <div className="flex flex-col sm:flex-row gap-4 shrink-0 w-full md:w-auto">
-                            <Link
-                                href="/contact-us"
-                                className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-bold tracking-widest uppercase text-xs px-8 py-4 rounded-lg shadow-sm hover:bg-primary/90 transition-all text-center"
-                            >
-                                Request a Quote
-                            </Link>
-                            <a
-                                href="tel:0842637690"
-                                className="inline-flex items-center justify-center gap-2 bg-card border border-border text-foreground hover:border-primary font-bold tracking-widest uppercase text-xs px-8 py-4 rounded-lg transition-all text-center"
-                            >
-                                <Phone className="size-4 text-primary" />
-                                084 263 7690
-                            </a>
-                        </div>
-                    </div>
-                </Wrapper>
-            </section>
 
             {/* Related Projects */}
             {relatedProjects.length > 0 && (

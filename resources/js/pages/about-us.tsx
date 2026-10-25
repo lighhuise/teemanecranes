@@ -3,7 +3,7 @@ import AppLayout from '@/layouts/app-layout';
 import Wrapper from '@/components/ui/misc/wrapper';
 import {Target, ShieldCheck, Trophy, Truck, Users, Building2, Zap, Award, HardHat} from 'lucide-react';
 import { FloatingStatCard } from '@/components/ui/misc/floating-stat-card';
-import SectionHeading from '@/components/ui/misc/section-heading';
+import SectionHeading, { SectionOverline } from '@/components/ui/misc/section-heading';
 import StatsBar from '@/components/stats-bar';
 import { BackgroundText } from '@/components/ui/misc/background-text';
 // @ts-ignore
@@ -42,7 +42,8 @@ export default function AboutUs() {
             <section className="py-24 bg-background">
                 <Wrapper>
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-                        <div className="space-y-8">
+                        <div className="space-y-6">
+                            <SectionOverline label="Operational Excellence" align="left" />
                             <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter text-foreground leading-[1.2]">
                                 Leading the projects that shape industries today.
                             </h2>

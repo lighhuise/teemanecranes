@@ -29,6 +29,17 @@ class ProjectsTable
                     ->sortable()
                     ->weight('bold'),
 
+                TextColumn::make('project_date')
+                    ->label('Project Date')
+                    ->date('M Y')
+                    ->sortable(),
+
+                IconColumn::make('video_url')
+                    ->label('Video')
+                    ->icon('heroicon-o-video-camera')
+                    ->boolean(fn ($state): bool => ! empty($state))
+                    ->color(fn ($state): string => ! empty($state) ? 'primary' : 'gray'),
+
                 TextColumn::make('slug')
                     ->searchable()
                     ->color('gray'),

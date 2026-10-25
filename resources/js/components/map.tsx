@@ -6,6 +6,7 @@ import L from 'leaflet';
 import Wrapper from './ui/misc/wrapper';
 import { MapPin, Navigation as NavIcon } from 'lucide-react';
 import {BackgroundText} from "@/components/ui/misc/background-text";
+import SectionOverline from "@/components/ui/misc/section-overline";
 
 export default function Map() {
     const [mounted, setMounted] = useState(false);
@@ -46,10 +47,7 @@ export default function Map() {
                     {/* Header Text Section */}
                     <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 w-full">
                         <div className="space-y-4 max-w-2xl">
-                            <div className="inline-flex items-center gap-4">
-                                <div className="h-px w-8 bg-primary"></div>
-                                <span className="text-sm font-bold text-primary tracking-widest uppercase">Headquarters</span>
-                            </div>
+                            <SectionOverline label="Headquarters" align="left" />
                             <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-foreground leading-[1.1]">
                                 Find Us On The Map
                             </h2>

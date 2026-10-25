@@ -4,8 +4,8 @@ import { buttonVariants } from "@/components/ui/button";
 import { FloatingStatCard } from "@/components/ui/misc/floating-stat-card";
 // @ts-ignore
 import imgCompanyIntro from "@/../images/IMG_0190-copy.webp";
-import {DotPattern} from "@/components/ui/misc/dot-pattern";
 import { BackgroundText } from "@/components/ui/misc/background-text";
+import SectionOverline from "@/components/ui/misc/section-overline";
 import React from "react";
 
 export function HomeIntroSection() {
@@ -15,10 +15,7 @@ export function HomeIntroSection() {
             <Wrapper className={`relative`}>
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
                     <div className="space-y-8">
-                        <div className="inline-flex items-center gap-4">
-                            <div className="h-px w-8 bg-primary"></div>
-                            <span className="text-sm font-bold text-primary tracking-widest uppercase">Who We Are</span>
-                        </div>
+                        <SectionOverline label="Who We Are" align="left" />
                         <h2 className="text-4xl lg:text-5xl font-black tracking-tighter text-foreground leading-[1.1] ">
                             THE ONLY NAME <br />TRUSTED TO PERFORM
                         </h2>

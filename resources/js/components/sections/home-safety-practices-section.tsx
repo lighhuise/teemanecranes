@@ -1,5 +1,6 @@
 import Wrapper from "@/components/ui/misc/wrapper";
 import SectionHeading from "@/components/ui/misc/section-heading";
+import SectionOverline from "@/components/ui/misc/section-overline";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { BackgroundText } from "@/components/ui/misc/background-text";
 import { AlertOctagon, Compass, FileCheck2, HardHat, Scale, ShieldCheck } from "lucide-react";
@@ -88,12 +89,7 @@ export function HomeSafetyPracticesSection() {
                     <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
                         {/* Left Sticky Column */}
                         <div className="lg:w-5/12 lg:sticky lg:top-32 space-y-4 sm:space-y-6">
-                            <div className="inline-flex items-center gap-4">
-                                <div className="h-px w-8 bg-primary shrink-0" />
-                                <span className="text-sm font-bold text-primary tracking-widest uppercase whitespace-nowrap">
-                                    Safety Protocols
-                                </span>
-                            </div>
+                            <SectionOverline label="Safety Protocols" align="left" />
                             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-heading tracking-tighter uppercase text-foreground text-balance leading-[1.1]">
                                 <span className="block">Disciplined</span>
                                 <span className="bg-linear-to-r from-primary to-primary inline-block px-1 bg-clip-text text-transparent">

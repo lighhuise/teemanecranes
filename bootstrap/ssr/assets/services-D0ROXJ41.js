@@ -1,0 +1,45 @@
+import { l as Wrapper, t as AppLayout } from "./app-layout-TDSNeb8q.js";
+import { t as BackgroundText } from "./background-text-BI8qWw-p.js";
+import { t as SectionHeading } from "./section-heading-DcSBCps5.js";
+import { t as ServiceCard } from "./service-card-DQQTBCbp.js";
+import { Fragment, jsx, jsxs } from "react/jsx-runtime";
+import "react";
+//#region resources/js/pages/services/index.tsx
+function Index({ services }) {
+	return /* @__PURE__ */ jsx(AppLayout, {
+		title: "Services",
+		children: /* @__PURE__ */ jsx("div", {
+			className: "bg-background selection:bg-primary selection:text-white pb-24",
+			children: /* @__PURE__ */ jsxs("section", {
+				className: "py-24 bg-muted/30 border-b border-border relative overflow-hidden",
+				children: [/* @__PURE__ */ jsx(BackgroundText, {
+					position: "center",
+					children: "SERVICES"
+				}), /* @__PURE__ */ jsxs(Wrapper, { children: [/* @__PURE__ */ jsx(SectionHeading, {
+					label: "Our Capabilities",
+					title: /* @__PURE__ */ jsxs(Fragment, { children: [
+						"ENGINEERED FOR ",
+						/* @__PURE__ */ jsx("span", {
+							className: `text-primary`,
+							children: "THE LIFT"
+						}),
+						" "
+					] }),
+					align: "center",
+					className: "mb-16",
+					children: "We understand that every lifting project demands precision, reliability and efficiency. Our services offer the flexibility and strength needed to tackle any challenge."
+				}), /* @__PURE__ */ jsx("div", {
+					className: "grid md:grid-cols-2 lg:grid-cols-3 gap-6",
+					children: services.map((service, idx) => /* @__PURE__ */ jsx(ServiceCard, {
+						service,
+						index: idx
+					}, service.id))
+				})] })]
+			})
+		})
+	});
+}
+//#endregion
+export { Index as default };
+
+//# sourceMappingURL=services-D0ROXJ41.js.map

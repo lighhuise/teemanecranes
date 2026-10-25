@@ -3,11 +3,19 @@ import Hero from "@/components/hero";
 import { Head } from "@inertiajs/react";
 import { HomeIntroSection } from "@/components/sections/home-intro-section";
 import { HomeServicesSection } from "@/components/sections/home-services-section";
+import { HomeLatestProjectsSection } from "@/components/sections/home-latest-projects-section";
 import { HomeSafetySection } from "@/components/sections/home-safety-section";
 import { HomeSafetyPracticesSection } from "@/components/sections/home-safety-practices-section";
 import { HomeCredentialsSection } from "@/components/sections/home-credentials-section";
+import PageSeparator from "@/components/page-separator";
+import { ProjectListItem } from "@/components/project-card";
 
-export default function Home({ services }: { services: any[] }) {
+interface HomeProps {
+    services: any[];
+    projects?: ProjectListItem[];
+}
+
+export default function Home({ services, projects = [] }: HomeProps) {
     return (
         <div className="bg-background selection:bg-primary selection:text-white">
             <Head>
@@ -17,7 +25,9 @@ export default function Home({ services }: { services: any[] }) {
 
             <Hero />
             <HomeIntroSection />
+            {/*<PageSeparator/>*/}
             <HomeServicesSection services={(services || []).slice(0, 3)} />
+            <HomeLatestProjectsSection projects={projects} />
             <HomeSafetySection />
             <HomeSafetyPracticesSection />
             <HomeCredentialsSection />
