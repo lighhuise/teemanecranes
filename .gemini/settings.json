@@ -7,7 +7,7 @@
           {
             "name": "impeccable-session",
             "type": "command",
-            "command": "if (Test-Path -LiteralPath 'C:\\Users\\claud\\.gemini\\skills\\impeccable\\scripts\\impeccable.cmd') { & 'C:\\Users\\claud\\.gemini\\skills\\impeccable\\scripts\\impeccable.cmd' hook }",
+            "command": "if (Test-Path -LiteralPath \"$env:GEMINI_PROJECT_DIR/.gemini/skills/impeccable/scripts/impeccable.cmd\") { & \"$env:GEMINI_PROJECT_DIR/.gemini/skills/impeccable/scripts/impeccable.cmd\" hook }",
             "timeout": 5000
           }
         ]
@@ -19,7 +19,7 @@
           {
             "name": "impeccable-completion",
             "type": "command",
-            "command": "if (Test-Path -LiteralPath 'C:\\Users\\claud\\.gemini\\skills\\impeccable\\scripts\\impeccable.cmd') { & 'C:\\Users\\claud\\.gemini\\skills\\impeccable\\scripts\\impeccable.cmd' hook }",
+            "command": "if (Test-Path -LiteralPath \"$env:GEMINI_PROJECT_DIR/.gemini/skills/impeccable/scripts/impeccable.cmd\") { & \"$env:GEMINI_PROJECT_DIR/.gemini/skills/impeccable/scripts/impeccable.cmd\" hook }",
             "timeout": 30000
           }
         ]

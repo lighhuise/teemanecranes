@@ -4,6 +4,7 @@
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
 @import "@fontsource-variable/montserrat";
+@import "yet-another-react-lightbox/styles.css";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -138,4 +139,17 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading font-black tracking-tighter;
     }
+}
+
+/* Hard (no-blur) outline in the page background colour, for text sitting over imagery */
+@utility text-shadow-hard-muted {
+    text-shadow:
+        2px 0 0 var(--muted),
+        -2px 0 0 var(--muted),
+        0 2px 0 var(--muted),
+        0 -2px 0 var(--muted),
+        2px 2px 0 var(--muted),
+        -2px -2px 0 var(--muted),
+        2px -2px 0 var(--muted),
+        -2px 2px 0 var(--muted);
 }

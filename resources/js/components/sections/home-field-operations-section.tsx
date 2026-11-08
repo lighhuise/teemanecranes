@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { Link } from '@inertiajs/react';
 import Lightbox from 'yet-another-react-lightbox';
-import 'yet-another-react-lightbox/styles.css';
 
 import Wrapper from '@/components/ui/misc/wrapper';
 import SectionHeading from '@/components/ui/misc/section-heading';
@@ -20,15 +19,15 @@ import {
 // @ts-ignore
 import imgSouthernWind2 from '@/../images/southern-wind-2.webp';
 // @ts-ignore
-import imgBoatLaunch from '@/../images/boat-launch.webp';
+import imgBoatLaunch from '@/../images/525e47f7-4f4c-44ff-9f7e-a37bf34516d9.webp';
 // @ts-ignore
 import imgSouthernWind from '@/../images/southernwind.webp';
 // @ts-ignore
 import imgHarbourWork from '@/../images/harbour-work.webp';
 // @ts-ignore
-import imgHarborGoldenHour from '@/../images/harbor_golden_hour.webp';
+import imgHarborGoldenHour from '@/../images/boat-launch.webp';
 // @ts-ignore
-import imgTeemaneBoat from '@/../images/Teemane-Boat.webp';
+import imgTeemaneBoat from '@/../images/blue_crane_desert_storm copy.webp';
 
 interface FieldOperationItem {
     id: string;

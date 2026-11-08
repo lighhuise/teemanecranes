@@ -29,13 +29,15 @@ export default function Home({ services, projects = [] }: HomeProps) {
             </Head>
 
             <Hero />
-            <LineDivider/>
             <HomeIntroSection />
+            <LineDivider/>
             {/*<PageSeparator/>*/}
             <HomeServicesSection services={(services || []).slice(0, 3)} />
+            <LineDivider/>
             <HomeLatestProjectsSection projects={projects} />
             <HomeSafetySection />
             <HomeFieldOperationsSection />
+            <LineDivider/>
             <HomeSafetyPracticesSection />
             <HomeCredentialsSection />
         </div>

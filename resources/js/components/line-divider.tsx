@@ -1,92 +1,145 @@
 import React, { useId } from 'react';
+import { cn } from '@/lib/utils';
+import Wrapper from '@/components/ui/misc/wrapper';
+import { DiamondComponent } from '@/components/diamond-component';
 
-export interface LineDividerProps extends React.SVGProps<SVGSVGElement> {
+export interface LineDividerProps extends React.HTMLAttributes<HTMLDivElement> {
     containerClassName?: string;
+    iconClassName?: string;
+    showDiamond?: boolean;
+    children?: React.ReactNode;
 }
 
-function LineDivider({ className = '', containerClassName = '', ...props }: LineDividerProps) {
+function LineDivider({
+    className = '',
+    containerClassName = '',
+    iconClassName = '',
+    showDiamond = true,
+    children,
+    ...props
+}: LineDividerProps) {
     const uid = useId().replace(/:/g, '');
-    const blueId = `${uid}-blue`;
-    const grayId = `${uid}-gray`;
-    const whiteId = `${uid}-white`;
-    const graySheenId = `${uid}-gray-sheen`;
-    const grayShadowId = `${uid}-gray-shadow`;
-    const whiteShadowId = `${uid}-white-shadow`;
+    const subGridId = `${uid}-bp-subgrid`;
+    const majorGridId = `${uid}-bp-majorgrid`;
+    const rulerTicksId = `${uid}-bp-ticks`;
 
     return (
         <div
-            aria-hidden={true}
-            className={`relative h-px w-full z-10 overflow-visible pointer-events-none ${containerClassName}`}
+            aria-hidden={children ? undefined : true}
+            className={cn(
+                'bg-radial-[at_50%_50%] from-primary/85 to-primary text-primary-foreground relative z-10 min-h-36 sm:min-h-40 py-10 sm:py-12 overflow-hidden select-none flex items-center border-y border-primary-foreground/30 shadow-inner',
+                containerClassName,
+                className
+            )}
+            {...props}
         >
             <svg
                 xmlns="http://www.w3.org/2000/svg"
-                data-name="Layer 1"
-                viewBox="0 0 1366 186"
-                className={`absolute left-0 top-1/2 block w-full h-auto -translate-y-1/2 ${className}`}
-                {...props}
+                className="pointer-events-none absolute inset-0 size-full"
             >
                 <defs>
-                    {/* Brand blue: lighter at the outer edge, deeper toward the centre */}
-                    <linearGradient id={blueId} x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0" stopColor="#1d7fc0" />
-                        <stop offset="0.55" stopColor="#0d5f96" />
-                        <stop offset="1" stopColor="#063d63" />
-                    </linearGradient>
-
-                    {/* Gray: brushed-metal vertical falloff */}
-                    <linearGradient id={grayId} x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0" stopColor="#e5e9ee" />
-                        <stop offset="0.5" stopColor="#a9b1bb" />
-                        <stop offset="1" stopColor="#737c88" />
-                    </linearGradient>
-
-                    {/* Horizontal sheen that fades the gray toward the edges */}
-                    <linearGradient id={graySheenId} x1="0" y1="0" x2="1" y2="0">
-                        <stop offset="0" stopColor="#000" stopOpacity="0.18" />
-                        <stop offset="0.5" stopColor="#fff" stopOpacity="0.2" />
-                        <stop offset="1" stopColor="#000" stopOpacity="0.18" />
-                    </linearGradient>
-
-                    {/* White: soft highlight into a cool tint */}
-                    <linearGradient id={whiteId} x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0" stopColor="#ffffff" />
-                        <stop offset="1" stopColor="#dde4ec" />
-                    </linearGradient>
-
-                    <filter id={grayShadowId} x="-5%" y="-40%" width="110%" height="200%">
-                        <feDropShadow dx="0" dy="6" stdDeviation="6" floodColor="#021a2e" floodOpacity="0.55" />
-                    </filter>
-
-                    <filter id={whiteShadowId} x="-5%" y="-60%" width="110%" height="250%">
-                        <feDropShadow dx="0" dy="4" stdDeviation="4" floodColor="#1c2530" floodOpacity="0.45" />
-                    </filter>
+                    <pattern id={subGridId} width="16" height="16" patternUnits="userSpaceOnUse">
+                        <path
+                            d="M 16 0 L 0 0 0 16"
+                            fill="none"
+                            className="stroke-primary-foreground/10"
+                            strokeWidth="0.75"
+                        />
+                    </pattern>
+                    <pattern id={majorGridId} width="80" height="80" patternUnits="userSpaceOnUse">
+                        <rect width="80" height="80" fill={`url(#${subGridId})`} />
+                        <path
+                            d="M 80 0 L 0 0 0 80"
+                            fill="none"
+                            className="stroke-primary-foreground/22"
+                            strokeWidth="1"
+                        />
+                        <path
+                            d="M -4 0 L 4 0 M 0 -4 L 0 4"
+                            fill="none"
+                            className="stroke-primary-foreground/40"
+                            strokeWidth="1"
+                        />
+                    </pattern>
+                    <pattern id={rulerTicksId} width="80" height="10" patternUnits="userSpaceOnUse">
+                        <path
+                            d="M 0 0 V 8 M 16 0 V 4 M 32 0 V 4 M 48 0 V 4 M 64 0 V 4"
+                            fill="none"
+                            className="stroke-primary-foreground/30"
+                            strokeWidth="1"
+                        />
+                    </pattern>
                 </defs>
-
-                {/* Bottom layer: blue */}
-                <path
-                    fill={`url(#${blueId})`}
-                    d="M683 64.7C172 64.7 0 0 0 0v186s172-64.7 683-64.7 683 64.7 683 64.7V0s-172 64.7-683 64.7"
-                />
-
-                {/* Second layer: gray */}
-                <g filter={`url(#${grayShadowId})`}>
-                    <path
-                        fill={`url(#${grayId})`}
-                        d="M683 79.46C172 79.46 0 48.52 0 48.52v88.96s172-30.94 683-30.94 683 30.94 683 30.94V48.52s-172 30.94-683 30.94"
-                    />
-                    <path
-                        fill={`url(#${graySheenId})`}
-                        d="M683 79.46C172 79.46 0 48.52 0 48.52v88.96s172-30.94 683-30.94 683 30.94 683 30.94V48.52s-172 30.94-683 30.94"
-                    />
-                </g>
-
-                {/* Centre layer: white */}
-                <path
-                    fill={`url(#${whiteId})`}
-                    filter={`url(#${whiteShadowId})`}
-                    d="M683 88.88c-511 0-683-9.42-683-9.42v27.07s172-9.42 683-9.42 683 9.42 683 9.42V79.46s-172 9.42-683 9.42"
+                <rect width="100%" height="100%" fill={`url(#${majorGridId})`} />
+                <rect x="0" y="0" width="100%" height="8" fill={`url(#${rulerTicksId})`} />
+                <rect
+                    x="0"
+                    y="100%"
+                    width="100%"
+                    height="8"
+                    fill={`url(#${rulerTicksId})`}
+                    className="-translate-y-2"
                 />
             </svg>
+
+            {/* Monumental Background Display Watermark */}
+            <div
+                aria-hidden="true"
+                className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[11vw] xl:text-[140px] font-black uppercase tracking-tighter leading-none whitespace-nowrap text-primary-foreground opacity-[0.09]"
+            >
+                TEEMANE CRANES
+            </div>
+
+            <div className="pointer-events-none absolute inset-x-3 sm:inset-x-6 inset-y-2 border border-primary-foreground/22" />
+            <div className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 border-t border-dashed border-primary-foreground/25" />
+
+            <Wrapper className="relative z-10 flex items-center justify-center">
+                {children ?? (
+                    <div className="flex w-full items-center justify-center gap-4 sm:gap-6">
+                        {/* Left Dimension Line + Architectural Statement */}
+                        <div className="relative flex flex-1 items-center justify-end gap-4">
+                            <div className="relative flex flex-1 max-w-xs items-center">
+                                <span className="h-3 w-px bg-primary-foreground/60 shrink-0" />
+                                <div className="h-px w-full bg-linear-to-r from-primary-foreground/20 via-primary-foreground/60 to-primary-foreground/95" />
+                                <span className="size-1.5 rotate-45 border-t border-r border-primary-foreground/85 -ml-1.5 shrink-0" />
+                            </div>
+                            <span className="hidden md:inline-block font-heading text-lg lg:text-xl font-black uppercase tracking-[0.2em] text-primary-foreground whitespace-nowrap">
+                                A CUT ABOVE
+                            </span>
+                        </div>
+
+                        {showDiamond && (
+                            <div className="relative flex items-center justify-center px-7 py-5  border-2 border-primary-foreground/55 shadow-sm shrink-0">
+                                <span className="absolute -top-1 -left-1 size-2.5 border-t-2 border-l-2 border-primary-foreground/90" />
+                                <span className="absolute -top-1 -right-1 size-2.5 border-t-2 border-r-2 border-primary-foreground/90" />
+                                <span className="absolute -bottom-1 -left-1 size-2.5 border-b-2 border-l-2 border-primary-foreground/90" />
+                                <span className="absolute -bottom-1 -right-1 size-2.5 border-b-2 border-r-2 border-primary-foreground/90" />
+
+                                <span className="pointer-events-none absolute size-16 sm:size-18 rounded-full border border-dashed border-primary-foreground/35" />
+
+                                <DiamondComponent
+                                    className={cn(
+                                        'relative z-10 w-9 sm:w-11 h-auto text-primary-foreground',
+                                        iconClassName
+                                    )}
+                                />
+                            </div>
+                        )}
+
+                        {/* Right Architectural Statement + Dimension Line */}
+                        <div className="relative flex flex-1 items-center justify-start gap-4">
+                            <span className="hidden md:inline-block font-heading text-lg lg:text-xl font-black uppercase tracking-[0.2em] text-primary-foreground whitespace-nowrap">
+                                THE REST
+                            </span>
+                            <div className="relative flex flex-1 max-w-xs items-center">
+                                <span className="size-1.5 rotate-45 border-b border-l border-primary-foreground/85 -mr-1.5 shrink-0" />
+                                <div className="h-px w-full bg-linear-to-l from-primary-foreground/20 via-primary-foreground/60 to-primary-foreground/95" />
+                                <span className="h-3 w-px bg-primary-foreground/60 shrink-0" />
+                            </div>
+                        </div>
+                    </div>
+                )}
+            </Wrapper>
         </div>
     );
 }

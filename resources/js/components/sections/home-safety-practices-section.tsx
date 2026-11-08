@@ -8,6 +8,8 @@ import React from "react";
 
 // @ts-ignore
 import imgSafety from "@/../images/safety.png";
+// @ts-ignore
+import imgTeemaneSky from "@/../images/teeman_final_sky_only.png";
 
 export const safetyItems = [
     {
@@ -68,7 +70,7 @@ export function HomeSafetyPracticesSection() {
                             align="left"
                         />
 
-                        <div className="text-muted-foreground text-base sm:text-lg leading-relaxed space-y-5 sm:space-y-6">
+                        <div className="text-muted-foreground text-base sm:text-lg leading-relaxed space-y-5 sm:space-y-6 text-shadow-hard-muted">
                             <p>
                                 <strong>Safety is firmly embedded</strong> in the way Teemane operates and remains a leading factor in every decision we make. In the environments we work in, there is no separating safety from the job itself. It influences how we plan, how we prepare our team, how we inspect our equipment and how work is carried out on site.
                             </p>
@@ -83,8 +85,14 @@ export function HomeSafetyPracticesSection() {
                 </Wrapper>
             </section>
 
-            {/* Section 2: Dedicated Restyled Safety Protocols Accordion Section */}
-            <section className="py-16 sm:py-20 lg:py-28 bg-background border-b border-border relative overflow-x-clip">
+                    {/* Section 2: Dedicated Restyled Safety Protocols Accordion Section */}
+            <section className="py-16 sm:py-20 lg:py-28 bg-background border-b border-border relative overflow-clip">
+                <img
+                    src={imgTeemaneSky}
+                    alt="teemanee crane"
+                    aria-hidden="true"
+                    className="pointer-events-none select-none absolute bottom-0 top-0 right-0 h-auto w-auto max-w-none object-contain object-right-bottom opacity-25 dark:opacity-20 lg:opacity-100 sm:w-[50%] lg:w-[38%] z-0 [mask-image:linear-gradient(to_right,transparent_0%,black_18%)]"
+                />
                 <Wrapper className="relative z-10">
                     <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
                         {/* Left Sticky Column */}

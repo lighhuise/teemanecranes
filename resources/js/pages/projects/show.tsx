@@ -9,7 +9,6 @@ import PageSeparator from '@/components/page-separator';
 import EmergencyCta from '@/components/emergency-cta';
 import { ArrowLeft, ArrowRight, Calendar, Clock, Expand, HardHat, Images, Phone, ShieldCheck, Wrench } from 'lucide-react';
 import Lightbox from 'yet-another-react-lightbox';
-import 'yet-another-react-lightbox/styles.css';
 
 interface GalleryItem {
     title: string;

@@ -8,7 +8,6 @@ import { ProjectCard, ProjectListItem } from '@/components/project-card';
 import EmergencyCta from '@/components/emergency-cta';
 import { ArrowRight, Camera, Expand, FolderGit2, Images, ShieldCheck } from 'lucide-react';
 import Lightbox from 'yet-another-react-lightbox';
-import 'yet-another-react-lightbox/styles.css';
 import { useCompany } from '@/hooks/use-company';
 
 interface ProjectsIndexProps {
