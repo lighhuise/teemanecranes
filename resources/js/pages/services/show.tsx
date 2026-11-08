@@ -110,7 +110,7 @@ function GalleryRenderer({ data }: { data: GalleryBlock['data'] }) {
                             key={i}
                             type="button"
                             onClick={() => setLightbox(i)}
-                            className="aspect-square overflow-hidden rounded-2xl relative group border border-border bg-muted cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300 hover:scale-[1.01] hover:shadow-xl"
+                            className="aspect-square overflow-hidden rounded-2xl relative group border border-border bg-muted cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300 hover:scale-[1.01] hover:shadow-xl"
                         >
                             <img
                                 src={url}
@@ -127,12 +127,12 @@ function GalleryRenderer({ data }: { data: GalleryBlock['data'] }) {
                             </div>
 
                             {/* Hover Vignette Overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-4 text-left">
+                            <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-4 text-left">
                                 <div className="flex justify-between items-start">
                                     <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/50 px-3 py-1 text-[10px] font-mono font-bold uppercase tracking-wider text-white backdrop-blur-xs">
                                         Photo #{String(i + 1).padStart(2, '0')}
                                     </span>
-                                    <div className="size-9 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg transform translate-y-1 group-hover:translate-y-0 transition-transform">
+                                    <div className="size-9 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg translate-y-1 group-hover:translate-y-0 transition-transform">
                                         <Expand className="size-4" />
                                     </div>
                                 </div>
@@ -189,7 +189,7 @@ function VideoRenderer({ data }: { data: VideoBlock['data'] }) {
                     rel="noreferrer"
                     className="flex items-center gap-3 text-primary hover:underline"
                 >
-                    <Play className="w-5 h-5" />
+                    <Play className="size-5" />
                     {data.caption ?? data.url}
                 </a>
             )}
@@ -219,7 +219,7 @@ function CtaRenderer({ data }: { data: CtaBlock['data'] }) {
                 className="shrink-0 inline-flex items-center gap-2 bg-linear-to-r from-primary to-primary/70 hover:from-primary/90 hover:to-primary text-primary-foreground font-bold tracking-widest uppercase text-sm px-6 py-3 rounded-lg shadow-sm hover:shadow transition-all"
             >
                 {data.button_label}
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="size-4" />
             </a>
         </div>
     );
@@ -249,7 +249,7 @@ function MediaTextRenderer({ data }: { data: MediaTextBlock['data'] }) {
                 {data.button_label && data.button_url && (
                     <a href={data.button_url} className="inline-flex items-center justify-center gap-2 bg-linear-to-r from-primary to-primary/70 text-primary-foreground font-bold tracking-widest uppercase text-sm px-8 py-4 rounded-lg shadow-sm hover:from-primary/90 hover:to-primary transition-all group">
                         {data.button_label}
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
                     </a>
                 )}
             </div>

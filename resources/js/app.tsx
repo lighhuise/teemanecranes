@@ -1,5 +1,6 @@
 // @ts-ignore
 import '../css/app.css';
+import 'yet-another-react-lightbox/styles.css';
 
 import { createRoot } from 'react-dom/client';
 import { createInertiaApp } from '@inertiajs/react';

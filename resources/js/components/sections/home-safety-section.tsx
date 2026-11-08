@@ -6,8 +6,10 @@ import { FloatingStatCard } from "@/components/ui/misc/floating-stat-card";
 import imgSafety from "@/../images/media-24-building.webp";
 import { BackgroundText } from "@/components/ui/misc/background-text";
 import SectionOverline from "@/components/ui/misc/section-overline";
+import { useCompany } from "@/hooks/use-company";
 
 export function HomeSafetySection() {
+    const { stats } = useCompany();
     return (
         <section className="py-24 bg-background relative">
             <BackgroundText position="right">Solutions</BackgroundText>
@@ -24,8 +26,8 @@ export function HomeSafetySection() {
                         </div>
 
                         <FloatingStatCard
-                            value="500+"
-                            label="Projects Completed"
+                            value={stats.projects_completed.display}
+                            label={stats.projects_completed.short_label || stats.projects_completed.label}
                             position="bottom-left"
                         />
                     </div>

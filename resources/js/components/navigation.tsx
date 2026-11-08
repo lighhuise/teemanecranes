@@ -11,6 +11,7 @@ import logoUrl from '@/../images/logo.svg';
 import Wrapper from "@/components/ui/misc/wrapper";
 import { ModeToggle } from '@/components/mode-toggle';
 import { home } from '@/routes';
+import { useCompany } from '@/hooks/use-company';
 
 const navLinks = [
   { name: 'Home', href: home.url() },
@@ -22,6 +23,7 @@ const navLinks = [
 
 export default function Navigation() {
   const { url } = usePage();
+  const { stats } = useCompany();
 
   const isActive = (href: string) =>
     href === '/' ? url === '/' : url.startsWith(href);
@@ -33,14 +35,14 @@ export default function Navigation() {
         <Wrapper className="flex justify-between items-center w-full">
            <div className="flex items-center gap-6">
               <span className="flex items-center gap-2 ">
-                <MapPin className="w-3 h-3 text-primary" />
+                <MapPin className="size-3 text-primary" />
                 Operating across South Africa
               </span>
            </div>
            <div className="flex items-center gap-6">
               <span className="flex items-center gap-2 ">
-                <Clock className="w-3 h-3 text-primary" />
-                Available 24/7
+                <Clock className="size-3 text-primary" />
+                Available {stats.availability.display}
               </span>
 
            </div>
@@ -99,9 +101,9 @@ export default function Navigation() {
             <Sheet>
               <SheetTrigger >
                 <button
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-md hover:bg-accent hover:text-accent-foreground"
+                  className="inline-flex size-10 items-center justify-center rounded-md hover:bg-accent hover:text-accent-foreground"
                 >
-                  <Menu className="h-6 w-6" />
+                  <Menu className="size-6" />
                   <span className="sr-only">Toggle menu</span>
                 </button>
               </SheetTrigger>

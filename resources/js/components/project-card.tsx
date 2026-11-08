@@ -55,7 +55,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
     return (
         <Link
             href={`/projects/${project.slug}`}
-            className="group relative flex flex-col justify-between overflow-hidden rounded-2xl bg-card border border-border/80 shadow-md transition-all duration-500 hover:-translate-y-2 hover:border-primary/70 hover:shadow-2xl hover:shadow-primary/10 aspect-4/5 sm:aspect-3/4 min-h-[460px]"
+            className="@container group relative flex flex-col justify-between overflow-hidden rounded-2xl bg-card border border-border/80 shadow-md transition-all duration-500 hover:-translate-y-2 hover:border-primary/70 hover:shadow-2xl hover:shadow-primary/10 aspect-4/5 sm:aspect-3/4 min-h-[460px]"
         >
             {/* Background Image with Zoom Effect & Multi-Image Switcher */}
             <div className="absolute inset-0 z-0 overflow-hidden bg-muted">
@@ -131,7 +131,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                                             e.stopPropagation();
                                             setActiveImage(thumbUrl);
                                         }}
-                                        className={`relative h-10 w-13 sm:h-11 sm:w-15 rounded-lg overflow-hidden transition-all duration-300 focus:outline-none cursor-pointer ${
+                                        className={`relative h-10 w-13 sm:h-11 sm:w-15 rounded-lg overflow-hidden transition-all duration-300 focus:outline-hidden cursor-pointer ${
                                             isActive
                                                 ? 'ring-2 ring-primary scale-105 shadow-md shadow-primary/20 z-10'
                                                 : 'opacity-75 hover:opacity-100 hover:scale-102 ring-1 ring-border/80 dark:ring-white/20'

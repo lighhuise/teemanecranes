@@ -10,6 +10,7 @@ import { toast } from '@/components/ui/toast';
 import { cn } from "@/lib/utils";
 import SectionHeading, { SectionOverline } from '@/components/ui/misc/section-heading';
 import { BackgroundText } from '@/components/ui/misc/background-text';
+import { useCompany } from '@/hooks/use-company';
 
 interface HoneypotData {
     enabled: boolean;
@@ -19,6 +20,7 @@ interface HoneypotData {
 }
 
 export default function ContactUs({ flash, honeypot }: { flash: { success?: string }, honeypot?: HoneypotData }) {
+    const { stats, contact } = useCompany();
     const { data, setData, post, processing, errors, reset, wasSuccessful } = useForm({
         name: '',
         email: '',
@@ -77,37 +79,37 @@ export default function ContactUs({ flash, honeypot }: { flash: { success?: stri
 
                                 <div className="space-y-6">
                                     <div className="flex items-start gap-4">
-                                        <div className="shrink-0 w-12 h-12 bg-primary/10 text-primary flex items-center justify-center rounded-md border border-primary/20">
-                                            <MapPin className="w-6 h-6" />
+                                        <div className="shrink-0 size-12 bg-primary/10 text-primary flex items-center justify-center rounded-md border border-primary/20">
+                                            <MapPin className="size-6" />
                                         </div>
                                         <div>
                                             <h3 className="font-black text-lg">Address</h3>
                                             <p className="text-muted-foreground">
-                                                6 Van Eck St<br />
-                                                Bellville South, Cape Town, 7530
+                                                {contact.address.line1}<br />
+                                                {contact.address.locality}, {contact.address.postal_code}
                                             </p>
                                         </div>
                                     </div>
                                     <div className="flex items-start gap-4">
-                                        <div className="shrink-0 w-12 h-12 bg-primary/10 text-primary flex items-center justify-center rounded-md border border-primary/20">
-                                            <Phone className="w-6 h-6" />
+                                        <div className="shrink-0 size-12 bg-primary/10 text-primary flex items-center justify-center rounded-md border border-primary/20">
+                                            <Phone className="size-6" />
                                         </div>
                                         <div>
                                             <h3 className="font-black text-lg">Phone</h3>
-                                            <a href="tel:0842637690" className="text-muted-foreground hover:text-primary transition-colors">
-                                                084 263 7690
+                                            <a href={`tel:${contact.phone_tel}`} className="text-muted-foreground hover:text-primary transition-colors">
+                                                {contact.phone}
                                             </a>
-                                            <p className="text-xs text-muted-foreground/70 mt-1 uppercase tracking-wider font-bold">Available 24hrs, 365 Days</p>
+                                            <p className="text-xs text-muted-foreground/70 mt-1 uppercase tracking-wider font-bold">Available {stats.availability.display}, 365 Days</p>
                                         </div>
                                     </div>
                                     <div className="flex items-start gap-4">
-                                        <div className="shrink-0 w-12 h-12 bg-primary/10 text-primary flex items-center justify-center rounded-md border border-primary/20">
-                                            <Mail className="w-6 h-6" />
+                                        <div className="shrink-0 size-12 bg-primary/10 text-primary flex items-center justify-center rounded-md border border-primary/20">
+                                            <Mail className="size-6" />
                                         </div>
                                         <div>
                                             <h3 className="font-black text-lg">Email</h3>
-                                            <a href="mailto:enquiries@teemanecranes.co.za" className="text-muted-foreground hover:text-primary transition-colors">
-                                                enquiries@teemanecranes.co.za
+                                            <a href={`mailto:${contact.email}`} className="text-muted-foreground hover:text-primary transition-colors">
+                                                {contact.email}
                                             </a>
                                         </div>
                                     </div>
@@ -129,8 +131,8 @@ export default function ContactUs({ flash, honeypot }: { flash: { success?: stri
                         <div className="bg-background border border-border p-8 md:p-12 rounded-lg shadow-xl relative">
                             {flash?.success ? (
                                 <div className="absolute inset-0 z-10 bg-background/95 backdrop-blur-sm flex flex-col items-center justify-center text-center p-8 rounded-lg border border-primary/50">
-                                    <div className="w-20 h-20 bg-primary/10 text-primary rounded-full flex items-center justify-center mb-6">
-                                        <CheckCircle2 className="w-10 h-10" />
+                                    <div className="size-20 bg-primary/10 text-primary rounded-full flex items-center justify-center mb-6">
+                                        <CheckCircle2 className="size-10" />
                                     </div>
                                     <h3 className="text-3xl font-black uppercase tracking-tighter mb-4 text-foreground">Message Sent!</h3>
                                     <p className="text-lg text-muted-foreground">

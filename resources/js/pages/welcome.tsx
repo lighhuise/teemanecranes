@@ -12,8 +12,8 @@ export default function Welcome() {
                 <div className="grid md:grid-cols-3 gap-6 pt-8">
                     <Card className="hover:shadow-md transition-shadow group">
                         <CardHeader>
-                            <div className="w-12 h-12 bg-chart-1/20 rounded-xl flex items-center justify-center mb-4 text-chart-1 group-hover:scale-110 transition-transform">
-                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <div className="size-12 bg-chart-1/20 rounded-xl flex items-center justify-center mb-4 text-chart-1 group-hover:scale-110 transition-transform">
+                                <svg className="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
                                 </svg>
                             </div>
@@ -28,8 +28,8 @@ export default function Welcome() {
 
                     <Card className="hover:shadow-md transition-shadow group">
                         <CardHeader>
-                            <div className="w-12 h-12 bg-chart-2/20 rounded-xl flex items-center justify-center mb-4 text-chart-2 group-hover:scale-110 transition-transform">
-                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <div className="size-12 bg-chart-2/20 rounded-xl flex items-center justify-center mb-4 text-chart-2 group-hover:scale-110 transition-transform">
+                                <svg className="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
                                 </svg>
                             </div>
@@ -44,8 +44,8 @@ export default function Welcome() {
 
                     <Card className="hover:shadow-md transition-shadow group">
                         <CardHeader>
-                            <div className="w-12 h-12 bg-chart-3/20 rounded-xl flex items-center justify-center mb-4 text-chart-3 group-hover:scale-110 transition-transform">
-                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <div className="size-12 bg-chart-3/20 rounded-xl flex items-center justify-center mb-4 text-chart-3 group-hover:scale-110 transition-transform">
+                                <svg className="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
                                 </svg>
                             </div>
@@ -67,10 +67,10 @@ export default function Welcome() {
                         </p>
                     </div>
                     <div className="flex gap-4">
-                        <a href="https://laravel.com/docs" target="_blank" rel="noreferrer" className="px-5 py-2.5 bg-background text-foreground rounded-lg shadow-sm border border-border font-medium hover:bg-muted transition-colors">
+                        <a href="https://laravel.com/docs" target="_blank" rel="noreferrer" className="px-5 py-2.5 bg-background text-foreground rounded-lg shadow-xs border border-border font-medium hover:bg-muted transition-colors">
                             Docs
                         </a>
-                        <a href="/admin" className="px-5 py-2.5 bg-primary text-primary-foreground rounded-lg shadow-sm font-medium hover:bg-primary/90 transition-colors">
+                        <a href="/admin" className="px-5 py-2.5 bg-primary text-primary-foreground rounded-lg shadow-xs font-medium hover:bg-primary/90 transition-colors">
                             Go to Admin
                         </a>
                     </div>

@@ -1,8 +1,9 @@
-import { useEffect, useRef } from "react";
+    import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Wrapper from "@/components/ui/misc/wrapper";
 import { CalendarDays, HardHat, Clock } from "lucide-react";
+import { useCompany } from "@/hooks/use-company";
 
 // @ts-ignore
 import heroMaskSvg from "@/../images/hero-mask-2.svg";
@@ -13,6 +14,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
     const heroRef = useRef<HTMLDivElement>(null);
+    const { stats } = useCompany();
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -93,38 +95,50 @@ export default function Hero() {
                             className="hero-bg-parallax w-full h-[110%] object-cover object-center -top-10 relative"
                         />
                         {/* Stats */}
-                        <div id={`stats`} className="absolute inset-x-4 bottom-4 z-10 flex space-x-2">
+                        <div id={`stats`} className="absolute inset-x-4 bottom-4 z-10 flex gap-2">
 
                             {/* Stat 1: Experience */}
                             <div className={`size-52 border-2 p-4 border-white/25 flex flex-col justify-between bg-white/15 rounded-sm transition-all duration-150 hover:backdrop-blur-xs `}>
                                 <div className="flex justify-between items-start">
-                                    <CalendarDays className="w-8 h-8 text-white drop-shadow-md" />
+                                    <CalendarDays className="size-8 text-white drop-shadow-md" />
                                 </div>
                                 <div className="flex flex-col">
-                                    <p className={`text-xl font-bold text-shadow-black/75 text-shadow-sm text-white leading-tight mb-1`}>Years of<br/>Experience</p>
-                                    <p className={`text-6xl font-bold text-shadow-black/75 text-shadow-sm text-white leading-none`}>25+</p>
+                                    <p className={`text-xl font-bold text-shadow-black/75 text-shadow-sm text-white leading-tight mb-1 whitespace-pre-line`}>
+                                        {stats.years_experience.title || stats.years_experience.label}
+                                    </p>
+                                    <p className={`text-5xl font-bold text-shadow-black/75 text-shadow-sm text-white leading-none`}>
+                                        {stats.years_experience.display}
+                                    </p>
                                 </div>
                             </div>
 
                             {/* Stat 2: Projects */}
                             <div className={`size-52 border-2 p-4 border-white/25 flex flex-col justify-between bg-white/15 rounded-sm transition-all duration-150 hover:backdrop-blur-xs `}>
                                 <div className="flex justify-between items-start">
-                                    <HardHat className="w-8 h-8 text-white drop-shadow-md" />
+                                    <HardHat className="size-8 text-white drop-shadow-md" />
                                 </div>
                                 <div className="flex flex-col">
-                                    <p className={`text-xl font-bold text-shadow-black/75 text-shadow-sm text-white leading-tight mb-1`}>Successful<br/>Projects</p>
-                                    <p className={`text-6xl font-bold text-shadow-black/75 text-shadow-sm text-white leading-none`}>500+</p>
+                                    <p className={`text-xl font-bold text-shadow-black/75 text-shadow-sm text-white leading-tight mb-1 whitespace-pre-line`}>
+                                        {stats.projects_completed.title || stats.projects_completed.label}
+                                    </p>
+                                    <p className={`text-5xl font-bold text-shadow-black/75 text-shadow-sm text-white leading-none`}>
+                                        {stats.projects_completed.display}
+                                    </p>
                                 </div>
                             </div>
 
                             {/* Stat 3: Availability */}
                             <div className={`size-52 border-2 p-4 border-white/25 flex flex-col justify-between bg-white/15 rounded-sm transition-all duration-150 hover:backdrop-blur-xs `}>
                                 <div className="flex justify-between items-start">
-                                    <Clock className="w-8 h-8 text-white drop-shadow-md" />
+                                    <Clock className="size-8 text-white drop-shadow-md" />
                                 </div>
                                 <div className="flex flex-col">
-                                    <p className={`text-xl font-bold text-shadow-black/75 text-shadow-sm text-white leading-tight mb-1`}>Availability</p>
-                                    <p className={`text-6xl font-bold text-shadow-black/75 text-shadow-sm text-white leading-none mt-7`}>24/7</p>
+                                    <p className={`text-xl font-bold text-shadow-black/75 text-shadow-sm text-white leading-tight mb-1 whitespace-pre-line`}>
+                                        {stats.availability.title || stats.availability.short_label || stats.availability.label}
+                                    </p>
+                                    <p className={`text-5xl font-bold text-shadow-black/75 text-shadow-sm text-white leading-none mt-7`}>
+                                        {stats.availability.display}
+                                    </p>
                                 </div>
                             </div>
 

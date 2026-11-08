@@ -64,7 +64,7 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
             <div className="relative overflow-hidden border-b border-border bg-muted/30 py-16 lg:py-24">
               {/* Background Dot Matrix Texture */}
               <div className="absolute inset-0 bg-[radial-gradient(oklch(0.469_0.113_242.6/0.14)_1.5px,transparent_1.5px)] bg-[size:24px_24px] pointer-events-none opacity-80" />
-              <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent pointer-events-none" />
+              <div className="absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-background to-transparent pointer-events-none" />
 
               <Wrapper className="relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -109,7 +109,7 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
                           alt={project.title}
                           className="w-full h-full object-cover"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                        <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent" />
                         <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs font-bold uppercase text-white font-mono">
                           <span>REF: {project.slug.toUpperCase()}</span>
                           <span className="text-primary font-bold">LIVE EXECUTION</span>
@@ -217,7 +217,7 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
                                         key={idx}
                                         type="button"
                                         onClick={() => setMainLightboxIndex(idx)}
-                                        className={`group relative overflow-hidden rounded-2xl border border-border bg-muted cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300 hover:scale-[1.01] hover:shadow-xl ${
+                                        className={`group relative overflow-hidden rounded-2xl border border-border bg-muted cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300 hover:scale-[1.01] hover:shadow-xl ${
                                             isHero
                                                 ? 'col-span-2 row-span-2 min-h-[280px] sm:min-h-[420px]'
                                                 : isWide
@@ -239,12 +239,12 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
                                             </span>
                                         </div>
 
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-4 sm:p-5">
+                                        <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-4 sm:p-5">
                                             <div className="flex justify-between items-start">
                                                 <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/50 px-3 py-1 text-[10px] font-mono font-bold uppercase tracking-wider text-white backdrop-blur-xs">
                                                     Photo #{String(idx + 1).padStart(2, '0')}
                                                 </span>
-                                                <div className="size-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg transform translate-y-1 group-hover:translate-y-0 transition-transform">
+                                                <div className="size-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg translate-y-1 group-hover:translate-y-0 transition-transform">
                                                     <Expand className="size-4" />
                                                 </div>
                                             </div>
@@ -314,7 +314,7 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
                                                                 imageIndex: imgIdx,
                                                             })
                                                         }
-                                                        className={`group relative overflow-hidden rounded-2xl border border-border bg-muted cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300 hover:scale-[1.01] hover:shadow-xl ${
+                                                        className={`group relative overflow-hidden rounded-2xl border border-border bg-muted cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300 hover:scale-[1.01] hover:shadow-xl ${
                                                             isHero
                                                                 ? 'col-span-2 row-span-2 min-h-[280px] sm:min-h-[420px]'
                                                                 : isWide
@@ -336,12 +336,12 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
                                                             </span>
                                                         </div>
 
-                                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-4 sm:p-5">
+                                                        <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-4 sm:p-5">
                                                             <div className="flex justify-between items-start">
                                                                 <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/50 px-3 py-1 text-[10px] font-mono font-bold uppercase tracking-wider text-white backdrop-blur-xs">
                                                                     Photo #{String(imgIdx + 1).padStart(2, '0')}
                                                                 </span>
-                                                                <div className="size-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg transform translate-y-1 group-hover:translate-y-0 transition-transform">
+                                                                <div className="size-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg translate-y-1 group-hover:translate-y-0 transition-transform">
                                                                     <Expand className="size-4" />
                                                                 </div>
                                                             </div>

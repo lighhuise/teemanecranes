@@ -7,16 +7,17 @@ import Wrapper from './ui/misc/wrapper';
 import { MapPin, Navigation as NavIcon } from 'lucide-react';
 import {BackgroundText} from "@/components/ui/misc/background-text";
 import SectionOverline from "@/components/ui/misc/section-overline";
+import { useCompany } from '@/hooks/use-company';
 
 export default function Map() {
+    const { contact } = useCompany();
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
         setMounted(true);
     }, []);
 
-    // 6 Van Eck St, Bellville South, Cape Town, 7530
-    const position: [number, number] = [-33.926637890850294, 18.645063943495657];
+    const position: [number, number] = [contact.coordinates.lat, contact.coordinates.lng];
 
     if (!mounted) {
         return (
@@ -63,18 +64,18 @@ export default function Map() {
                                 </div>
                                 <div>
                                     <span className="block text-foreground font-bold mb-1">Address</span>
-                                    <span className="text-muted-foreground text-sm">6 Van Eck St, Bellville South,<br/>Cape Town, 7530</span>
+                                    <span className="text-muted-foreground text-sm">{contact.address.line1},<br/>{contact.address.locality}, {contact.address.postal_code}</span>
                                 </div>
                             </div>
-                            <a href="https://maps.google.com/?q=-33.926637890850294,18.645063943495657" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 text-sm font-bold tracking-widest uppercase bg-gradient-to-r from-primary to-primary/70 hover:from-primary/90 hover:to-primary text-primary-foreground transition-all shadow-sm hover:shadow px-6 py-4 rounded-lg group shrink-0">
-                                <NavIcon className="w-4 h-4 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
+                            <a href={contact.map_url} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 text-sm font-bold tracking-widest uppercase bg-linear-to-r from-primary to-primary/70 hover:from-primary/90 hover:to-primary text-primary-foreground transition-all shadow-xs hover:shadow px-6 py-4 rounded-lg group shrink-0">
+                                <NavIcon className="size-4 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
                                 Get Directions
                             </a>
                         </div>
                     </div>
 
                     {/* Map Section */}
-                    <div className="relative w-full h-[400px] lg:h-[550px] rounded-xl overflow-hidden border-2 border-border shadow-[0_0_40px_-15px_var(--primary)] group grayscale-[0.2] hover:grayscale-0 transition-all duration-700">
+                    <div className="relative w-full h-[400px] lg:h-[550px] rounded-xl overflow-hidden border-2 border-border shadow-[0_0_40px_-15px_var(--color-primary)] group grayscale-[0.2] hover:grayscale-0 transition-all duration-700">
                         <MapContainer center={position} zoom={16} scrollWheelZoom={false} className="w-full h-full relative z-0" style={{ zIndex: 0 }}>
                             <TileLayer
                                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -84,7 +85,7 @@ export default function Map() {
                                 <Popup>
                                     <div className="font-sans leading-relaxed text-center">
                                         <strong className="text-base text-primary font-bold tracking-tight block mb-1">Teemane Cranes</strong>
-                                        <span className="text-sm text-foreground">6 Van Eck St, Bellville South</span>
+                                        <span className="text-sm text-foreground">{contact.address.line1}</span>
                                     </div>
                                 </Popup>
                             </Marker>

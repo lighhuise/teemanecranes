@@ -34,7 +34,7 @@ export default function ErrorPage({ status }: { status: number }) {
             <div className="bg-background selection:bg-primary selection:text-white pb-24 min-h-[70vh] flex flex-col justify-center">
                 <Wrapper className="text-center flex flex-col items-center justify-center">
                     <div className="bg-muted/30 p-8 rounded-full mb-8">
-                        <AlertTriangle className="w-16 h-16 text-primary" />
+                        <AlertTriangle className="size-16 text-primary" />
                     </div>
                     
                     <h1 className="text-4xl md:text-6xl font-black tracking-tighter text-foreground uppercase mb-6">
@@ -47,9 +47,9 @@ export default function ErrorPage({ status }: { status: number }) {
 
                     <Link
                         href="/"
-                        className="inline-flex items-center gap-2 bg-linear-to-r from-primary to-primary/70 hover:from-primary/90 hover:to-primary text-primary-foreground font-bold tracking-widest uppercase text-sm px-8 py-4 rounded-lg shadow-sm hover:shadow transition-all"
+                        className="inline-flex items-center gap-2 bg-linear-to-r from-primary to-primary/70 hover:from-primary/90 hover:to-primary text-primary-foreground font-bold tracking-widest uppercase text-sm px-8 py-4 rounded-lg shadow-xs hover:shadow transition-all"
                     >
-                        <ArrowLeft className="w-4 h-4" />
+                        <ArrowLeft className="size-4" />
                         Back to Home
                     </Link>
                 </Wrapper>

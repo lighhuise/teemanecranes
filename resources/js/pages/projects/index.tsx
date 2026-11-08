@@ -9,12 +9,14 @@ import EmergencyCta from '@/components/emergency-cta';
 import { ArrowRight, Camera, Expand, FolderGit2, Images, ShieldCheck } from 'lucide-react';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
+import { useCompany } from '@/hooks/use-company';
 
 interface ProjectsIndexProps {
     projects: ProjectListItem[];
 }
 
 export default function Index({ projects = [] }: ProjectsIndexProps) {
+    const { stats } = useCompany();
     const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
     // Always ensure ordering by project_date descending
@@ -76,7 +78,7 @@ export default function Index({ projects = [] }: ProjectsIndexProps) {
                             <div className="mt-3 flex flex-wrap items-center justify-center gap-2 pt-2">
                                 <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted/40 px-3 py-1 text-xs font-semibold text-muted-foreground">
                                     <span className="size-1 rounded-full bg-primary" />
-                                    Up to 440T Heavy Lift
+                                    Up to {stats.max_capacity.display} Heavy Lift
                                 </span>
                                 <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted/40 px-3 py-1 text-xs font-semibold text-muted-foreground">
                                     <span className="size-1 rounded-full bg-primary" />
@@ -281,7 +283,7 @@ export default function Index({ projects = [] }: ProjectsIndexProps) {
                                             key={idx}
                                             type="button"
                                             onClick={() => setLightboxIndex(idx)}
-                                            className={`group relative overflow-hidden rounded-2xl border border-border bg-muted cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary ${
+                                            className={`group relative overflow-hidden rounded-2xl border border-border bg-muted cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:shadow-xl focus:outline-hidden focus:ring-2 focus:ring-primary ${
                                                 isHeroTile
                                                     ? 'col-span-2 row-span-2 min-h-[280px] sm:min-h-[360px]'
                                                     : isWideTile
@@ -304,9 +306,9 @@ export default function Index({ projects = [] }: ProjectsIndexProps) {
                                             </div>
 
                                             {/* Hover Vignette Overlay */}
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-4 sm:p-5 text-left">
+                                            <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-4 sm:p-5 text-left">
                                                 <div className="flex justify-end">
-                                                    <div className="size-9 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg transform translate-y-1 group-hover:translate-y-0 transition-transform">
+                                                    <div className="size-9 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg translate-y-1 group-hover:translate-y-0 transition-transform">
                                                         <Expand className="size-4" />
                                                     </div>
                                                 </div>

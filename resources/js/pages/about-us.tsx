@@ -6,10 +6,12 @@ import { FloatingStatCard } from '@/components/ui/misc/floating-stat-card';
 import SectionHeading, { SectionOverline } from '@/components/ui/misc/section-heading';
 import StatsBar from '@/components/stats-bar';
 import { BackgroundText } from '@/components/ui/misc/background-text';
+import { useCompany } from '@/hooks/use-company';
 // @ts-ignore
 import imgBoat from '@/../images/Teemane-Boat.webp';
 
 export default function AboutUs() {
+    const { stats } = useCompany();
     return (
         <>
 
@@ -23,11 +25,11 @@ export default function AboutUs() {
                         align="center"
                         className="mb-16"
                     >
-                        Established in 2012, Teemane Cranes prides itself on countless
+                        Established in {stats.established_year.display}, Teemane Cranes prides itself on countless
                         victories across South Africa’s most demanding worksites, from
                         high-stakes projects to complex operations that have redefined
                         what’s possible in mobile crane hire. Backed by a fleet of
-                        mobile cranes with capacities of up to 440 tons and a team
+                        mobile cranes with capacities of up to {stats.max_capacity.tons_label || `${stats.max_capacity.value} tons`} and a team
                         driven to deliver unmatched results, we stand at the forefront of
                         the sector, leading the projects that continue to shape
                         industries today.
@@ -48,34 +50,34 @@ export default function AboutUs() {
                                 Leading the projects that shape industries today.
                             </h2>
                             <p className="text-lg text-muted-foreground leading-relaxed">
-                                Backed by a fleet of mobile cranes with capacities of up to 440 tons and a team driven to deliver unmatched results, we stand at the forefront of the sector. Every lift, transport, and rigging operation is executed with precision, safety, and efficiency at its core.
+                                Backed by a fleet of mobile cranes with capacities of up to {stats.max_capacity.tons_label || `${stats.max_capacity.value} tons`} and a team driven to deliver unmatched results, we stand at the forefront of the sector. Every lift, transport, and rigging operation is executed with precision, safety, and efficiency at its core.
                             </p>
 
                             <div className="grid sm:grid-cols-2 gap-8 pt-8">
                                 <div className="space-y-4">
-                                    <div className="w-12 h-12 bg-primary/10 text-primary flex items-center justify-center rounded-lg border border-primary/20">
-                                        <Trophy className="w-6 h-6" />
+                                    <div className="size-12 bg-primary/10 text-primary flex items-center justify-center rounded-lg border border-primary/20">
+                                        <Trophy className="size-6" />
                                     </div>
                                     <h3 className="text-xl font-black uppercase">Proven Track Record</h3>
-                                    <p className="text-muted-foreground text-sm">Countless victories across South Africa's most demanding worksites since 2012.</p>
+                                    <p className="text-muted-foreground text-sm">Countless victories across South Africa's most demanding worksites since {stats.established_year.display}.</p>
                                 </div>
                                 <div className="space-y-4">
-                                    <div className="w-12 h-12 bg-primary/10 text-primary flex items-center justify-center rounded-lg border border-primary/20">
-                                        <Truck className="w-6 h-6" />
+                                    <div className="size-12 bg-primary/10 text-primary flex items-center justify-center rounded-lg border border-primary/20">
+                                        <Truck className="size-6" />
                                     </div>
                                     <h3 className="text-xl font-black uppercase">Massive Capacity</h3>
-                                    <p className="text-muted-foreground text-sm">A modern fleet of mobile cranes with staggering capacities of up to 440 tons.</p>
+                                    <p className="text-muted-foreground text-sm">A modern fleet of mobile cranes with staggering capacities of up to {stats.max_capacity.tons_label || `${stats.max_capacity.value} tons`}.</p>
                                 </div>
                                 <div className="space-y-4">
-                                    <div className="w-12 h-12 bg-primary/10 text-primary flex items-center justify-center rounded-lg border border-primary/20">
-                                        <HardHat className="w-6 h-6" />
+                                    <div className="size-12 bg-primary/10 text-primary flex items-center justify-center rounded-lg border border-primary/20">
+                                        <HardHat className="size-6" />
                                     </div>
                                     <h3 className="text-xl font-black uppercase">Unmatched Safety</h3>
                                     <p className="text-muted-foreground text-sm">Stringent safety protocols ensuring zero-incident operations on high-stakes projects.</p>
                                 </div>
                                 <div className="space-y-4">
-                                    <div className="w-12 h-12 bg-primary/10 text-primary flex items-center justify-center rounded-lg border border-primary/20">
-                                        <Target className="w-6 h-6" />
+                                    <div className="size-12 bg-primary/10 text-primary flex items-center justify-center rounded-lg border border-primary/20">
+                                        <Target className="size-6" />
                                     </div>
                                     <h3 className="text-xl font-black uppercase">Precision Execution</h3>
                                     <p className="text-muted-foreground text-sm">A highly skilled team driven to deliver unmatched results in complex operations.</p>
@@ -93,8 +95,8 @@ export default function AboutUs() {
                             </div>
 
                             <FloatingStatCard
-                                value="440T"
-                                label="Maximum Fleet Capacity"
+                                value={stats.max_capacity.display}
+                                label={stats.max_capacity.label}
                                 position="bottom-left"
                             />
                         </div>
@@ -110,29 +112,29 @@ export default function AboutUs() {
                         {/* Left: Icon Pillars */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 order-2 lg:order-1">
                             <div className="bg-background rounded-xl p-8 border border-border hover:border-primary/40 hover:shadow-lg transition-all duration-300 group">
-                                <div className="w-14 h-14 bg-primary/10 text-primary flex items-center justify-center rounded-xl border border-primary/20 mb-6 group-hover:scale-110 transition-transform duration-300">
-                                    <Building2 className="w-7 h-7" />
+                                <div className="size-14 bg-primary/10 text-primary flex items-center justify-center rounded-xl border border-primary/20 mb-6 group-hover:scale-110 transition-transform duration-300">
+                                    <Building2 className="size-7" />
                                 </div>
                                 <h3 className="text-lg font-black uppercase tracking-tighter mb-3">Sole Provider</h3>
                                 <p className="text-muted-foreground text-sm leading-relaxed">Trusted as the exclusive full turnkey solutions partner by South Africa's most established companies.</p>
                             </div>
                             <div className="bg-background rounded-xl p-8 border border-border hover:border-primary/40 hover:shadow-lg transition-all duration-300 group">
-                                <div className="w-14 h-14 bg-primary/10 text-primary flex items-center justify-center rounded-xl border border-primary/20 mb-6 group-hover:scale-110 transition-transform duration-300">
-                                    <Users className="w-7 h-7" />
+                                <div className="size-14 bg-primary/10 text-primary flex items-center justify-center rounded-xl border border-primary/20 mb-6 group-hover:scale-110 transition-transform duration-300">
+                                    <Users className="size-7" />
                                 </div>
-                                <h3 className="text-lg font-black uppercase tracking-tighter mb-3">100+ Years Experience</h3>
-                                <p className="text-muted-foreground text-sm leading-relaxed">Our management team brings over a century of combined industry experience to every project.</p>
+                                <h3 className="text-lg font-black uppercase tracking-tighter mb-3">{stats.combined_experience.display} Experience</h3>
+                                <p className="text-muted-foreground text-sm leading-relaxed">Our management team brings over {stats.combined_experience.value} years of combined industry experience to every project.</p>
                             </div>
                             <div className="bg-background rounded-xl p-8 border border-border hover:border-primary/40 hover:shadow-lg transition-all duration-300 group">
-                                <div className="w-14 h-14 bg-primary/10 text-primary flex items-center justify-center rounded-xl border border-primary/20 mb-6 group-hover:scale-110 transition-transform duration-300">
-                                    <Zap className="w-7 h-7" />
+                                <div className="size-14 bg-primary/10 text-primary flex items-center justify-center rounded-xl border border-primary/20 mb-6 group-hover:scale-110 transition-transform duration-300">
+                                    <Zap className="size-7" />
                                 </div>
                                 <h3 className="text-lg font-black uppercase tracking-tighter mb-3">High-Risk Certainty</h3>
                                 <p className="text-muted-foreground text-sm leading-relaxed">The depth of knowledge, control, and capability required to deliver certainty in high-risk environments.</p>
                             </div>
                             <div className="bg-background rounded-xl p-8 border border-border hover:border-primary/40 hover:shadow-lg transition-all duration-300 group">
-                                <div className="w-14 h-14 bg-primary/10 text-primary flex items-center justify-center rounded-xl border border-primary/20 mb-6 group-hover:scale-110 transition-transform duration-300">
-                                    <Award className="w-7 h-7" />
+                                <div className="size-14 bg-primary/10 text-primary flex items-center justify-center rounded-xl border border-primary/20 mb-6 group-hover:scale-110 transition-transform duration-300">
+                                    <Award className="size-7" />
                                 </div>
                                 <h3 className="text-lg font-black uppercase tracking-tighter mb-3">Complex Success</h3>
                                 <p className="text-muted-foreground text-sm leading-relaxed">A track record of success on projects of the highest complexity, delivered on time and to specification.</p>
@@ -151,7 +153,7 @@ export default function AboutUs() {
                                         Operating across some of the most advanced and complex sites, we are entrusted by South Africa's most established companies as their sole provider for full turnkey solutions.
                                     </p>
                                     <p>
-                                        Backed by more than 100 years of combined management experience, we bring the depth of knowledge, control and capability required to deliver certainty in high-risk environments and success on projects of the highest complexity.
+                                        Backed by more than {stats.combined_experience.value} years of combined management experience, we bring the depth of knowledge, control and capability required to deliver certainty in high-risk environments and success on projects of the highest complexity.
                                     </p>
                                 </div>
                             </SectionHeading>

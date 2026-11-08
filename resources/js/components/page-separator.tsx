@@ -6,6 +6,7 @@ import { ArrowRight, Clock, HardHat, ShieldCheck, Wrench, Activity } from 'lucid
 import Wrapper from '@/components/ui/misc/wrapper';
 import { DotPattern } from '@/components/ui/misc/dot-pattern';
 import SectionOverline from '@/components/ui/misc/section-overline';
+import { useCompany } from '@/hooks/use-company';
 
 // @ts-ignore
 import defaultBannerImage from '@/../images/banner-background.webp';
@@ -31,6 +32,7 @@ function PageSeparator({
 }: PageSeparatorProps) {
     const containerRef = useRef<HTMLDivElement>(null);
     const imageRef = useRef<HTMLImageElement>(null);
+    const { stats } = useCompany();
 
     const initialSrc = image || defaultBannerImage || fallbackSrc;
     const [currentSrc, setCurrentSrc] = useState<string>(initialSrc);
@@ -117,7 +119,7 @@ function PageSeparator({
                                     Heavy Lifting Across South Africa
                                 </h2>
                                 <p className="text-sm sm:text-base text-muted-foreground max-w-2xl leading-relaxed">
-                                    Turnkey CAD studies, certified rigging, and 440T mobile fleet readiness.
+                                    Turnkey CAD studies, certified rigging, and {stats.max_capacity.display} mobile fleet readiness.
                                 </p>
                             </div>
 

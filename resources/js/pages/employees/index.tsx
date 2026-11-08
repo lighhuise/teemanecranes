@@ -29,7 +29,7 @@ interface PaginatedData<T> {
 function EmployeeCardSkeleton() {
     return (
         <div className="bg-background border border-border rounded-md flex flex-col items-center text-center p-8 animate-pulse">
-            <div className="w-32 h-32 rounded-full bg-muted mb-6 shrink-0" />
+            <div className="size-32 rounded-full bg-muted mb-6 shrink-0" />
             <div className="h-5 w-36 rounded bg-muted mb-3" />
             <div className="h-3 w-24 rounded bg-muted mb-6" />
             <div className="w-full h-px bg-border mb-6" />
@@ -50,7 +50,7 @@ function EmployeeGrid({ employees }: { employees: Employee[] }) {
                     href={team.show.url(employee.slug)}
                     className="group relative bg-background border border-border rounded-md flex flex-col items-center text-center p-8 transition-all duration-300 hover:border-primary hover:shadow-xl hover:-translate-y-1"
                 >
-                    <div className="relative w-32 h-32 rounded-full overflow-hidden mb-6 border-4 border-muted group-hover:border-primary transition-colors duration-300">
+                    <div className="relative size-32 rounded-full overflow-hidden mb-6 border-4 border-muted group-hover:border-primary transition-colors duration-300">
                         {employee.image_url ? (
                             <img src={employee.image_url} alt={`${employee.first_name} ${employee.last_name}`} className="w-full h-full object-cover" />
                         ) : (
@@ -73,11 +73,11 @@ function EmployeeGrid({ employees }: { employees: Employee[] }) {
 
                     <div className="flex flex-col gap-3 w-full text-sm text-muted-foreground">
                         <div className="flex items-center justify-center gap-2">
-                            <Building2 className="w-4 h-4" />
+                            <Building2 className="size-4" />
                             <span>{employee.department}</span>
                         </div>
                         <div className="flex items-center justify-center gap-2">
-                            <MapPin className="w-4 h-4" />
+                            <MapPin className="size-4" />
                             <span>{employee.branch_location}</span>
                         </div>
                     </div>
@@ -127,7 +127,7 @@ export default function Index({ employees, filters }: { employees: PaginatedData
                     </SectionHeading>
 
                     <div className="relative w-full max-w-md mx-auto mt-10">
-                        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                        <Search className="absolute left-4 top-1/2 -translate-y-1/2 size-5 text-muted-foreground" />
                         <Input
                             type="text"
                             placeholder="Search by name, role, or department..."

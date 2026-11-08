@@ -6,9 +6,11 @@ import { FloatingStatCard } from "@/components/ui/misc/floating-stat-card";
 import imgCompanyIntro from "@/../images/IMG_0190-copy.webp";
 import { BackgroundText } from "@/components/ui/misc/background-text";
 import SectionOverline from "@/components/ui/misc/section-overline";
+import { useCompany } from "@/hooks/use-company";
 import React from "react";
 
 export function HomeIntroSection() {
+    const { stats } = useCompany();
     return (
         <section className="py-24 bg-background relative">
             <BackgroundText position="left">TRUSTED</BackgroundText>
@@ -20,10 +22,10 @@ export function HomeIntroSection() {
                             THE ONLY NAME <br />TRUSTED TO PERFORM
                         </h2>
                         <p className="text-lg text-muted-foreground leading-relaxed text-balance">
-                            Established in 2012, Teemane Cranes prides itself on countless victories across South Africa's most demanding worksites. From high-stakes projects to complex operations that have redefined what's possible in mobile crane hire.
+                            Established in {stats.established_year.display}, Teemane Cranes prides itself on countless victories across South Africa's most demanding worksites. From high-stakes projects to complex operations that have redefined what's possible in mobile crane hire.
                         </p>
                         <p className="text-lg text-muted-foreground leading-relaxed text-balance">
-                            Backed by a fleet of mobile cranes with capacities of up to 440 tons and more than 100 years of combined management experience, we bring the depth of knowledge, control and capability required to deliver certainty in high-risk environments.
+                            Backed by a fleet of mobile cranes with capacities of up to {stats.max_capacity.tons_label || `${stats.max_capacity.value} tons`} and more than {stats.combined_experience.value} years of combined management experience, we bring the depth of knowledge, control and capability required to deliver certainty in high-risk environments.
                         </p>
                         <div className="pt-4">
                             <Link href="/about-us" className={buttonVariants({ size: "lg", className: "uppercase tracking-widest font-bold px-8 h-14" })}>
@@ -41,8 +43,8 @@ export function HomeIntroSection() {
                         </div>
 
                         <FloatingStatCard
-                            value="100+"
-                            label="Years Combined Experience"
+                            value={stats.combined_experience.display}
+                            label={stats.combined_experience.label}
                             position="bottom-right"
                         />
                     </div>

@@ -2,10 +2,13 @@ import { Link } from '@inertiajs/react';
 import { ArrowRight, MapPin, Phone, Mail } from 'lucide-react';
 import Wrapper from "@/components/ui/misc/wrapper";
 import SectionOverline from "@/components/ui/misc/section-overline";
+import { useCompany } from '@/hooks/use-company';
 // @ts-ignore
 import logoUrl from '@/../images/logo.svg';
 
 export default function Footer() {
+    const { stats, contact } = useCompany();
+
     return (
         <footer className="bg-muted  z-5 text-muted-foreground relative overflow-hidden pt-24 pb-12 border-t-6 border-primary">
             {/* Background Typography */}
@@ -22,7 +25,7 @@ export default function Footer() {
                             <img src={logoUrl} alt="Teemane Cranes Logo" className="h-16 w-auto" />
                         </Link>
                         <p className="text-muted-foreground leading-relaxed max-w-sm">
-                            The only name trusted to perform on South Africa's most demanding worksites. Unmatched excellence in crane hire, heavy lifting and specialised transport since 2012.
+                            The only name trusted to perform on South Africa's most demanding worksites. Unmatched excellence in crane hire, heavy lifting and specialised transport since {stats.established_year.display}.
                         </p>
                         <div className="flex flex-col gap-4 mt-4">
                             <SectionOverline label="A Cut Above The Rest" align="left" />
@@ -46,7 +49,7 @@ export default function Footer() {
                                 href={item.href}
                                 className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors text-sm font-medium w-fit"
                               >
-                                <span className="w-1.5 h-1.5 rounded-full bg-border group-hover:w-4 group-hover:h-0.5 group-hover:rounded-none group-hover:bg-primary transition-all duration-300" />
+                                <span className="size-1.5 rounded-full bg-border group-hover:w-4 group-hover:h-0.5 group-hover:rounded-none group-hover:bg-primary transition-all duration-300" />
                                 <span className="tracking-wide">{item.name}</span>
                               </Link>
                             </li>
@@ -64,18 +67,18 @@ export default function Footer() {
                             </span>
                             <div className="space-y-0.5 min-w-0">
                               <span className="text-xs font-mono font-bold uppercase tracking-wider text-muted-foreground block">Yard Location</span>
-                              <span className="text-sm font-bold text-foreground block leading-tight">6 Van Eck St, Bellville South</span>
-                              <span className="text-xs text-muted-foreground block">Cape Town, 7530</span>
+                              <span className="text-sm font-bold text-foreground block leading-tight">{contact.address.line1}</span>
+                              <span className="text-xs text-muted-foreground block">{contact.address.locality}, {contact.address.postal_code}</span>
                             </div>
                           </li>
                           <li className="py-3.5 flex items-center justify-between gap-3 group">
-                            <a href="tel:0842637690" className="flex items-center gap-3.5 min-w-0 flex-1">
+                            <a href={`tel:${contact.phone_tel}`} className="flex items-center gap-3.5 min-w-0 flex-1">
                               <span className="size-7 rounded-md bg-muted border border-border flex items-center justify-center shrink-0 text-primary group-hover:border-primary/40 transition-colors">
                                 <Phone className="size-4" />
                               </span>
                               <div className="space-y-0.5">
                                 <span className="text-xs font-mono font-bold uppercase tracking-wider text-muted-foreground block">Phone</span>
-                                <span className="text-sm font-mono font-bold text-foreground group-hover:text-primary transition-colors">084 263 7690</span>
+                                <span className="text-sm font-mono font-bold text-foreground group-hover:text-primary transition-colors">{contact.phone}</span>
                               </div>
                             </a>
                             <span className="inline-flex items-center text-[10px] font-mono font-bold uppercase px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
@@ -83,13 +86,13 @@ export default function Footer() {
                             </span>
                           </li>
                           <li className="py-3.5 flex items-center justify-between gap-3 group">
-                            <a href="mailto:enquiries@teemanecranes.co.za" className="flex items-center gap-3.5 min-w-0 flex-1">
+                            <a href={`mailto:${contact.email}`} className="flex items-center gap-3.5 min-w-0 flex-1">
                               <span className="size-7 rounded-md bg-muted border border-border flex items-center justify-center shrink-0 text-primary group-hover:border-primary/40 transition-colors">
                                 <Mail className="size-4" />
                               </span>
                               <div className="space-y-0.5 min-w-0">
                                 <span className="text-xs font-mono font-bold uppercase tracking-wider text-muted-foreground block">Email</span>
-                                <span className="text-sm font-medium text-foreground truncate block group-hover:text-primary transition-colors">enquiries@teemanecranes.co.za</span>
+                                <span className="text-sm font-medium text-foreground truncate block group-hover:text-primary transition-colors">{contact.email}</span>
                               </div>
                             </a>
                           </li>

@@ -56,7 +56,7 @@ export function HomeLatestProjectsSection({ projects = [] }: HomeLatestProjectsS
                         className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-primary hover:text-foreground transition-colors group"
                     >
                         <span>View All Projects</span>
-                        <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                        <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
                     </Link>
                 </div>
 
@@ -73,7 +73,7 @@ export function HomeLatestProjectsSection({ projects = [] }: HomeLatestProjectsS
                                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                             />
                             {/* Dual-mode calibrated gradient: light in light mode, deep in dark mode */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/60 to-transparent dark:from-black/90 dark:via-black/45 dark:to-transparent" />
+                            <div className="absolute inset-0 bg-linear-to-t from-background/95 via-background/60 to-transparent dark:from-black/90 dark:via-black/45 dark:to-transparent" />
 
                             <div className="relative z-10 p-6 sm:p-8 space-y-4">
                                 <div className="flex flex-wrap items-center gap-2">
@@ -113,7 +113,7 @@ export function HomeLatestProjectsSection({ projects = [] }: HomeLatestProjectsS
 
                                 <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary pt-2 group-hover:text-foreground dark:group-hover:text-white transition-colors">
                                     <span>View Case Study</span>
-                                    <ArrowUpRight className="w-4 h-4" />
+                                    <ArrowUpRight className="size-4" />
                                 </div>
                             </div>
                         </Link>
@@ -139,7 +139,7 @@ export function HomeLatestProjectsSection({ projects = [] }: HomeLatestProjectsS
                                             alt={project.title}
                                             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                         />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/55 to-transparent dark:from-black/90 dark:via-black/40 dark:to-transparent" />
+                                        <div className="absolute inset-0 bg-linear-to-t from-background/95 via-background/55 to-transparent dark:from-black/90 dark:via-black/40 dark:to-transparent" />
 
                                         <div className="relative z-10 p-6 space-y-2">
                                             <div className="flex flex-wrap items-center gap-2">

@@ -33,7 +33,7 @@ export default function Show({ employee }: { employee: EmployeeDetail }) {
                 <BackgroundText position="center">MEMBER</BackgroundText>
                 <Wrapper>
                     <Link href={team.index.url()} className="inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-primary transition-colors mb-12">
-                        <ArrowLeft className="w-4 h-4" />
+                        <ArrowLeft className="size-4" />
                         Back to Team
                     </Link>
 
@@ -45,7 +45,7 @@ export default function Show({ employee }: { employee: EmployeeDetail }) {
                                     <img src={employee.image_url} alt={`${employee.first_name} ${employee.last_name}`} className="w-full h-full object-cover" />
                                 ) : (
                                     <div className="w-full h-full flex flex-col items-center justify-center text-muted-foreground/30">
-                                        <User className="w-32 h-32 mb-4" />
+                                        <User className="size-32 mb-4" />
                                         <span className="text-6xl font-bold">
                                             {employee.first_name.charAt(0)}{employee.last_name.charAt(0)}
                                         </span>
@@ -77,8 +77,8 @@ export default function Show({ employee }: { employee: EmployeeDetail }) {
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12 py-8 border-y border-border">
                                 <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                                        <MapPin className="w-6 h-6" />
+                                    <div className="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                                        <MapPin className="size-6" />
                                     </div>
                                     <div>
                                         <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Branch</p>
@@ -86,8 +86,8 @@ export default function Show({ employee }: { employee: EmployeeDetail }) {
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                                        <Building2 className="w-6 h-6" />
+                                    <div className="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                                        <Building2 className="size-6" />
                                     </div>
                                     <div>
                                         <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Department</p>
@@ -96,8 +96,8 @@ export default function Show({ employee }: { employee: EmployeeDetail }) {
                                 </div>
                                 {employee.birthday && (
                                     <div className="flex items-center gap-4">
-                                        <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                                            <Calendar className="w-6 h-6" />
+                                        <div className="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                                            <Calendar className="size-6" />
                                         </div>
                                         <div>
                                             <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Birthday</p>
@@ -107,8 +107,8 @@ export default function Show({ employee }: { employee: EmployeeDetail }) {
                                 )}
                                 {employee.superior && (
                                     <div className="flex items-center gap-4">
-                                        <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                                            <User className="w-6 h-6" />
+                                        <div className="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                                            <User className="size-6" />
                                         </div>
                                         <div>
                                             <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Reports To</p>

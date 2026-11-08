@@ -24,7 +24,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
     return (
         <Link
             href={`/services/${service.slug}`}
-            className="group relative flex flex-col justify-between overflow-hidden rounded-2xl bg-card border border-border/80 shadow-md transition-all duration-500 hover:-translate-y-2 hover:border-primary/70 hover:shadow-2xl hover:shadow-primary/10 aspect-4/5 sm:aspect-3/4 min-h-[440px]"
+            className="@container group relative flex flex-col justify-between overflow-hidden rounded-2xl bg-card border border-border/80 shadow-md transition-all duration-500 hover:-translate-y-2 hover:border-primary/70 hover:shadow-2xl hover:shadow-primary/10 aspect-4/5 sm:aspect-3/4 min-h-[440px]"
         >
             {/* Background Image with Zoom Effect */}
             <div className="absolute inset-0 z-0 overflow-hidden bg-muted">

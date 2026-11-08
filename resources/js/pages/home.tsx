@@ -6,9 +6,12 @@ import { HomeServicesSection } from "@/components/sections/home-services-section
 import { HomeLatestProjectsSection } from "@/components/sections/home-latest-projects-section";
 import { HomeSafetySection } from "@/components/sections/home-safety-section";
 import { HomeSafetyPracticesSection } from "@/components/sections/home-safety-practices-section";
+import { HomeFieldOperationsSection } from "@/components/sections/home-field-operations-section";
 import { HomeCredentialsSection } from "@/components/sections/home-credentials-section";
 import PageSeparator from "@/components/page-separator";
 import { ProjectListItem } from "@/components/project-card";
+import { useCompany } from "@/hooks/use-company";
+import LineDivider from "@/components/line-divider";
 
 interface HomeProps {
     services: any[];
@@ -16,19 +19,23 @@ interface HomeProps {
 }
 
 export default function Home({ services, projects = [] }: HomeProps) {
+    const { stats } = useCompany();
+
     return (
         <div className="bg-background selection:bg-primary selection:text-white">
             <Head>
                 <title>Teemane Cranes | A Cut Above The Rest</title>
-                <meta name="description" content="Established in 2012, Teemane Cranes delivers crane hire, heavy lifting, rigging and specialised transport across South Africa's most demanding worksites. Up to 440T capacity." />
+                <meta name="description" content={`Established in ${stats.established_year.display}, Teemane Cranes delivers crane hire, heavy lifting, rigging and specialised transport across South Africa's most demanding worksites. Up to ${stats.max_capacity.display} capacity.`} />
             </Head>
 
             <Hero />
+            <LineDivider/>
             <HomeIntroSection />
             {/*<PageSeparator/>*/}
             <HomeServicesSection services={(services || []).slice(0, 3)} />
             <HomeLatestProjectsSection projects={projects} />
             <HomeSafetySection />
+            <HomeFieldOperationsSection />
             <HomeSafetyPracticesSection />
             <HomeCredentialsSection />
         </div>
@@ -36,4 +43,4 @@ export default function Home({ services, projects = [] }: HomeProps) {
 }
 
 Home.displayName = "Home";
-Home.layout = AppLayout;
+Home.layout = (page: React.ReactNode) => <AppLayout>{page}</AppLayout>;
