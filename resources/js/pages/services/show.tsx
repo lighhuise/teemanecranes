@@ -117,28 +117,7 @@ function GalleryRenderer({ data }: { data: GalleryBlock['data'] }) {
                                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-106"
                                 loading="lazy"
                             />
-
-                            {/* Persistent Sequence / Order Pill */}
-                            <div className="absolute top-3 left-3 z-10 pointer-events-none">
-                                <span className="inline-flex items-center gap-1.5 rounded-md border border-white/20 bg-black/70 px-2.5 py-1 text-[11px] font-mono font-bold uppercase tracking-wider text-white backdrop-blur-xs shadow-xs">
-                                    Photo #{String(i + 1).padStart(2, '0')}
-                                </span>
-                            </div>
-
-                            {/* Hover Vignette Overlay */}
-                            <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-4 text-left">
-                                <div className="flex justify-between items-start">
-                                    <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/50 px-3 py-1 text-[10px] font-mono font-bold uppercase tracking-wider text-white backdrop-blur-xs">
-                                        Photo #{String(i + 1).padStart(2, '0')}
-                                    </span>
-                                    <div className="size-9 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg translate-y-1 group-hover:translate-y-0 transition-transform">
-                                        <Expand className="size-4" />
-                                    </div>
-                                </div>
-                                <span className="text-xs font-bold uppercase tracking-wider text-white/90">
-                                    Inspect High-Res
-                                </span>
-                            </div>
+                                                        
                         </button>
                     ))}
                 </div>

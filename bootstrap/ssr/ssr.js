@@ -30,7 +30,7 @@ var renderPage = (page) => createInertiaApp({
 		"./pages/projects/index.tsx": () => import("./assets/projects-e0eT63rZ.js"),
 		"./pages/projects/show.tsx": () => import("./assets/show-vxLlgOV3.js"),
 		"./pages/services/index.tsx": () => import("./assets/services-BpKPzFGP.js"),
-		"./pages/services/show.tsx": () => import("./assets/show-xtSN9suy.js"),
+		"./pages/services/show.tsx": () => import("./assets/show-DZRjCpDn.js"),
 		"./pages/welcome.tsx": () => import("./assets/welcome-Df6iQjP4.js")
 	})),
 	setup({ App, props }) {
