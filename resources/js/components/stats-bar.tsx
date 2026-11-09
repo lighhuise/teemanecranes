@@ -1,7 +1,7 @@
 import Wrapper from '@/components/ui/misc/wrapper';
 import CountUpPkg from 'react-countup';
 const CountUp = (CountUpPkg as any).default || CountUpPkg;
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {DotPattern} from "@/components/ui/misc/dot-pattern";
 import { useCompany } from '@/hooks/use-company';
 
@@ -13,8 +13,22 @@ export default function StatsBar() {
     return (
         <div className="bg-radial-[at_50%_85%] from-primary/70 to-primary py-16 relative overflow-clip text-primary-foreground ">
             <Wrapper>
-                <DotPattern className={`text-primary-foreground/30 top-0` }/>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <DotPattern className={`text-primary-foreground/0 top-0` }/>
+                <div
+                    aria-hidden="true"
+                    className="line2-divider-beam pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-linear-to-r from-transparent via-primary-foreground to-transparent"
+                />
+                <div
+                    aria-hidden={true}
+                    className="pointer-events-none absolute inset-2 border-2 border-dashed border-primary-foreground/10"
+                />
+                <div
+                    aria-hidden={true}
+                    className="pointer-events-none absolute inset-4 border-2 border-dashed border-primary-foreground/10"
+                />
+
+
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-shadow-sm text-shadow-black/50">
                     <div>
                         <div className="text-4xl md:text-5xl font-bold tracking-wider">
                             {mounted ? (

@@ -15,7 +15,7 @@ export function HomeIntroSection() {
     return (
         <section className="py-24 bg-background relative overflow-clip">
             <DotPattern corner={`bottom-left`} />
-            <DotPattern corner={`top-right`} />
+            <DotPattern corner={`bottom-right`} />
             <BackgroundText position="left">TRUSTED</BackgroundText>
             <Wrapper className={`relative`}>
                 <div className="grid lg:grid-cols-2 gap-16 items-center">

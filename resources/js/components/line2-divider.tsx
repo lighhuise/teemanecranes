@@ -3,11 +3,14 @@ import { cn } from '@/lib/utils';
 import Wrapper from '@/components/ui/misc/wrapper';
 import { DiamondComponent } from '@/components/diamond-component';
 import { DotPattern } from '@/components/ui/misc/dot-pattern';
+import ScrollVelocity from '@/components/ScrollVelocity';
 
 export interface LineDividerProps extends React.HTMLAttributes<HTMLDivElement> {
     containerClassName?: string;
     iconClassName?: string;
     showDiamond?: boolean;
+    velocity?: number;
+    velocityTexts?: React.ReactNode[];
     children?: React.ReactNode;
 }
 
@@ -16,6 +19,8 @@ function Line2Divider({
     containerClassName = '',
     iconClassName = '',
     showDiamond = true,
+    velocity = 45,
+    velocityTexts = ['TEEMANE CRANES', 'A CUT ABOVE THE REST'],
     children,
     ...props
 }: LineDividerProps) {
@@ -36,12 +41,24 @@ function Line2Divider({
                 className="line2-divider-beam pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-linear-to-r from-transparent via-primary-foreground to-transparent"
             />
 
-            {/* Monumental Background Display Watermark */}
+            {/* Scroll-Velocity Monumental Background Watermark */}
             <div
                 aria-hidden="true"
-                className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[11vw] xl:text-[140px] font-black uppercase tracking-tighter leading-none whitespace-nowrap text-primary-foreground opacity-[0.09]"
+                className="pointer-events-none select-none absolute inset-x-0 top-1/2 -translate-y-1/2 text-primary-foreground opacity-[0.10]"
             >
-                TEEMANE CRANES
+                <ScrollVelocity
+                    texts={velocityTexts}
+                    velocity={velocity}
+                    damping={50}
+                    stiffness={400}
+                    numCopies={6}
+                    skewWithVelocity={4}
+                    outlineAlternate={true}
+                    fadeEdges={true}
+                    gap={48}
+                    separator="◆"
+                    scrollerClassName="font-heading !text-[7.5vw] sm:!text-[6vw] xl:!text-[84px] !leading-[1.05] !font-black uppercase !tracking-tighter !drop-shadow-none"
+                />
             </div>
 
             <div
