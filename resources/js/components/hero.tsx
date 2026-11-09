@@ -146,7 +146,6 @@ export default function Hero() {
                             </div>
 
                         </div>
-                        {/*<div className="absolute inset-0 bg-linear-to-tr from-black/80 via-black/20 to-transparent pointer-events-none"></div>*/}
                     </div>
                     </div>
 

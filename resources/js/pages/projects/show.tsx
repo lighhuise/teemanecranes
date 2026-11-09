@@ -102,14 +102,15 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
                   {/* Enlarged Image Display */}
                   <div className="lg:col-span-7">
                     {project.featured_image_url && (
-                      <div className="relative aspect-16/10 lg:aspect-4/3 rounded-2xl overflow-hidden shadow-2xl border-2 border-border/80 bg-card">
-                        <img
-                          src={project.featured_image_url}
-                          alt={project.title}
-                          className="w-full h-full object-cover"
-                        />
-                        <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent" />
-                        <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs font-bold uppercase text-white font-mono">
+                      <div className="rounded-2xl overflow-hidden shadow-2xl border-2 border-border/80 bg-card">
+                        <div className="relative aspect-16/10 lg:aspect-4/3 overflow-hidden bg-muted">
+                          <img
+                            src={project.featured_image_url}
+                            alt={project.title}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <div className="flex items-center justify-between px-5 py-3 border-t border-border/80 bg-card text-xs font-bold uppercase text-foreground font-mono">
                           <span>REF: {project.slug.toUpperCase()}</span>
                           <span className="text-primary font-bold">LIVE EXECUTION</span>
                         </div>
@@ -128,7 +129,6 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
                     aria-hidden="true"
                     className="absolute inset-0 h-full w-full object-cover opacity-50 mix-blend-luminosity filter contrast-125"
                 />
-                <div className="absolute inset-0 bg-linear-to-r from-primary/80 via-primary/40 to-primary/80" />
                 <Wrapper className="relative z-10 h-full flex items-center justify-between">
                     <div className="flex items-center gap-3">
                         <span className="size-2 rounded-full bg-primary animate-pulse" />
@@ -238,18 +238,10 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
                                             </span>
                                         </div>
 
-                                        <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-4 sm:p-5">
-                                            <div className="flex justify-between items-start">
-                                                <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/50 px-3 py-1 text-[10px] font-mono font-bold uppercase tracking-wider text-white backdrop-blur-xs">
-                                                    Photo #{String(idx + 1).padStart(2, '0')}
-                                                </span>
-                                                <div className="size-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg translate-y-1 group-hover:translate-y-0 transition-transform">
-                                                    <Expand className="size-4" />
-                                                </div>
+                                        <div className="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                                            <div className="size-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg translate-y-1 group-hover:translate-y-0 transition-transform">
+                                                <Expand className="size-4" />
                                             </div>
-                                            <span className="text-xs font-bold uppercase tracking-wider text-white/90">
-                                                Inspect High-Res
-                                            </span>
                                         </div>
                                     </button>
                                 );
@@ -335,18 +327,10 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
                                                             </span>
                                                         </div>
 
-                                                        <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-4 sm:p-5">
-                                                            <div className="flex justify-between items-start">
-                                                                <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/50 px-3 py-1 text-[10px] font-mono font-bold uppercase tracking-wider text-white backdrop-blur-xs">
-                                                                    Photo #{String(imgIdx + 1).padStart(2, '0')}
-                                                                </span>
-                                                                <div className="size-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg translate-y-1 group-hover:translate-y-0 transition-transform">
-                                                                    <Expand className="size-4" />
-                                                                </div>
+                                                        <div className="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                                                            <div className="size-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg translate-y-1 group-hover:translate-y-0 transition-transform">
+                                                                <Expand className="size-4" />
                                                             </div>
-                                                            <span className="text-xs font-bold uppercase tracking-wider text-white/90">
-                                                                Inspect High-Res
-                                                            </span>
                                                         </div>
                                                     </button>
                                                 );

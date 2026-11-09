@@ -7,8 +7,11 @@ import SectionHeading from '@/components/ui/misc/section-heading';
 import { FloatingStatCard } from '@/components/ui/misc/floating-stat-card';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
+// @ts-ignore
 import 'swiper/css';
+// @ts-ignore
 import 'swiper/css/navigation';
+// @ts-ignore
 import 'swiper/css/pagination';
 import Lightbox from "yet-another-react-lightbox";
 import { BackgroundText } from '@/components/ui/misc/background-text';
@@ -117,7 +120,7 @@ function GalleryRenderer({ data }: { data: GalleryBlock['data'] }) {
                                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-106"
                                 loading="lazy"
                             />
-                                                        
+
                         </button>
                     ))}
                 </div>

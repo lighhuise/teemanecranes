@@ -293,21 +293,10 @@ export default function Index({ projects = [] }: ProjectsIndexProps) {
                                                 </span>
                                             </div>
 
-                                            {/* Hover Vignette Overlay */}
-                                            <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-4 sm:p-5 text-left">
-                                                <div className="flex justify-end">
-                                                    <div className="size-9 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg translate-y-1 group-hover:translate-y-0 transition-transform">
-                                                        <Expand className="size-4" />
-                                                    </div>
-                                                </div>
-
-                                                <div>
-                                                    <span className="text-[10px] font-bold uppercase tracking-widest text-primary">
-                                                        Site Capture
-                                                    </span>
-                                                    <p className="text-xs sm:text-sm font-bold text-white uppercase tracking-tight line-clamp-1">
-                                                        {shot.projectTitle}
-                                                    </p>
+                                            {/* Hover Expand Button (No Gradient Overlay) */}
+                                            <div className="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                                                <div className="size-9 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg translate-y-1 group-hover:translate-y-0 transition-transform">
+                                                    <Expand className="size-4" />
                                                 </div>
                                             </div>
                                         </button>
