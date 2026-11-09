@@ -10,6 +10,7 @@ import React from "react";
 import imgSafety from "@/../images/safety.png";
 // @ts-ignore
 import imgTeemaneSky from "@/../images/teeman_final_sky_only.png";
+import {HomeCredentialsSection} from "@/components/sections/home-credentials-section";
 
 export const safetyItems = [
     {
@@ -84,6 +85,9 @@ export function HomeSafetyPracticesSection() {
                     </div>
                 </Wrapper>
             </section>
+
+            <HomeCredentialsSection />
+
 
                     {/* Section 2: Dedicated Restyled Safety Protocols Accordion Section */}
             <section className="py-16 sm:py-20 lg:py-28 bg-background border-b border-border relative overflow-clip">

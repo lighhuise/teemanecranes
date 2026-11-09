@@ -39,7 +39,6 @@ export default function Home({ services, projects = [] }: HomeProps) {
             <HomeFieldOperationsSection />
             <Line2Divider/>
             <HomeSafetyPracticesSection />
-            <HomeCredentialsSection />
         </div>
     );
 }

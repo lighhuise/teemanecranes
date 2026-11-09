@@ -85,8 +85,8 @@ export default function ContactUs({ flash, honeypot }: { flash: { success?: stri
                                         <div>
                                             <h3 className="font-black text-lg">Address</h3>
                                             <p className="text-muted-foreground">
-                                                {contact.address.line1}<br />
-                                                {contact.address.locality}, {contact.address.postal_code}
+                                                {contact.address.street}<br />
+                                                {contact.address.suburb}, {contact.address.city}, {contact.address.postal_code}
                                             </p>
                                         </div>
                                     </div>

@@ -60,22 +60,31 @@ export function useCompany(): CompanyConfig {
         availability: normalizeStat(rawStats.availability, defaultCompanyConfig.stats.availability),
     };
 
+    const mergedAddress = {
+        ...defaultCompanyConfig.contact.address,
+        ...(sharedCompany.contact?.address || {}),
+    };
+
+    const streetAndSuburb = [mergedAddress.street, mergedAddress.suburb].filter(Boolean).join(', ');
+    mergedAddress.line1 = mergedAddress.line1 || streetAndSuburb || defaultCompanyConfig.contact.address.line1;
+    mergedAddress.locality = mergedAddress.locality || mergedAddress.city || defaultCompanyConfig.contact.address.locality;
+
+    const mergedContact = {
+        ...defaultCompanyConfig.contact,
+        ...(sharedCompany.contact || {}),
+        address: mergedAddress,
+        coordinates: {
+            ...defaultCompanyConfig.contact.coordinates,
+            ...(sharedCompany.contact?.coordinates || {}),
+        },
+    };
+    mergedContact.map_url = mergedContact.map_url || mergedContact.maps_url;
+
     return {
         ...defaultCompanyConfig,
         ...sharedCompany,
         stats: mergedStats,
-        contact: {
-            ...defaultCompanyConfig.contact,
-            ...(sharedCompany.contact || {}),
-            address: {
-                ...defaultCompanyConfig.contact.address,
-                ...(sharedCompany.contact?.address || {}),
-            },
-            coordinates: {
-                ...defaultCompanyConfig.contact.coordinates,
-                ...(sharedCompany.contact?.coordinates || {}),
-            },
-        },
+        contact: mergedContact,
         credentials: sharedCompany.credentials ?? defaultCompanyConfig.credentials,
     };
 }

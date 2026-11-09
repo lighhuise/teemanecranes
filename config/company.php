@@ -80,6 +80,8 @@ return [
             'street' => '6 Van Eck St',
             'suburb' => 'Bellville South',
             'city' => 'Cape Town',
+            'line1' => '6 Van Eck St, Bellville South',
+            'locality' => 'Cape Town',
             'postal_code' => '7530',
             'country' => 'South Africa',
             'formatted' => "6 Van Eck St, Bellville South,\nCape Town, 7530",
@@ -90,6 +92,7 @@ return [
             'lng' => 18.645063943495657,
         ],
         'maps_url' => 'https://maps.google.com/?q=-33.926637890850294,18.645063943495657',
+        'map_url' => 'https://maps.google.com/?q=-33.926637890850294,18.645063943495657',
     ],
 
     /*
