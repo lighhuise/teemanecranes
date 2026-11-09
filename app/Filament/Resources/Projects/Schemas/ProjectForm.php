@@ -55,6 +55,11 @@ class ProjectForm
                             ->maxLength(255)
                             ->unique(ignoreRecord: true),
 
+                        TextInput::make('location')
+                            ->label('Location')
+                            ->placeholder('e.g. Cape Town, Western Cape')
+                            ->maxLength(255),
+
                         DatePicker::make('project_date')
                             ->label('Project Date')
                             ->helperText('Date when the project was executed / created.')

@@ -4,7 +4,7 @@ import AppLayout from '@/layouts/app-layout';
 import Wrapper from '@/components/ui/misc/wrapper';
 import SectionHeading, { SectionOverline } from '@/components/ui/misc/section-heading';
 import { BackgroundText } from '@/components/ui/misc/background-text';
-import { ProjectCard, ProjectListItem } from '@/components/project-card';
+import { ProjectCard, type ProjectListItem } from '@/components/project';
 import PageSeparator from '@/components/page-separator';
 import EmergencyCta from '@/components/emergency-cta';
 import { ArrowLeft, ArrowRight, Calendar, Clock, Expand, HardHat, Images, Phone, ShieldCheck, Wrench } from 'lucide-react';
@@ -386,7 +386,7 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
 
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                             {relatedProjects.map((p) => (
-                                <ProjectCard key={p.id} project={p} />
+                                <ProjectCard key={p.id} project={p} variant="grid" />
                             ))}
                         </div>
                     </Wrapper>

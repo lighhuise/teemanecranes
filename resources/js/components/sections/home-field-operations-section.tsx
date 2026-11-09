@@ -27,7 +27,7 @@ import imgHarbourWork from '@/../images/harbour-work.webp';
 // @ts-ignore
 import imgHarborGoldenHour from '@/../images/boat-launch.webp';
 // @ts-ignore
-import imgTeemaneBoat from '@/../images/blue_crane_desert_storm copy.webp';
+import imgTeemaneBoat from '@/../images/teeman_final_sky_only.png';
 
 interface FieldOperationItem {
     id: string;

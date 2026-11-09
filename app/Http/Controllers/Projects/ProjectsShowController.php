@@ -32,8 +32,11 @@ class ProjectsShowController extends Controller
                     'id' => $p->id,
                     'title' => $p->title,
                     'slug' => $p->slug,
+                    'location' => $p->location,
                     'description' => $p->description,
                     'featured_image_url' => $p->featured_image_url,
+                    'project_date' => $p->formatted_project_date,
+                    'project_date_raw' => $p->project_date?->toDateString(),
                 ])
                 ->values()
                 ->all();
@@ -43,6 +46,7 @@ class ProjectsShowController extends Controller
                     'id' => $project->id,
                     'title' => $project->title,
                     'slug' => $project->slug,
+                    'location' => $project->location,
                     'description' => $project->description,
                     'content' => $project->content,
                     'featured_image_url' => $project->featured_image_url,

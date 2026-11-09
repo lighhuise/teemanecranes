@@ -1,26 +1,26 @@
 {
   "node_modules/laravel-vite-plugin/inertia-helpers/index.js": [],
   "node_modules/leaflet/dist/leaflet.css": [
-    "/build/assets/map-CDDdey35.js",
+    "/build/assets/map-B4resQqp.js",
     "/build/assets/map-1DTFk8zz.css",
     "/build/assets/layers-BWBAp2CZ.png",
     "/build/assets/layers-2x-Bpkbi35X.png",
     "/build/assets/marker-icon-hN30_KVU.png"
   ],
   "node_modules/swiper/modules/navigation.css": [
-    "/build/assets/show-DhD_mFdr.js",
+    "/build/assets/show-BBLA8iwf.js",
     "/build/assets/show-DjMxu4j7.css"
   ],
   "node_modules/swiper/modules/pagination.css": [
-    "/build/assets/show-DhD_mFdr.js",
+    "/build/assets/show-BBLA8iwf.js",
     "/build/assets/show-DjMxu4j7.css"
   ],
   "node_modules/swiper/swiper.css": [
-    "/build/assets/show-DhD_mFdr.js",
+    "/build/assets/show-BBLA8iwf.js",
     "/build/assets/show-DjMxu4j7.css"
   ],
   "resources/images/525e47f7-4f4c-44ff-9f7e-a37bf34516d9.webp": [
-    "/build/assets/home-Dbb_Icet.js",
+    "/build/assets/home-BWTeFPnu.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
@@ -30,31 +30,18 @@
     "/build/assets/southernwind-z-wZje8b.webp",
     "/build/assets/harbour-work-SOMykid5.webp",
     "/build/assets/boat-launch-ByEniV5M.webp",
-    "/build/assets/blue_crane_desert_storm copy-Cxj7KxSg.webp"
+    "/build/assets/teeman_final_sky_only-apn9Nx24.png"
   ],
   "resources/images/IMG_0190-copy.webp": [
     "/build/assets/IMG_0190-copy-DmrPCIeZ.js",
     "/build/assets/IMG_0190-copy-870kN3in.webp"
   ],
   "resources/images/Teemane-Boat.webp": [
-    "/build/assets/about-us-CcdTOKrg.js",
+    "/build/assets/about-us-B6rIbdQM.js",
     "/build/assets/Teemane-Boat-DihsRzVb.webp"
   ],
-  "resources/images/blue_crane_desert_storm copy.webp": [
-    "/build/assets/home-Dbb_Icet.js",
-    "/build/assets/hero-mask-2-DJkSOBdI.svg",
-    "/build/assets/hero-image-K-gEb_1M.webp",
-    "/build/assets/media-24-building-C-uGPsNs.webp",
-    "/build/assets/safety-77FjWXCW.png",
-    "/build/assets/southern-wind-2-DKwuFbIr.webp",
-    "/build/assets/525e47f7-4f4c-44ff-9f7e-a37bf34516d9-u7cw2Fp1.webp",
-    "/build/assets/southernwind-z-wZje8b.webp",
-    "/build/assets/harbour-work-SOMykid5.webp",
-    "/build/assets/boat-launch-ByEniV5M.webp",
-    "/build/assets/blue_crane_desert_storm copy-Cxj7KxSg.webp"
-  ],
   "resources/images/boat-launch.webp": [
-    "/build/assets/home-Dbb_Icet.js",
+    "/build/assets/home-BWTeFPnu.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
@@ -64,10 +51,10 @@
     "/build/assets/southernwind-z-wZje8b.webp",
     "/build/assets/harbour-work-SOMykid5.webp",
     "/build/assets/boat-launch-ByEniV5M.webp",
-    "/build/assets/blue_crane_desert_storm copy-Cxj7KxSg.webp"
+    "/build/assets/teeman_final_sky_only-apn9Nx24.png"
   ],
   "resources/images/harbour-work.webp": [
-    "/build/assets/home-Dbb_Icet.js",
+    "/build/assets/home-BWTeFPnu.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
@@ -77,10 +64,10 @@
     "/build/assets/southernwind-z-wZje8b.webp",
     "/build/assets/harbour-work-SOMykid5.webp",
     "/build/assets/boat-launch-ByEniV5M.webp",
-    "/build/assets/blue_crane_desert_storm copy-Cxj7KxSg.webp"
+    "/build/assets/teeman_final_sky_only-apn9Nx24.png"
   ],
   "resources/images/hero-image.webp": [
-    "/build/assets/home-Dbb_Icet.js",
+    "/build/assets/home-BWTeFPnu.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
@@ -90,10 +77,10 @@
     "/build/assets/southernwind-z-wZje8b.webp",
     "/build/assets/harbour-work-SOMykid5.webp",
     "/build/assets/boat-launch-ByEniV5M.webp",
-    "/build/assets/blue_crane_desert_storm copy-Cxj7KxSg.webp"
+    "/build/assets/teeman_final_sky_only-apn9Nx24.png"
   ],
   "resources/images/hero-mask-2.svg": [
-    "/build/assets/home-Dbb_Icet.js",
+    "/build/assets/home-BWTeFPnu.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
@@ -103,14 +90,14 @@
     "/build/assets/southernwind-z-wZje8b.webp",
     "/build/assets/harbour-work-SOMykid5.webp",
     "/build/assets/boat-launch-ByEniV5M.webp",
-    "/build/assets/blue_crane_desert_storm copy-Cxj7KxSg.webp"
+    "/build/assets/teeman_final_sky_only-apn9Nx24.png"
   ],
   "resources/images/logo.svg": [
-    "/build/assets/app-layout-DCvCfnNA.js",
+    "/build/assets/app-layout-EzspTEMG.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/images/media-24-building.webp": [
-    "/build/assets/home-Dbb_Icet.js",
+    "/build/assets/home-BWTeFPnu.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
@@ -120,10 +107,10 @@
     "/build/assets/southernwind-z-wZje8b.webp",
     "/build/assets/harbour-work-SOMykid5.webp",
     "/build/assets/boat-launch-ByEniV5M.webp",
-    "/build/assets/blue_crane_desert_storm copy-Cxj7KxSg.webp"
+    "/build/assets/teeman_final_sky_only-apn9Nx24.png"
   ],
   "resources/images/safety.png": [
-    "/build/assets/home-Dbb_Icet.js",
+    "/build/assets/home-BWTeFPnu.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
@@ -133,10 +120,10 @@
     "/build/assets/southernwind-z-wZje8b.webp",
     "/build/assets/harbour-work-SOMykid5.webp",
     "/build/assets/boat-launch-ByEniV5M.webp",
-    "/build/assets/blue_crane_desert_storm copy-Cxj7KxSg.webp"
+    "/build/assets/teeman_final_sky_only-apn9Nx24.png"
   ],
   "resources/images/southern-wind-2.webp": [
-    "/build/assets/home-Dbb_Icet.js",
+    "/build/assets/home-BWTeFPnu.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
@@ -146,10 +133,10 @@
     "/build/assets/southernwind-z-wZje8b.webp",
     "/build/assets/harbour-work-SOMykid5.webp",
     "/build/assets/boat-launch-ByEniV5M.webp",
-    "/build/assets/blue_crane_desert_storm copy-Cxj7KxSg.webp"
+    "/build/assets/teeman_final_sky_only-apn9Nx24.png"
   ],
   "resources/images/southernwind.webp": [
-    "/build/assets/home-Dbb_Icet.js",
+    "/build/assets/home-BWTeFPnu.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
@@ -159,34 +146,38 @@
     "/build/assets/southernwind-z-wZje8b.webp",
     "/build/assets/harbour-work-SOMykid5.webp",
     "/build/assets/boat-launch-ByEniV5M.webp",
-    "/build/assets/blue_crane_desert_storm copy-Cxj7KxSg.webp"
+    "/build/assets/teeman_final_sky_only-apn9Nx24.png"
+  ],
+  "resources/images/teeman_final_sky_only.png": [
+    "/build/assets/home-BWTeFPnu.js",
+    "/build/assets/hero-mask-2-DJkSOBdI.svg",
+    "/build/assets/hero-image-K-gEb_1M.webp",
+    "/build/assets/media-24-building-C-uGPsNs.webp",
+    "/build/assets/safety-77FjWXCW.png",
+    "/build/assets/southern-wind-2-DKwuFbIr.webp",
+    "/build/assets/525e47f7-4f4c-44ff-9f7e-a37bf34516d9-u7cw2Fp1.webp",
+    "/build/assets/southernwind-z-wZje8b.webp",
+    "/build/assets/harbour-work-SOMykid5.webp",
+    "/build/assets/boat-launch-ByEniV5M.webp",
+    "/build/assets/teeman_final_sky_only-apn9Nx24.png"
   ],
   "resources/js/components/diamond-component.tsx": [
-    "/build/assets/home-Dbb_Icet.js",
-    "/build/assets/hero-mask-2-DJkSOBdI.svg",
-    "/build/assets/hero-image-K-gEb_1M.webp",
-    "/build/assets/media-24-building-C-uGPsNs.webp",
-    "/build/assets/safety-77FjWXCW.png",
-    "/build/assets/southern-wind-2-DKwuFbIr.webp",
-    "/build/assets/525e47f7-4f4c-44ff-9f7e-a37bf34516d9-u7cw2Fp1.webp",
-    "/build/assets/southernwind-z-wZje8b.webp",
-    "/build/assets/harbour-work-SOMykid5.webp",
-    "/build/assets/boat-launch-ByEniV5M.webp",
-    "/build/assets/blue_crane_desert_storm copy-Cxj7KxSg.webp"
+    "/build/assets/app-layout-EzspTEMG.js",
+    "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/emergency-cta.tsx": [
-    "/build/assets/app-layout-DCvCfnNA.js",
+    "/build/assets/app-layout-EzspTEMG.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/footer.tsx": [
-    "/build/assets/app-layout-DCvCfnNA.js",
+    "/build/assets/app-layout-EzspTEMG.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/hero-simple-split.tsx": [
-    "/build/assets/welcome-CyeHxpqV.js"
+    "/build/assets/welcome-CUPyvB8L.js"
   ],
   "resources/js/components/hero.tsx": [
-    "/build/assets/home-Dbb_Icet.js",
+    "/build/assets/home-BWTeFPnu.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
@@ -196,41 +187,41 @@
     "/build/assets/southernwind-z-wZje8b.webp",
     "/build/assets/harbour-work-SOMykid5.webp",
     "/build/assets/boat-launch-ByEniV5M.webp",
-    "/build/assets/blue_crane_desert_storm copy-Cxj7KxSg.webp"
+    "/build/assets/teeman_final_sky_only-apn9Nx24.png"
   ],
   "resources/js/components/line2-divider.tsx": [
-    "/build/assets/home-Dbb_Icet.js",
-    "/build/assets/hero-mask-2-DJkSOBdI.svg",
-    "/build/assets/hero-image-K-gEb_1M.webp",
-    "/build/assets/media-24-building-C-uGPsNs.webp",
-    "/build/assets/safety-77FjWXCW.png",
-    "/build/assets/southern-wind-2-DKwuFbIr.webp",
-    "/build/assets/525e47f7-4f4c-44ff-9f7e-a37bf34516d9-u7cw2Fp1.webp",
-    "/build/assets/southernwind-z-wZje8b.webp",
-    "/build/assets/harbour-work-SOMykid5.webp",
-    "/build/assets/boat-launch-ByEniV5M.webp",
-    "/build/assets/blue_crane_desert_storm copy-Cxj7KxSg.webp"
+    "/build/assets/app-layout-EzspTEMG.js",
+    "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/map.tsx": [
-    "/build/assets/map-CDDdey35.js",
+    "/build/assets/map-B4resQqp.js",
     "/build/assets/map-1DTFk8zz.css",
     "/build/assets/layers-BWBAp2CZ.png",
     "/build/assets/layers-2x-Bpkbi35X.png",
     "/build/assets/marker-icon-hN30_KVU.png"
   ],
   "resources/js/components/mode-toggle.tsx": [
-    "/build/assets/app-layout-DCvCfnNA.js",
+    "/build/assets/app-layout-EzspTEMG.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/navigation.tsx": [
-    "/build/assets/app-layout-DCvCfnNA.js",
+    "/build/assets/app-layout-EzspTEMG.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
-  "resources/js/components/project-card.tsx": [
-    "/build/assets/project-card-DxlHGGYS.js"
+  "resources/js/components/project/index.ts": [
+    "/build/assets/project-Cm_ZMhxs.js"
+  ],
+  "resources/js/components/project/project-archive-card.tsx": [
+    "/build/assets/project-Cm_ZMhxs.js"
+  ],
+  "resources/js/components/project/project-card.tsx": [
+    "/build/assets/project-Cm_ZMhxs.js"
+  ],
+  "resources/js/components/project/project-meta-badges.tsx": [
+    "/build/assets/project-Cm_ZMhxs.js"
   ],
   "resources/js/components/sections/home-credentials-section.tsx": [
-    "/build/assets/home-Dbb_Icet.js",
+    "/build/assets/home-BWTeFPnu.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
@@ -240,10 +231,10 @@
     "/build/assets/southernwind-z-wZje8b.webp",
     "/build/assets/harbour-work-SOMykid5.webp",
     "/build/assets/boat-launch-ByEniV5M.webp",
-    "/build/assets/blue_crane_desert_storm copy-Cxj7KxSg.webp"
+    "/build/assets/teeman_final_sky_only-apn9Nx24.png"
   ],
   "resources/js/components/sections/home-field-operations-section.tsx": [
-    "/build/assets/home-Dbb_Icet.js",
+    "/build/assets/home-BWTeFPnu.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
@@ -253,10 +244,10 @@
     "/build/assets/southernwind-z-wZje8b.webp",
     "/build/assets/harbour-work-SOMykid5.webp",
     "/build/assets/boat-launch-ByEniV5M.webp",
-    "/build/assets/blue_crane_desert_storm copy-Cxj7KxSg.webp"
+    "/build/assets/teeman_final_sky_only-apn9Nx24.png"
   ],
   "resources/js/components/sections/home-intro-section.tsx": [
-    "/build/assets/home-Dbb_Icet.js",
+    "/build/assets/home-BWTeFPnu.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
@@ -266,10 +257,10 @@
     "/build/assets/southernwind-z-wZje8b.webp",
     "/build/assets/harbour-work-SOMykid5.webp",
     "/build/assets/boat-launch-ByEniV5M.webp",
-    "/build/assets/blue_crane_desert_storm copy-Cxj7KxSg.webp"
+    "/build/assets/teeman_final_sky_only-apn9Nx24.png"
   ],
   "resources/js/components/sections/home-latest-projects-section.tsx": [
-    "/build/assets/home-Dbb_Icet.js",
+    "/build/assets/home-BWTeFPnu.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
@@ -279,10 +270,10 @@
     "/build/assets/southernwind-z-wZje8b.webp",
     "/build/assets/harbour-work-SOMykid5.webp",
     "/build/assets/boat-launch-ByEniV5M.webp",
-    "/build/assets/blue_crane_desert_storm copy-Cxj7KxSg.webp"
+    "/build/assets/teeman_final_sky_only-apn9Nx24.png"
   ],
   "resources/js/components/sections/home-safety-practices-section.tsx": [
-    "/build/assets/home-Dbb_Icet.js",
+    "/build/assets/home-BWTeFPnu.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
@@ -292,10 +283,10 @@
     "/build/assets/southernwind-z-wZje8b.webp",
     "/build/assets/harbour-work-SOMykid5.webp",
     "/build/assets/boat-launch-ByEniV5M.webp",
-    "/build/assets/blue_crane_desert_storm copy-Cxj7KxSg.webp"
+    "/build/assets/teeman_final_sky_only-apn9Nx24.png"
   ],
   "resources/js/components/sections/home-safety-section.tsx": [
-    "/build/assets/home-Dbb_Icet.js",
+    "/build/assets/home-BWTeFPnu.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
@@ -305,10 +296,10 @@
     "/build/assets/southernwind-z-wZje8b.webp",
     "/build/assets/harbour-work-SOMykid5.webp",
     "/build/assets/boat-launch-ByEniV5M.webp",
-    "/build/assets/blue_crane_desert_storm copy-Cxj7KxSg.webp"
+    "/build/assets/teeman_final_sky_only-apn9Nx24.png"
   ],
   "resources/js/components/sections/home-services-section.tsx": [
-    "/build/assets/home-Dbb_Icet.js",
+    "/build/assets/home-BWTeFPnu.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
@@ -318,104 +309,105 @@
     "/build/assets/southernwind-z-wZje8b.webp",
     "/build/assets/harbour-work-SOMykid5.webp",
     "/build/assets/boat-launch-ByEniV5M.webp",
-    "/build/assets/blue_crane_desert_storm copy-Cxj7KxSg.webp"
+    "/build/assets/teeman_final_sky_only-apn9Nx24.png"
   ],
   "resources/js/components/service-card.tsx": [
-    "/build/assets/service-card-Bm2uAUOo.js"
+    "/build/assets/service-card-BYtspFcg.js"
   ],
   "resources/js/components/stats-bar.tsx": [
-    "/build/assets/about-us-CcdTOKrg.js",
+    "/build/assets/about-us-B6rIbdQM.js",
     "/build/assets/Teemane-Boat-DihsRzVb.webp"
   ],
   "resources/js/components/theme-provider.tsx": [
-    "/build/assets/app-layout-DCvCfnNA.js",
+    "/build/assets/app-layout-EzspTEMG.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/ui/accordion.tsx": [
     "/build/assets/accordion-C3-vzyoc.js"
   ],
   "resources/js/components/ui/button.tsx": [
-    "/build/assets/app-layout-DCvCfnNA.js",
+    "/build/assets/app-layout-EzspTEMG.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/ui/card.tsx": [
-    "/build/assets/welcome-CyeHxpqV.js"
+    "/build/assets/welcome-CUPyvB8L.js"
   ],
   "resources/js/components/ui/dropdown-menu.tsx": [
-    "/build/assets/app-layout-DCvCfnNA.js",
+    "/build/assets/app-layout-EzspTEMG.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/ui/input.tsx": [
-    "/build/assets/input-CzbIdwC-.js"
+    "/build/assets/input-C_mWabOn.js"
   ],
   "resources/js/components/ui/misc/background-text.tsx": [
-    "/build/assets/background-text-CSiSLpuX.js"
+    "/build/assets/background-text-BwepyMBp.js"
   ],
   "resources/js/components/ui/misc/dot-pattern.tsx": [
-    "/build/assets/dot-pattern-B63STGp6.js"
+    "/build/assets/app-layout-EzspTEMG.js",
+    "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/ui/misc/floating-stat-card.tsx": [
-    "/build/assets/floating-stat-card-DkF5LWfm.js"
+    "/build/assets/floating-stat-card-BKltj2jr.js"
   ],
   "resources/js/components/ui/misc/section-heading.tsx": [
-    "/build/assets/section-heading-DR3yPAVb.js"
+    "/build/assets/section-heading-C4sV-UfE.js"
   ],
   "resources/js/components/ui/misc/section-overline.tsx": [
-    "/build/assets/app-layout-DCvCfnNA.js",
+    "/build/assets/app-layout-EzspTEMG.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/ui/misc/wrapper.tsx": [
-    "/build/assets/app-layout-DCvCfnNA.js",
+    "/build/assets/app-layout-EzspTEMG.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/ui/sheet.tsx": [
-    "/build/assets/app-layout-DCvCfnNA.js",
+    "/build/assets/app-layout-EzspTEMG.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/ui/textarea.tsx": [
-    "/build/assets/contact-us-Doc-yVB4.js"
+    "/build/assets/contact-us-UBd_sQki.js"
   ],
   "resources/js/components/ui/toast.tsx": [
-    "/build/assets/app-layout-DCvCfnNA.js",
+    "/build/assets/app-layout-EzspTEMG.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/hooks/use-company.ts": [
-    "/build/assets/app-layout-DCvCfnNA.js",
+    "/build/assets/app-layout-EzspTEMG.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/layouts/app-layout.tsx": [
-    "/build/assets/app-layout-DCvCfnNA.js",
+    "/build/assets/app-layout-EzspTEMG.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/lib/site-stats.ts": [
-    "/build/assets/app-layout-DCvCfnNA.js",
+    "/build/assets/app-layout-EzspTEMG.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/lib/utils.ts": [
-    "/build/assets/app-layout-DCvCfnNA.js",
+    "/build/assets/app-layout-EzspTEMG.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/pages/about-us.tsx": [
-    "/build/assets/about-us-CcdTOKrg.js",
+    "/build/assets/about-us-B6rIbdQM.js",
     "/build/assets/Teemane-Boat-DihsRzVb.webp"
   ],
   "resources/js/pages/contact-us.tsx": [
-    "/build/assets/contact-us-Doc-yVB4.js"
+    "/build/assets/contact-us-UBd_sQki.js"
   ],
   "resources/js/pages/employees/index.tsx": [
-    "/build/assets/employees-Crwspahq.js"
+    "/build/assets/employees-BfnYqto4.js"
   ],
   "resources/js/pages/employees/show.tsx": [
-    "/build/assets/show-B7obEWRG.js"
+    "/build/assets/show-DW3PKmkm.js"
   ],
   "resources/js/pages/error.tsx": [
-    "/build/assets/error-DqSqw7kS.js"
+    "/build/assets/error-BKeJPMgS.js"
   ],
   "resources/js/pages/faq.tsx": [
-    "/build/assets/faq-DZZUe1rw.js"
+    "/build/assets/faq-BOy672eT.js"
   ],
   "resources/js/pages/home.tsx": [
-    "/build/assets/home-Dbb_Icet.js",
+    "/build/assets/home-BWTeFPnu.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
@@ -425,44 +417,44 @@
     "/build/assets/southernwind-z-wZje8b.webp",
     "/build/assets/harbour-work-SOMykid5.webp",
     "/build/assets/boat-launch-ByEniV5M.webp",
-    "/build/assets/blue_crane_desert_storm copy-Cxj7KxSg.webp"
+    "/build/assets/teeman_final_sky_only-apn9Nx24.png"
   ],
   "resources/js/pages/legal/privacy-policy.tsx": [
-    "/build/assets/privacy-policy-PMbH6_je.js"
+    "/build/assets/privacy-policy-CHobSUe2.js"
   ],
   "resources/js/pages/legal/terms-of-service.tsx": [
-    "/build/assets/terms-of-service-D3z9t5Rt.js"
+    "/build/assets/terms-of-service-Cek-go4r.js"
   ],
   "resources/js/pages/projects/index.tsx": [
-    "/build/assets/projects-BKkgigcW.js"
+    "/build/assets/projects-Dyl-n-HN.js"
   ],
   "resources/js/pages/projects/show.tsx": [
-    "/build/assets/show-Dx7Xk0qJ.js"
+    "/build/assets/show-DOhQkY3a.js"
   ],
   "resources/js/pages/services/index.tsx": [
-    "/build/assets/services-BBgHN8EY.js"
+    "/build/assets/services-IWP55FH5.js"
   ],
   "resources/js/pages/services/show.tsx": [
-    "/build/assets/show-DhD_mFdr.js",
+    "/build/assets/show-BBLA8iwf.js",
     "/build/assets/show-DjMxu4j7.css"
   ],
   "resources/js/pages/welcome.tsx": [
-    "/build/assets/welcome-CyeHxpqV.js"
+    "/build/assets/welcome-CUPyvB8L.js"
   ],
   "resources/js/routes/index.ts": [
-    "/build/assets/app-layout-DCvCfnNA.js",
+    "/build/assets/app-layout-EzspTEMG.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/routes/team/index.ts": [
-    "/build/assets/team-BHPqIsWL.js"
+    "/build/assets/team-BWQMSn0v.js"
   ],
   "resources/js/ssr.tsx": [],
   "resources/js/types/company.ts": [
-    "/build/assets/app-layout-DCvCfnNA.js",
+    "/build/assets/app-layout-EzspTEMG.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/wayfinder/index.ts": [
-    "/build/assets/app-layout-DCvCfnNA.js",
+    "/build/assets/app-layout-EzspTEMG.js",
     "/build/assets/logo--6nxw50_.svg"
   ]
 }

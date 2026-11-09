@@ -29,6 +29,16 @@ class ProjectsTable
                     ->sortable()
                     ->weight('bold'),
 
+                TextColumn::make('location')
+                    ->label('Location')
+                    ->searchable()
+                    ->sortable()
+                    ->placeholder('—'),
+
+                TextColumn::make('location')
+                    ->searchable()
+                    ->toggleable(),
+
                 TextColumn::make('project_date')
                     ->label('Project Date')
                     ->date('M Y')

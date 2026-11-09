@@ -9,7 +9,7 @@ import { HomeSafetyPracticesSection } from "@/components/sections/home-safety-pr
 import { HomeFieldOperationsSection } from "@/components/sections/home-field-operations-section";
 import { HomeCredentialsSection } from "@/components/sections/home-credentials-section";
 import PageSeparator from "@/components/page-separator";
-import { ProjectListItem } from "@/components/project-card";
+import { type ProjectListItem } from "@/components/project";
 import { useCompany } from "@/hooks/use-company";
 import Line2Divider from "@/components/line2-divider";
 

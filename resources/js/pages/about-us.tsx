@@ -1,7 +1,7 @@
 import { Head } from '@inertiajs/react';
 import AppLayout from '@/layouts/app-layout';
 import Wrapper from '@/components/ui/misc/wrapper';
-import {Target, ShieldCheck, Trophy, Truck, Users, Building2, Zap, Award, HardHat} from 'lucide-react';
+import {Target, ShieldCheck, Trophy, Truck, Users, Building2, Zap, Award, HardHat, Dumbbell} from 'lucide-react';
 import { FloatingStatCard } from '@/components/ui/misc/floating-stat-card';
 import SectionHeading, { SectionOverline } from '@/components/ui/misc/section-heading';
 import StatsBar from '@/components/stats-bar';
@@ -63,7 +63,7 @@ export default function AboutUs() {
                                 </div>
                                 <div className="space-y-4">
                                     <div className="size-12 bg-primary/10 text-primary flex items-center justify-center rounded-lg border border-primary/20">
-                                        <Truck className="size-6" />
+                                        <Dumbbell className="size-6" />
                                     </div>
                                     <h3 className="text-xl font-black uppercase">Massive Capacity</h3>
                                     <p className="text-muted-foreground text-sm">A modern fleet of mobile cranes with staggering capacities of up to {stats.max_capacity.tons_label || `${stats.max_capacity.value} tons`}.</p>

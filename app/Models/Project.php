@@ -169,7 +169,7 @@ class Project extends Model implements HasMedia
     protected function formattedProjectDate(): Attribute
     {
         return Attribute::make(
-            get: fn (): ?string => $this->project_date?->format('F Y'),
+            get: fn (): ?string => ($this->project_date ?? $this->created_at)?->format('F Y'),
         );
     }
 

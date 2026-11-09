@@ -9,6 +9,7 @@ import EmergencyCta from "@/components/emergency-cta";
 import { useCompany } from '@/hooks/use-company';
 
 import { usePage } from '@inertiajs/react';
+import Line2Divider from "@/components/line2-divider";
 
 interface AppLayoutProps {
     children: React.ReactNode;
@@ -58,6 +59,7 @@ export default function AppLayout({ children, title, description, image }: AppLa
             <main id={`main`} className="w-full flex-1 flex flex-col">
                 {children}
             </main>
+            <Line2Divider/>
 
             {mounted && (
                 <Suspense fallback={null}>

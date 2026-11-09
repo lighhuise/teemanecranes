@@ -32,6 +32,7 @@ class HomePageIndexController extends Controller
                             'id' => $project->id,
                             'title' => $project->title,
                             'slug' => $project->slug,
+                            'location' => $project->location,
                             'description' => $project->description,
                             'featured_image_url' => $project->featured_image_url,
                             'gallery_image_urls' => $project->gallery_image_urls,

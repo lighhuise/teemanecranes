@@ -25,6 +25,12 @@ class ProjectFactory extends Factory
         return [
             'title' => ucwords(rtrim($title, '.')),
             'slug' => Str::slug($title),
+            'location' => fake()->randomElement([
+                'Cape Town, Western Cape',
+                'Saldanha Bay, Western Cape',
+                'Bellville South, Cape Town',
+                'Port of Cape Town',
+            ]),
             'description' => fake()->paragraph(),
             'content' => '<p>'.implode('</p><p>', fake()->paragraphs(3)).'</p>',
             'gallery' => [

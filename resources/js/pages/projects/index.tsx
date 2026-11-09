@@ -4,7 +4,7 @@ import AppLayout from '@/layouts/app-layout';
 import Wrapper from '@/components/ui/misc/wrapper';
 import SectionHeading, { SectionOverline } from '@/components/ui/misc/section-heading';
 import { BackgroundText } from '@/components/ui/misc/background-text';
-import { ProjectCard, ProjectListItem } from '@/components/project-card';
+import { ProjectCard, type ProjectListItem } from '@/components/project';
 import EmergencyCta from '@/components/emergency-cta';
 import { ArrowRight, Camera, Expand, FolderGit2, Images, ShieldCheck } from 'lucide-react';
 import Lightbox from 'yet-another-react-lightbox';
@@ -92,39 +92,39 @@ export default function Index({ projects = [] }: ProjectsIndexProps) {
 
                         {/* Featured Flagship Project Showcase */}
                         {featuredProject && (
-                            <div className="mb-20 rounded-3xl border border-border/80 bg-card p-6 sm:p-8 lg:p-10 shadow-lg overflow-hidden relative">
-                                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                            <div className="mb-20 rounded-2xl border border-border bg-card p-6 sm:p-8 lg:p-9 shadow-xs overflow-hidden relative">
+                                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
                                     {/* Left Details */}
                                     <div className="lg:col-span-5 space-y-6">
-                                        <div className="flex flex-wrap items-center gap-2.5">
-                                            <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3.5 py-1.5 text-xs font-bold uppercase tracking-widest text-primary backdrop-blur-md">
-                                                <span className="size-2 rounded-full bg-primary animate-pulse" />
+                                        <div className="flex flex-wrap items-center gap-2">
+                                            <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-primary">
+                                                <span className="size-1.5 rounded-full bg-primary" />
                                                 Featured Showcase
                                             </span>
 
                                             {featuredProject.total_images && featuredProject.total_images > 0 && (
-                                                <span className="inline-flex items-center gap-1.5 rounded-full border border-border/80 bg-muted/60 px-3 py-1.5 text-xs font-bold text-foreground">
+                                                <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted/40 px-3 py-1 text-xs font-semibold text-foreground">
                                                     <Camera className="size-3.5 text-primary" />
                                                     <span>{featuredProject.total_images} High-Res Photos</span>
                                                 </span>
                                             )}
                                         </div>
 
-                                        <div>
-                                            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold uppercase tracking-tight text-foreground leading-tight">
+                                        <div className="space-y-2.5">
+                                            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tight text-foreground leading-tight">
                                                 {featuredProject.title}
                                             </h3>
                                             {featuredProject.description && (
-                                                <p className="mt-3 text-muted-foreground text-sm sm:text-base leading-relaxed line-clamp-3">
+                                                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed line-clamp-3">
                                                     {featuredProject.description}
                                                 </p>
                                             )}
                                         </div>
 
-                                        {/* Highlight specs */}
-                                        <div className="grid grid-cols-2 gap-4 pt-2 border-t border-border/60">
-                                            <div className="space-y-1">
-                                                <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+                                        {/* Hairline bordered spec cells */}
+                                        <div className="grid grid-cols-2 rounded-xl border border-border bg-muted/20 divide-x divide-border overflow-hidden">
+                                            <div className="p-3.5 space-y-1">
+                                                <span className="font-mono text-xs font-semibold uppercase tracking-wider text-muted-foreground block">
                                                     Fleet Deployment
                                                 </span>
                                                 <p className="text-xs sm:text-sm font-bold text-foreground flex items-center gap-1.5">
@@ -132,29 +132,29 @@ export default function Index({ projects = [] }: ProjectsIndexProps) {
                                                     Certified Riggers
                                                 </p>
                                             </div>
-                                            <div className="space-y-1">
-                                                <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+                                            <div className="p-3.5 space-y-1">
+                                                <span className="font-mono text-xs font-semibold uppercase tracking-wider text-muted-foreground block">
                                                     Project Gallery
                                                 </span>
                                                 <p className="text-xs sm:text-sm font-bold text-foreground flex items-center gap-1.5">
                                                     <Images className="size-4 text-primary shrink-0" />
-                                                    Full Photographic Log
+                                                    Full Photo Log
                                                 </p>
                                             </div>
                                         </div>
 
-                                        <div className="pt-2">
+                                        <div>
                                             <Link
                                                 href={`/projects/${featuredProject.slug}`}
-                                                className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wider text-xs px-7 py-3.5 shadow-md shadow-primary/20 transition-all hover:scale-105"
+                                                className="inline-flex items-center justify-center gap-2.5 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wider text-xs px-6 py-3.5 transition-colors"
                                             >
-                                                <span>Explore Case Study & Gallery</span>
+                                                <span>Explore Case Study &amp; Gallery</span>
                                                 <ArrowRight className="size-4" />
                                             </Link>
                                         </div>
                                     </div>
 
-                                    {/* Right Interactive Photo Bento */}
+                                    {/* Right Interactive Photo Bento with precision bezel frame */}
                                     <div className="lg:col-span-7">
                                         {(() => {
                                             const featuredShots = Array.from(
@@ -169,44 +169,29 @@ export default function Index({ projects = [] }: ProjectsIndexProps) {
                                             const subShots = featuredShots.slice(1, 4);
 
                                             return (
-                                                <div className="grid grid-cols-3 gap-3 sm:gap-4">
-                                                    {/* Main Hero Photo (Spans full width) */}
+                                                <div className="rounded-2xl border border-border bg-muted/30 p-1.5 grid grid-cols-3 gap-2.5 sm:gap-3">
                                                     <Link
                                                         href={`/projects/${featuredProject.slug}`}
-                                                        className="col-span-3 aspect-16/9 sm:aspect-21/9 rounded-2xl overflow-hidden relative group border border-border/80 shadow-md block"
+                                                        className={`col-span-3 ${subShots.length > 0 ? 'aspect-16/9 sm:aspect-21/9' : 'aspect-16/10'} rounded-xl overflow-hidden relative group border border-border/80 bg-muted block`}
                                                     >
                                                         <img
                                                             src={mainHeroShot}
                                                             alt={featuredProject.title}
-                                                            className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                                                            className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
                                                         />
-                                                        <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity flex items-end p-4 sm:p-6">
-                                                            <div className="flex items-center justify-between w-full">
-                                                                <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white">
-                                                                    View Primary Lift Showcase
-                                                                </span>
-                                                                <div className="size-9 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-md transform group-hover:scale-110 transition-transform">
-                                                                    <ArrowRight className="size-4" />
-                                                                </div>
-                                                            </div>
-                                                        </div>
                                                     </Link>
 
-                                                    {/* Sub Preview Tiles */}
                                                     {subShots.map((url, idx) => (
                                                         <Link
                                                             key={idx}
                                                             href={`/projects/${featuredProject.slug}`}
-                                                            className="aspect-4/3 rounded-xl overflow-hidden relative group border border-border/80 shadow-xs block"
+                                                            className="aspect-4/3 rounded-lg overflow-hidden relative group border border-border/80 bg-muted block"
                                                         >
                                                             <img
                                                                 src={url}
                                                                 alt=""
-                                                                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                                                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                                                             />
-                                                            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                                                <Expand className="size-5 text-white" />
-                                                            </div>
                                                         </Link>
                                                     ))}
                                                 </div>
@@ -234,6 +219,7 @@ export default function Index({ projects = [] }: ProjectsIndexProps) {
                                     <ProjectCard
                                         key={project.id}
                                         project={project}
+                                        variant="grid"
                                     />
                                 ))}
                             </div>

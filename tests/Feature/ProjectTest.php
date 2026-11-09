@@ -95,7 +95,12 @@ it('strictly preserves the exact order of images in main gallery and custom gall
 });
 
 it('loads the projects index page with active projects', function () {
-    Project::factory()->create(['title' => 'Active Project', 'is_active' => true]);
+    Project::factory()->create([
+        'title' => 'Active Project',
+        'location' => 'Cape Town Port',
+        'project_date' => '2026-04-15',
+        'is_active' => true,
+    ]);
     Project::factory()->create(['title' => 'Hidden Project', 'is_active' => false]);
 
     $response = $this->get('/projects');
@@ -105,6 +110,8 @@ it('loads the projects index page with active projects', function () {
         ->component('projects/index')
         ->has('projects', 1)
         ->where('projects.0.title', 'Active Project')
+        ->where('projects.0.location', 'Cape Town Port')
+        ->where('projects.0.project_date', 'April 2026')
     );
 });
 

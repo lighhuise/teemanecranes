@@ -1,12 +1,21 @@
 import { PhoneCall, AlertTriangle } from 'lucide-react';
 import Wrapper from './ui/misc/wrapper';
 import { useCompany } from '@/hooks/use-company';
+import React from "react";
 
 export default function EmergencyCta() {
     const { stats, contact } = useCompany();
 
     return (
         <section className="bg-radial-[at_50%_85%] from-primary/70 to-primary text-primary-foreground relative z-10 py-16 overflow-hidden">
+            <div
+                aria-hidden={true}
+                className="pointer-events-none absolute inset-2 border-2 border-dashed border-primary-foreground/5"
+            />
+            <div
+                aria-hidden={true}
+                className="pointer-events-none absolute inset-4 border-2 border-dashed border-primary-foreground/5"
+            />
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-20 pointer-events-none"
                  style={{
