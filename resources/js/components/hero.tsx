@@ -1,4 +1,4 @@
-    import { useEffect, useRef } from "react";
+    import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Wrapper from "@/components/ui/misc/wrapper";
@@ -9,6 +9,7 @@ import { useCompany } from "@/hooks/use-company";
 import heroMaskSvg from "@/../images/hero-mask-2.svg";
 // @ts-ignore
 import heroBgImage from "@/../images/hero-image.webp";
+    import DotPattern from "@/components/dot-pattern";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -38,6 +39,8 @@ export default function Hero() {
             ref={heroRef}
             className="relative w-full pt-0 pb-0 lg:pt-2 lg:pb-16 flex justify-center overflow-hidden"
         >
+            <DotPattern corner={`top-left`} />
+            <DotPattern corner={`top-right`} />
             {/* Mobile View: Full-bleed edge-to-edge image with top-left SVG cutout and no stats */}
             <div className="relative w-full aspect-4/5 sm:aspect-16/10 min-h-[60vh] block lg:hidden overflow-hidden">
                 <img

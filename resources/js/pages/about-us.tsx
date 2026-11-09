@@ -9,6 +9,8 @@ import { BackgroundText } from '@/components/ui/misc/background-text';
 import { useCompany } from '@/hooks/use-company';
 // @ts-ignore
 import imgBoat from '@/../images/Teemane-Boat.webp';
+import DotPattern from "@/components/dot-pattern";
+import React from "react";
 
 export default function AboutUs() {
     const { stats } = useCompany();
@@ -18,6 +20,8 @@ export default function AboutUs() {
             {/* Hero Section */}
             <div className="bg-muted/30 py-24 border-b border-border relative overflow-hidden">
                 <BackgroundText position="center">ABOUT US</BackgroundText>
+                <DotPattern corner={`top-left`} />
+                <DotPattern corner={`top-right`} />
                 <Wrapper>
                     <SectionHeading
                         label="Our Story"

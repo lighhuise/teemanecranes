@@ -7,13 +7,16 @@ import imgSafety from "@/../images/media-24-building.webp";
 import { BackgroundText } from "@/components/ui/misc/background-text";
 import SectionOverline from "@/components/ui/misc/section-overline";
 import { useCompany } from "@/hooks/use-company";
+import DotPattern from "@/components/dot-pattern";
+import React from "react";
 
 export function HomeSafetySection() {
     const { stats } = useCompany();
     return (
-        <section className="py-24 bg-background relative">
+        <section className="py-24 bg-background relative overflow-clip">
             <BackgroundText position="right">Solutions</BackgroundText>
-
+            <DotPattern corner={`bottom-left`}  />
+            <DotPattern corner={`bottom-right`}  />
             <Wrapper>
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
                     <div className="relative mb-6 lg:mb-0 order-2 lg:order-1">

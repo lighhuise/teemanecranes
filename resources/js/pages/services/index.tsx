@@ -6,6 +6,7 @@ import SectionHeading from '@/components/ui/misc/section-heading';
 import { ServiceCard } from '@/components/service-card';
 import { BackgroundText } from '@/components/ui/misc/background-text';
 import React from "react";
+import DotPattern from "@/components/dot-pattern";
 
 export default function Index({ services }: { services: any[] }) {
     return (
@@ -15,6 +16,8 @@ export default function Index({ services }: { services: any[] }) {
             <div className="bg-background selection:bg-primary selection:text-white pb-24">
                 <section className="py-24 bg-muted/30 border-b border-border relative overflow-hidden">
                     <BackgroundText position="center">SERVICES</BackgroundText>
+                    <DotPattern corner={`top-left`} />
+                    <DotPattern corner={`top-right`} />
                     <Wrapper>
                         <SectionHeading
                             label="Our Capabilities"

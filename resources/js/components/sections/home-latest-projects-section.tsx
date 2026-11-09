@@ -5,6 +5,7 @@ import Wrapper from '@/components/ui/misc/wrapper';
 import { BackgroundText } from '@/components/ui/misc/background-text';
 import SectionOverline from '@/components/ui/misc/section-overline';
 import { ProjectArchiveCard, ProjectCard, type ProjectListItem } from '@/components/project';
+import DotPattern from "@/components/dot-pattern";
 
 interface HomeLatestProjectsSectionProps {
     projects?: ProjectListItem[];
@@ -31,9 +32,10 @@ export function HomeLatestProjectsSection({ projects = [] }: HomeLatestProjectsS
     const secondaryProjects = sortedProjects.slice(1, 3);
 
     return (
-        <section className="py-24 bg-muted/30 border-y border-border relative overflow-hidden">
+        <section className="py-24 bg-muted/30 border-y border-border relative overflow-clip">
             <BackgroundText position="right">PROJECTS</BackgroundText>
-
+            <DotPattern corner={`top-left`} />
+            <DotPattern corner={`bottom-right`} />
             <Wrapper className="relative z-10">
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
                     <div className="space-y-3">
@@ -54,7 +56,7 @@ export function HomeLatestProjectsSection({ projects = [] }: HomeLatestProjectsS
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
                     {/* Primary Featured Project Card */}
-                    <div className={secondaryProjects.length > 0 ? 'lg:col-span-7' : 'lg:col-span-12'}>
+                    <div className="lg:col-span-5">
                         <ProjectCard
                             project={featuredProject}
                             variant="spotlight"
@@ -64,15 +66,13 @@ export function HomeLatestProjectsSection({ projects = [] }: HomeLatestProjectsS
                     </div>
 
                     {/* Secondary Projects / Archive Column */}
-                    {secondaryProjects.length > 0 && (
-                        <div className="lg:col-span-5 flex flex-col gap-6">
-                            {secondaryProjects.map((project) => (
-                                <ProjectCard key={project.id} project={project} variant="stack" />
-                            ))}
+                    <div className="lg:col-span-7 flex flex-col gap-6">
+                        {secondaryProjects.map((project) => (
+                            <ProjectCard key={project.id} project={project} variant="stack" />
+                        ))}
 
-                            <ProjectArchiveCard />
-                        </div>
-                    )}
+                        <ProjectArchiveCard />
+                    </div>
                 </div>
             </Wrapper>
         </section>

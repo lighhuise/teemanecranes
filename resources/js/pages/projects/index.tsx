@@ -9,6 +9,7 @@ import EmergencyCta from '@/components/emergency-cta';
 import { ArrowRight, Camera, Expand, FolderGit2, Images, ShieldCheck } from 'lucide-react';
 import Lightbox from 'yet-another-react-lightbox';
 import { useCompany } from '@/hooks/use-company';
+import DotPattern from "@/components/dot-pattern";
 
 interface ProjectsIndexProps {
     projects: ProjectListItem[];
@@ -64,6 +65,8 @@ export default function Index({ projects = [] }: ProjectsIndexProps) {
                 {/* Hero Header */}
                 <section className="py-24 bg-muted/30 border-b border-border relative overflow-hidden">
                     <BackgroundText position="center">PROJECTS</BackgroundText>
+                    <DotPattern corner={`top-left`} />
+                    <DotPattern corner={`top-right`} />
                     <Wrapper>
                         <div className="flex flex-col items-center text-center mb-16 relative py-2">
                             <SectionHeading

@@ -20,7 +20,7 @@
     "/build/assets/show-DjMxu4j7.css"
   ],
   "resources/images/525e47f7-4f4c-44ff-9f7e-a37bf34516d9.webp": [
-    "/build/assets/home-DsUarixw.js",
+    "/build/assets/home-lH34UOYa.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
@@ -37,11 +37,11 @@
     "/build/assets/IMG_0190-copy-870kN3in.webp"
   ],
   "resources/images/Teemane-Boat.webp": [
-    "/build/assets/about-us-D3FuWH2F.js",
+    "/build/assets/about-us-BPZqsXw8.js",
     "/build/assets/Teemane-Boat-DihsRzVb.webp"
   ],
   "resources/images/boat-launch.webp": [
-    "/build/assets/home-DsUarixw.js",
+    "/build/assets/home-lH34UOYa.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
@@ -53,8 +53,12 @@
     "/build/assets/boat-launch-ByEniV5M.webp",
     "/build/assets/teeman_final_sky_only-apn9Nx24.png"
   ],
+  "resources/images/dot-pattern.svg": [
+    "/build/assets/dot-pattern-Un6NlHLw.js",
+    "/build/assets/dot-pattern-sh3LOD2W.svg"
+  ],
   "resources/images/harbour-work.webp": [
-    "/build/assets/home-DsUarixw.js",
+    "/build/assets/home-lH34UOYa.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
@@ -67,7 +71,7 @@
     "/build/assets/teeman_final_sky_only-apn9Nx24.png"
   ],
   "resources/images/hero-image.webp": [
-    "/build/assets/home-DsUarixw.js",
+    "/build/assets/home-lH34UOYa.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
@@ -80,7 +84,7 @@
     "/build/assets/teeman_final_sky_only-apn9Nx24.png"
   ],
   "resources/images/hero-mask-2.svg": [
-    "/build/assets/home-DsUarixw.js",
+    "/build/assets/home-lH34UOYa.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
@@ -97,7 +101,7 @@
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/images/media-24-building.webp": [
-    "/build/assets/home-DsUarixw.js",
+    "/build/assets/home-lH34UOYa.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
@@ -110,7 +114,7 @@
     "/build/assets/teeman_final_sky_only-apn9Nx24.png"
   ],
   "resources/images/safety.png": [
-    "/build/assets/home-DsUarixw.js",
+    "/build/assets/home-lH34UOYa.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
@@ -123,7 +127,7 @@
     "/build/assets/teeman_final_sky_only-apn9Nx24.png"
   ],
   "resources/images/southern-wind-2.webp": [
-    "/build/assets/home-DsUarixw.js",
+    "/build/assets/home-lH34UOYa.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
@@ -136,7 +140,7 @@
     "/build/assets/teeman_final_sky_only-apn9Nx24.png"
   ],
   "resources/images/southernwind.webp": [
-    "/build/assets/home-DsUarixw.js",
+    "/build/assets/home-lH34UOYa.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
@@ -149,7 +153,7 @@
     "/build/assets/teeman_final_sky_only-apn9Nx24.png"
   ],
   "resources/images/teeman_final_sky_only.png": [
-    "/build/assets/home-DsUarixw.js",
+    "/build/assets/home-lH34UOYa.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
@@ -165,6 +169,10 @@
     "/build/assets/app-layout-CwY5PQ_N.js",
     "/build/assets/logo--6nxw50_.svg"
   ],
+  "resources/js/components/dot-pattern.tsx": [
+    "/build/assets/dot-pattern-Un6NlHLw.js",
+    "/build/assets/dot-pattern-sh3LOD2W.svg"
+  ],
   "resources/js/components/emergency-cta.tsx": [
     "/build/assets/app-layout-CwY5PQ_N.js",
     "/build/assets/logo--6nxw50_.svg"
@@ -177,7 +185,7 @@
     "/build/assets/welcome-v6asVxyB.js"
   ],
   "resources/js/components/hero.tsx": [
-    "/build/assets/home-DsUarixw.js",
+    "/build/assets/home-lH34UOYa.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
@@ -209,19 +217,19 @@
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/project/index.ts": [
-    "/build/assets/project-B5JILrYK.js"
+    "/build/assets/project-zHR6Madn.js"
   ],
   "resources/js/components/project/project-archive-card.tsx": [
-    "/build/assets/project-B5JILrYK.js"
+    "/build/assets/project-zHR6Madn.js"
   ],
   "resources/js/components/project/project-card.tsx": [
-    "/build/assets/project-B5JILrYK.js"
+    "/build/assets/project-zHR6Madn.js"
   ],
   "resources/js/components/project/project-meta-badges.tsx": [
-    "/build/assets/project-B5JILrYK.js"
+    "/build/assets/project-zHR6Madn.js"
   ],
   "resources/js/components/sections/home-credentials-section.tsx": [
-    "/build/assets/home-DsUarixw.js",
+    "/build/assets/home-lH34UOYa.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
@@ -234,7 +242,7 @@
     "/build/assets/teeman_final_sky_only-apn9Nx24.png"
   ],
   "resources/js/components/sections/home-field-operations-section.tsx": [
-    "/build/assets/home-DsUarixw.js",
+    "/build/assets/home-lH34UOYa.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
@@ -247,7 +255,7 @@
     "/build/assets/teeman_final_sky_only-apn9Nx24.png"
   ],
   "resources/js/components/sections/home-intro-section.tsx": [
-    "/build/assets/home-DsUarixw.js",
+    "/build/assets/home-lH34UOYa.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
@@ -260,7 +268,7 @@
     "/build/assets/teeman_final_sky_only-apn9Nx24.png"
   ],
   "resources/js/components/sections/home-latest-projects-section.tsx": [
-    "/build/assets/home-DsUarixw.js",
+    "/build/assets/home-lH34UOYa.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
@@ -273,7 +281,7 @@
     "/build/assets/teeman_final_sky_only-apn9Nx24.png"
   ],
   "resources/js/components/sections/home-safety-practices-section.tsx": [
-    "/build/assets/home-DsUarixw.js",
+    "/build/assets/home-lH34UOYa.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
@@ -286,7 +294,7 @@
     "/build/assets/teeman_final_sky_only-apn9Nx24.png"
   ],
   "resources/js/components/sections/home-safety-section.tsx": [
-    "/build/assets/home-DsUarixw.js",
+    "/build/assets/home-lH34UOYa.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
@@ -299,7 +307,7 @@
     "/build/assets/teeman_final_sky_only-apn9Nx24.png"
   ],
   "resources/js/components/sections/home-services-section.tsx": [
-    "/build/assets/home-DsUarixw.js",
+    "/build/assets/home-lH34UOYa.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
@@ -315,7 +323,7 @@
     "/build/assets/service-card-BYtspFcg.js"
   ],
   "resources/js/components/stats-bar.tsx": [
-    "/build/assets/about-us-D3FuWH2F.js",
+    "/build/assets/about-us-BPZqsXw8.js",
     "/build/assets/Teemane-Boat-DihsRzVb.webp"
   ],
   "resources/js/components/theme-provider.tsx": [
@@ -365,7 +373,7 @@
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/components/ui/textarea.tsx": [
-    "/build/assets/contact-us-hUmDNiDT.js"
+    "/build/assets/contact-us-DBdT1o6i.js"
   ],
   "resources/js/components/ui/toast.tsx": [
     "/build/assets/app-layout-CwY5PQ_N.js",
@@ -388,11 +396,11 @@
     "/build/assets/logo--6nxw50_.svg"
   ],
   "resources/js/pages/about-us.tsx": [
-    "/build/assets/about-us-D3FuWH2F.js",
+    "/build/assets/about-us-BPZqsXw8.js",
     "/build/assets/Teemane-Boat-DihsRzVb.webp"
   ],
   "resources/js/pages/contact-us.tsx": [
-    "/build/assets/contact-us-hUmDNiDT.js"
+    "/build/assets/contact-us-DBdT1o6i.js"
   ],
   "resources/js/pages/employees/index.tsx": [
     "/build/assets/employees-CGqOcUvl.js"
@@ -404,10 +412,10 @@
     "/build/assets/error-DbbHJL-c.js"
   ],
   "resources/js/pages/faq.tsx": [
-    "/build/assets/faq-Bk7LqaMU.js"
+    "/build/assets/faq-Do1_k9-I.js"
   ],
   "resources/js/pages/home.tsx": [
-    "/build/assets/home-DsUarixw.js",
+    "/build/assets/home-lH34UOYa.js",
     "/build/assets/hero-mask-2-DJkSOBdI.svg",
     "/build/assets/hero-image-K-gEb_1M.webp",
     "/build/assets/media-24-building-C-uGPsNs.webp",
@@ -426,13 +434,13 @@
     "/build/assets/terms-of-service-pCuk85zF.js"
   ],
   "resources/js/pages/projects/index.tsx": [
-    "/build/assets/projects-DTFMeDH3.js"
+    "/build/assets/projects-Hpp2QlG9.js"
   ],
   "resources/js/pages/projects/show.tsx": [
-    "/build/assets/show-JQ8xikrC.js"
+    "/build/assets/show-CadNUgTh.js"
   ],
   "resources/js/pages/services/index.tsx": [
-    "/build/assets/services-mytLTtxc.js"
+    "/build/assets/services-ByrbY_sU.js"
   ],
   "resources/js/pages/services/show.tsx": [
     "/build/assets/show-K4z2w72k.js",

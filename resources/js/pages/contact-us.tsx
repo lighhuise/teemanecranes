@@ -11,6 +11,7 @@ import { cn } from "@/lib/utils";
 import SectionHeading, { SectionOverline } from '@/components/ui/misc/section-heading';
 import { BackgroundText } from '@/components/ui/misc/background-text';
 import { useCompany } from '@/hooks/use-company';
+import DotPattern from "@/components/dot-pattern";
 
 interface HoneypotData {
     enabled: boolean;
@@ -52,6 +53,8 @@ export default function ContactUs({ flash, honeypot }: { flash: { success?: stri
 
             <div className="bg-muted/30 py-24 border-b border-border relative overflow-hidden">
                 <BackgroundText position="center">CONTACT</BackgroundText>
+                <DotPattern corner={`top-left`}  />
+                <DotPattern corner={`top-right`}  />
                 <Wrapper>
                     <SectionHeading
                         label="Get In Touch"

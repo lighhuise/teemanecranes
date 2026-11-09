@@ -36,6 +36,7 @@ export default function Home({ services, projects = [] }: HomeProps) {
             <Line2Divider/>
             <HomeLatestProjectsSection projects={projects} />
             <HomeSafetySection />
+            <Line2Divider/>
             <HomeFieldOperationsSection />
             <Line2Divider/>
             <HomeSafetyPracticesSection />

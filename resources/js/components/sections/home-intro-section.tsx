@@ -8,11 +8,14 @@ import { BackgroundText } from "@/components/ui/misc/background-text";
 import SectionOverline from "@/components/ui/misc/section-overline";
 import { useCompany } from "@/hooks/use-company";
 import React from "react";
+import DotPattern from "@/components/dot-pattern";
 
 export function HomeIntroSection() {
     const { stats } = useCompany();
     return (
-        <section className="py-24 bg-background relative">
+        <section className="py-24 bg-background relative overflow-clip">
+            <DotPattern corner={`bottom-left`} />
+            <DotPattern corner={`top-right`} />
             <BackgroundText position="left">TRUSTED</BackgroundText>
             <Wrapper className={`relative`}>
                 <div className="grid lg:grid-cols-2 gap-16 items-center">

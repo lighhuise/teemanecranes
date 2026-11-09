@@ -5,12 +5,15 @@ import { buttonVariants } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { ServiceCard } from "@/components/service-card";
 import { BackgroundText } from "@/components/ui/misc/background-text";
+import DotPattern from "@/components/dot-pattern";
+import React from "react";
 
 export function HomeServicesSection({ services }: { services: any[] }) {
     return (
-        <section className="py-24 bg-muted/30 border-y border-border relative">
+        <section className="py-24 bg-muted/30 border-y border-border relative overflow-clip">
             <BackgroundText position="center">SERVICES</BackgroundText>
-
+            <DotPattern corner={`bottom-left`} />
+            <DotPattern corner={`bottom-right`} />
             <Wrapper>
                 <SectionHeading
                     label="Our Capabilities"

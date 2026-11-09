@@ -5,11 +5,14 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { BackgroundText } from '@/components/ui/misc/background-text';
 import { HelpCircle } from 'lucide-react';
 import React from 'react';
+import DotPattern from "@/components/dot-pattern";
 
 export default function FaqPage({ faqs }: { faqs: any[] }) {
     return (
         <AppLayout title="Frequently Asked Questions - Teemane Cranes">
             <div className="bg-muted/30 py-24 border-b border-border relative overflow-hidden">
+                <DotPattern corner={`top-left`} />
+                <DotPattern corner={`top-right`} />
                 <BackgroundText position="center">FAQ</BackgroundText>
                 <Wrapper>
                     <SectionHeading
@@ -22,9 +25,10 @@ export default function FaqPage({ faqs }: { faqs: any[] }) {
                 </Wrapper>
             </div>
 
-            <section className="py-24 bg-background relative overflow-x-clip">
+            <section className="py-24 bg-background relative overflow-x-clip isolate">
                 <Wrapper className="relative z-10">
-                    <div className="max-w-3xl mx-auto">
+                    <div className="max-w-3xl mx-auto relative">
+                        <DotPattern corner={`center`} size={`2xl`}  className={`z-0 opacity-5`} />
                         {faqs.length > 0 ? (
                             <Accordion className="divide-y-0 border-b-0 space-y-3 sm:space-y-4">
                                 {faqs.map((faq, index) => {
@@ -33,7 +37,7 @@ export default function FaqPage({ faqs }: { faqs: any[] }) {
                                         <AccordionItem
                                             key={faq.id ?? index}
                                             value={`item-${faq.id ?? index}`}
-                                            className="rounded-2xl border border-border bg-card px-4 sm:px-6 py-1.5 sm:py-2 shadow-xs transition-all duration-300 hover:border-primary/30 data-open:border-primary/50 data-open:shadow-md data-open:ring-1 data-open:ring-primary/15 data-[state=open]:border-primary/50 data-[state=open]:shadow-md data-[state=open]:ring-1 data-[state=open]:ring-primary/15 last:border-b"
+                                            className="rounded-2xl z-10 border border-border  bg-card px-4 sm:px-6 py-1.5 sm:py-2 shadow-xs transition-all duration-300 hover:border-primary/30 data-open:border-primary/50 data-open:shadow-md data-open:ring-1 data-open:ring-primary/15 data-[state=open]:border-primary/50 data-[state=open]:shadow-md data-[state=open]:ring-1 data-[state=open]:ring-primary/15 last:border-b"
                                         >
                                             <AccordionTrigger className="group py-3.5 sm:py-4 hover:no-underline">
                                                 <div className="flex items-center gap-3 sm:gap-4">

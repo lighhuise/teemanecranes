@@ -73,7 +73,7 @@ export function ProjectCard({
             )}
         >
             {/* Image Plate — clean photograph with no gradient overlay or text */}
-            <div className={cn('relative overflow-hidden bg-muted', style.media)}>
+            <div className={cn('relative w-full overflow-hidden bg-muted', style.media)}>
                 <img
                     src={imageUrl}
                     alt={project.title}
