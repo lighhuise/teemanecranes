@@ -87,12 +87,7 @@ export function HomeSafetyPracticesSection() {
 
                     {/* Section 2: Dedicated Restyled Safety Protocols Accordion Section */}
             <section className="py-16 sm:py-20 lg:py-28 bg-background border-b border-border relative overflow-clip">
-                <img
-                    src={imgTeemaneSky}
-                    alt="teemanee crane"
-                    aria-hidden="true"
-                    className="pointer-events-none select-none absolute bottom-0 top-0 right-0 h-auto w-auto max-w-none object-contain object-right-bottom opacity-25 dark:opacity-20 lg:opacity-100 sm:w-[50%] lg:w-[38%] z-0 [mask-image:linear-gradient(to_right,transparent_0%,black_18%)]"
-                />
+
                 <Wrapper className="relative z-10">
                     <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
                         {/* Left Sticky Column */}

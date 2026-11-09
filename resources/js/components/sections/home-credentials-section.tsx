@@ -1,6 +1,7 @@
 import Wrapper from "@/components/ui/misc/wrapper";
 import { BadgeCheck, HardHat, FileCheck, ShieldPlus, Clock } from "lucide-react";
 import {DotPattern} from "@/components/ui/misc/dot-pattern";
+import React from "react";
 
 export function HomeCredentialsSection() {
     const credentials = [
@@ -12,9 +13,13 @@ export function HomeCredentialsSection() {
     ];
 
     return (
-        <section className="bg-radial-[at_50%_85%] from-primary/70 to-primary py-16 relative overflow-clip">
+        <section className="bg-radial-[at_50%_85%] from-primary/70 border-3 border-primary to-primary py-16 relative overflow-clip">
             <Wrapper >
                 <DotPattern className={`text-primary-foreground/30 top-0` }/>
+
+                <div aria-hidden={true} className="pointer-events-none absolute inset-2 border-2 border-dashed border-primary-foreground/10" />
+                <div aria-hidden={true} className="pointer-events-none absolute inset-4 border-2 border-dashed border-primary-foreground/10" />
+
                 <div className="grid grid-cols-2 md:grid-cols-5 gap-8 text-center">
                     {credentials.map((item) => {
                         const Icon = item.icon;

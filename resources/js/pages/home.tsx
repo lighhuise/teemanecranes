@@ -11,7 +11,7 @@ import { HomeCredentialsSection } from "@/components/sections/home-credentials-s
 import PageSeparator from "@/components/page-separator";
 import { ProjectListItem } from "@/components/project-card";
 import { useCompany } from "@/hooks/use-company";
-import LineDivider from "@/components/line-divider";
+import Line2Divider from "@/components/line2-divider";
 
 interface HomeProps {
     services: any[];
@@ -30,14 +30,14 @@ export default function Home({ services, projects = [] }: HomeProps) {
 
             <Hero />
             <HomeIntroSection />
-            <LineDivider/>
+            <Line2Divider/>
             {/*<PageSeparator/>*/}
             <HomeServicesSection services={(services || []).slice(0, 3)} />
-            <LineDivider/>
+            <Line2Divider/>
             <HomeLatestProjectsSection projects={projects} />
             <HomeSafetySection />
             <HomeFieldOperationsSection />
-            <LineDivider/>
+            <Line2Divider/>
             <HomeSafetyPracticesSection />
             <HomeCredentialsSection />
         </div>
