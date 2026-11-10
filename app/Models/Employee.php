@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Observers\EmployeeObserver;
 use App\Traits\ClearsCache;
+use App\Traits\HasAdvancedMediaConversions;
 use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -16,7 +17,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 #[ObservedBy(EmployeeObserver::class)]
 class Employee extends Model implements HasMedia
 {
-    use ClearsCache, HasFactory, InteractsWithMedia;
+    use ClearsCache, HasAdvancedMediaConversions, HasFactory, InteractsWithMedia;
 
     protected $guarded = [];
 
@@ -34,9 +35,7 @@ class Employee extends Model implements HasMedia
 
     public function registerMediaConversions(?Media $media = null): void
     {
-        $this->addMediaConversion('webp')
-            ->format('webp')
-            ->nonQueued();
+        $this->registerAdvancedMediaConversions($media);
     }
 
     public function superior(): BelongsTo

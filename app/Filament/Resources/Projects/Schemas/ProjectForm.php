@@ -2,11 +2,15 @@
 
 namespace App\Filament\Resources\Projects\Schemas;
 
+use Filament\Forms\Components\Builder;
+use Filament\Forms\Components\Builder\Block;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
+use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -153,6 +157,174 @@ class ProjectForm
                             ->cloneable()
                             ->itemLabel(fn (array $state): ?string => $state['title'] ?? 'Gallery')
                             ->columnSpanFull(),
+                    ]),
+
+                Section::make('Content Blocks')
+                    ->description('Add and reorder modular content blocks such as Marquee Dividers, Rich Text, Images, and CTAs.')
+                    ->collapsible()
+                    ->schema([
+                        Builder::make('content_blocks')
+                            ->label(false)
+                            ->reorderable()
+                            ->collapsible()
+                            ->cloneable()
+                            ->columnSpanFull()
+                            ->blocks([
+                                Block::make('line2_divider')
+                                    ->label('Line 2 Marquee Divider')
+                                    ->icon('heroicon-o-bars-2')
+                                    ->columns(2)
+                                    ->schema([
+                                        Section::make('Display & Dimensions')
+                                            ->columns(2)
+                                            ->schema([
+                                                TextInput::make('min_height')
+                                                    ->label('Min Height (px)')
+                                                    ->numeric()
+                                                    ->default(220)
+                                                    ->suffix('px')
+                                                    ->helperText('Minimum height of the divider banner in pixels.'),
+
+                                                Select::make('padding_y')
+                                                    ->label('Vertical Spacing')
+                                                    ->options([
+                                                        'compact' => 'Compact (py-8)',
+                                                        'normal' => 'Standard (py-16)',
+                                                        'spacious' => 'Spacious (py-24)',
+                                                        'huge' => 'Expanded (py-32)',
+                                                    ])
+                                                    ->default('normal'),
+
+                                                Select::make('theme_style')
+                                                    ->label('Color Theme')
+                                                    ->options([
+                                                        'primary' => 'Brand Primary (Gold Radial)',
+                                                        'dark' => 'Industrial Dark (Slate/Black)',
+                                                        'muted' => 'Subtle Muted',
+                                                    ])
+                                                    ->default('primary'),
+
+                                                Select::make('watermark_opacity')
+                                                    ->label('Marquee Text Opacity')
+                                                    ->options([
+                                                        '0.05' => '5% - Ultra Subtle',
+                                                        '0.10' => '10% - Standard',
+                                                        '0.15' => '15% - Prominent',
+                                                        '0.20' => '20% - High Contrast',
+                                                    ])
+                                                    ->default('0.10'),
+                                            ]),
+
+                                        Section::make('Centerpiece & Side Text')
+                                            ->columns(2)
+                                            ->schema([
+                                                Toggle::make('show_diamond')
+                                                    ->label('Show Central Diamond Logo')
+                                                    ->default(true),
+
+                                                Toggle::make('show_side_texts')
+                                                    ->label('Show Architectural Side Texts')
+                                                    ->default(true),
+
+                                                TextInput::make('left_text')
+                                                    ->label('Left Text')
+                                                    ->placeholder('A CUT ABOVE')
+                                                    ->default('A CUT ABOVE')
+                                                    ->maxLength(50),
+
+                                                TextInput::make('right_text')
+                                                    ->label('Right Text')
+                                                    ->placeholder('THE REST')
+                                                    ->default('THE REST')
+                                                    ->maxLength(50),
+                                            ]),
+
+                                        Section::make('Ticker & Animation Effects')
+                                            ->columns(2)
+                                            ->schema([
+                                                TextInput::make('velocity')
+                                                    ->label('Scroll Velocity (Speed)')
+                                                    ->numeric()
+                                                    ->default(45)
+                                                    ->helperText('Speed of background scrolling text.'),
+
+                                                Toggle::make('show_beam')
+                                                    ->label('Show Animated Light Beam')
+                                                    ->default(true),
+
+                                                Toggle::make('show_dots')
+                                                    ->label('Show Technical Dot Grid')
+                                                    ->default(true),
+
+                                                Toggle::make('show_dashed_borders')
+                                                    ->label('Show Dashed Precision Insets')
+                                                    ->default(true),
+
+                                                TagsInput::make('velocity_texts')
+                                                    ->label('Background Watermark Ticker Phrases')
+                                                    ->placeholder('Type phrase and press Enter')
+                                                    ->default(['TEEMANE CRANES', 'A CUT ABOVE THE REST'])
+                                                    ->helperText('Phrases that scroll continuously in the background.')
+                                                    ->columnSpanFull(),
+                                            ]),
+                                    ]),
+
+                                Block::make('rich_text')
+                                    ->label('Rich Text')
+                                    ->icon('heroicon-o-document-text')
+                                    ->schema([
+                                        RichEditor::make('content')
+                                            ->label('Content')
+                                            ->required()
+                                            ->columnSpanFull(),
+
+                                        Select::make('max_width')
+                                            ->label('Content Max Width')
+                                            ->options([
+                                                'max-w-3xl' => 'Small (3xl)',
+                                                'max-w-4xl' => 'Medium (4xl)',
+                                                'max-w-5xl' => 'Large (5xl)',
+                                                'max-w-none' => 'None (Default)',
+                                            ])
+                                            ->default('max-w-none')
+                                            ->columnSpanFull(),
+
+                                        Toggle::make('darker_background')
+                                            ->label('Slightly Darker Background')
+                                            ->default(false)
+                                            ->columnSpanFull(),
+                                    ]),
+
+                                Block::make('cta')
+                                    ->label('Call to Action')
+                                    ->icon('heroicon-o-cursor-arrow-rays')
+                                    ->schema([
+                                        TextInput::make('heading')
+                                            ->label('Heading')
+                                            ->required()
+                                            ->maxLength(255),
+
+                                        Textarea::make('text')
+                                            ->label('Supporting text')
+                                            ->rows(3)
+                                            ->columnSpanFull(),
+
+                                        TextInput::make('button_label')
+                                            ->label('Button label')
+                                            ->required()
+                                            ->maxLength(100),
+
+                                        TextInput::make('button_url')
+                                            ->label('Button URL')
+                                            ->url()
+                                            ->required(),
+
+                                        Toggle::make('darker_background')
+                                            ->label('Slightly Darker Background')
+                                            ->default(false)
+                                            ->columnSpanFull(),
+                                    ]),
+                            ]),
                     ]),
             ]);
     }

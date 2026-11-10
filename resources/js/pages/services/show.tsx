@@ -15,17 +15,39 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import Lightbox from "yet-another-react-lightbox";
 import { BackgroundText } from '@/components/ui/misc/background-text';
+import { ProjectGalleryView, type ProjectImageItem } from '@/components/project';
+import { cn } from '@/lib/utils';
+import DotPattern from "@/components/dot-pattern";
+import Line2Divider from '@/components/line2-divider';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-interface RichTextBlock  { type: 'rich_text';  data: { content: string; max_width?: string; darker_background?: boolean } }
-interface ImageBlock     { type: 'image';      data: { image: string; image_url: string; caption?: string; alt?: string; darker_background?: boolean } }
-interface GalleryBlock   { type: 'gallery';    data: { images: string[]; image_urls: string[]; caption?: string; darker_background?: boolean; heading?: string; subheading?: string; description?: string; } }
-interface VideoBlock     { type: 'video';      data: { url: string; caption?: string; darker_background?: boolean; heading?: string; subheading?: string; description?: string; } }
-interface CtaBlock       { type: 'cta';        data: { heading: string; text?: string; button_label: string; button_url: string; darker_background?: boolean } }
-interface MediaTextBlock { type: 'media_text'; data: { heading?: string; subheading?: string; content?: string; button_label?: string; button_url?: string; images: string[]; image_urls?: string[]; image_position: 'left' | 'right'; stat_card_value?: string; stat_card_label?: string; darker_background?: boolean; } }
+interface RichTextBlock        { type: 'rich_text';     data: { content: string; max_width?: string; darker_background?: boolean } }
+interface ImageBlock           { type: 'image';         data: { image: string; image_url: string; image_meta?: ProjectImageItem | null; caption?: string; alt?: string; darker_background?: boolean } }
+interface GalleryBlock         { type: 'gallery';       data: { images: string[]; image_urls: string[]; images_meta?: ProjectImageItem[]; caption?: string; darker_background?: boolean; heading?: string; subheading?: string; description?: string; } }
+interface VideoBlock           { type: 'video';         data: { url: string; caption?: string; darker_background?: boolean; heading?: string; subheading?: string; description?: string; } }
+interface CtaBlock             { type: 'cta';           data: { heading: string; text?: string; button_label: string; button_url: string; darker_background?: boolean } }
+interface MediaTextBlock       { type: 'media_text';    data: { heading?: string; subheading?: string; content?: string; button_label?: string; button_url?: string; images: string[]; image_urls?: string[]; images_meta?: ProjectImageItem[]; image_position: 'left' | 'right'; stat_card_value?: string; stat_card_label?: string; darker_background?: boolean; } }
+interface Line2DividerBlock    {
+    type: 'line2_divider';
+    data: {
+        show_diamond?: boolean;
+        show_side_texts?: boolean;
+        show_dashed_borders?: boolean;
+        show_beam?: boolean;
+        show_dots?: boolean;
+        left_text?: string | null;
+        right_text?: string | null;
+        velocity?: number | string;
+        velocity_texts?: string[];
+        min_height?: number | string;
+        padding_y?: string;
+        theme_style?: string;
+        watermark_opacity?: number | string;
+    };
+}
 
-type ContentBlock = RichTextBlock | ImageBlock | GalleryBlock | VideoBlock | CtaBlock | MediaTextBlock;
+type ContentBlock = RichTextBlock | ImageBlock | GalleryBlock | VideoBlock | CtaBlock | MediaTextBlock | Line2DividerBlock;
 
 interface Service {
     id: number;
@@ -34,6 +56,8 @@ interface Service {
     short_description: string | null;
     description: string | null;
     featured_image_url: string | null;
+    featured_image_orientation?: 'portrait' | 'landscape' | 'square' | null;
+    featured_image_aspect_ratio?: number | null;
     content_blocks: ContentBlock[];
 }
 
@@ -76,15 +100,26 @@ function RichTextRenderer({ data }: { data: RichTextBlock['data'] }) {
 }
 
 function ImageRenderer({ data }: { data: ImageBlock['data'] }) {
+    const meta = data.image_meta;
     return (
-        <figure className="overflow-hidden rounded-lg">
-            <img
-                src={data.image_url}
-                alt={data.alt ?? ''}
-                className="w-full object-cover rounded-lg"
-            />
+        <figure className="overflow-hidden rounded-2xl border border-border/80 bg-card p-2 sm:p-3">
+            <div
+                className="relative w-full overflow-hidden bg-card flex items-center justify-center rounded-xl"
+                style={{
+                    aspectRatio: meta?.aspect_ratio
+                        ? `${meta.aspect_ratio}`
+                        : (meta?.orientation === 'portrait' ? '3/4' : '16/9'),
+                }}
+            >
+                <img
+                    src={data.image_url}
+                    alt={data.alt ?? ''}
+                    className="w-full h-full object-contain rounded-xl"
+                    loading="lazy"
+                />
+            </div>
             {data.caption && (
-                <figcaption className="text-center text-sm text-muted-foreground mt-3 italic">
+                <figcaption className="text-center text-sm text-muted-foreground mt-3 italic font-medium">
                     {data.caption}
                 </figcaption>
             )}
@@ -94,50 +129,44 @@ function ImageRenderer({ data }: { data: ImageBlock['data'] }) {
 
 function GalleryRenderer({ data }: { data: GalleryBlock['data'] }) {
     const [lightbox, setLightbox] = useState<number | null>(null);
-    const urls = data.image_urls ?? [];
+    const items: ProjectImageItem[] = (data.images_meta && data.images_meta.length > 0)
+        ? data.images_meta
+        : (data.image_urls ?? []).map((url) => ({
+            url,
+            orientation: 'landscape' as const,
+            aspect_ratio: 1.778,
+        }));
 
-    const slides = urls.map(url => ({ src: url }));
+    const slides = items.map((item) => ({ src: item.url }));
 
     return (
-        <div className="space-y-12">
+        <div className="space-y-10">
             {(data.heading || data.subheading || data.description) && (
                 <SectionHeading align="left" label={data.subheading} title={data.heading}>
                     {data.description && <p className="whitespace-pre-wrap">{data.description}</p>}
                 </SectionHeading>
             )}
             <figure>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
-                    {urls.map((url, i) => (
-                        <button
-                            key={i}
-                            type="button"
-                            onClick={() => setLightbox(i)}
-                            className="aspect-square overflow-hidden rounded-2xl relative group border border-border bg-muted cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300 hover:scale-[1.01] hover:shadow-xl"
-                        >
-                            <img
-                                src={url}
-                                alt={`Service Gallery Photo #${i + 1}`}
-                                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-106"
-                                loading="lazy"
-                            />
+                <ProjectGalleryView
+                    images={items}
+                    projectTitle={data.heading || 'Service Gallery'}
+                    onImageClick={(idx) => setLightbox(idx)}
+                />
 
-                        </button>
-                    ))}
-                </div>
-            {data.caption && (
-                <figcaption className="text-center text-sm text-muted-foreground mt-3 italic">
-                    {data.caption}
-                </figcaption>
-            )}
+                {data.caption && (
+                    <figcaption className="text-center text-sm text-muted-foreground mt-4 italic font-medium">
+                        {data.caption}
+                    </figcaption>
+                )}
 
-            {/* Lightbox */}
-            <Lightbox
-                open={lightbox !== null}
-                close={() => setLightbox(null)}
-                index={lightbox ?? 0}
-                slides={slides}
-            />
-        </figure>
+                {/* Lightbox */}
+                <Lightbox
+                    open={lightbox !== null}
+                    close={() => setLightbox(null)}
+                    index={lightbox ?? 0}
+                    slides={slides}
+                />
+            </figure>
         </div>
     );
 }
@@ -216,7 +245,7 @@ function MediaTextRenderer({ data }: { data: MediaTextBlock['data'] }) {
             {/* Text Content */}
             <div className="flex-1 min-w-0 w-full space-y-6">
                 {(data.heading || data.subheading) && (
-                    <SectionHeading align={`left`} label={data.subheading} title={data.heading}/>
+                    <SectionHeading align="left" label={data.subheading} title={data.heading}/>
                 )}
                 {data.content && (
                     <div className="prose prose-neutral dark:prose-invert max-w-none text-muted-foreground
@@ -235,16 +264,19 @@ function MediaTextRenderer({ data }: { data: MediaTextBlock['data'] }) {
                 )}
             </div>
 
-            {/* Media Content */}
-            <div className="flex-1 min-w-0 w-full relative group">
-                <div className="w-full aspect-square rounded-2xl overflow-hidden shadow-xl relative">
+            {/* Media Content - Uncropped 100% full view */}
+            <div className="flex-1 min-w-0 w-full relative group overflow-clip">
+                <DotPattern corner="top-left" />
+                <DotPattern corner="top-right" />
+
+                <div className="w-full rounded-2xl overflow-hidden shadow-xl border border-border/80 bg-card relative">
                     {hasMultiple ? (
                         <Swiper
                             modules={[Navigation, Pagination]}
                             navigation
                             pagination={{ clickable: true }}
                             loop={true}
-                            className="w-full aspect-square"
+                            className="w-full aspect-4/3 sm:aspect-16/10"
                             style={{
                                 '--swiper-theme-color': 'var(--primary)',
                                 '--swiper-navigation-size': '24px',
@@ -255,16 +287,18 @@ function MediaTextRenderer({ data }: { data: MediaTextBlock['data'] }) {
                             } as React.CSSProperties}
                         >
                             {urls.map((url, i) => (
-                                <SwiperSlide key={i}>
-                                    <img src={url} alt="" className="w-full aspect-square object-cover" />
+                                <SwiperSlide key={i} className="flex items-center justify-center bg-card">
+                                    <img src={url} alt="" className="w-full h-full object-contain" />
                                 </SwiperSlide>
                             ))}
                         </Swiper>
                     ) : urls.length === 1 ? (
-                        <img src={urls[0]} alt="" className="w-full aspect-square object-cover" />
+                        <div className="w-full aspect-4/3 sm:aspect-16/10 flex items-center justify-center bg-card">
+                            <img src={urls[0]} alt="" className="w-full h-full object-contain" />
+                        </div>
                     ) : (
-                        <div className="w-full aspect-square bg-muted flex items-center justify-center">
-                            <span className="text-muted-foreground text-sm uppercase tracking-widest">No Image</span>
+                        <div className="w-full aspect-4/3 sm:aspect-16/10 bg-muted flex items-center justify-center">
+                            <span className="text-muted-foreground text-sm uppercase tracking-widest font-mono">No Image</span>
                         </div>
                     )}
                 </div>
@@ -281,15 +315,36 @@ function MediaTextRenderer({ data }: { data: MediaTextBlock['data'] }) {
     );
 }
 
+function Line2DividerRenderer({ data }: { data: Line2DividerBlock['data'] }) {
+    return (
+        <Line2Divider
+            showDiamond={data.show_diamond ?? true}
+            showSideTexts={data.show_side_texts ?? true}
+            showDashedBorders={data.show_dashed_borders ?? true}
+            showBeam={data.show_beam ?? true}
+            showDots={data.show_dots ?? true}
+            leftText={data.left_text}
+            rightText={data.right_text}
+            velocity={data.velocity ? Number(data.velocity) : 45}
+            velocityTexts={data.velocity_texts && data.velocity_texts.length > 0 ? data.velocity_texts : undefined}
+            minHeight={data.min_height}
+            paddingY={data.padding_y}
+            themeStyle={data.theme_style}
+            watermarkOpacity={data.watermark_opacity}
+        />
+    );
+}
+
 function ContentBlock({ block }: { block: ContentBlock }) {
     switch (block.type) {
-        case 'rich_text': return <RichTextRenderer data={block.data} />;
-        case 'image':     return <ImageRenderer data={block.data} />;
-        case 'gallery':   return <GalleryRenderer data={block.data} />;
-        case 'video':     return <VideoRenderer data={block.data} />;
-        case 'cta':       return <CtaRenderer data={block.data} />;
-        case 'media_text':return <MediaTextRenderer data={block.data} />;
-        default:          return null;
+        case 'rich_text':     return <RichTextRenderer data={block.data} />;
+        case 'image':         return <ImageRenderer data={block.data} />;
+        case 'gallery':       return <GalleryRenderer data={block.data} />;
+        case 'video':         return <VideoRenderer data={block.data} />;
+        case 'cta':           return <CtaRenderer data={block.data} />;
+        case 'media_text':    return <MediaTextRenderer data={block.data} />;
+        case 'line2_divider': return <Line2DividerRenderer data={block.data} />;
+        default:              return null;
     }
 }
 
@@ -300,32 +355,30 @@ export default function Show({ service }: { service: Service }) {
 
     return (
         <AppLayout
-            title={service.title}
+            title={`${service.title} - Services - Teemane Cranes`}
             description={service.short_description || service.description?.substring(0, 160)}
             image={service.featured_image_url || undefined}
         >
-            {/* Hero */}
-            <div className="relative border-b border-border bg-muted/20 overflow-hidden">
+            {/* Hero Header — zero ambient blur, orientation-aware uncropped display */}
+            <div className="relative border-b border-border bg-muted/20 overflow-hidden py-16 lg:py-24">
                 <BackgroundText position="center">SERVICE</BackgroundText>
-                {service.featured_image_url && (
-                    <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
-                        <img
-                            src={service.featured_image_url}
-                            alt=""
-                            className="w-full h-full object-cover opacity-20  blur-xs"
-                        />
-                    </div>
-                )}
-                <Wrapper className="relative py-24 z-10">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-                        <div>
+                <DotPattern corner="top-left" />
+                <DotPattern corner="top-right" />
+
+                <Wrapper className="relative z-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+                        <div className={cn(
+                            "space-y-6",
+                            service.featured_image_orientation === 'portrait' ? "lg:col-span-6" : "lg:col-span-5"
+                        )}>
                             <Link
                                 href="/services"
-                                className="inline-flex items-center text-sm font-bold tracking-widest uppercase text-muted-foreground hover:text-primary mb-8 transition-colors gap-2"
+                                className="inline-flex items-center text-sm font-bold tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors gap-2"
                             >
                                 <ArrowLeft className="h-4 w-4" />
                                 Back to Services
                             </Link>
+
                             <SectionHeading
                                 label="Service Profile"
                                 title={service.title}
@@ -334,7 +387,7 @@ export default function Show({ service }: { service: Service }) {
                             >
                                 {service.description && (
                                     <div
-                                        className="prose prose-sm sm:prose lg:prose-lg xl:prose-xl max-w-none dark:prose-invert text-muted-foreground"
+                                        className="prose prose-sm sm:prose lg:prose-lg max-w-none dark:prose-invert text-muted-foreground"
                                         dangerouslySetInnerHTML={{ __html: service.description }}
                                     />
                                 )}
@@ -342,12 +395,29 @@ export default function Show({ service }: { service: Service }) {
                         </div>
 
                         {service.featured_image_url && (
-                            <div className="relative w-full aspect-4/3 rounded-2xl overflow-hidden shadow-2xl">
-                                <img
-                                    src={service.featured_image_url}
-                                    alt={service.title}
-                                    className="w-full h-full object-cover"
-                                />
+                            <div className={cn(
+                                "flex items-center justify-center",
+                                service.featured_image_orientation === 'portrait' ? "lg:col-span-6" : "lg:col-span-7"
+                            )}>
+                                <div className={cn(
+                                    "relative w-full rounded-2xl overflow-hidden shadow-2xl border-2 border-border/80 bg-card",
+                                    service.featured_image_orientation === 'portrait' ? "max-w-md mx-auto lg:ml-auto" : "w-full"
+                                )}>
+                                    <div
+                                        className="relative w-full overflow-hidden bg-card flex items-center justify-center"
+                                        style={{
+                                            aspectRatio: service.featured_image_aspect_ratio
+                                                ? `${service.featured_image_aspect_ratio}`
+                                                : (service.featured_image_orientation === 'portrait' ? '3/4' : '16/9'),
+                                        }}
+                                    >
+                                        <img
+                                            src={service.featured_image_url}
+                                            alt={service.title}
+                                            className="w-full h-full object-contain"
+                                        />
+                                    </div>
+                                </div>
                             </div>
                         )}
                     </div>
@@ -358,7 +428,11 @@ export default function Show({ service }: { service: Service }) {
             {hasBlocks && (
                 <div className="flex flex-col">
                     {service.content_blocks.map((block, i) => {
-                        const isDark = block.data.darker_background;
+                        if (block.type === 'line2_divider') {
+                            return <Line2DividerRenderer key={i} data={block.data} />;
+                        }
+
+                        const isDark = (block as any).data?.darker_background;
 
                         return (
                             <section key={i} className={`w-full py-24 ${isDark ? 'bg-muted border-y border-border' : ''}`}>

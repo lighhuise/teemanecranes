@@ -34,7 +34,7 @@ export default function Home({ services, projects = [] }: HomeProps) {
             {/*<PageSeparator/>*/}
             <HomeServicesSection services={(services || []).slice(0, 3)} />
             <Line2Divider/>
-            <HomeLatestProjectsSection projects={projects} />
+            {/*<HomeLatestProjectsSection projects={projects} />*/}
             <HomeSafetySection />
             <Line2Divider/>
             <HomeFieldOperationsSection />

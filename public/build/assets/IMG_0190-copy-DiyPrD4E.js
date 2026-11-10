@@ -1,1 +1,0 @@
-var e=`/build/assets/IMG_0190-copy-870kN3in.webp`;export{e as t};

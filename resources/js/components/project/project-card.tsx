@@ -27,23 +27,23 @@ interface ProjectCardVariantStyles {
 
 const variantStyles: Record<ProjectCardVariant, ProjectCardVariantStyles> = {
     spotlight: {
-        card: 'min-h-[520px] sm:min-h-[600px] h-full',
-        media: 'min-h-[380px] sm:min-h-[460px] flex-1',
-        content: 'gap-2.5 p-5 sm:p-6',
-        title: 'text-2xl sm:text-3xl',
+        card: 'flex flex-col',
+        media: 'aspect-16/10',
+        content: 'gap-3 p-5 sm:p-6',
+        title: 'text-xl sm:text-2xl lg:text-3xl',
         meta: 'default',
     },
     stack: {
-        card: 'min-h-[320px] sm:min-h-[360px] flex-1',
-        media: 'min-h-[220px] sm:min-h-[260px] flex-1',
-        content: 'gap-1.5 px-5 py-4',
+        card: 'flex flex-col',
+        media: 'aspect-16/9',
+        content: 'gap-2 px-5 py-4',
         title: 'text-lg sm:text-xl',
         meta: 'compact',
     },
     grid: {
-        card: 'min-h-[380px] sm:min-h-[420px] h-full',
-        media: 'min-h-[280px] sm:min-h-[320px] flex-1',
-        content: 'gap-2 p-5',
+        card: 'flex flex-col h-full',
+        media: 'aspect-16/10',
+        content: 'gap-2 p-5 flex-1 justify-between',
         title: 'text-xl sm:text-2xl',
         meta: 'default',
     },
@@ -52,6 +52,7 @@ const variantStyles: Record<ProjectCardVariant, ProjectCardVariantStyles> = {
 export function ProjectCard({
     project,
     variant = 'grid',
+    label,
     className,
 }: ProjectCardProps) {
     const style = variantStyles[variant];
@@ -61,6 +62,16 @@ export function ProjectCard({
         project.gallery_image_urls?.[0] ||
         project.galleries_with_urls?.[0]?.image_urls?.[0] ||
         fallbackImage;
+
+    const orientation = project.featured_image_orientation || 'landscape';
+    const mediaAspectClass =
+        variant === 'spotlight'
+            ? 'aspect-16/10 sm:aspect-16/9 max-h-[460px]'
+            : orientation === 'portrait'
+              ? (variant === 'stack' ? 'aspect-[4/5]' : 'aspect-[4/5]')
+              : orientation === 'square'
+                ? 'aspect-square'
+                : style.media;
 
     return (
         <Link
@@ -72,13 +83,16 @@ export function ProjectCard({
                 className,
             )}
         >
-            {/* Image Plate — clean photograph with no gradient overlay or text */}
-            <div className={cn('relative w-full overflow-hidden bg-muted', style.media)}>
+            {/* Image Plate — 100% full uncropped photograph */}
+            <div
+                className={cn('relative w-full overflow-hidden bg-card flex items-center justify-center', mediaAspectClass)}
+                style={project.featured_image_aspect_ratio ? { aspectRatio: `${project.featured_image_aspect_ratio}` } : undefined}
+            >
                 <img
                     src={imageUrl}
                     alt={project.title}
                     loading="lazy"
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    className="h-full w-full object-contain transition-transform duration-700 ease-out group-hover:scale-102"
                 />
             </div>
 
@@ -89,6 +103,15 @@ export function ProjectCard({
                     style.content,
                 )}
             >
+                {label && (
+                    <div className="flex items-center gap-2">
+                        <span className="size-2 rounded-full bg-primary animate-pulse" />
+                        <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-primary">
+                            {label}
+                        </span>
+                    </div>
+                )}
+
                 <h3
                     className={cn(
                         'leading-tight font-black tracking-tight text-card-foreground uppercase transition-colors duration-300 group-hover:text-primary',
@@ -97,6 +120,12 @@ export function ProjectCard({
                 >
                     {project.title}
                 </h3>
+
+                {variant === 'spotlight' && project.description && (
+                    <p className="text-xs sm:text-sm text-muted-foreground line-clamp-2 leading-relaxed">
+                        {project.description}
+                    </p>
+                )}
 
                 <ProjectMetaBadges project={project} size={style.meta} />
             </div>

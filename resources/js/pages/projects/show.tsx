@@ -4,18 +4,63 @@ import AppLayout from '@/layouts/app-layout';
 import Wrapper from '@/components/ui/misc/wrapper';
 import SectionHeading, { SectionOverline } from '@/components/ui/misc/section-heading';
 import { BackgroundText } from '@/components/ui/misc/background-text';
-import { ProjectCard, type ProjectListItem } from '@/components/project';
+import { ProjectCard, ProjectGalleryView, type ProjectListItem, type ProjectImageItem, type ImageOrientation } from '@/components/project';
 import PageSeparator from '@/components/page-separator';
 import EmergencyCta from '@/components/emergency-cta';
 import { ArrowLeft, ArrowRight, Calendar, Clock, Expand, HardHat, Images, Phone, ShieldCheck, Wrench } from 'lucide-react';
 import Lightbox from 'yet-another-react-lightbox';
+import { cn } from '@/lib/utils';
+import DotPattern from "@/components/dot-pattern";
+import Line2Divider from '@/components/line2-divider';
 
 interface GalleryItem {
     title: string;
     description: string | null;
     images: string[];
     image_urls: string[];
+    images_meta?: ProjectImageItem[];
 }
+
+interface Line2DividerBlock {
+    type: 'line2_divider';
+    data: {
+        show_diamond?: boolean;
+        show_side_texts?: boolean;
+        show_dashed_borders?: boolean;
+        show_beam?: boolean;
+        show_dots?: boolean;
+        left_text?: string | null;
+        right_text?: string | null;
+        velocity?: number | string;
+        velocity_texts?: string[];
+        min_height?: number | string;
+        padding_y?: string;
+        theme_style?: string;
+        watermark_opacity?: number | string;
+    };
+}
+
+interface RichTextBlock {
+    type: 'rich_text';
+    data: {
+        content: string;
+        max_width?: string;
+        darker_background?: boolean;
+    };
+}
+
+interface CtaBlock {
+    type: 'cta';
+    data: {
+        heading: string;
+        text?: string;
+        button_label: string;
+        button_url: string;
+        darker_background?: boolean;
+    };
+}
+
+type ProjectContentBlock = Line2DividerBlock | RichTextBlock | CtaBlock | { type: string; data: any };
 
 interface ProjectDetail {
     id: number;
@@ -23,8 +68,12 @@ interface ProjectDetail {
     slug: string;
     description: string | null;
     content: string | null;
+    content_blocks?: ProjectContentBlock[];
     featured_image_url: string | null;
+    featured_image_orientation?: ImageOrientation | null;
+    featured_image_aspect_ratio?: number | null;
     gallery_image_urls: string[];
+    gallery_images?: ProjectImageItem[];
     galleries_with_urls: GalleryItem[];
     video_url?: string | null;
     embed_video_url?: string | null;
@@ -48,9 +97,23 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
         imageIndex: number;
     } | null>(null);
 
-    const mainSlides = (project.gallery_image_urls ?? []).map((url) => ({ src: url }));
+    // Normalize main gallery images with orientation metadata
+    const mainGalleryItems: ProjectImageItem[] = React.useMemo(() => {
+        if (project.gallery_images && project.gallery_images.length > 0) {
+            return project.gallery_images;
+        }
+        return (project.gallery_image_urls ?? []).map((url) => ({
+            url,
+            orientation: 'landscape' as const,
+            aspect_ratio: 1.77,
+        }));
+    }, [project.gallery_images, project.gallery_image_urls]);
 
-    const hasMainGallery = (project.gallery_image_urls ?? []).length > 0;
+    const mainSlides = React.useMemo(() => {
+        return mainGalleryItems.map((item) => ({ src: item.url }));
+    }, [mainGalleryItems]);
+
+    const hasMainGallery = mainGalleryItems.length > 0;
     const hasCustomGalleries = (project.galleries_with_urls ?? []).length > 0;
 
     return (
@@ -61,9 +124,8 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
         >
             {/* Hero Header */}
             <div className="relative overflow-hidden border-b border-border bg-muted/30 py-16 lg:py-24">
-              {/* Background Dot Matrix Texture */}
-              <div className="absolute inset-0 bg-[radial-gradient(oklch(0.469_0.113_242.6/0.14)_1.5px,transparent_1.5px)] bg-[size:24px_24px] pointer-events-none opacity-80" />
-              <div className="absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-background to-transparent pointer-events-none" />
+                <DotPattern corner={`top-left`} />
+                <DotPattern corner={`top-right`} />
 
               <Wrapper className="relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -99,20 +161,29 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
                     </div>
                   </div>
 
-                  {/* Enlarged Image Display */}
-                  <div className="lg:col-span-7">
+                  {/* Enlarged Image Display - Orientation Aware */}
+                  <div className={cn(
+                    "lg:col-span-7",
+                    project.featured_image_orientation === 'portrait' ? "lg:col-span-6 lg:col-start-7" : "lg:col-span-7"
+                  )}>
                     {project.featured_image_url && (
-                      <div className="rounded-2xl overflow-hidden shadow-2xl border-2 border-border/80 bg-card">
-                        <div className="relative aspect-16/10 lg:aspect-4/3 overflow-hidden bg-muted">
+                      <div className={cn(
+                        "rounded-2xl overflow-hidden shadow-2xl border-2 border-border/80 bg-card",
+                        project.featured_image_orientation === 'portrait' && "max-w-md mx-auto lg:ml-auto"
+                      )}>
+                        <div
+                          className="relative overflow-hidden bg-card flex items-center justify-center"
+                          style={{
+                            aspectRatio: project.featured_image_aspect_ratio
+                              ? `${project.featured_image_aspect_ratio}`
+                              : (project.featured_image_orientation === 'portrait' ? '3/4' : '16/9'),
+                          }}
+                        >
                           <img
                             src={project.featured_image_url}
                             alt={project.title}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-contain"
                           />
-                        </div>
-                        <div className="flex items-center justify-between px-5 py-3 border-t border-border/80 bg-card text-xs font-bold uppercase text-foreground font-mono">
-                          <span>REF: {project.slug.toUpperCase()}</span>
-                          <span className="text-primary font-bold">LIVE EXECUTION</span>
                         </div>
                       </div>
                     )}
@@ -121,23 +192,17 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
               </Wrapper>
             </div>
 
-            {/* Cinematic Letterbox Page Divider directly under Overview */}
-            <section className="relative isolate overflow-hidden h-52 sm:h-64 w-full border-y border-border bg-black">
-                <img
-                    src={project.featured_image_url || undefined}
-                    alt=""
-                    aria-hidden="true"
-                    className="absolute inset-0 h-full w-full object-cover opacity-50 mix-blend-luminosity filter contrast-125"
-                />
-                <div className="absolute inset-0 bg-linear-to-r from-primary/80 via-primary/40 to-primary/80" />
-                <Wrapper className="relative z-10 h-full flex items-center justify-between">
+            {/* Field Log Operational Status Divider */}
+            <section className="relative isolate overflow-hidden py-5 w-full border-y border-border bg-card">
+                <div className="absolute inset-0 bg-primary/5 pointer-events-none" />
+                <Wrapper className="relative z-10 flex items-center justify-between">
                     <div className="flex items-center gap-3">
                         <span className="size-2 rounded-full bg-primary animate-pulse" />
-                        <span className="text-xs sm:text-sm font-mono font-bold uppercase tracking-[0.25em] text-white">
+                        <span className="text-xs sm:text-sm font-mono font-bold uppercase tracking-[0.25em] text-foreground">
                             // FIELD LOG : SITE OPERATIONS
                         </span>
                     </div>
-                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/20 bg-white/10 text-xs font-bold text-white uppercase tracking-wider backdrop-blur-xs">
+                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-border bg-muted/60 text-xs font-bold text-foreground uppercase tracking-wider">
                         <span>Project Documentation Below</span>
                         <span className="text-primary font-bold">↓</span>
                     </div>
@@ -189,6 +254,79 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
                 </section>
             )}
 
+            {/* Modular Content Blocks (including Line 2 Marquee Divider) */}
+            {project.content_blocks && project.content_blocks.length > 0 && (
+                <div className="flex flex-col">
+                    {project.content_blocks.map((block, i) => {
+                        if (block.type === 'line2_divider') {
+                            const d = block.data || {};
+                            return (
+                                <Line2Divider
+                                    key={i}
+                                    showDiamond={d.show_diamond ?? true}
+                                    showSideTexts={d.show_side_texts ?? true}
+                                    showDashedBorders={d.show_dashed_borders ?? true}
+                                    showBeam={d.show_beam ?? true}
+                                    showDots={d.show_dots ?? true}
+                                    leftText={d.left_text}
+                                    rightText={d.right_text}
+                                    velocity={d.velocity ? Number(d.velocity) : 45}
+                                    velocityTexts={d.velocity_texts && d.velocity_texts.length > 0 ? d.velocity_texts : undefined}
+                                    minHeight={d.min_height}
+                                    paddingY={d.padding_y}
+                                    themeStyle={d.theme_style}
+                                    watermarkOpacity={d.watermark_opacity}
+                                />
+                            );
+                        }
+
+                        if (block.type === 'rich_text') {
+                            const d = block.data || {};
+                            const maxWidthClass = d.max_width || 'max-w-none';
+                            return (
+                                <section key={i} className={`w-full py-20 ${d.darker_background ? 'bg-muted border-y border-border' : 'bg-background'}`}>
+                                    <Wrapper>
+                                        <div
+                                            className={`prose prose-lg dark:prose-invert mx-auto ${maxWidthClass} prose-headings:font-black prose-headings:uppercase prose-a:text-primary`}
+                                            dangerouslySetInnerHTML={{ __html: d.content }}
+                                        />
+                                    </Wrapper>
+                                </section>
+                            );
+                        }
+
+                        if (block.type === 'cta') {
+                            const d = block.data || {};
+                            return (
+                                <section key={i} className={`w-full py-16 ${d.darker_background ? 'bg-muted border-y border-border' : 'bg-background'}`}>
+                                    <Wrapper>
+                                        <div className="bg-muted/40 border border-border rounded-xl p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                                            <div className="flex-1">
+                                                <h3 className="text-2xl font-black tracking-tight text-foreground uppercase mb-2">
+                                                    {d.heading}
+                                                </h3>
+                                                {d.text && (
+                                                    <p className="text-muted-foreground leading-relaxed">{d.text}</p>
+                                                )}
+                                            </div>
+                                            <a
+                                                href={d.button_url}
+                                                className="shrink-0 inline-flex items-center gap-2 bg-linear-to-r from-primary to-primary/70 hover:from-primary/90 hover:to-primary text-primary-foreground font-bold tracking-widest uppercase text-sm px-6 py-3 rounded-lg shadow-sm hover:shadow transition-all"
+                                            >
+                                                {d.button_label}
+                                                <ArrowRight className="size-4" />
+                                            </a>
+                                        </div>
+                                    </Wrapper>
+                                </section>
+                            );
+                        }
+
+                        return null;
+                    })}
+                </div>
+            )}
+
             {/* Main Image Gallery */}
             {hasMainGallery && (
                 <section className="py-20 bg-muted/30 border-b border-border">
@@ -201,53 +339,16 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
                                 </>
                             }
                             align="left"
-                            className="mb-12"
+                            className="mb-10"
                         >
                             High-resolution photography from the site lift operations and rigging phases.
                         </SectionHeading>
 
-                        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-                            {project.gallery_image_urls.map((url, idx) => {
-                                const totalImgs = project.gallery_image_urls.length;
-                                const isHero = totalImgs >= 4 && idx === 0;
-                                const isWide = totalImgs >= 4 && idx === 3;
-
-                                return (
-                                    <button
-                                        key={idx}
-                                        type="button"
-                                        onClick={() => setMainLightboxIndex(idx)}
-                                        className={`group relative overflow-hidden rounded-2xl border border-border bg-muted cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300 hover:scale-[1.01] hover:shadow-xl ${
-                                            isHero
-                                                ? 'col-span-2 row-span-2 min-h-[280px] sm:min-h-[420px]'
-                                                : isWide
-                                                  ? 'col-span-2 aspect-16/9'
-                                                  : 'aspect-4/3'
-                                        }`}
-                                    >
-                                        <img
-                                            src={url}
-                                            alt={`${project.title} - Site Photography #${idx + 1}`}
-                                            className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-106"
-                                            loading="lazy"
-                                        />
-
-                                        {/* Persistent Sequence / Order Pill */}
-                                        <div className="absolute top-3 left-3 z-10 pointer-events-none">
-                                            <span className="inline-flex items-center gap-1.5 rounded-md border border-white/20 bg-black/70 px-2.5 py-1 text-[11px] font-mono font-bold uppercase tracking-wider text-white backdrop-blur-xs shadow-xs">
-                                                Photo #{String(idx + 1).padStart(2, '0')}
-                                            </span>
-                                        </div>
-
-                                        <div className="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                                            <div className="size-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg translate-y-1 group-hover:translate-y-0 transition-transform">
-                                                <Expand className="size-4" />
-                                            </div>
-                                        </div>
-                                    </button>
-                                );
-                            })}
-                        </div>
+                        <ProjectGalleryView
+                            images={mainGalleryItems}
+                            projectTitle={project.title}
+                            onImageClick={(idx) => setMainLightboxIndex(idx)}
+                        />
 
                         <Lightbox
                             open={mainLightboxIndex !== null}
@@ -263,7 +364,14 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
             {hasCustomGalleries && (
                 <div className="flex flex-col">
                     {project.galleries_with_urls.map((gallery, gIdx) => {
-                        const slides = (gallery.image_urls ?? []).map((url) => ({ src: url }));
+                        const galleryItems: ProjectImageItem[] = (gallery.images_meta && gallery.images_meta.length > 0)
+                            ? gallery.images_meta
+                            : (gallery.image_urls ?? []).map((url) => ({
+                                url,
+                                orientation: 'landscape' as const,
+                                aspect_ratio: 1.77,
+                            }));
+                        const slides = galleryItems.map((item) => ({ src: item.url }));
                         const isOpen = customLightbox?.galleryIndex === gIdx;
 
                         return (
@@ -290,53 +398,16 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
                                             )}
                                         </div>
 
-                                        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-                                            {(gallery.image_urls ?? []).map((url, imgIdx) => {
-                                                const totalImgs = (gallery.image_urls ?? []).length;
-                                                const isHero = totalImgs >= 4 && imgIdx === 0;
-                                                const isWide = totalImgs >= 4 && imgIdx === 3;
-
-                                                return (
-                                                    <button
-                                                        key={imgIdx}
-                                                        type="button"
-                                                        onClick={() =>
-                                                            setCustomLightbox({
-                                                                galleryIndex: gIdx,
-                                                                imageIndex: imgIdx,
-                                                            })
-                                                        }
-                                                        className={`group relative overflow-hidden rounded-2xl border border-border bg-muted cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-300 hover:scale-[1.01] hover:shadow-xl ${
-                                                            isHero
-                                                                ? 'col-span-2 row-span-2 min-h-[280px] sm:min-h-[420px]'
-                                                                : isWide
-                                                                  ? 'col-span-2 aspect-16/9'
-                                                                  : 'aspect-4/3'
-                                                        }`}
-                                                    >
-                                                        <img
-                                                            src={url}
-                                                            alt={`${gallery.title} - Photography #${imgIdx + 1}`}
-                                                            className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-106"
-                                                            loading="lazy"
-                                                        />
-
-                                                        {/* Persistent Sequence / Order Pill */}
-                                                        <div className="absolute top-3 left-3 z-10 pointer-events-none">
-                                                            <span className="inline-flex items-center gap-1.5 rounded-md border border-white/20 bg-black/70 px-2.5 py-1 text-[11px] font-mono font-bold uppercase tracking-wider text-white backdrop-blur-xs shadow-xs">
-                                                                Photo #{String(imgIdx + 1).padStart(2, '0')}
-                                                            </span>
-                                                        </div>
-
-                                                        <div className="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                                                            <div className="size-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg translate-y-1 group-hover:translate-y-0 transition-transform">
-                                                                <Expand className="size-4" />
-                                                            </div>
-                                                        </div>
-                                                    </button>
-                                                );
-                                            })}
-                                        </div>
+                                        <ProjectGalleryView
+                                            images={galleryItems}
+                                            projectTitle={gallery.title}
+                                            onImageClick={(imgIdx) =>
+                                                setCustomLightbox({
+                                                    galleryIndex: gIdx,
+                                                    imageIndex: imgIdx,
+                                                })
+                                            }
+                                        />
 
                                         <Lightbox
                                             open={isOpen}

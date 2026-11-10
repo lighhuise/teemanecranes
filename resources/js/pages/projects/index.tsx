@@ -4,12 +4,15 @@ import AppLayout from '@/layouts/app-layout';
 import Wrapper from '@/components/ui/misc/wrapper';
 import SectionHeading, { SectionOverline } from '@/components/ui/misc/section-heading';
 import { BackgroundText } from '@/components/ui/misc/background-text';
-import { ProjectCard, type ProjectListItem } from '@/components/project';
+import { ProjectCard, ProjectGalleryView, type ProjectListItem, type ProjectImageItem } from '@/components/project';
+// @ts-ignore
+import { BalancedMasonryGrid, Frame } from '@masonry-grid/react';
 import EmergencyCta from '@/components/emergency-cta';
 import { ArrowRight, Camera, Expand, FolderGit2, Images, ShieldCheck } from 'lucide-react';
 import Lightbox from 'yet-another-react-lightbox';
 import { useCompany } from '@/hooks/use-company';
 import DotPattern from "@/components/dot-pattern";
+import { cn } from '@/lib/utils';
 
 interface ProjectsIndexProps {
     projects: ProjectListItem[];
@@ -34,15 +37,37 @@ export default function Index({ projects = [] }: ProjectsIndexProps) {
     // Featured flagship project (first in the list)
     const featuredProject = sortedProjects.length > 0 ? sortedProjects[0] : null;
 
-    // Collect all unique gallery photos across projects for the Field Photography showcase
+    // Collect all unique gallery photos across projects for the Field Photography showcase with orientation
     const allGalleryShots = sortedProjects
         .flatMap((p) => {
+            const items = [
+                ...(p.gallery_images || []),
+                ...(p.galleries_with_urls?.flatMap((g) => g.images_meta || []) || []),
+            ];
+
+            if (items.length > 0) {
+                return items.map((item) => ({
+                    src: item.url,
+                    orientation: item.orientation || 'landscape',
+                    aspect_ratio: item.aspect_ratio,
+                    width: item.width,
+                    height: item.height,
+                    projectTitle: p.title,
+                    projectSlug: p.slug,
+                }));
+            }
+
             const urls = [
                 ...(p.gallery_image_urls || []),
                 ...(p.galleries_with_urls?.flatMap((g) => g.image_urls) || []),
             ];
+
             return urls.map((url) => ({
                 src: url,
+                orientation: 'landscape' as const,
+                aspect_ratio: 1.77,
+                width: null,
+                height: null,
                 projectTitle: p.title,
                 projectSlug: p.slug,
             }));
@@ -52,7 +77,7 @@ export default function Index({ projects = [] }: ProjectsIndexProps) {
                 item.src &&
                 self.findIndex((other) => other.src === item.src) === index
         )
-        .slice(0, 8);
+        .slice(0, 16);
 
     const lightboxSlides = allGalleryShots.map((s) => ({ src: s.src }));
 
@@ -157,8 +182,8 @@ export default function Index({ projects = [] }: ProjectsIndexProps) {
                                         </div>
                                     </div>
 
-                                    {/* Right Interactive Photo Bento with precision bezel frame */}
-                                    <div className="lg:col-span-7">
+                                    {/* Right Interactive Photo Showcase that fully fills container */}
+                                    <div className="lg:col-span-7 w-full h-full">
                                         {(() => {
                                             const featuredShots = Array.from(
                                                 new Set([
@@ -170,33 +195,75 @@ export default function Index({ projects = [] }: ProjectsIndexProps) {
 
                                             const mainHeroShot = featuredShots[0];
                                             const subShots = featuredShots.slice(1, 4);
+                                            const isHeroPortrait = featuredProject.featured_image_orientation === 'portrait';
+
+                                            if (isHeroPortrait && subShots.length > 0) {
+                                                return (
+                                                    <div className="rounded-2xl border border-border bg-muted/30 p-2 grid grid-cols-3 gap-2.5 sm:gap-3 h-full min-h-[380px] sm:min-h-[460px]">
+                                                        {/* Tall Hero Shot filling 2 columns */}
+                                                        <Link
+                                                            href={`/projects/${featuredProject.slug}`}
+                                                            className="col-span-2 h-full min-h-[340px] rounded-xl overflow-hidden relative group border border-border/80 bg-card block shadow-2xs"
+                                                        >
+                                                            <img
+                                                                src={mainHeroShot}
+                                                                alt={featuredProject.title}
+                                                                className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                                                            />
+                                                        </Link>
+
+                                                        {/* Stacked Sub-shots filling 1 column */}
+                                                        <div className="col-span-1 flex flex-col gap-2.5 sm:gap-3 h-full justify-between">
+                                                            {subShots.slice(0, 2).map((url, idx) => (
+                                                                <Link
+                                                                    key={idx}
+                                                                    href={`/projects/${featuredProject.slug}`}
+                                                                    className="flex-1 min-h-[160px] rounded-xl overflow-hidden relative group border border-border/80 bg-card block shadow-2xs"
+                                                                >
+                                                                    <img
+                                                                        src={url}
+                                                                        alt=""
+                                                                        className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                                                                    />
+                                                                </Link>
+                                                            ))}
+                                                        </div>
+                                                    </div>
+                                                );
+                                            }
 
                                             return (
-                                                <div className="rounded-2xl border border-border bg-muted/30 p-1.5 grid grid-cols-3 gap-2.5 sm:gap-3">
+                                                <div className="rounded-2xl border border-border bg-muted/30 p-2 flex flex-col gap-2.5 sm:gap-3 h-full">
+                                                    {/* Main Hero Shot filling full width */}
                                                     <Link
                                                         href={`/projects/${featuredProject.slug}`}
-                                                        className={`col-span-3 ${subShots.length > 0 ? 'aspect-16/9 sm:aspect-21/9' : 'aspect-16/10'} rounded-xl overflow-hidden relative group border border-border/80 bg-muted block`}
+                                                        className={`w-full ${subShots.length > 0 ? 'aspect-16/10 sm:aspect-16/9' : 'aspect-16/10 lg:aspect-4/3 min-h-[360px]'} rounded-xl overflow-hidden relative group border border-border/80 bg-card block shadow-2xs`}
                                                     >
                                                         <img
                                                             src={mainHeroShot}
                                                             alt={featuredProject.title}
-                                                            className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                                                            className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                                                         />
                                                     </Link>
 
-                                                    {subShots.map((url, idx) => (
-                                                        <Link
-                                                            key={idx}
-                                                            href={`/projects/${featuredProject.slug}`}
-                                                            className="aspect-4/3 rounded-lg overflow-hidden relative group border border-border/80 bg-muted block"
-                                                        >
-                                                            <img
-                                                                src={url}
-                                                                alt=""
-                                                                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                                            />
-                                                        </Link>
-                                                    ))}
+                                                    {/* Sub-shots row filling full width */}
+                                                    {subShots.length > 0 && (
+                                                        <div className="grid grid-cols-3 gap-2.5 sm:gap-3">
+                                                            {subShots.map((url, idx) => (
+                                                                <Link
+                                                                    key={idx}
+                                                                    href={`/projects/${featuredProject.slug}`}
+                                                                    className="aspect-4/3 rounded-xl overflow-hidden relative group border border-border/80 bg-card block shadow-2xs"
+                                                                >
+                                                                    <img
+                                                                        src={url}
+                                                                        alt=""
+                                                                        className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                                                                    />
+                                                                </Link>
+                                                            ))}
+                                                        </div>
+                                                    )}
                                                 </div>
                                             );
                                         })()}
@@ -215,17 +282,28 @@ export default function Index({ projects = [] }: ProjectsIndexProps) {
                             </div>
                         )}
 
-                        {/* Projects Card Grid */}
+                        {/* Projects Masonry Grid */}
                         {sortedProjects.length > 0 ? (
-                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                                {sortedProjects.map((project) => (
-                                    <ProjectCard
-                                        key={project.id}
-                                        project={project}
-                                        variant="grid"
-                                    />
-                                ))}
-                            </div>
+                            <BalancedMasonryGrid frameWidth={320} gap={24}>
+                                {sortedProjects.map((project) => {
+                                    const isPortrait = project.featured_image_orientation === 'portrait';
+                                    const isSquare = project.featured_image_orientation === 'square';
+                                    const imgRatio = project.featured_image_aspect_ratio
+                                        ? project.featured_image_aspect_ratio
+                                        : (isPortrait ? 0.75 : isSquare ? 1.0 : 1.5);
+                                    const cardHeight = Math.round(1000 / imgRatio) + 360;
+
+                                    return (
+                                        <Frame key={project.id} width={1000} height={cardHeight}>
+                                            <ProjectCard
+                                                project={project}
+                                                variant="grid"
+                                                className="h-full w-full"
+                                            />
+                                        </Frame>
+                                    );
+                                })}
+                            </BalancedMasonryGrid>
                         ) : (
                             <div className="max-w-md mx-auto text-center py-16 px-6 bg-card border border-border rounded-2xl shadow-xs">
                                 <div className="size-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-6 text-primary">
@@ -259,50 +337,18 @@ export default function Index({ projects = [] }: ProjectsIndexProps) {
                                 A visual log of recent mobile crane lifts, shipyard rigging, and heavy transport operations captured live in the field.
                             </SectionHeading>
 
-                            {/* Responsive Bento Mosaic */}
-                            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-                                {allGalleryShots.map((shot, idx) => {
-                                    // Make first image large (2 columns and 2 rows on medium+) when 4+ items exist
-                                    const isHeroTile = allGalleryShots.length >= 4 && idx === 0;
-                                    const isWideTile = allGalleryShots.length >= 4 && idx === 3;
-
-                                    return (
-                                        <button
-                                            key={idx}
-                                            type="button"
-                                            onClick={() => setLightboxIndex(idx)}
-                                            className={`group relative overflow-hidden rounded-2xl border border-border bg-muted cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:shadow-xl focus:outline-hidden focus:ring-2 focus:ring-primary ${
-                                                isHeroTile
-                                                    ? 'col-span-2 row-span-2 min-h-[280px] sm:min-h-[360px]'
-                                                    : isWideTile
-                                                      ? 'col-span-2 aspect-16/9'
-                                                      : 'aspect-4/3'
-                                            }`}
-                                        >
-                                            <img
-                                                src={shot.src}
-                                                alt={`${shot.projectTitle} - Photo #${idx + 1}`}
-                                                className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
-                                                loading="lazy"
-                                            />
-
-                                            {/* Persistent Sequence / Order Pill */}
-                                            <div className="absolute top-3 left-3 z-10 pointer-events-none">
-                                                <span className="inline-flex items-center gap-1.5 rounded-md border border-white/20 bg-black/70 px-2.5 py-1 text-[11px] font-mono font-bold uppercase tracking-wider text-white backdrop-blur-xs shadow-xs">
-                                                    Photo #{String(idx + 1).padStart(2, '0')}
-                                                </span>
-                                            </div>
-
-                                            {/* Hover Expand Button (No Gradient Overlay) */}
-                                            <div className="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                                                <div className="size-9 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg translate-y-1 group-hover:translate-y-0 transition-transform">
-                                                    <Expand className="size-4" />
-                                                </div>
-                                            </div>
-                                        </button>
-                                    );
-                                })}
-                            </div>
+                            {/* Masonry Field Operations Gallery */}
+                            <ProjectGalleryView
+                                images={allGalleryShots.map((shot) => ({
+                                    url: shot.src,
+                                    orientation: shot.orientation,
+                                    aspect_ratio: shot.aspect_ratio,
+                                    width: shot.width,
+                                    height: shot.height,
+                                }))}
+                                projectTitle="Field Operations"
+                                onImageClick={(idx) => setLightboxIndex(idx)}
+                            />
 
                             <Lightbox
                                 open={lightboxIndex !== null}

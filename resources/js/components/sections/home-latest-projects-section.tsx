@@ -54,25 +54,26 @@ export function HomeLatestProjectsSection({ projects = [] }: HomeLatestProjectsS
                     </Link>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
-                            {/* Primary Featured Project Card */}
-                    <div className="lg:col-span-5">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
+                    {/* Primary Featured Project Card */}
+                    <div className={secondaryProjects.length > 0 ? "lg:col-span-7" : "lg:col-span-12"}>
                         <ProjectCard
                             project={featuredProject}
                             variant="spotlight"
                             label="Latest Operation"
-                            className="h-full"
                         />
                     </div>
 
                     {/* Secondary Projects / Archive Column */}
-                    <div className="lg:col-span-7 flex flex-col gap-6">
-                        {secondaryProjects.map((project) => (
-                            <ProjectCard key={project.id} project={project} variant="stack" />
-                        ))}
+                    {secondaryProjects.length > 0 && (
+                        <div className="lg:col-span-5 flex flex-col gap-6">
+                            {secondaryProjects.map((project) => (
+                                <ProjectCard key={project.id} project={project} variant="stack" />
+                            ))}
 
-                        <ProjectArchiveCard />
-                    </div>
+                            <ProjectArchiveCard />
+                        </div>
+                    )}
                 </div>
             </Wrapper>
         </section>
