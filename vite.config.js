@@ -27,6 +27,9 @@ export default defineConfig({
             '@': fileURLToPath(new URL('./resources/js', import.meta.url))
         }
     },
+    optimizeDeps: {
+        include: ['motion/react'],
+    },
     server: {
         watch: {
             ignored: ['**/storage/framework/views/**'],

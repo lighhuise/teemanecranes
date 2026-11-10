@@ -24,6 +24,12 @@ function Line2Divider({
     children,
     ...props
 }: LineDividerProps) {
+    const [isMounted, setIsMounted] = React.useState(false);
+
+    React.useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
     return (
         <div
             // aria-hidden={children ? undefined : true}
@@ -46,19 +52,25 @@ function Line2Divider({
                 aria-hidden="true"
                 className="pointer-events-none select-none absolute inset-x-0 top-1/2 -translate-y-1/2 text-primary-foreground opacity-[0.10]"
             >
-                <ScrollVelocity
-                    texts={velocityTexts}
-                    velocity={velocity}
-                    damping={50}
-                    stiffness={400}
-                    numCopies={6}
-                    skewWithVelocity={4}
-                    outlineAlternate={true}
-                    fadeEdges={true}
-                    gap={48}
-                    separator="◆"
-                    scrollerClassName="font-heading !text-[7.5vw] sm:!text-[6vw] xl:!text-[84px] !leading-[1.05] !font-black uppercase !tracking-tighter !drop-shadow-none"
-                />
+                {isMounted ? (
+                    <ScrollVelocity
+                        texts={velocityTexts}
+                        velocity={velocity}
+                        damping={50}
+                        stiffness={400}
+                        numCopies={6}
+                        skewWithVelocity={4}
+                        outlineAlternate={true}
+                        fadeEdges={true}
+                        gap={48}
+                        separator="◆"
+                        scrollerClassName="font-heading !text-[7.5vw] sm:!text-[6vw] xl:!text-[84px] !leading-[1.05] !font-black uppercase !tracking-tighter !drop-shadow-none"
+                    />
+                ) : (
+                    <div className="text-center font-heading text-[11vw] xl:text-[140px] font-black uppercase tracking-tighter leading-none whitespace-nowrap">
+                        TEEMANE CRANES
+                    </div>
+                )}
             </div>
 
             <div

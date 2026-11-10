@@ -129,6 +129,7 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
                     aria-hidden="true"
                     className="absolute inset-0 h-full w-full object-cover opacity-50 mix-blend-luminosity filter contrast-125"
                 />
+                <div className="absolute inset-0 bg-linear-to-r from-primary/80 via-primary/40 to-primary/80" />
                 <Wrapper className="relative z-10 h-full flex items-center justify-between">
                     <div className="flex items-center gap-3">
                         <span className="size-2 rounded-full bg-primary animate-pulse" />
