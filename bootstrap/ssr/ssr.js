@@ -24,7 +24,7 @@ var renderPage = (page) => createInertiaApp({
 		"./pages/employees/show.tsx": () => import("./assets/show-iiRIVqb8.js"),
 		"./pages/error.tsx": () => import("./assets/error-CqT03XLx.js"),
 		"./pages/faq.tsx": () => import("./assets/faq-CG2z4ayU.js"),
-		"./pages/home.tsx": () => import("./assets/home-C6jowkoV.js"),
+		"./pages/home.tsx": () => import("./assets/home-bJRmuOmE.js"),
 		"./pages/legal/privacy-policy.tsx": () => import("./assets/privacy-policy-CeQ63H9k.js"),
 		"./pages/legal/terms-of-service.tsx": () => import("./assets/terms-of-service-QZa51RrI.js"),
 		"./pages/projects/index.tsx": () => import("./assets/projects-D6Y-7dli.js"),

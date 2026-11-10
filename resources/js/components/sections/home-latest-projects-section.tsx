@@ -29,7 +29,7 @@ export function HomeLatestProjectsSection({ projects = [] }: HomeLatestProjectsS
     }, [projects]);
 
     const featuredProject = sortedProjects[0];
-    const secondaryProjects = sortedProjects.slice(1, 3);
+    const secondaryProjects = sortedProjects.slice(1, 2);
 
     return (
         <section className="py-24 bg-muted/30 border-y border-border relative overflow-clip">
