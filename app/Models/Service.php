@@ -34,9 +34,10 @@ class Service extends Model implements HasMedia
     {
         return Attribute::make(
             get: function (): ?string {
-                $url = $this->getFirstMediaUrl('featured_image', 'thumb')
+                $url = $this->getFirstMediaUrl('featured_image', 'large')
                     ?: $this->getFirstMediaUrl('featured_image', 'webp')
-                    ?: $this->getFirstMediaUrl('featured_image');
+                    ?: $this->getFirstMediaUrl('featured_image')
+                    ?: $this->getFirstMediaUrl('featured_image', 'thumb');
 
                 if (! $url && $this->image) {
                     $url = str_starts_with($this->image, 'http')
@@ -58,6 +59,11 @@ class Service extends Model implements HasMedia
     public function registerMediaConversions(?Media $media = null): void
     {
         $this->addMediaConversion('webp')
+            ->format('webp')
+            ->nonQueued();
+
+        $this->addMediaConversion('large')
+            ->width(1920)
             ->format('webp')
             ->nonQueued();
 

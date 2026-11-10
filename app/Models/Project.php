@@ -49,9 +49,10 @@ class Project extends Model implements HasMedia
     {
         return Attribute::make(
             get: function (): ?string {
-                $url = $this->getFirstMediaUrl('featured_image', 'thumb')
+                $url = $this->getFirstMediaUrl('featured_image', 'large')
                     ?: $this->getFirstMediaUrl('featured_image', 'webp')
-                    ?: $this->getFirstMediaUrl('featured_image');
+                    ?: $this->getFirstMediaUrl('featured_image')
+                    ?: $this->getFirstMediaUrl('featured_image', 'thumb');
 
                 if (! $url && ! empty($this->gallery) && is_array($this->gallery)) {
                     $orderedGallery = array_values(array_filter($this->gallery));
@@ -190,6 +191,11 @@ class Project extends Model implements HasMedia
     public function registerMediaConversions(?Media $media = null): void
     {
         $this->addMediaConversion('webp')
+            ->format('webp')
+            ->nonQueued();
+
+        $this->addMediaConversion('large')
+            ->width(1920)
             ->format('webp')
             ->nonQueued();
 

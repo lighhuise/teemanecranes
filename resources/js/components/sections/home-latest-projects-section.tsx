@@ -55,7 +55,7 @@ export function HomeLatestProjectsSection({ projects = [] }: HomeLatestProjectsS
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
-                    {/* Primary Featured Project Card */}
+                            {/* Primary Featured Project Card */}
                     <div className="lg:col-span-5">
                         <ProjectCard
                             project={featuredProject}
