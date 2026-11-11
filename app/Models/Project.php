@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Listeners\ProcessMediaMetadata;
 use App\Traits\ClearsCache;
 use App\Traits\HasAdvancedMediaConversions;
 use Database\Factories\ProjectFactory;
@@ -118,8 +119,13 @@ class Project extends Model implements HasMedia
         return Attribute::make(
             get: function (): string {
                 $media = $this->getFirstMedia('featured_image');
-                if ($media && $media->hasCustomProperty('orientation')) {
-                    return (string) $media->getCustomProperty('orientation');
+                if ($media) {
+                    if (! $media->hasCustomProperty('orientation') || ! $media->hasCustomProperty('aspect_ratio')) {
+                        ProcessMediaMetadata::process($media);
+                    }
+                    if ($media->hasCustomProperty('orientation')) {
+                        return (string) $media->getCustomProperty('orientation');
+                    }
                 }
 
                 if (! empty($this->gallery) && is_array($this->gallery)) {
@@ -135,15 +141,20 @@ class Project extends Model implements HasMedia
     }
 
     /**
-     * Resolve the featured image aspect ratio.
+     * Resolve the featured image aspect ratio dynamically.
      */
     protected function featuredImageAspectRatio(): Attribute
     {
         return Attribute::make(
-            get: function (): float {
+            get: function (): ?float {
                 $media = $this->getFirstMedia('featured_image');
-                if ($media && $media->hasCustomProperty('aspect_ratio')) {
-                    return (float) $media->getCustomProperty('aspect_ratio');
+                if ($media) {
+                    if (! $media->hasCustomProperty('aspect_ratio') || ! $media->hasCustomProperty('orientation')) {
+                        ProcessMediaMetadata::process($media);
+                    }
+                    if ($media->hasCustomProperty('aspect_ratio')) {
+                        return (float) $media->getCustomProperty('aspect_ratio');
+                    }
                 }
 
                 if (! empty($this->gallery) && is_array($this->gallery)) {
@@ -153,7 +164,7 @@ class Project extends Model implements HasMedia
                     }
                 }
 
-                return 1.778;
+                return null;
             },
         );
     }
@@ -173,6 +184,9 @@ class Project extends Model implements HasMedia
                 $mediaItems = $this->getMedia('gallery')->sortBy('order_column');
                 if ($mediaItems->isNotEmpty()) {
                     foreach ($mediaItems as $media) {
+                        if (! $media->hasCustomProperty('aspect_ratio') || ! $media->hasCustomProperty('orientation')) {
+                            ProcessMediaMetadata::process($media);
+                        }
                         $url = $media->getUrl('large') ?: $media->getUrl('webp') ?: $media->getUrl();
                         $orientation = $media->getCustomProperty('orientation') ?? 'landscape';
                         $aspectRatio = (float) ($media->getCustomProperty('aspect_ratio') ?? 1.333);

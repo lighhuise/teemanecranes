@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils';
 import fallbackImage from '@/../images/IMG_0190-copy.webp';
 import { ProjectMetaBadges } from './project-meta-badges';
 import type { ProjectListItem } from './types';
+import { useImageAspectRatio } from '@/hooks/use-image-aspect-ratio';
 
 export type ProjectCardVariant = 'spotlight' | 'stack' | 'grid';
 
@@ -15,6 +16,7 @@ interface ProjectCardProps {
     /** Optional gallery flag kept for API compatibility. */
     showGallery?: boolean;
     className?: string;
+    onAspectRatioChange?: (ratio: number) => void;
 }
 
 interface ProjectCardVariantStyles {
@@ -54,6 +56,7 @@ export function ProjectCard({
     variant = 'grid',
     label,
     className,
+    onAspectRatioChange,
 }: ProjectCardProps) {
     const style = variantStyles[variant];
 
@@ -63,7 +66,18 @@ export function ProjectCard({
         project.galleries_with_urls?.[0]?.image_urls?.[0] ||
         fallbackImage;
 
-    const orientation = project.featured_image_orientation || 'landscape';
+    const {
+        orientation: dynamicOrientation,
+        imgRef,
+        handleLoad,
+        containerStyle,
+    } = useImageAspectRatio({
+        initialAspectRatio: project.featured_image_aspect_ratio,
+        initialOrientation: project.featured_image_orientation,
+        onDimensionsChange: ({ aspectRatio }) => onAspectRatioChange?.(aspectRatio),
+    });
+
+    const orientation = dynamicOrientation || project.featured_image_orientation || 'landscape';
     const mediaAspectClass =
         variant === 'spotlight'
             ? 'aspect-16/10 sm:aspect-16/9 max-h-[460px]'
@@ -83,16 +97,18 @@ export function ProjectCard({
                 className,
             )}
         >
-            {/* Image Plate — 100% full uncropped photograph */}
+            {/* Image Plate — 100% full uncropped photograph with dynamic aspect ratio */}
             <div
-                className={cn('relative w-full overflow-hidden bg-card flex items-center justify-center', mediaAspectClass)}
-                style={project.featured_image_aspect_ratio ? { aspectRatio: `${project.featured_image_aspect_ratio}` } : undefined}
+                className={cn('relative w-full overflow-hidden bg-card flex items-center justify-center', !containerStyle && mediaAspectClass)}
+                style={containerStyle}
             >
                 <img
+                    ref={imgRef}
                     src={imageUrl}
                     alt={project.title}
                     loading="lazy"
-                    className="h-full w-full object-contain transition-transform duration-700 ease-out group-hover:scale-102"
+                    onLoad={handleLoad}
+                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-102"
                 />
             </div>
 

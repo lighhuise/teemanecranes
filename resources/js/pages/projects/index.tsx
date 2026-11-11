@@ -18,6 +18,28 @@ interface ProjectsIndexProps {
     projects: ProjectListItem[];
 }
 
+function ProjectGridFrameItem({ project }: { project: ProjectListItem }) {
+    const isPortrait = project.featured_image_orientation === 'portrait';
+    const isSquare = project.featured_image_orientation === 'square';
+    const initialRatio = project.featured_image_aspect_ratio
+        ? project.featured_image_aspect_ratio
+        : (isPortrait ? 0.75 : isSquare ? 1.0 : 1.5);
+
+    const [imgRatio, setImgRatio] = useState(initialRatio);
+    const cardHeight = Math.round(1000 / imgRatio) + 360;
+
+    return (
+        <Frame width={1000} height={cardHeight}>
+            <ProjectCard
+                project={project}
+                variant="grid"
+                className="h-full w-full"
+                onAspectRatioChange={(ratio) => setImgRatio(ratio)}
+            />
+        </Frame>
+    );
+}
+
 export default function Index({ projects = [] }: ProjectsIndexProps) {
     const { stats } = useCompany();
     const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
@@ -285,24 +307,9 @@ export default function Index({ projects = [] }: ProjectsIndexProps) {
                         {/* Projects Masonry Grid */}
                         {sortedProjects.length > 0 ? (
                             <BalancedMasonryGrid frameWidth={320} gap={24}>
-                                {sortedProjects.map((project) => {
-                                    const isPortrait = project.featured_image_orientation === 'portrait';
-                                    const isSquare = project.featured_image_orientation === 'square';
-                                    const imgRatio = project.featured_image_aspect_ratio
-                                        ? project.featured_image_aspect_ratio
-                                        : (isPortrait ? 0.75 : isSquare ? 1.0 : 1.5);
-                                    const cardHeight = Math.round(1000 / imgRatio) + 360;
-
-                                    return (
-                                        <Frame key={project.id} width={1000} height={cardHeight}>
-                                            <ProjectCard
-                                                project={project}
-                                                variant="grid"
-                                                className="h-full w-full"
-                                            />
-                                        </Frame>
-                                    );
-                                })}
+                                {sortedProjects.map((project) => (
+                                    <ProjectGridFrameItem key={project.id} project={project} />
+                                ))}
                             </BalancedMasonryGrid>
                         ) : (
                             <div className="max-w-md mx-auto text-center py-16 px-6 bg-card border border-border rounded-2xl shadow-xs">

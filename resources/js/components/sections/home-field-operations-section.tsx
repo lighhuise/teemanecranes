@@ -27,7 +27,7 @@ import imgHarbourWork from '@/../images/harbour-work.webp';
 // @ts-ignore
 import imgHarborGoldenHour from '@/../images/boat-launch.webp';
 // @ts-ignore
-import imgTeemaneBoat from '@/../images/teeman_final_sky_only.png';
+import imgTeemane400 from '@/../images/the-400.webp';
 
 interface FieldOperationItem {
     id: string;
@@ -86,12 +86,12 @@ const FIELD_OPERATIONS: FieldOperationItem[] = [
         alt: 'Mobile crane stationed at harbour quayside during sunset',
     },
     {
-        id: 'teemane-boat',
+        id: 'teemane-400',
         title: 'Specialised Yacht Hoist & Transfer',
         location: 'Marina Basin',
         category: 'Specialised Transport',
         description: 'Custom spreader beam configuration preventing compressive load stresses during vessel hoist and transport.',
-        src: imgTeemaneBoat,
+        src: imgTeemane400,
         alt: 'Teemane crane hoisting private yacht with custom spreader rigging',
     },
 ];

@@ -4,6 +4,7 @@ import { ArrowUpRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 // @ts-ignore
 import fallbackImage from '@/../images/IMG_0190-copy.webp';
+import { useImageAspectRatio } from '@/hooks/use-image-aspect-ratio';
 
 export interface ServiceListItem {
     id: number;
@@ -21,11 +22,22 @@ interface ServiceCardProps {
     service: ServiceListItem;
     index?: number;
     className?: string;
+    onAspectRatioChange?: (ratio: number) => void;
 }
 
-export function ServiceCard({ service, className }: ServiceCardProps) {
+export function ServiceCard({ service, className, onAspectRatioChange }: ServiceCardProps) {
     const rawImageUrl = service.featured_image_url || service.image || fallbackImage;
     const [imgSrc, setImgSrc] = useState(rawImageUrl);
+
+    const {
+        imgRef,
+        handleLoad,
+        containerStyle,
+    } = useImageAspectRatio({
+        initialAspectRatio: service.featured_image_aspect_ratio,
+        initialOrientation: service.featured_image_orientation,
+        onDimensionsChange: ({ aspectRatio }) => onAspectRatioChange?.(aspectRatio),
+    });
 
     useEffect(() => {
         setImgSrc(rawImageUrl);
@@ -39,13 +51,18 @@ export function ServiceCard({ service, className }: ServiceCardProps) {
                 className,
             )}
         >
-            {/* Image Plate — fills the card with vibrant photograph */}
-            <div className="relative aspect-16/10 sm:aspect-4/3 w-full overflow-hidden bg-muted">
+            {/* Image Plate — fills the card with vibrant photograph at exact dynamic ratio */}
+            <div
+                className={cn('relative w-full overflow-hidden bg-muted', !containerStyle && 'aspect-16/10 sm:aspect-4/3')}
+                style={containerStyle}
+            >
                 <img
+                    ref={imgRef}
                     src={imgSrc}
                     alt={service.title}
                     loading="lazy"
                     onError={() => setImgSrc(fallbackImage)}
+                    onLoad={handleLoad}
                     className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
             </div>

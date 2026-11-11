@@ -16,6 +16,28 @@ interface ServicesIndexProps {
     services: (ServiceListItem & { content_blocks?: any[] })[];
 }
 
+function ServiceGridFrameItem({ service, idx }: { service: ServiceListItem; idx: number }) {
+    const isPortrait = service.featured_image_orientation === 'portrait';
+    const isSquare = service.featured_image_orientation === 'square';
+    const initialRatio = service.featured_image_aspect_ratio
+        ? service.featured_image_aspect_ratio
+        : (isPortrait ? 0.75 : isSquare ? 1.0 : 1.5);
+
+    const [imgRatio, setImgRatio] = useState(initialRatio);
+    const cardHeight = Math.round(1000 / imgRatio) + 320;
+
+    return (
+        <Frame width={1000} height={cardHeight}>
+            <ServiceCard
+                service={service}
+                index={idx}
+                className="h-full w-full"
+                onAspectRatioChange={(ratio) => setImgRatio(ratio)}
+            />
+        </Frame>
+    );
+}
+
 export default function Index({ services = [] }: ServicesIndexProps) {
     const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
@@ -96,24 +118,13 @@ export default function Index({ services = [] }: ServicesIndexProps) {
                         {/* Grid / Balanced Masonry Grid with Impactful Cards */}
                         {services.length > 2 ? (
                             <BalancedMasonryGrid frameWidth={320} gap={24}>
-                                {services.map((service, idx) => {
-                                    const isPortrait = service.featured_image_orientation === 'portrait';
-                                    const isSquare = service.featured_image_orientation === 'square';
-                                    const imgRatio = service.featured_image_aspect_ratio
-                                        ? service.featured_image_aspect_ratio
-                                        : (isPortrait ? 0.75 : isSquare ? 1.0 : 1.5);
-                                    const cardHeight = Math.round(1000 / imgRatio) + 320;
-
-                                    return (
-                                        <Frame key={service.id} width={1000} height={cardHeight}>
-                                            <ServiceCard
-                                                service={service}
-                                                index={idx}
-                                                className="h-full w-full"
-                                            />
-                                        </Frame>
-                                    );
-                                })}
+                                {services.map((service, idx) => (
+                                    <ServiceGridFrameItem
+                                        key={service.id}
+                                        service={service}
+                                        idx={idx}
+                                    />
+                                ))}
                             </BalancedMasonryGrid>
                         ) : services.length > 0 ? (
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

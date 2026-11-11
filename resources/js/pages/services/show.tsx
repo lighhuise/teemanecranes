@@ -19,6 +19,7 @@ import { ProjectGalleryView, type ProjectImageItem } from '@/components/project'
 import { cn } from '@/lib/utils';
 import DotPattern from "@/components/dot-pattern";
 import Line2Divider from '@/components/line2-divider';
+import { useImageAspectRatio } from '@/hooks/use-image-aspect-ratio';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -101,20 +102,25 @@ function RichTextRenderer({ data }: { data: RichTextBlock['data'] }) {
 
 function ImageRenderer({ data }: { data: ImageBlock['data'] }) {
     const meta = data.image_meta;
+    const { containerStyle, handleLoad, imgRef } = useImageAspectRatio({
+        initialAspectRatio: meta?.aspect_ratio,
+        initialOrientation: meta?.orientation,
+    });
+
     return (
         <figure className="overflow-hidden rounded-2xl border border-border/80 bg-card p-2 sm:p-3">
             <div
                 className="relative w-full overflow-hidden bg-card flex items-center justify-center rounded-xl"
-                style={{
-                    aspectRatio: meta?.aspect_ratio
-                        ? `${meta.aspect_ratio}`
-                        : (meta?.orientation === 'portrait' ? '3/4' : '16/9'),
+                style={containerStyle ?? {
+                    aspectRatio: meta?.orientation === 'portrait' ? '3/4' : '16/9',
                 }}
             >
                 <img
+                    ref={imgRef}
                     src={data.image_url}
                     alt={data.alt ?? ''}
-                    className="w-full h-full object-contain rounded-xl"
+                    onLoad={handleLoad}
+                    className="w-full h-full object-cover rounded-xl"
                     loading="lazy"
                 />
             </div>
@@ -235,10 +241,41 @@ function CtaRenderer({ data }: { data: CtaBlock['data'] }) {
     );
 }
 
+function MediaSingleImage({
+    url,
+    meta,
+    alt,
+}: {
+    url: string;
+    meta?: ProjectImageItem | null;
+    alt?: string;
+}) {
+    const { containerStyle, handleLoad, imgRef } = useImageAspectRatio({
+        initialAspectRatio: meta?.aspect_ratio,
+        initialOrientation: meta?.orientation,
+    });
+
+    return (
+        <div
+            className="w-full overflow-hidden flex items-center justify-center"
+            style={containerStyle ?? { aspectRatio: '16/10' }}
+        >
+            <img
+                ref={imgRef}
+                src={url}
+                alt={alt || ''}
+                onLoad={handleLoad}
+                className="w-full h-full object-cover block"
+            />
+        </div>
+    );
+}
+
 function MediaTextRenderer({ data }: { data: MediaTextBlock['data'] }) {
     const isImageLeft = data.image_position === 'left';
     const urls = data.image_urls ?? [];
     const hasMultiple = urls.length > 1;
+    const hasStatCard = Boolean(data.stat_card_value && data.stat_card_label);
 
     return (
         <div className={`flex flex-col md:flex-row gap-10 md:gap-16 items-center ${isImageLeft ? 'md:flex-row-reverse' : ''}`}>
@@ -264,12 +301,14 @@ function MediaTextRenderer({ data }: { data: MediaTextBlock['data'] }) {
                 )}
             </div>
 
-            {/* Media Content - Uncropped 100% full view */}
-            <div className="flex-1 min-w-0 w-full relative group overflow-clip">
-                <DotPattern corner="top-left" />
-                <DotPattern corner="top-right" />
+            {/* Media Content - Unclipped with zero white space around image */}
+            <div className={cn(
+                "flex-1 min-w-0 w-full relative group",
+                hasStatCard && "mb-8 md:mb-0 pb-8 sm:pb-10"
+            )}>
 
-                <div className="w-full rounded-2xl overflow-hidden shadow-xl border border-border/80 bg-card relative">
+
+                <div className="w-full rounded-2xl shadow-xl border border-border/80 bg-card overflow-hidden relative z-10">
                     {hasMultiple ? (
                         <Swiper
                             modules={[Navigation, Pagination]}
@@ -288,14 +327,16 @@ function MediaTextRenderer({ data }: { data: MediaTextBlock['data'] }) {
                         >
                             {urls.map((url, i) => (
                                 <SwiperSlide key={i} className="flex items-center justify-center bg-card">
-                                    <img src={url} alt="" className="w-full h-full object-contain" />
+                                    <img src={url} alt="" className="w-full h-full object-cover" />
                                 </SwiperSlide>
                             ))}
                         </Swiper>
                     ) : urls.length === 1 ? (
-                        <div className="w-full aspect-4/3 sm:aspect-16/10 flex items-center justify-center bg-card">
-                            <img src={urls[0]} alt="" className="w-full h-full object-contain" />
-                        </div>
+                        <MediaSingleImage
+                            url={urls[0]}
+                            meta={data.images_meta?.[0]}
+                            alt={data.heading}
+                        />
                     ) : (
                         <div className="w-full aspect-4/3 sm:aspect-16/10 bg-muted flex items-center justify-center">
                             <span className="text-muted-foreground text-sm uppercase tracking-widest font-mono">No Image</span>
@@ -303,10 +344,10 @@ function MediaTextRenderer({ data }: { data: MediaTextBlock['data'] }) {
                     )}
                 </div>
 
-                {data.stat_card_value && data.stat_card_label && (
+                {hasStatCard && (
                     <FloatingStatCard
-                        value={data.stat_card_value}
-                        label={data.stat_card_label}
+                        value={data.stat_card_value!}
+                        label={data.stat_card_label!}
                         position={isImageLeft ? 'bottom-right' : 'bottom-left'}
                     />
                 )}
@@ -353,6 +394,16 @@ function ContentBlock({ block }: { block: ContentBlock }) {
 export default function Show({ service }: { service: Service }) {
     const hasBlocks = service.content_blocks && service.content_blocks.length > 0;
 
+    const {
+        orientation: heroOrientation,
+        imgRef: heroImgRef,
+        handleLoad: handleHeroLoad,
+        containerStyle: heroContainerStyle,
+    } = useImageAspectRatio({
+        initialAspectRatio: service.featured_image_aspect_ratio,
+        initialOrientation: service.featured_image_orientation,
+    });
+
     return (
         <AppLayout
             title={`${service.title} - Services - Teemane Cranes`}
@@ -369,7 +420,7 @@ export default function Show({ service }: { service: Service }) {
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
                         <div className={cn(
                             "space-y-6",
-                            service.featured_image_orientation === 'portrait' ? "lg:col-span-6" : "lg:col-span-5"
+                            heroOrientation === 'portrait' ? "lg:col-span-6" : "lg:col-span-5"
                         )}>
                             <Link
                                 href="/services"
@@ -397,24 +448,24 @@ export default function Show({ service }: { service: Service }) {
                         {service.featured_image_url && (
                             <div className={cn(
                                 "flex items-center justify-center",
-                                service.featured_image_orientation === 'portrait' ? "lg:col-span-6" : "lg:col-span-7"
+                                heroOrientation === 'portrait' ? "lg:col-span-6" : "lg:col-span-7"
                             )}>
                                 <div className={cn(
                                     "relative w-full rounded-2xl overflow-hidden shadow-2xl border-2 border-border/80 bg-card",
-                                    service.featured_image_orientation === 'portrait' ? "max-w-md mx-auto lg:ml-auto" : "w-full"
+                                    heroOrientation === 'portrait' ? "max-w-md mx-auto lg:ml-auto" : "w-full"
                                 )}>
                                     <div
                                         className="relative w-full overflow-hidden bg-card flex items-center justify-center"
-                                        style={{
-                                            aspectRatio: service.featured_image_aspect_ratio
-                                                ? `${service.featured_image_aspect_ratio}`
-                                                : (service.featured_image_orientation === 'portrait' ? '3/4' : '16/9'),
+                                        style={heroContainerStyle ?? {
+                                            aspectRatio: heroOrientation === 'portrait' ? '3/4' : '16/9',
                                         }}
                                     >
                                         <img
+                                            ref={heroImgRef}
                                             src={service.featured_image_url}
                                             alt={service.title}
-                                            className="w-full h-full object-contain"
+                                            onLoad={handleHeroLoad}
+                                            className="w-full h-full object-cover"
                                         />
                                     </div>
                                 </div>

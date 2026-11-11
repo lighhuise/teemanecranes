@@ -3,7 +3,7 @@ export type ImageOrientation = 'portrait' | 'landscape' | 'square';
 export interface ProjectImageItem {
     url: string;
     orientation: ImageOrientation;
-    aspect_ratio?: number;
+    aspect_ratio?: number | null;
     width?: number | null;
     height?: number | null;
 }
@@ -30,8 +30,8 @@ export interface ProjectListItem {
         display?: string | null;
         large?: string | null;
     };
-    featured_image_orientation?: ImageOrientation;
-    featured_image_aspect_ratio?: number;
+    featured_image_orientation?: ImageOrientation | null;
+    featured_image_aspect_ratio?: number | null;
     gallery_image_urls?: string[];
     gallery_images?: ProjectImageItem[];
     galleries_with_urls?: ProjectGallery[];

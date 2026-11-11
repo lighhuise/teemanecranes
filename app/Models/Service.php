@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Listeners\ProcessMediaMetadata;
 use App\Traits\ClearsCache;
 use App\Traits\HasAdvancedMediaConversions;
 use Database\Factories\ServiceFactory;
@@ -119,8 +120,13 @@ class Service extends Model implements HasMedia
         return Attribute::make(
             get: function (): string {
                 $media = $this->getFirstMedia('featured_image');
-                if ($media && $media->hasCustomProperty('orientation')) {
-                    return (string) $media->getCustomProperty('orientation');
+                if ($media) {
+                    if (! $media->hasCustomProperty('orientation') || ! $media->hasCustomProperty('aspect_ratio')) {
+                        ProcessMediaMetadata::process($media);
+                    }
+                    if ($media->hasCustomProperty('orientation')) {
+                        return (string) $media->getCustomProperty('orientation');
+                    }
                 }
 
                 if ($this->image) {
@@ -149,15 +155,20 @@ class Service extends Model implements HasMedia
     }
 
     /**
-     * Resolve the featured image aspect ratio.
+     * Resolve the featured image aspect ratio dynamically.
      */
     protected function featuredImageAspectRatio(): Attribute
     {
         return Attribute::make(
-            get: function (): float {
+            get: function (): ?float {
                 $media = $this->getFirstMedia('featured_image');
-                if ($media && $media->hasCustomProperty('aspect_ratio')) {
-                    return (float) $media->getCustomProperty('aspect_ratio');
+                if ($media) {
+                    if (! $media->hasCustomProperty('aspect_ratio') || ! $media->hasCustomProperty('orientation')) {
+                        ProcessMediaMetadata::process($media);
+                    }
+                    if ($media->hasCustomProperty('aspect_ratio')) {
+                        return (float) $media->getCustomProperty('aspect_ratio');
+                    }
                 }
 
                 if ($this->image) {
@@ -180,7 +191,7 @@ class Service extends Model implements HasMedia
                     }
                 }
 
-                return 1.778;
+                return null;
             },
         );
     }

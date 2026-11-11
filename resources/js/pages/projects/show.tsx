@@ -12,6 +12,7 @@ import Lightbox from 'yet-another-react-lightbox';
 import { cn } from '@/lib/utils';
 import DotPattern from "@/components/dot-pattern";
 import Line2Divider from '@/components/line2-divider';
+import { useImageAspectRatio } from '@/hooks/use-image-aspect-ratio';
 
 interface GalleryItem {
     title: string;
@@ -88,6 +89,16 @@ interface ProjectsShowProps {
 }
 
 export default function Show({ project, relatedProjects = [] }: ProjectsShowProps) {
+    const {
+        orientation: heroOrientation,
+        imgRef: heroImgRef,
+        handleLoad: handleHeroLoad,
+        containerStyle: heroContainerStyle,
+    } = useImageAspectRatio({
+        initialAspectRatio: project.featured_image_aspect_ratio,
+        initialOrientation: project.featured_image_orientation,
+    });
+
     // Lightbox state for main gallery
     const [mainLightboxIndex, setMainLightboxIndex] = useState<number | null>(null);
 
@@ -161,27 +172,27 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
                     </div>
                   </div>
 
-                  {/* Enlarged Image Display - Orientation Aware */}
+                  {/* Enlarged Image Display - Dynamic Aspect Ratio & Orientation Aware */}
                   <div className={cn(
                     "lg:col-span-7",
-                    project.featured_image_orientation === 'portrait' ? "lg:col-span-6 lg:col-start-7" : "lg:col-span-7"
+                    heroOrientation === 'portrait' ? "lg:col-span-6 lg:col-start-7" : "lg:col-span-7"
                   )}>
                     {project.featured_image_url && (
                       <div className={cn(
                         "rounded-2xl overflow-hidden shadow-2xl border-2 border-border/80 bg-card",
-                        project.featured_image_orientation === 'portrait' && "max-w-md mx-auto lg:ml-auto"
+                        heroOrientation === 'portrait' && "max-w-md mx-auto lg:ml-auto"
                       )}>
                         <div
                           className="relative overflow-hidden bg-card flex items-center justify-center"
-                          style={{
-                            aspectRatio: project.featured_image_aspect_ratio
-                              ? `${project.featured_image_aspect_ratio}`
-                              : (project.featured_image_orientation === 'portrait' ? '3/4' : '16/9'),
+                          style={heroContainerStyle ?? {
+                            aspectRatio: heroOrientation === 'portrait' ? '3/4' : '16/9',
                           }}
                         >
                           <img
+                            ref={heroImgRef}
                             src={project.featured_image_url}
                             alt={project.title}
+                            onLoad={handleHeroLoad}
                             className="w-full h-full object-cover"
                           />
                         </div>
