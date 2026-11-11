@@ -2,7 +2,7 @@ import AppLayout from "@/layouts/app-layout";
 import Hero from "@/components/hero";
 import { Head } from "@inertiajs/react";
 import { HomeIntroSection } from "@/components/sections/home-intro-section";
-import { HomeServicesSection } from "@/components/sections/home-services-section";
+import { ServicesSection } from "@/components/sections/services-section";
 import { HomeLatestProjectsSection } from "@/components/sections/home-latest-projects-section";
 import { HomeSafetySection } from "@/components/sections/home-safety-section";
 import { HomeSafetyPracticesSection } from "@/components/sections/home-safety-practices-section";
@@ -32,7 +32,7 @@ export default function Home({ services, projects = [] }: HomeProps) {
             <HomeIntroSection />
             <Line2Divider/>
             {/*<PageSeparator/>*/}
-            <HomeServicesSection services={(services || []).slice(0, 3)} />
+            <ServicesSection services={services} limit={3} showViewAllButton={true} />
             <Line2Divider/>
             {/*<HomeLatestProjectsSection projects={projects} />*/}
             <HomeSafetySection />
