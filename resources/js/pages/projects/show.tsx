@@ -182,7 +182,7 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
                           <img
                             src={project.featured_image_url}
                             alt={project.title}
-                            className="w-full h-full object-fill"
+                            className="w-full h-full object-cover"
                           />
                         </div>
                       </div>
