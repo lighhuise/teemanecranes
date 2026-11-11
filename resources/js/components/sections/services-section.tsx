@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Wrapper from "@/components/ui/misc/wrapper";
 import SectionHeading from "@/components/ui/misc/section-heading";
 import { Link } from "@inertiajs/react";
@@ -6,8 +6,6 @@ import { buttonVariants } from "@/components/ui/button";
 import { ServiceCard, type ServiceListItem } from "@/components/service-card";
 import { BackgroundText } from "@/components/ui/misc/background-text";
 import DotPattern from "@/components/dot-pattern";
-// @ts-ignore
-import { BalancedMasonryGrid, Frame } from '@masonry-grid/react';
 import { Wrench } from "lucide-react";
 
 export interface ServicesSectionProps {
@@ -20,28 +18,6 @@ export interface ServicesSectionProps {
     useMasonry?: boolean;
     showPills?: boolean;
     className?: string;
-}
-
-function ServiceGridFrameItem({ service, idx }: { service: ServiceListItem; idx: number }) {
-    const isPortrait = service.featured_image_orientation === 'portrait';
-    const isSquare = service.featured_image_orientation === 'square';
-    const initialRatio = service.featured_image_aspect_ratio
-        ? service.featured_image_aspect_ratio
-        : (isPortrait ? 0.75 : isSquare ? 1.0 : 1.5);
-
-    const [imgRatio, setImgRatio] = useState(initialRatio);
-    const cardHeight = Math.round(1000 / imgRatio) + 320;
-
-    return (
-        <Frame width={1000} height={cardHeight}>
-            <ServiceCard
-                service={service}
-                index={idx}
-                className="h-full w-full"
-                onAspectRatioChange={(ratio) => setImgRatio(ratio)}
-            />
-        </Frame>
-    );
 }
 
 export function ServicesSection({
@@ -91,20 +67,18 @@ export function ServicesSection({
 
                 {/* Services Grid */}
                 {displayedServices.length > 0 ? (
-                    useMasonry && displayedServices.length > 2 ? (
-                        <BalancedMasonryGrid frameWidth={320} gap={24}>
+                    useMasonry && displayedServices.length > 1 ? (
+                        <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
                             {displayedServices.map((service, idx) => (
-                                <ServiceGridFrameItem
-                                    key={service.id}
-                                    service={service}
-                                    idx={idx}
-                                />
+                                <div key={service.id} className="break-inside-avoid">
+                                    <ServiceCard service={service} index={idx} className="w-full" />
+                                </div>
                             ))}
-                        </BalancedMasonryGrid>
+                        </div>
                     ) : (
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
                             {displayedServices.map((service, idx) => (
-                                <ServiceCard key={service.id} service={service} index={idx} />
+                                <ServiceCard key={service.id} service={service} index={idx} className="w-full" />
                             ))}
                         </div>
                     )

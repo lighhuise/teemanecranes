@@ -51,9 +51,12 @@ export function ServiceCard({ service, className, onAspectRatioChange }: Service
                 className,
             )}
         >
-            {/* Image Plate — fills the card with vibrant photograph at exact dynamic ratio */}
+            {/* Image Plate — 100% full uncropped photograph with dynamic aspect ratio */}
             <div
-                className={cn('relative w-full overflow-hidden bg-muted', !containerStyle && 'aspect-16/10 sm:aspect-4/3')}
+                className={cn(
+                    'relative w-full shrink-0 overflow-hidden bg-card flex items-center justify-center',
+                    !containerStyle && (service.featured_image_orientation === 'portrait' ? 'aspect-3/4' : 'aspect-16/9')
+                )}
                 style={containerStyle}
             >
                 <img
@@ -63,7 +66,7 @@ export function ServiceCard({ service, className, onAspectRatioChange }: Service
                     loading="lazy"
                     onError={() => setImgSrc(fallbackImage)}
                     onLoad={handleLoad}
-                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    className="w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-105"
                 />
             </div>
 
