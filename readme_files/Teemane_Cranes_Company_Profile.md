@@ -301,7 +301,7 @@ Project and lifting consultation services.
 
 That’s why we offer 24/7 emergency response services for urgent lifting needs.
 
-Whether it’s an equipment failure or an unforeseen event, we’re here to provide immediate support, minimizing downtime and potential losses.
+Whether it’s an equipment failure or an unforeseen event, we’re here to provide immediate support, minimising downtime and potential losses.
 
 ## Availability
 

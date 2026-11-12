@@ -37,7 +37,7 @@ export default function EmergencyCta() {
                             Emergencies Don't Wait For Business Hours.
                         </h2>
                         <p className="text-primary-foreground/90 md:text-lg max-w-2xl leading-relaxed">
-                            Unexpected equipment failures and critical incidents demand immediate action. Our specialised rapid-response teams are on standby {stats.availability.display} to provide urgent crane lifting and transport solutions minimizing your downtime and mitigating potential losses.
+                            Unexpected equipment failures and critical incidents demand immediate action. Our specialised rapid-response teams are on standby {stats.availability.display} to provide urgent crane lifting and transport solutions minimising your downtime and mitigating potential losses.
                         </p>
                     </div>
 

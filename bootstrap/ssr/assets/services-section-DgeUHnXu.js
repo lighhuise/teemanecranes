@@ -1,0 +1,158 @@
+import { f as Wrapper, l as buttonVariants, p as cn } from "./app-layout-r7btKtxd.js";
+import { t as SectionHeading } from "./section-heading-BMEXytHS.js";
+import { n as IMG_0190_copy_default, t as useImageAspectRatio } from "./use-image-aspect-ratio-D2AOM87V.js";
+import { t as BackgroundText } from "./background-text-8uaNHB-a.js";
+import { t as DotPattern } from "./dot-pattern-6aJdHdqv.js";
+import { Link } from "@inertiajs/react";
+import { jsx, jsxs } from "react/jsx-runtime";
+import { useEffect, useState } from "react";
+import { ArrowUpRight, Wrench } from "lucide-react";
+// resources/js/components/service-card.tsx
+function ServiceCard({ service, className, onAspectRatioChange }) {
+	const rawImageUrl = service.featured_image_url || service.image || IMG_0190_copy_default;
+	const [imgSrc, setImgSrc] = useState(rawImageUrl);
+	const { imgRef, handleLoad, containerStyle } = useImageAspectRatio({
+		initialAspectRatio: service.featured_image_aspect_ratio,
+		initialOrientation: service.featured_image_orientation,
+		onDimensionsChange: ({ aspectRatio }) => onAspectRatioChange?.(aspectRatio)
+	});
+	useEffect(() => {
+		setImgSrc(rawImageUrl);
+	}, [rawImageUrl]);
+	return /* @__PURE__ */ jsxs(Link, {
+		href: `/services/${service.slug}`,
+		className: cn("group relative flex flex-col overflow-hidden rounded-2xl border border-border/80 bg-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/70 hover:shadow-md hover:shadow-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background dark:hover:shadow-black/40", className),
+		children: [
+			/* @__PURE__ */ jsx("div", {
+				className: cn("relative w-full shrink-0 overflow-hidden bg-card flex items-center justify-center", !containerStyle && (service.featured_image_orientation === "portrait" ? "aspect-3/4" : "aspect-16/9")),
+				style: containerStyle,
+				children: /* @__PURE__ */ jsx("img", {
+					ref: imgRef,
+					src: imgSrc,
+					alt: service.title,
+					loading: "lazy",
+					onError: () => setImgSrc(IMG_0190_copy_default),
+					onLoad: handleLoad,
+					className: "w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-105"
+				})
+			}),
+			/* @__PURE__ */ jsxs("div", {
+				className: "flex flex-1 flex-col gap-6 p-6 sm:p-7 border-t border-border/60 bg-card",
+				children: [
+					/* @__PURE__ */ jsx("h3", {
+						className: "text-xl leading-tight font-bold tracking-tight text-foreground uppercase transition-colors duration-300 group-hover:text-primary sm:text-2xl",
+						children: service.title
+					}),
+					service.short_description && /* @__PURE__ */ jsx("p", {
+						className: "text-sm text-muted-foreground line-clamp-3 leading-relaxed",
+						children: service.short_description
+					}),
+					/* @__PURE__ */ jsxs("div", {
+						className: "mt-auto flex items-center justify-between border-t border-border/70 pt-4",
+						children: [/* @__PURE__ */ jsx("span", {
+							className: "text-xs font-bold tracking-widest text-muted-foreground uppercase transition-colors duration-300 group-hover:text-primary",
+							children: "Explore Capability"
+						}), /* @__PURE__ */ jsx("div", {
+							className: "flex size-10 items-center justify-center rounded-full border border-border bg-background text-foreground transition-all duration-300 group-hover:rotate-45 group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground",
+							children: /* @__PURE__ */ jsx(ArrowUpRight, {
+								className: "size-4",
+								strokeWidth: 2.5
+							})
+						})]
+					})
+				]
+			}),
+			/* @__PURE__ */ jsx("div", { className: "absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 bg-primary transition-transform duration-500 ease-out group-hover:scale-x-100" })
+		]
+	});
+}
+// resources/js/components/sections/services-section.tsx
+function ServicesSection({ services = [], title = "ENGINEERED FOR THE LIFT", label = "Our Capabilities", description = "We understand that every lifting project demands precision, reliability and efficiency. Our services offer the flexibility and strength needed to tackle any challenge from construction sites to the most demanding industrial operations.", limit, showViewAllButton = false, useMasonry = true, showPills = false, className }) {
+	const displayedServices = limit ? (services || []).slice(0, limit) : services || [];
+	return /* @__PURE__ */ jsxs("section", {
+		className: `py-24 bg-muted/30 border-y border-border relative overflow-clip ${className || ""}`,
+		children: [
+			/* @__PURE__ */ jsx(BackgroundText, {
+				position: "center",
+				children: "SERVICES"
+			}),
+			/* @__PURE__ */ jsx(DotPattern, { corner: "bottom-left" }),
+			/* @__PURE__ */ jsx(DotPattern, { corner: "bottom-right" }),
+			/* @__PURE__ */ jsxs(Wrapper, { children: [
+				/* @__PURE__ */ jsx(SectionHeading, {
+					label,
+					title,
+					align: "center",
+					className: showPills ? "mb-8" : "mb-16",
+					children: description
+				}),
+				showPills && /* @__PURE__ */ jsxs("div", {
+					className: "flex flex-wrap items-center justify-center gap-2 mb-16",
+					children: [
+						/* @__PURE__ */ jsxs("span", {
+							className: "inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3.5 py-1 text-xs font-semibold text-muted-foreground shadow-2xs",
+							children: [/* @__PURE__ */ jsx("span", { className: "size-1 rounded-full bg-primary" }), "20T to 550T Fleet Capacity"]
+						}),
+						/* @__PURE__ */ jsxs("span", {
+							className: "inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3.5 py-1 text-xs font-semibold text-muted-foreground shadow-2xs",
+							children: [/* @__PURE__ */ jsx("span", { className: "size-1 rounded-full bg-primary" }), "Certified Rigging Engineers"]
+						}),
+						/* @__PURE__ */ jsxs("span", {
+							className: "inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3.5 py-1 text-xs font-semibold text-muted-foreground shadow-2xs",
+							children: [/* @__PURE__ */ jsx("span", { className: "size-1 rounded-full bg-primary" }), "24/7 Rapid Deployment"]
+						})
+					]
+				}),
+				displayedServices.length > 0 ? useMasonry && displayedServices.length > 1 ? /* @__PURE__ */ jsx("div", {
+					className: "columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6",
+					children: displayedServices.map((service, idx) => /* @__PURE__ */ jsx("div", {
+						className: "break-inside-avoid",
+						children: /* @__PURE__ */ jsx(ServiceCard, {
+							service,
+							index: idx,
+							className: "w-full"
+						})
+					}, service.id))
+				}) : /* @__PURE__ */ jsx("div", {
+					className: "grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-start",
+					children: displayedServices.map((service, idx) => /* @__PURE__ */ jsx(ServiceCard, {
+						service,
+						index: idx,
+						className: "w-full"
+					}, service.id))
+				}) : /* @__PURE__ */ jsxs("div", {
+					className: "max-w-md mx-auto text-center py-16 px-6 bg-card border border-border rounded-2xl shadow-xs",
+					children: [
+						/* @__PURE__ */ jsx("div", {
+							className: "size-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-6 text-primary",
+							children: /* @__PURE__ */ jsx(Wrench, { className: "size-8" })
+						}),
+						/* @__PURE__ */ jsx("h3", {
+							className: "text-xl font-bold uppercase text-foreground mb-2",
+							children: "Capabilities Underway"
+						}),
+						/* @__PURE__ */ jsx("p", {
+							className: "text-sm text-muted-foreground leading-relaxed",
+							children: "Our service capability profiles are currently being updated. Contact our dispatch team directly for customized crane hire and engineering solutions."
+						})
+					]
+				}),
+				showViewAllButton && /* @__PURE__ */ jsx("div", {
+					className: "mt-16 text-center",
+					children: /* @__PURE__ */ jsx(Link, {
+						href: "/services",
+						className: buttonVariants({
+							variant: "secondary",
+							size: "lg",
+							className: "uppercase tracking-widest font-bold px-10 h-14 border-2"
+						}),
+						children: "View All Services"
+					})
+				})
+			] })
+		]
+	});
+}
+export { ServicesSection as t };
+
+//# sourceMappingURL=services-section-DgeUHnXu.js.map
