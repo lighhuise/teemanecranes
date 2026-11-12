@@ -9,7 +9,7 @@ import PageSeparator from '@/components/page-separator';
 import EmergencyCta from '@/components/emergency-cta';
 import { ArrowLeft, ArrowRight, Calendar, Clock, Expand, HardHat, Images, Phone, ShieldCheck, Wrench } from 'lucide-react';
 import Lightbox from 'yet-another-react-lightbox';
-import { cn } from '@/lib/utils';
+import { cn, toStorageUrl } from '@/lib/utils';
 import DotPattern from "@/components/dot-pattern";
 import Line2Divider from '@/components/line2-divider';
 import { useImageAspectRatio } from '@/hooks/use-image-aspect-ratio';
@@ -73,6 +73,7 @@ interface ProjectDetail {
     featured_image_url: string | null;
     featured_image_orientation?: ImageOrientation | null;
     featured_image_aspect_ratio?: number | null;
+    gallery?: string[];
     gallery_image_urls: string[];
     gallery_images?: ProjectImageItem[];
     galleries_with_urls: GalleryItem[];
@@ -108,20 +109,27 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
         imageIndex: number;
     } | null>(null);
 
-    // Normalize main gallery images with orientation metadata
+    // Normalize main gallery images with orientation metadata and valid storage URLs
     const mainGalleryItems: ProjectImageItem[] = React.useMemo(() => {
         if (project.gallery_images && project.gallery_images.length > 0) {
-            return project.gallery_images;
+            return project.gallery_images.map((item) => ({
+                ...item,
+                url: toStorageUrl(item.url),
+            }));
         }
-        return (project.gallery_image_urls ?? []).map((url) => ({
-            url,
+        const fallbackUrls = (project.gallery_image_urls && project.gallery_image_urls.length > 0)
+            ? project.gallery_image_urls
+            : (project.gallery ?? []);
+
+        return (fallbackUrls ?? []).map((url) => ({
+            url: toStorageUrl(url),
             orientation: 'landscape' as const,
             aspect_ratio: 1.77,
         }));
-    }, [project.gallery_images, project.gallery_image_urls]);
+    }, [project.gallery_images, project.gallery_image_urls, project.gallery]);
 
     const mainSlides = React.useMemo(() => {
-        return mainGalleryItems.map((item) => ({ src: item.url }));
+        return mainGalleryItems.map((item) => ({ src: toStorageUrl(item.url) }));
     }, [mainGalleryItems]);
 
     const hasMainGallery = mainGalleryItems.length > 0;
@@ -190,7 +198,7 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
                         >
                           <img
                             ref={heroImgRef}
-                            src={project.featured_image_url}
+                            src={toStorageUrl(project.featured_image_url)}
                             alt={project.title}
                             onLoad={handleHeroLoad}
                             className="w-full h-full object-cover"
@@ -375,14 +383,20 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
             {hasCustomGalleries && (
                 <div className="flex flex-col">
                     {project.galleries_with_urls.map((gallery, gIdx) => {
+                        const rawFallback = (gallery.image_urls && gallery.image_urls.length > 0)
+                            ? gallery.image_urls
+                            : (gallery.images ?? []);
                         const galleryItems: ProjectImageItem[] = (gallery.images_meta && gallery.images_meta.length > 0)
-                            ? gallery.images_meta
-                            : (gallery.image_urls ?? []).map((url) => ({
-                                url,
+                            ? gallery.images_meta.map((item) => ({
+                                ...item,
+                                url: toStorageUrl(item.url),
+                            }))
+                            : rawFallback.map((url) => ({
+                                url: toStorageUrl(url),
                                 orientation: 'landscape' as const,
                                 aspect_ratio: 1.77,
                             }));
-                        const slides = galleryItems.map((item) => ({ src: item.url }));
+                        const slides = galleryItems.map((item) => ({ src: toStorageUrl(item.url) }));
                         const isOpen = customLightbox?.galleryIndex === gIdx;
 
                         return (

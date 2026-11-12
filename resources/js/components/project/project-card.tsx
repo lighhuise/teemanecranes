@@ -1,5 +1,5 @@
 import { Link } from '@inertiajs/react';
-import { cn } from '@/lib/utils';
+import { cn, toStorageUrl } from '@/lib/utils';
 // @ts-ignore
 import fallbackImage from '@/../images/IMG_0190-copy.webp';
 import { ProjectMetaBadges } from './project-meta-badges';
@@ -60,11 +60,15 @@ export function ProjectCard({
 }: ProjectCardProps) {
     const style = variantStyles[variant];
 
-    const imageUrl =
+    const rawImageUrl =
         project.featured_image_url ||
         project.gallery_image_urls?.[0] ||
+        (project as any).gallery?.[0] ||
         project.galleries_with_urls?.[0]?.image_urls?.[0] ||
+        (project.galleries_with_urls?.[0] as any)?.images?.[0] ||
         fallbackImage;
+
+    const imageUrl = rawImageUrl === fallbackImage ? fallbackImage : toStorageUrl(rawImageUrl);
 
     const {
         orientation: dynamicOrientation,

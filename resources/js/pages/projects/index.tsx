@@ -12,7 +12,7 @@ import { ArrowRight, Camera, Expand, FolderGit2, Images, ShieldCheck } from 'luc
 import Lightbox from 'yet-another-react-lightbox';
 import { useCompany } from '@/hooks/use-company';
 import DotPattern from "@/components/dot-pattern";
-import { cn } from '@/lib/utils';
+import { cn, toStorageUrl } from '@/lib/utils';
 
 interface ProjectsIndexProps {
     projects: ProjectListItem[];
@@ -69,7 +69,7 @@ export default function Index({ projects = [] }: ProjectsIndexProps) {
 
             if (items.length > 0) {
                 return items.map((item) => ({
-                    src: item.url,
+                    src: toStorageUrl(item.url),
                     orientation: item.orientation || 'landscape',
                     aspect_ratio: item.aspect_ratio,
                     width: item.width,
@@ -81,11 +81,12 @@ export default function Index({ projects = [] }: ProjectsIndexProps) {
 
             const urls = [
                 ...(p.gallery_image_urls || []),
-                ...(p.galleries_with_urls?.flatMap((g) => g.image_urls) || []),
+                ...((p as any).gallery || []),
+                ...(p.galleries_with_urls?.flatMap((g) => (g.image_urls && g.image_urls.length > 0 ? g.image_urls : (g as any).images) || []) || []),
             ];
 
             return urls.map((url) => ({
-                src: url,
+                src: toStorageUrl(url),
                 orientation: 'landscape' as const,
                 aspect_ratio: 1.77,
                 width: null,

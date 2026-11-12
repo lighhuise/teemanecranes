@@ -243,9 +243,7 @@ class Project extends Model implements HasMedia
                 if (! empty($this->gallery) && is_array($this->gallery)) {
                     foreach (array_values($this->gallery) as $path) {
                         if ($path) {
-                            $urls[] = str_starts_with($path, 'http')
-                                ? $path
-                                : Storage::disk('public')->url($path);
+                            $urls[] = self::resolveImageItemMeta($path)['url'];
                         }
                     }
                 }
@@ -294,17 +292,27 @@ class Project extends Model implements HasMedia
      */
     public static function resolveImageItemMeta(string $pathOrUrl): array
     {
-        $url = str_starts_with($pathOrUrl, 'http')
-            ? $pathOrUrl
-            : Storage::disk('public')->url($pathOrUrl);
+        if (str_starts_with($pathOrUrl, 'http://') || str_starts_with($pathOrUrl, 'https://')) {
+            $url = $pathOrUrl;
+        } else {
+            $cleanPath = ltrim($pathOrUrl, '/');
+            if (str_starts_with($cleanPath, 'storage/')) {
+                $cleanPath = substr($cleanPath, 8);
+            }
+            $url = Storage::disk('public')->url($cleanPath);
+        }
 
         $orientation = 'landscape';
         $aspectRatio = 1.778;
         $width = null;
         $height = null;
 
-        if (! str_starts_with($pathOrUrl, 'http')) {
-            $fullPath = Storage::disk('public')->path($pathOrUrl);
+        if (! str_starts_with($pathOrUrl, 'http://') && ! str_starts_with($pathOrUrl, 'https://')) {
+            $cleanPath = ltrim($pathOrUrl, '/');
+            if (str_starts_with($cleanPath, 'storage/')) {
+                $cleanPath = substr($cleanPath, 8);
+            }
+            $fullPath = Storage::disk('public')->path($cleanPath);
             if (file_exists($fullPath)) {
                 $size = @getimagesize($fullPath);
                 if ($size && $size[0] > 0 && $size[1] > 0) {

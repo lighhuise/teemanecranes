@@ -16,7 +16,7 @@ import 'swiper/css/pagination';
 import Lightbox from "yet-another-react-lightbox";
 import { BackgroundText } from '@/components/ui/misc/background-text';
 import { ProjectGalleryView, type ProjectImageItem } from '@/components/project';
-import { cn } from '@/lib/utils';
+import { cn, toStorageUrl } from '@/lib/utils';
 import DotPattern from "@/components/dot-pattern";
 import Line2Divider from '@/components/line2-divider';
 import { useImageAspectRatio } from '@/hooks/use-image-aspect-ratio';
@@ -101,11 +101,17 @@ function RichTextRenderer({ data }: { data: RichTextBlock['data'] }) {
 }
 
 function ImageRenderer({ data }: { data: ImageBlock['data'] }) {
+    const rawUrl = data.image_url || data.image;
+    const imageUrl = toStorageUrl(rawUrl);
     const meta = data.image_meta;
     const { containerStyle, handleLoad, imgRef } = useImageAspectRatio({
         initialAspectRatio: meta?.aspect_ratio,
         initialOrientation: meta?.orientation,
     });
+
+    if (!imageUrl) {
+        return null;
+    }
 
     return (
         <figure className="overflow-hidden rounded-2xl border border-border/80 bg-card p-2 sm:p-3">
@@ -117,7 +123,7 @@ function ImageRenderer({ data }: { data: ImageBlock['data'] }) {
             >
                 <img
                     ref={imgRef}
-                    src={data.image_url}
+                    src={imageUrl}
                     alt={data.alt ?? ''}
                     onLoad={handleLoad}
                     className="w-full h-full object-cover rounded-xl"
@@ -135,15 +141,26 @@ function ImageRenderer({ data }: { data: ImageBlock['data'] }) {
 
 function GalleryRenderer({ data }: { data: GalleryBlock['data'] }) {
     const [lightbox, setLightbox] = useState<number | null>(null);
+    const rawList = (data.image_urls && data.image_urls.length > 0)
+        ? data.image_urls
+        : (data.images ?? []);
+
     const items: ProjectImageItem[] = (data.images_meta && data.images_meta.length > 0)
-        ? data.images_meta
-        : (data.image_urls ?? []).map((url) => ({
-            url,
+        ? data.images_meta.map((item) => ({
+            ...item,
+            url: toStorageUrl(item.url),
+        }))
+        : rawList.map((url) => ({
+            url: toStorageUrl(url),
             orientation: 'landscape' as const,
             aspect_ratio: 1.778,
         }));
 
-    const slides = items.map((item) => ({ src: item.url }));
+    const slides = items.map((item) => ({ src: toStorageUrl(item.url) }));
+
+    if (items.length === 0) {
+        return null;
+    }
 
     return (
         <div className="space-y-10">
@@ -250,6 +267,7 @@ function MediaSingleImage({
     meta?: ProjectImageItem | null;
     alt?: string;
 }) {
+    const normalizedUrl = toStorageUrl(url);
     const { containerStyle, handleLoad, imgRef } = useImageAspectRatio({
         initialAspectRatio: meta?.aspect_ratio,
         initialOrientation: meta?.orientation,
@@ -262,7 +280,7 @@ function MediaSingleImage({
         >
             <img
                 ref={imgRef}
-                src={url}
+                src={normalizedUrl}
                 alt={alt || ''}
                 onLoad={handleLoad}
                 className="w-full h-full object-cover block"
@@ -273,7 +291,10 @@ function MediaSingleImage({
 
 function MediaTextRenderer({ data }: { data: MediaTextBlock['data'] }) {
     const isImageLeft = data.image_position === 'left';
-    const urls = data.image_urls ?? [];
+    const rawList = (data.image_urls && data.image_urls.length > 0)
+        ? data.image_urls
+        : (data.images ?? []);
+    const urls = rawList.map(toStorageUrl).filter(Boolean);
     const hasMultiple = urls.length > 1;
     const hasStatCard = Boolean(data.stat_card_value && data.stat_card_label);
 
@@ -462,7 +483,7 @@ export default function Show({ service }: { service: Service }) {
                                     >
                                         <img
                                             ref={heroImgRef}
-                                            src={service.featured_image_url}
+                                            src={toStorageUrl(service.featured_image_url)}
                                             alt={service.title}
                                             onLoad={handleHeroLoad}
                                             className="w-full h-full object-cover"

@@ -2,7 +2,7 @@ import React from 'react';
 // @ts-ignore
 import { BalancedMasonryGrid, Frame } from '@masonry-grid/react';
 import { Expand } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { cn, toStorageUrl } from '@/lib/utils';
 import type { ProjectImageItem } from './types';
 
 export type GalleryLayoutStyle = 'masonry';
@@ -36,6 +36,7 @@ function GalleryGridFrameItem({
 
     const [dimensions, setDimensions] = React.useState({ width: fallbackWidth, height: fallbackHeight });
     const imgRef = React.useRef<HTMLImageElement | null>(null);
+    const imageUrl = toStorageUrl(item.url);
 
     const handleLoad = (e: React.SyntheticEvent<HTMLImageElement>) => {
         const img = e.currentTarget;
@@ -48,7 +49,7 @@ function GalleryGridFrameItem({
         if (imgRef.current?.complete && imgRef.current.naturalWidth > 0) {
             setDimensions({ width: imgRef.current.naturalWidth, height: imgRef.current.naturalHeight });
         }
-    }, [item.url]);
+    }, [imageUrl]);
 
     return (
         <Frame width={dimensions.width} height={dimensions.height}>
@@ -59,7 +60,7 @@ function GalleryGridFrameItem({
             >
                 <img
                     ref={imgRef}
-                    src={item.url}
+                    src={imageUrl}
                     alt={`${projectTitle} - Photo #${idx + 1}`}
                     onLoad={handleLoad}
                     className="h-full w-full object-cover block"

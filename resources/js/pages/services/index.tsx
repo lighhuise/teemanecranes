@@ -6,6 +6,7 @@ import { type ServiceListItem } from '@/components/service-card';
 import { ServicesSection } from '@/components/sections/services-section';
 import { ProjectGalleryView, type ProjectImageItem } from '@/components/project';
 import Lightbox from 'yet-another-react-lightbox';
+import { toStorageUrl } from '@/lib/utils';
 
 interface ServicesIndexProps {
     services: (ServiceListItem & { content_blocks?: any[] })[];
@@ -21,16 +22,40 @@ export default function Index({ services = [] }: ServicesIndexProps) {
         for (const s of services) {
             const blocks = s.content_blocks || [];
             for (const b of blocks) {
-                if (b.type === 'gallery' && b.data?.images_meta) {
-                    shots.push(...b.data.images_meta);
-                } else if (b.type === 'gallery' && b.data?.image_urls) {
-                    for (const url of b.data.image_urls) {
-                        shots.push({ url, orientation: 'landscape', aspect_ratio: 1.778 });
+                if (b.type === 'gallery') {
+                    if (b.data?.images_meta && b.data.images_meta.length > 0) {
+                        for (const meta of b.data.images_meta) {
+                            shots.push({
+                                ...meta,
+                                url: toStorageUrl(meta.url),
+                            });
+                        }
+                    } else {
+                        const rawUrls = (b.data?.image_urls && b.data.image_urls.length > 0)
+                            ? b.data.image_urls
+                            : (b.data?.images ?? []);
+                        for (const url of rawUrls) {
+                            shots.push({
+                                url: toStorageUrl(url),
+                                orientation: 'landscape',
+                                aspect_ratio: 1.778,
+                            });
+                        }
                     }
-                } else if (b.type === 'image' && b.data?.image_meta) {
-                    shots.push(b.data.image_meta);
-                } else if (b.type === 'image' && b.data?.image_url) {
-                    shots.push({ url: b.data.image_url, orientation: 'landscape', aspect_ratio: 1.778 });
+                } else if (b.type === 'image') {
+                    const rawUrl = b.data?.image_url || b.data?.image;
+                    if (b.data?.image_meta) {
+                        shots.push({
+                            ...b.data.image_meta,
+                            url: toStorageUrl(b.data.image_meta.url || rawUrl),
+                        });
+                    } else if (rawUrl) {
+                        shots.push({
+                            url: toStorageUrl(rawUrl),
+                            orientation: 'landscape',
+                            aspect_ratio: 1.778,
+                        });
+                    }
                 }
             }
         }

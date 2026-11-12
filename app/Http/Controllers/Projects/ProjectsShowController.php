@@ -57,6 +57,7 @@ class ProjectsShowController extends Controller
                     'featured_image_conversions' => $project->featured_image_conversions,
                     'featured_image_orientation' => $project->featured_image_orientation,
                     'featured_image_aspect_ratio' => $project->featured_image_aspect_ratio,
+                    'gallery' => $project->gallery_image_urls,
                     'gallery_image_urls' => $project->gallery_image_urls,
                     'gallery_images' => $project->gallery_images,
                     'galleries_with_urls' => $project->galleries_with_urls,
