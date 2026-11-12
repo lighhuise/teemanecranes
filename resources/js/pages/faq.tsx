@@ -6,6 +6,7 @@ import { BackgroundText } from '@/components/ui/misc/background-text';
 import { HelpCircle } from 'lucide-react';
 import React from 'react';
 import DotPattern from "@/components/dot-pattern";
+import LogoMark from "@/components/logo-mark";
 
 export default function FaqPage({ faqs }: { faqs: any[] }) {
     return (
@@ -26,9 +27,12 @@ export default function FaqPage({ faqs }: { faqs: any[] }) {
             </div>
 
             <section className="py-24 bg-background relative overflow-x-clip isolate">
+                <LogoMark className={`absolute opacity-10 size-100 blur-xs left-0 top-1/2 -translate-1/2`}/>
+                <LogoMark className={`absolute opacity-10 size-100 blur-xs right-0 top-1/2 translate-x-1/2 -translate-y-1/2`}/>
                 <Wrapper className="relative z-10">
                     <div className="max-w-3xl mx-auto relative">
                         <DotPattern corner={`center`} size={`2xl`}  className={`z-0 opacity-5`} />
+
                         {faqs.length > 0 ? (
                             <Accordion className="divide-y-0 border-b-0 space-y-3 sm:space-y-4">
                                 {faqs.map((faq, index) => {

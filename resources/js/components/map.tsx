@@ -8,6 +8,7 @@ import { MapPin, Navigation as NavIcon } from 'lucide-react';
 import {BackgroundText} from "@/components/ui/misc/background-text";
 import SectionOverline from "@/components/ui/misc/section-overline";
 import { useCompany } from '@/hooks/use-company';
+import LogoMark from "@/components/logo-mark";
 
 export default function Map() {
     const { contact } = useCompany();
@@ -42,6 +43,8 @@ export default function Map() {
     return (
         <section className="bg-background relative z-10 w-full pb-24 pt-12">
             <BackgroundText position="center">LOCATION</BackgroundText>
+            <LogoMark className={`absolute opacity-10 size-100 blur-xs left-0 top-1/2 -translate-1/2`}/>
+            <LogoMark className={`absolute opacity-10 size-100 blur-xs right-0 top-1/2 translate-x-1/2 -translate-y-1/2`}/>
             <Wrapper>
                 <div className="flex flex-col gap-10">
 

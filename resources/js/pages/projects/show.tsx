@@ -245,7 +245,7 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
                             Live operational footage and site execution recorded during project mobilization.
                         </SectionHeading>
 
-                        <div className="relative aspect-16/9 w-full max-w-4xl mx-auto rounded-2xl overflow-hidden border border-border shadow-2xl bg-black">
+                        <div className="relative aspect-video w-full max-w-4xl mx-auto rounded-2xl overflow-hidden border border-border shadow-2xl bg-black">
                             <iframe
                                 src={project.embed_video_url}
                                 title={`${project.title} Video Documentation`}
@@ -262,7 +262,7 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
             {project.content && (
                 <section className="py-16 bg-muted/20 border-b border-border">
                     <Wrapper>
-                        <div className="max-w-4xl">
+                        <div className="max-w-5xl">
                             <SectionOverline label="Case Study // Scope of Work" align="left" className="mb-6" />
                             <div
                                 className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tight prose-a:text-primary prose-img:rounded-xl"
@@ -348,7 +348,11 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
 
             {/* Main Image Gallery */}
             {hasMainGallery && (
-                <section className="py-20 bg-muted/30 border-b border-border">
+                <section className="py-20 bg-muted/30 border-b border-border relative overflow-clip">
+                    <DotPattern corner={`top-left`} />
+                    <DotPattern corner={`top-right`} />
+                    <DotPattern corner={`bottom-right`} />
+                    <DotPattern corner={`bottom-left`} />
                     <Wrapper>
                         <SectionHeading
                             label="Photo Gallery"
@@ -381,7 +385,10 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
 
             {/* Custom / Dedicated Galleries */}
             {hasCustomGalleries && (
-                <div className="flex flex-col">
+                <div className="flex flex-col relative overflow-clip">
+
+                    <DotPattern corner={`center-right`} />
+                    <DotPattern corner={`center-left`} />
                     {project.galleries_with_urls.map((gallery, gIdx) => {
                         const rawFallback = (gallery.image_urls && gallery.image_urls.length > 0)
                             ? gallery.image_urls
@@ -402,7 +409,7 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
                         return (
                             <section
                                 key={gIdx}
-                                className={`w-full py-20 border-b border-border ${
+                                className={`w-full py-20 border-b border-border relative ${
                                     gIdx % 2 === 0 ? 'bg-background' : 'bg-muted/30'
                                 }`}
                             >
@@ -450,7 +457,9 @@ export default function Show({ project, relatedProjects = [] }: ProjectsShowProp
 
             {/* Related Projects */}
             {relatedProjects.length > 0 && (
-                <section className="py-20 bg-muted/20 border-b border-border">
+                <section className="py-20 bg-muted/20 border-b border-border relative overflow-clip">
+                    <DotPattern corner={`center-right`} />
+                    <DotPattern corner={`center-left`} />
                     <Wrapper>
                         <SectionHeading
                             label="More Case Studies"

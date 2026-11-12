@@ -238,18 +238,23 @@ function VideoRenderer({ data }: { data: VideoBlock['data'] }) {
 
 function CtaRenderer({ data }: { data: CtaBlock['data'] }) {
     return (
-        <div className="bg-muted/40 border border-border rounded-xl p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-            <div className="flex-1">
-                <h3 className="text-2xl font-black tracking-tighter text-foreground mb-2">
+        <div className="relative overflow-hidden border border-primary/40 bg-linear-to-br from-primary/10 via-card to-primary/5 rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-md transition-all duration-300">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
+            <div className="flex-1 relative z-10">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/15 text-primary text-xs font-bold tracking-widest uppercase mb-3">
+                    <span className="size-1.5 rounded-full bg-primary animate-pulse" />
+                    Logistics &amp; Transport Network
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-black tracking-tight text-foreground uppercase mb-2">
                     {data.heading}
                 </h3>
                 {data.text && (
-                    <p className="text-muted-foreground leading-relaxed">{data.text}</p>
+                    <p className="text-muted-foreground leading-relaxed max-w-2xl">{data.text}</p>
                 )}
             </div>
             <a
                 href={data.button_url}
-                className="shrink-0 inline-flex items-center gap-2 bg-linear-to-r from-primary to-primary/70 hover:from-primary/90 hover:to-primary text-primary-foreground font-bold tracking-widest uppercase text-sm px-6 py-3 rounded-lg shadow-sm hover:shadow transition-all"
+                className="relative z-10 shrink-0 inline-flex items-center gap-2.5 bg-primary hover:bg-primary/90 text-primary-foreground font-black tracking-wider uppercase text-sm px-7 py-3.5 rounded-xl shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all hover:scale-[1.02]"
             >
                 {data.button_label}
                 <ArrowRight className="size-4" />

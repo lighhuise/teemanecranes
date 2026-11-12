@@ -4,6 +4,7 @@ import { BalancedMasonryGrid, Frame } from '@masonry-grid/react';
 import { Expand } from 'lucide-react';
 import { cn, toStorageUrl } from '@/lib/utils';
 import type { ProjectImageItem } from './types';
+import DotPattern from "@/components/dot-pattern";
 
 export type GalleryLayoutStyle = 'masonry';
 
@@ -90,7 +91,8 @@ export function ProjectGalleryView({
     }
 
     return (
-        <div className={cn('space-y-6', className)}>
+        <div className={`relative overflow-clip`}>
+            <div className={cn('space-y-6', className)}>
             {/* Header info badge */}
             {showControls && (
                 <div className="flex items-center justify-between pb-3 border-b border-border/80">
@@ -115,6 +117,7 @@ export function ProjectGalleryView({
                     />
                 ))}
             </BalancedMasonryGrid>
+        </div>
         </div>
     );
 }
