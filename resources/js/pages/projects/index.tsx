@@ -5,8 +5,6 @@ import Wrapper from '@/components/ui/misc/wrapper';
 import SectionHeading, { SectionOverline } from '@/components/ui/misc/section-heading';
 import { BackgroundText } from '@/components/ui/misc/background-text';
 import { ProjectCard, ProjectGalleryView, type ProjectListItem, type ProjectImageItem } from '@/components/project';
-// @ts-ignore
-import { BalancedMasonryGrid, Frame } from '@masonry-grid/react';
 import EmergencyCta from '@/components/emergency-cta';
 import { ArrowRight, Camera, Expand, FolderGit2, Images, ShieldCheck } from 'lucide-react';
 import Lightbox from 'yet-another-react-lightbox';
@@ -16,28 +14,6 @@ import { cn, toStorageUrl } from '@/lib/utils';
 
 interface ProjectsIndexProps {
     projects: ProjectListItem[];
-}
-
-function ProjectGridFrameItem({ project }: { project: ProjectListItem }) {
-    const isPortrait = project.featured_image_orientation === 'portrait';
-    const isSquare = project.featured_image_orientation === 'square';
-    const initialRatio = project.featured_image_aspect_ratio
-        ? project.featured_image_aspect_ratio
-        : (isPortrait ? 0.75 : isSquare ? 1.0 : 1.5);
-
-    const [imgRatio, setImgRatio] = useState(initialRatio);
-    const cardHeight = Math.round(1000 / imgRatio) + 360;
-
-    return (
-        <Frame width={1000} height={cardHeight}>
-            <ProjectCard
-                project={project}
-                variant="grid"
-                className="h-full w-full"
-                onAspectRatioChange={(ratio) => setImgRatio(ratio)}
-            />
-        </Frame>
-    );
 }
 
 export default function Index({ projects = [] }: ProjectsIndexProps) {
@@ -305,13 +281,18 @@ export default function Index({ projects = [] }: ProjectsIndexProps) {
                             </div>
                         )}
 
-                        {/* Projects Masonry Grid */}
+                        {/* Projects Grid */}
                         {sortedProjects.length > 0 ? (
-                            <BalancedMasonryGrid frameWidth={320} gap={24}>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
                                 {sortedProjects.map((project) => (
-                                    <ProjectGridFrameItem key={project.id} project={project} />
+                                    <ProjectCard
+                                        key={project.id}
+                                        project={project}
+                                        variant="grid"
+                                        className="h-full w-full"
+                                    />
                                 ))}
-                            </BalancedMasonryGrid>
+                            </div>
                         ) : (
                             <div className="max-w-md mx-auto text-center py-16 px-6 bg-card border border-border rounded-2xl shadow-xs">
                                 <div className="size-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-6 text-primary">

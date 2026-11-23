@@ -15,7 +15,6 @@ export interface ServicesSectionProps {
     description?: React.ReactNode;
     limit?: number;
     showViewAllButton?: boolean;
-    useMasonry?: boolean;
     showPills?: boolean;
     className?: string;
 }
@@ -27,7 +26,6 @@ export function ServicesSection({
     description = "We understand that every lifting project demands precision, reliability and efficiency. Our services offer the flexibility and strength needed to tackle any challenge from construction sites to the most demanding industrial operations.",
     limit,
     showViewAllButton = false,
-    useMasonry = true,
     showPills = false,
     className,
 }: ServicesSectionProps) {
@@ -67,21 +65,11 @@ export function ServicesSection({
 
                 {/* Services Grid */}
                 {displayedServices.length > 0 ? (
-                    useMasonry && displayedServices.length > 1 ? (
-                        <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-                            {displayedServices.map((service, idx) => (
-                                <div key={service.id} className="break-inside-avoid">
-                                    <ServiceCard service={service} index={idx} className="w-full" />
-                                </div>
-                            ))}
-                        </div>
-                    ) : (
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
-                            {displayedServices.map((service, idx) => (
-                                <ServiceCard key={service.id} service={service} index={idx} className="w-full" />
-                            ))}
-                        </div>
-                    )
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
+                        {displayedServices.map((service, idx) => (
+                            <ServiceCard key={service.id} service={service} index={idx} className="h-full w-full" />
+                        ))}
+                    </div>
                 ) : (
                     <div className="max-w-md mx-auto text-center py-16 px-6 bg-card border border-border rounded-2xl shadow-xs">
                         <div className="size-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-6 text-primary">

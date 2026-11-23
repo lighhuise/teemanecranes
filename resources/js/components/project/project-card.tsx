@@ -5,6 +5,7 @@ import fallbackImage from '@/../images/IMG_0190-copy.webp';
 import { ProjectMetaBadges } from './project-meta-badges';
 import type { ProjectListItem } from './types';
 import { useImageAspectRatio } from '@/hooks/use-image-aspect-ratio';
+import { useTallImageScroll } from '@/hooks/use-tall-image-scroll';
 
 export type ProjectCardVariant = 'spotlight' | 'stack' | 'grid';
 
@@ -81,15 +82,30 @@ export function ProjectCard({
         onDimensionsChange: ({ aspectRatio }) => onAspectRatioChange?.(aspectRatio),
     });
 
+    const isUniformGrid = variant === 'grid';
+    const {
+        imgRef: tallImgRef,
+        handleLoad: handleTallLoad,
+        isTall,
+        scrollStyle,
+    } = useTallImageScroll({
+        containerAspectRatio: 16 / 10,
+        initialAspectRatio: project.featured_image_aspect_ratio,
+        enabled: isUniformGrid,
+        src: imageUrl,
+    });
+
     const orientation = dynamicOrientation || project.featured_image_orientation || 'landscape';
-    const mediaAspectClass =
-        variant === 'spotlight'
-            ? 'aspect-16/10 sm:aspect-16/9 max-h-[460px]'
-            : orientation === 'portrait'
-              ? (variant === 'stack' ? 'aspect-[4/5]' : 'aspect-[4/5]')
-              : orientation === 'square'
-                ? 'aspect-square'
-                : style.media;
+    const mediaAspectClass = isUniformGrid
+        ? style.media
+        : variant === 'spotlight'
+          ? 'aspect-16/10 sm:aspect-16/9 max-h-[460px]'
+          : orientation === 'portrait'
+            ? 'aspect-[4/5]'
+            : orientation === 'square'
+              ? 'aspect-square'
+              : style.media;
+    const effectiveContainerStyle = isUniformGrid ? undefined : containerStyle;
 
     return (
         <Link
@@ -101,18 +117,29 @@ export function ProjectCard({
                 className,
             )}
         >
-            {/* Image Plate — 100% full uncropped photograph with dynamic aspect ratio */}
+            {/* Image Plate */}
             <div
-                className={cn('relative w-full overflow-hidden bg-card flex items-center justify-center', !containerStyle && mediaAspectClass)}
-                style={containerStyle}
+                className={cn(
+                    'relative w-full shrink-0 overflow-hidden bg-card',
+                    !isUniformGrid && 'flex items-center justify-center',
+                    !effectiveContainerStyle && mediaAspectClass,
+                )}
+                style={effectiveContainerStyle}
             >
                 <img
-                    ref={imgRef}
+                    ref={isUniformGrid ? tallImgRef : imgRef}
                     src={imageUrl}
                     alt={project.title}
                     loading="lazy"
-                    onLoad={handleLoad}
-                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-102"
+                    onLoad={isUniformGrid ? handleTallLoad : handleLoad}
+                    style={isUniformGrid ? scrollStyle : undefined}
+                    className={cn(
+                        'block w-full transition-transform motion-reduce:transition-none',
+                        isUniformGrid && isTall
+                            ? 'h-auto min-h-full ease-in-out will-change-transform group-hover:[transform:translateY(var(--card-image-scroll-y))] group-focus-visible:[transform:translateY(var(--card-image-scroll-y))]'
+                            : 'h-full object-cover duration-700 ease-out group-hover:scale-102',
+                        isUniformGrid && !isTall && 'object-top',
+                    )}
                 />
             </div>
 

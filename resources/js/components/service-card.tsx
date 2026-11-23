@@ -4,7 +4,7 @@ import { ArrowUpRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 // @ts-ignore
 import fallbackImage from '@/../images/IMG_0190-copy.webp';
-import { useImageAspectRatio } from '@/hooks/use-image-aspect-ratio';
+import { useTallImageScroll } from '@/hooks/use-tall-image-scroll';
 
 export interface ServiceListItem {
     id: number;
@@ -22,21 +22,16 @@ interface ServiceCardProps {
     service: ServiceListItem;
     index?: number;
     className?: string;
-    onAspectRatioChange?: (ratio: number) => void;
 }
 
-export function ServiceCard({ service, className, onAspectRatioChange }: ServiceCardProps) {
+export function ServiceCard({ service, className }: ServiceCardProps) {
     const rawImageUrl = service.featured_image_url || service.image || fallbackImage;
     const [imgSrc, setImgSrc] = useState(rawImageUrl);
 
-    const {
-        imgRef,
-        handleLoad,
-        containerStyle,
-    } = useImageAspectRatio({
+    const { imgRef, handleLoad, isTall, scrollStyle } = useTallImageScroll({
+        containerAspectRatio: 16 / 10,
         initialAspectRatio: service.featured_image_aspect_ratio,
-        initialOrientation: service.featured_image_orientation,
-        onDimensionsChange: ({ aspectRatio }) => onAspectRatioChange?.(aspectRatio),
+        src: imgSrc,
     });
 
     useEffect(() => {
@@ -47,18 +42,12 @@ export function ServiceCard({ service, className, onAspectRatioChange }: Service
         <Link
             href={`/services/${service.slug}`}
             className={cn(
-                'group relative flex flex-col overflow-hidden rounded-2xl border border-border/80 bg-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/70 hover:shadow-md hover:shadow-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background dark:hover:shadow-black/40',
+                'group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border/80 bg-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/70 hover:shadow-md hover:shadow-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background dark:hover:shadow-black/40',
                 className,
             )}
         >
-            {/* Image Plate — 100% full uncropped photograph with dynamic aspect ratio */}
-            <div
-                className={cn(
-                    'relative w-full shrink-0 overflow-hidden bg-card flex items-center justify-center',
-                    !containerStyle && (service.featured_image_orientation === 'portrait' ? 'aspect-3/4' : 'aspect-16/9')
-                )}
-                style={containerStyle}
-            >
+            {/* Image Plate — uniform fixed aspect ratio; tall images smoothly scroll down on card hover */}
+            <div className="relative aspect-16/10 w-full shrink-0 overflow-hidden bg-card">
                 <img
                     ref={imgRef}
                     src={imgSrc}
@@ -66,7 +55,13 @@ export function ServiceCard({ service, className, onAspectRatioChange }: Service
                     loading="lazy"
                     onError={() => setImgSrc(fallbackImage)}
                     onLoad={handleLoad}
-                    className="w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-105"
+                    style={scrollStyle}
+                    className={cn(
+                        'block w-full transition-transform motion-reduce:transition-none',
+                        isTall
+                            ? 'h-auto min-h-full ease-in-out will-change-transform group-hover:[transform:translateY(var(--card-image-scroll-y))] group-focus-visible:[transform:translateY(var(--card-image-scroll-y))]'
+                            : 'h-full object-cover object-top duration-700 ease-out group-hover:scale-105',
+                    )}
                 />
             </div>
 
